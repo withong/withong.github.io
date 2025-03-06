@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>과제 on withong</title>
-    <link>https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/</link>
+    <link>http://localhost:1313/tag/%EA%B3%BC%EC%A0%9C/</link>
     <description>Recent content in 과제 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko-kr</language>
     <lastBuildDate>Wed, 05 Mar 2025 15:16:55 +0900</lastBuildDate>
-    <atom:link href="https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tag/%EA%B3%BC%EC%A0%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[내일배움캠프] 14일차.</title>
-      <link>https://withong.github.io/camp/day14/</link>
+      <link>http://localhost:1313/camp/day14/</link>
       <pubDate>Wed, 05 Mar 2025 15:16:55 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day14/</guid>
+      <guid>http://localhost:1313/camp/day14/</guid>
       <description>&lt;h1 id=&#34;왜-이렇게-어려운-거야&#34;&gt;왜 이렇게 어려운 거야&amp;hellip;&lt;/h1&gt;</description>
     </item>
   </channel>
