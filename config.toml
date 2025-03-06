@@ -34,10 +34,26 @@ disableFingerprinting = true
   limit = 10
   keys = ["title", "content", "topic", "tags"]
 
+[params.profileMode]
+  enabled = true
+  title = "rang's log" # 사이트 제목 (기본값: 사이트 타이틀)
+  subtitle = "Today I Learned" # 부제목
+  imageUrl = "https://raw.githubusercontent.com/withong/sparta/main/zep_profile_250x250.png" # 프로필 사진 URL
+  imageTitle = "zep" # 이미지 설명 (alt 속성)
+  imageWidth = 120 # 프로필 이미지 너비
+  imageHeight = 120 # 프로필 이미지 높이
+
+# [[params.profileMode.buttons]]
+#  name = "Home"
+#  url = "/"
+
+[[params.profileMode.buttons]]
+  name = "GitHub"
+  url = "https://github.com/withong"
+
 [params.homeInfoParams]
 Title = "rang's log"
 Content = "Today I Learned ✏️"
-
 
 [pagination]
   pagerSize = 5
