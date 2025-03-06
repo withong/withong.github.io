@@ -55,7 +55,12 @@
         }
 
     </style>
-</noscript>
+</noscript><script>
+    localStorage.removeItem("pref-theme");
+    localStorage.setItem("pref-theme", "dark");
+    document.documentElement.setAttribute("data-theme", "dark");
+  </script>
+  
 </head>
 
 <body class="list" id="top">
