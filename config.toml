@@ -5,7 +5,6 @@ theme = "papermod"
 defaultTheme = "auto"
 relativeURLs = true
 uglyURLs = false
-disableFingerprinting = true
 
 [taxonomies]
   category = "topic"
@@ -16,6 +15,9 @@ disableFingerprinting = true
   description = "Today I Learned"
   dateFormat = "January 2, 2006"
   mainsections = ["camp", "java", "topic", "tag", "search"]
+
+[params.assets]
+disableFingerprinting = true
 
 [params.fuseOpts]
   isCaseSensitive = false
