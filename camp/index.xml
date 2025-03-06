@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Camps on withong</title>
+    <link>https://withong.github.io/camp/</link>
+    <description>Recent content in Camps on withong</description>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Thu, 06 Mar 2025 15:16:55 +0900</lastBuildDate>
+    <atom:link href="https://withong.github.io/camp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[내일배움캠프] 13일차.</title>
+      <link>https://withong.github.io/camp/day13/</link>
+      <pubDate>Thu, 06 Mar 2025 15:16:55 +0900</pubDate>
+      <guid>https://withong.github.io/camp/day13/</guid>
+      <description>&lt;p&gt;게시글 작성 테스트&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[내일배움캠프] 14일차.</title>
+      <link>https://withong.github.io/camp/day14/</link>
+      <pubDate>Wed, 05 Mar 2025 15:16:55 +0900</pubDate>
+      <guid>https://withong.github.io/camp/day14/</guid>
+      <description>&lt;h1 id=&#34;왜-이렇게-어려운-거야&#34;&gt;왜 이렇게 어려운 거야&amp;hellip;&lt;/h1&gt;</description>
+    </item>
+  </channel>
+</rss>
