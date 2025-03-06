@@ -61,26 +61,26 @@ Content = "Today I Learned ✏️"
 [menu]
 
 [[menu.main]]
-  identifier = "log"
-  name = "log"
+  identifier = "Log"
+  name = "Log" # 실제 화면에 보이는 이름
   url = "/log/"
   weight = 5
 
 [[menu.main]]
   identifier = "topic"
-  name = "topic"
+  name = "Topic"
   url = "/topic/"
   weight = 10
 
 [[menu.main]]
   identifier = "tag"
-  name = "tag"
+  name = "Tag"
   url = "/tag/"
   weight = 15
 
 [[menu.main]]
   identifier = "search"
-  name = "search"
+  name = "Search"
   url = "/search/"
   weight = 20
 
