@@ -2,59 +2,59 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://withong.github.io/java/basic1/</loc>
+    <loc>http://localhost:1313/java/basic1/</loc>
     <lastmod>2025-03-06T19:23:33+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/tag/if/</loc>
+    <loc>http://localhost:1313/tag/if/</loc>
     <lastmod>2025-03-06T19:23:33+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/topic/java/</loc>
+    <loc>http://localhost:1313/topic/java/</loc>
     <lastmod>2025-03-06T19:23:33+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/java/</loc>
+    <loc>http://localhost:1313/java/</loc>
     <lastmod>2025-03-06T19:23:33+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/tag/switch/</loc>
+    <loc>http://localhost:1313/tag/switch/</loc>
     <lastmod>2025-03-06T19:23:33+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/tag/</loc>
+    <loc>http://localhost:1313/tag/</loc>
     <lastmod>2025-03-06T19:23:33+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/topic/</loc>
+    <loc>http://localhost:1313/topic/</loc>
     <lastmod>2025-03-06T19:23:33+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-03-06T19:23:33+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/camp/day13/</loc>
+    <loc>http://localhost:1313/camp/day13/</loc>
     <lastmod>2025-03-06T15:16:55+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/topic/camp/</loc>
+    <loc>http://localhost:1313/topic/camp/</loc>
     <lastmod>2025-03-06T15:16:55+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/camp/</loc>
+    <loc>http://localhost:1313/camp/</loc>
     <lastmod>2025-03-06T15:16:55+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/tag/til/</loc>
+    <loc>http://localhost:1313/tag/til/</loc>
     <lastmod>2025-03-06T15:16:55+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/java/basic2/</loc>
+    <loc>http://localhost:1313/java/basic2/</loc>
     <lastmod>2025-03-05T15:16:55+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/camp/day14/</loc>
+    <loc>http://localhost:1313/camp/day14/</loc>
     <lastmod>2025-03-05T15:16:55+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/tag/enum/</loc>
+    <loc>http://localhost:1313/tag/enum/</loc>
     <lastmod>2025-03-05T15:16:55+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/</loc>
+    <loc>http://localhost:1313/tag/%EA%B3%BC%EC%A0%9C/</loc>
     <lastmod>2025-03-05T15:16:55+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/tag/%EC%A0%9C%EB%84%A4%EB%A6%AD/</loc>
+    <loc>http://localhost:1313/tag/%EC%A0%9C%EB%84%A4%EB%A6%AD/</loc>
     <lastmod>2025-03-05T15:16:55+09:00</lastmod>
   </url><url>
-    <loc>https://withong.github.io/log/</loc>
+    <loc>http://localhost:1313/log/</loc>
   </url><url>
-    <loc>https://withong.github.io/search/</loc>
+    <loc>http://localhost:1313/search/</loc>
   </url>
 </urlset>
