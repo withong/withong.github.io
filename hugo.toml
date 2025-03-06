@@ -1,8 +1,0 @@
-baseURL = 'https://withong.github.io/'
-languageCode = 'en-us'
-title = 'withong.log'
-theme = "PaperMod"
-
-[params]
-    author = "rang"
-    description = "Today I Learned"
