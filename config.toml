@@ -5,6 +5,7 @@ theme = "papermod"
 defaultTheme = "auto"
 relativeURLs = true
 uglyURLs = false
+disableFingerprinting = true
 
 [taxonomies]
   category = "topic"
