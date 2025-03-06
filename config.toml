@@ -3,6 +3,8 @@ languageCode = "ko-kr"
 title = "withong"
 theme = "papermod"
 defaultTheme = "auto"
+relativeURLs = true
+uglyURLs = false
 
 [taxonomies]
   category = "topic"
