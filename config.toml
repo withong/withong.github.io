@@ -2,7 +2,8 @@ baseURL = "https://withong.github.io/"
 languageCode = "ko-kr"
 title = "withong"
 theme = "papermod"
-defaultTheme = "auto"
+disableThemeToggle = true
+defaultTheme = "dark"
 relativeURLs = true
 uglyURLs = false
 
