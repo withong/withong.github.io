@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Camps on withong</title>
-    <link>http://localhost:1313/camp/</link>
+    <link>https://withong.github.io/camp/</link>
     <description>Recent content in Camps on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko-kr</language>
     <lastBuildDate>Thu, 06 Mar 2025 23:41:13 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/camp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/camp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[내일배움캠프] 00일차.</title>
-      <link>http://localhost:1313/camp/day-0/</link>
+      <link>https://withong.github.io/camp/day-0/</link>
       <pubDate>Thu, 06 Mar 2025 23:41:13 +0900</pubDate>
-      <guid>http://localhost:1313/camp/day-0/</guid>
+      <guid>https://withong.github.io/camp/day-0/</guid>
       <description>&lt;p&gt;camp TIL default&lt;/p&gt;</description>
     </item>
   </channel>
