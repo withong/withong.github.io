@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>[사전캠프] 3일차. | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+TASKS
+✅ SQL 강의 1주차
+🟩 SQL 걷기반 31-50
+SQL
+
+SELECT / FROM
+
+
+데이터를 조회할 때 사용하는 가장 기본적인 명령어.
+SELECT는 가져올 데이터를, FROM은 데이터를 가져올 테이블을 지정함.
+
+
+food_orders 테이블에서 모든 데이터를 조회 :
+	SELECT *
+    FROM food_orders;
+
+customers 테이블에서 이름(name)과 이메일(email)만 조회 :
+	SELECT name, email
+    FROM customers;
+
+WHERE
+
+
+조건에 맞는 데이터만 필터링할 때 사용.
+
+
+customers 테이블에서 나이가 21세인 고객만 조회 :
+SELECT *
+FROM customers
+WHERE age = 21;
+
+food_orders 테이블에서 음식 종류가 한식(Korean)인 주문만 조회 :
+SELECT *
+FROM food_orders
+WHERE cuisine_type = &#39;Korean&#39;;
+
+3. 비교 연산자
+
+= : 특정 값과 같은 경우 사용
+&lt;&gt; : 특정 값과 다른 경우 사용
+&gt; : 특정 값보다 큰 경우 사용
+&lt; : 특정 값보다 작은 경우 사용
+&gt;= : 특정 값보다 크거나 같은 경우 사용
+&lt;= : 특정 값보다 작거나 같은 경우 사용
+
+
+salary가 3000인 직원을 조회 :
+SELECT * 
+FROM employees 
+WHERE salary = 3000;
+
+salary가 3000이 아닌 직원을 조회 :
+SELECT * 
+FROM employees 
+WHERE salary &lt;&gt; 3000;
+
+100보다 큰 가격의 상품을 조회 :
+SELECT * 
+FROM products 
+WHERE price &gt; 100;
+
+100보다 작은 가격의 상품을 조회 :
+SELECT * 
+FROM products 
+WHERE price &lt; 100;
+
+나이가 30세 이상인 직원을 조회 :
+SELECT * 
+FROM employees 
+WHERE age &gt;= 30;
+
+나이가 30세 이하인 직원을 조회 :
+SELECT * 
+FROM employees 
+WHERE age &lt;= 30;
+
+4. 필터링 함수
+
+BETWEEN : 특정 범위 안에 있는 경우 사용
+IN : 여러 값 중 하나에 해당하는 경우 사용
+LIKE : 특정 패턴과 일치하는 경우 사용
+
+% : 0개 이상의 문자를 대체함 → 부분 일치 검색
+_ : 단일 문자를 대체함 → 특정 위치의 문자 일치 검색
+
+
+
+
+주문 금액이 20,000원에서 30,000원 사이인 주문 조회 :
+SELECT *
+FROM food_orders
+WHERE price BETWEEN 20000 AND 30000;
+
+나이가 21세, 25세, 30세인 고객 조회 :
+SELECT *
+FROM customers
+WHERE age IN (21, 25, 30);
+
+음식 종류가 한식(Korean) 또는 일식(Japanese)인 주문 조회 :
+SELECT *
+FROM food_orders
+WHERE cuisine_type IN (&#39;Korean&#39;, &#39;Japanese&#39;);
+
+이름이 &lsquo;김&rsquo;으로 시작하는 고객 조회 :
+SELECT *
+FROM customers
+WHERE name LIKE &#39;김%&#39;;
+
+이메일 주소에 &lsquo;gmail&rsquo;이 포함된 고객 조회 :
+SELECT *
+FROM customers
+WHERE email LIKE &#39;%gmail%&#39;;
+
+이름이 &lsquo;김&rsquo;으로 시작하고 두 글자인 고객 조회 :
+SELECT *
+FROM customers
+WHERE name LIKE &#39;김_&#39;;
+
+* 1주차 숙제 : 상품 준비시간이 20~30분 사이인, 한국 음식점의 식당명과 고객번호 조회하기
+
+
+SELECT restaurant_name as &ldquo;식당명&rdquo;, customer_id as &ldquo;고객번호&rdquo;
+FROM food_orders
+WHERE food_preparation_time BETWEEN 20 AND 30
+AND cuisine_type = &lsquo;Korean&rsquo;">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/camp/pre-day-3/">
+<link crossorigin="anonymous" href="../../assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/camp/pre-day-3/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/topic/" title="Topic">
+                    <span>Topic</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      [사전캠프] 3일차.
+    </h1>
+    <div class="post-meta"><span title='2025-01-05 00:00:00 +0000 UTC'>January 5, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
+<p><strong>TASKS</strong><br>
+✅ SQL 강의 1주차<br>
+🟩 SQL 걷기반 31-50</p></blockquote>
+<h2 id="sql">SQL<a hidden class="anchor" aria-hidden="true" href="#sql">#</a></h2>
+<ol>
+<li>SELECT / FROM</li>
+</ol>
+<ul>
+<li>데이터를 조회할 때 사용하는 가장 기본적인 명령어.</li>
+<li><code>SELECT</code>는 가져올 데이터를, <code>FROM</code>은 데이터를 가져올 테이블을 지정함.</li>
+</ul>
+<blockquote>
+<h5 id="food_orders-테이블에서-모든-데이터를-조회-"><code>food_orders</code> 테이블에서 모든 데이터를 조회 :<a hidden class="anchor" aria-hidden="true" href="#food_orders-테이블에서-모든-데이터를-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>	<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">FROM</span> food_orders;
+</span></span></code></pre></div><blockquote>
+<h5 id="customers-테이블에서-이름name과-이메일email만-조회-"><code>customers</code> 테이블에서 이름(name)과 이메일(email)만 조회 :<a hidden class="anchor" aria-hidden="true" href="#customers-테이블에서-이름name과-이메일email만-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>	<span style="color:#66d9ef">SELECT</span> name, email
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">FROM</span> customers;
+</span></span></code></pre></div><ol start="2">
+<li>WHERE</li>
+</ol>
+<ul>
+<li>조건에 맞는 데이터만 필터링할 때 사용.</li>
+</ul>
+<blockquote>
+<h5 id="customers-테이블에서-나이가-21세인-고객만-조회-"><code>customers</code> 테이블에서 나이가 21세인 고객만 조회 :<a hidden class="anchor" aria-hidden="true" href="#customers-테이블에서-나이가-21세인-고객만-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> customers
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> age <span style="color:#f92672">=</span> <span style="color:#ae81ff">21</span>;
+</span></span></code></pre></div><blockquote>
+<h5 id="food_orders-테이블에서-음식-종류가-한식korean인-주문만-조회-"><code>food_orders</code> 테이블에서 음식 종류가 한식(Korean)인 주문만 조회 :<a hidden class="anchor" aria-hidden="true" href="#food_orders-테이블에서-음식-종류가-한식korean인-주문만-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> food_orders
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> cuisine_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Korean&#39;</span>;
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h3 id="3-비교-연산자">3. 비교 연산자<a hidden class="anchor" aria-hidden="true" href="#3-비교-연산자">#</a></h3>
+<ul>
+<li><code>=</code> : 특정 값과 같은 경우 사용</li>
+<li><code>&lt;&gt;</code> : 특정 값과 다른 경우 사용</li>
+<li><code>&gt;</code> : 특정 값보다 큰 경우 사용</li>
+<li><code>&lt;</code> : 특정 값보다 작은 경우 사용</li>
+<li><code>&gt;=</code> : 특정 값보다 크거나 같은 경우 사용</li>
+<li><code>&lt;=</code> : 특정 값보다 작거나 같은 경우 사용</li>
+</ul>
+<blockquote>
+<h5 id="salary가-3000인-직원을-조회-">salary가 3000인 직원을 조회 :<a hidden class="anchor" aria-hidden="true" href="#salary가-3000인-직원을-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> employees 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> salary <span style="color:#f92672">=</span> <span style="color:#ae81ff">3000</span>;
+</span></span></code></pre></div><blockquote>
+<h5 id="salary가-3000이-아닌-직원을-조회-">salary가 3000이 아닌 직원을 조회 :<a hidden class="anchor" aria-hidden="true" href="#salary가-3000이-아닌-직원을-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> employees 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> salary <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">3000</span>;
+</span></span></code></pre></div><blockquote>
+<h5 id="100보다-큰-가격의-상품을-조회-">100보다 큰 가격의 상품을 조회 :<a hidden class="anchor" aria-hidden="true" href="#100보다-큰-가격의-상품을-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> products 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> price <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100</span>;
+</span></span></code></pre></div><blockquote>
+<h5 id="100보다-작은-가격의-상품을-조회-">100보다 작은 가격의 상품을 조회 :<a hidden class="anchor" aria-hidden="true" href="#100보다-작은-가격의-상품을-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> products 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> price <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>;
+</span></span></code></pre></div><blockquote>
+<h5 id="나이가-30세-이상인-직원을-조회-">나이가 30세 이상인 직원을 조회 :<a hidden class="anchor" aria-hidden="true" href="#나이가-30세-이상인-직원을-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> employees 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> age <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">30</span>;
+</span></span></code></pre></div><blockquote>
+<h5 id="나이가-30세-이하인-직원을-조회-">나이가 30세 이하인 직원을 조회 :<a hidden class="anchor" aria-hidden="true" href="#나이가-30세-이하인-직원을-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> employees 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> age <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">30</span>;
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h3 id="4-필터링-함수">4. 필터링 함수<a hidden class="anchor" aria-hidden="true" href="#4-필터링-함수">#</a></h3>
+<ul>
+<li><strong><code>BETWEEN</code></strong> : 특정 범위 안에 있는 경우 사용</li>
+<li><strong><code>IN</code></strong> : 여러 값 중 하나에 해당하는 경우 사용</li>
+<li><strong><code>LIKE</code></strong> : 특정 패턴과 일치하는 경우 사용
+<ul>
+<li><code>%</code> : 0개 이상의 문자를 대체함 → 부분 일치 검색</li>
+<li><code>_</code> : 단일 문자를 대체함 → 특정 위치의 문자 일치 검색</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h5 id="주문-금액이-20000원에서-30000원-사이인-주문-조회-">주문 금액이 20,000원에서 30,000원 사이인 주문 조회 :<a hidden class="anchor" aria-hidden="true" href="#주문-금액이-20000원에서-30000원-사이인-주문-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> food_orders
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> price <span style="color:#66d9ef">BETWEEN</span> <span style="color:#ae81ff">20000</span> <span style="color:#66d9ef">AND</span> <span style="color:#ae81ff">30000</span>;
+</span></span></code></pre></div><blockquote>
+<h5 id="나이가-21세-25세-30세인-고객-조회-">나이가 21세, 25세, 30세인 고객 조회 :<a hidden class="anchor" aria-hidden="true" href="#나이가-21세-25세-30세인-고객-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> customers
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> age <span style="color:#66d9ef">IN</span> (<span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">30</span>);
+</span></span></code></pre></div><blockquote>
+<h5 id="음식-종류가-한식korean-또는-일식japanese인-주문-조회-">음식 종류가 한식(Korean) 또는 일식(Japanese)인 주문 조회 :<a hidden class="anchor" aria-hidden="true" href="#음식-종류가-한식korean-또는-일식japanese인-주문-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> food_orders
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> cuisine_type <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;Korean&#39;</span>, <span style="color:#e6db74">&#39;Japanese&#39;</span>);
+</span></span></code></pre></div><blockquote>
+<h5 id="이름이-김으로-시작하는-고객-조회-">이름이 &lsquo;김&rsquo;으로 시작하는 고객 조회 :<a hidden class="anchor" aria-hidden="true" href="#이름이-김으로-시작하는-고객-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> customers
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> name <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;김%&#39;</span>;
+</span></span></code></pre></div><blockquote>
+<h5 id="이메일-주소에-gmail이-포함된-고객-조회-">이메일 주소에 &lsquo;gmail&rsquo;이 포함된 고객 조회 :<a hidden class="anchor" aria-hidden="true" href="#이메일-주소에-gmail이-포함된-고객-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> customers
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> email <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%gmail%&#39;</span>;
+</span></span></code></pre></div><blockquote>
+<h5 id="이름이-김으로-시작하고-두-글자인-고객-조회-">이름이 &lsquo;김&rsquo;으로 시작하고 두 글자인 고객 조회 :<a hidden class="anchor" aria-hidden="true" href="#이름이-김으로-시작하고-두-글자인-고객-조회-">#</a></h5></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> customers
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> name <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;김_&#39;</span>;
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h3 id="-1주차-숙제--상품-준비시간이-2030분-사이인-한국-음식점의-식당명과-고객번호-조회하기">* 1주차 숙제 : 상품 준비시간이 20~30분 사이인, 한국 음식점의 식당명과 고객번호 조회하기<a hidden class="anchor" aria-hidden="true" href="#-1주차-숙제--상품-준비시간이-2030분-사이인-한국-음식점의-식당명과-고객번호-조회하기">#</a></h3>
+<blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"></code></pre></div></blockquote>
+<p>SELECT restaurant_name as &ldquo;식당명&rdquo;, customer_id as &ldquo;고객번호&rdquo;
+FROM food_orders
+WHERE food_preparation_time BETWEEN 20 AND 30
+AND cuisine_type = &lsquo;Korean&rsquo;</p>
+<pre tabindex="0"><code></code></pre>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
