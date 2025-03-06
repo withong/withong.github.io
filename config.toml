@@ -21,8 +21,10 @@ uglyURLs = false
   favicon = "/icons/favicon.png"
   favicon16x16 = "/icons/favicon-16x16.png"
   favicon32x32 = "/icons/favicon-32x32.png"
-  apple_touch_icon = "/icons/apple-touch-icon.png"
-  safari_pinned_tab = "/icons/safari-pinned-tab.svg"
+  apple_touch_icon = "/icons/favicon.png"
+  safari_pinned_tab = "/icons/favicon.png"
+#  apple_touch_icon = "/icons/apple-touch-icon.png"
+#  safari_pinned_tab = "/icons/safari-pinned-tab.svg"
 
 [params.fuseOpts]
   isCaseSensitive = false
