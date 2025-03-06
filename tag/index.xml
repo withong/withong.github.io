@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tag on withong</title>
-    <link>http://localhost:1313/tag/</link>
+    <link>https://withong.github.io/tag/</link>
     <description>Recent content in Tag on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko-kr</language>
     <lastBuildDate>Thu, 06 Mar 2025 23:45:30 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/tag/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Study</title>
-      <link>http://localhost:1313/tag/study/</link>
+      <link>https://withong.github.io/tag/study/</link>
       <pubDate>Thu, 06 Mar 2025 23:45:30 +0900</pubDate>
-      <guid>http://localhost:1313/tag/study/</guid>
+      <guid>https://withong.github.io/tag/study/</guid>
       <description></description>
     </item>
     <item>
       <title>TIL</title>
-      <link>http://localhost:1313/tag/til/</link>
+      <link>https://withong.github.io/tag/til/</link>
       <pubDate>Thu, 06 Mar 2025 23:41:13 +0900</pubDate>
-      <guid>http://localhost:1313/tag/til/</guid>
+      <guid>https://withong.github.io/tag/til/</guid>
       <description></description>
     </item>
   </channel>
