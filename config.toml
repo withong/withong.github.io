@@ -1,4 +1,6 @@
 baseURL = "https://withong.github.io/"
+relativeURLs = true
+canonifyURLs = true
 languageCode = "ko-kr"
 title = "withong"
 theme = "papermod"
