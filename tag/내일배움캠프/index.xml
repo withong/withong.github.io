@@ -21,10 +21,10 @@
 &lt;h2 id=&#34;-개인-과제---도전-구현&#34;&gt;✅ 개인 과제 - 도전 구현&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://velog.io/@ezro/camp-task-3&#34;&gt;[내일배움캠프] 과제 - 계산기 3&lt;/a&gt; &lt;strong&gt;/&lt;/strong&gt; &lt;a href=&#34;https://github.com/withong/nbc-chapter-02/tree/main/calculator/level3&#34;&gt;[GitHub] nbc-chapter-02/calculator/level3&lt;/a&gt;
-&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;br&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;-level-2-vs-level-3&#34;&gt;🫠 &lt;code&gt;level 2 vs level 3&lt;/code&gt;&lt;/h2&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;개선된-점&#34;&gt;개선된 점&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;단일 클래스 구조 → 다층 구조 (패키지 분리)&lt;/li&gt;
@@ -33,7 +33,7 @@
 &lt;li&gt;람다와 스트림을 이용한 결과 필터링 기능 추가&lt;/li&gt;
 &lt;li&gt;커스텀 예외 클래스(CalculatorException) 활용&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;개선할-점&#34;&gt;개선할 점&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Operand&amp;lt;T&amp;gt;&lt;/code&gt;가 BigDecimal로만 사용되는 점&lt;/li&gt;
@@ -109,12 +109,13 @@
 &lt;p&gt;✅ [과제] Java 계산기 만들기 level 2 수정&lt;br&gt;
 ✅ [과제] 과제 TIL &amp;amp; 트러블 슈팅 작성&lt;br&gt;
 ✅ [문제] 알고리즘 문제 풀기&lt;/p&gt;&lt;/blockquote&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;hr&gt;
+&lt;br&gt;
 &lt;h2 id=&#34;-개인-과제---필수-구현&#34;&gt;✅ 개인 과제 - 필수 구현&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://velog.io/@ezro/camp-task-1&#34;&gt;[내일배움캠프] 과제 - 계산기 1&lt;/a&gt; &lt;strong&gt;/&lt;/strong&gt; &lt;a href=&#34;https://github.com/withong/nbc-chapter-02/tree/main/calculator/level1&#34;&gt;[GitHub] nbc-chapter-02/calculator/level1&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://velog.io/@ezro/camp-task-2&#34;&gt;[내일배움캠프] 과제 - 계산기 2&lt;/a&gt; &lt;strong&gt;/&lt;/strong&gt; &lt;a href=&#34;https://github.com/withong/nbc-chapter-02/tree/main/calculator/level2&#34;&gt;[GitHub] nbc-chapter-02/calculator/level2&lt;/a&gt;
-&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;br&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;-level-1-vs-level-2&#34;&gt;🫠 &lt;code&gt;level 1 vs level 2&lt;/code&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;개선된-점&#34;&gt;개선된 점&lt;/h3&gt;
@@ -128,7 +129,7 @@
 &lt;li&gt;int 범위 초과 처리 &lt;code&gt;Error&lt;/code&gt;에서 &lt;code&gt;연산 범위 초과&lt;/code&gt;로 개선&lt;/li&gt;
 &lt;li&gt;최근 연산 기록 조회할 수 있도록 &lt;code&gt;showRecords()&lt;/code&gt; 추가&lt;/li&gt;
 &lt;li&gt;사용자가 직접 삭제할 수 있도록 &lt;code&gt;removeRecords()&lt;/code&gt; 메서드 추가.
-&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;br&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;개선할-점&#34;&gt;개선할 점&lt;/h3&gt;
 &lt;ul&gt;
@@ -147,7 +148,7 @@
 ✅ [과제] Java 계산기 만들기 level 2&lt;/p&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;람다lambda&#34;&gt;람다(Lambda)&lt;/h2&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;함수형-인터페이스&#34;&gt;함수형 인터페이스&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;람다식을 사용하기 위한 인터페이스&lt;/li&gt;
@@ -159,7 +160,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sum&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; b); &lt;span style=&#34;color:#75715e&#34;&gt;// 오직 하나의 추상 메서드만 선언해야 함&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h3 id=&#34;익명-클래스&#34;&gt;익명 클래스&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;별도의 클래스 파일을 만들지 않고 코드 내에서 일회성으로 정의해 사용하는 클래스.&lt;/li&gt;
@@ -178,7 +179,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ret1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; calculator1.&lt;span style=&#34;color:#a6e22e&#34;&gt;sum&lt;/span&gt;(2, 2);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ret1 = &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; ret1);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h3 id=&#34;람다식&#34;&gt;람다식&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;메서드를 하나의 식(Expression)으로 표현하는 방식&lt;/li&gt;
@@ -194,7 +195,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ret = &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; ret);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h3 id=&#34;람다식-활용&#34;&gt;람다식 활용&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; args) {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -222,7 +223,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;calculator&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; b, Calculator calculator) {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; calculator.&lt;span style=&#34;color:#a6e22e&#34;&gt;sum&lt;/span&gt;(a, b);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h2 id=&#34;스트림stream&#34;&gt;스트림(Stream)&lt;/h2&gt;
 &lt;p&gt;데이터의 흐름을 표현하는 기능으로, 배열이나 컬렉션 등의 데이터를 함수형 스타일로 처리할 수 있도록 지원하는 API&lt;/p&gt;</description>
     </item>
@@ -302,7 +303,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h2 id=&#34;optional&#34;&gt;Optional&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -316,9 +317,9 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 문법 세션 1 - 프로그래밍 기초&lt;br&gt;
 ✅ Java 문법 강의 2주차&lt;/p&gt;&lt;/blockquote&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;chapter-2-객체지향-이해하기&#34;&gt;Chapter 2. 객체지향 이해하기&lt;/h2&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;클래스와-객체&#34;&gt;클래스와 객체&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;클래스(class)&lt;/strong&gt; → 객체를 생성하기 위한 설계도. 속성과 기능을 정의하며, 동일한 구조를 가진 객체를 여러 개 생성할 수 있음.&lt;/li&gt;
@@ -328,14 +329,14 @@
 &lt;li&gt;&lt;strong&gt;생성자(constructor)&lt;/strong&gt; → 객체가 생성될 때 호출되는 특수한 메서드. 속성을 초기화하고, 객체의 기본 상태를 설정하는 역할.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;기능(method)&lt;/strong&gt; → 객체가 수행하는 동작. 클래스 내부에서 정의되며, 특정 입력을 받아 처리한 후 결과를 반환하거나 상태를 변경함.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;jvm-메모리-영역&#34;&gt;JVM 메모리 영역&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Method Area&lt;/strong&gt; → 클래스 정보(클래스 이름, 메서드, 필드, static 변수 등)를 저장하는 공간. JVM이 시작될 때 로드되며, 모든 쓰레드가 공유.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Stack Area&lt;/strong&gt; → 메서드 호출 시 생성되는 스택 프레임을 저장하는 공간. 지역변수, 매개변수, 메서드 호출 정보가 포함되며, 호출이 끝나면 제거. 각 쓰레드마다 독립적인 스택을 가짐.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Heap Area&lt;/strong&gt; → 객체와 인스턴스 변수가 저장되는 공간. &lt;code&gt;new&lt;/code&gt; 키워드로 생성된 객체가 저장되며, GC(Garbage Collector)가 관리. 모든 쓰레드가 공유.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;래퍼클래스&#34;&gt;래퍼클래스&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -348,9 +349,9 @@
       <guid>https://withong.github.io/camp/day-06/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ Java 문법 강의 1주차&lt;/p&gt;&lt;/blockquote&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;chapter-1-java-기초-문법-다지기&#34;&gt;Chapter 1. Java 기초 문법 다지기&lt;/h2&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;jdk-java-development-kit&#34;&gt;JDK (Java Development Kit)&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;JDK → Java 프로그램을 개발할 때 필요한 개발 도구 모음
@@ -360,7 +361,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;컴퓨터의-기억-방식&#34;&gt;컴퓨터의 기억 방식&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;RAM (메모리) → 휘발성, 프로그램 실행 시 사용됨&lt;/li&gt;
@@ -368,7 +369,7 @@
 &lt;li&gt;비트(Bit) → 0 또는 1의 값&lt;/li&gt;
 &lt;li&gt;바이트(Byte) → 8비트로 구성&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;자바-프로젝트-관리&#34;&gt;자바 프로젝트 관리&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;네이밍 규칙
@@ -380,7 +381,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;변수와-자료형&#34;&gt;변수와 자료형&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;변수 → 데이터를 저장하는 공간&lt;/li&gt;
@@ -404,7 +405,7 @@
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;double&lt;/span&gt; d &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 10;  &lt;span style=&#34;color:#75715e&#34;&gt;// 자동 형변환 (업캐스팅)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;) d;  &lt;span style=&#34;color:#75715e&#34;&gt;// 강제 형변환 (다운캐스팅)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h3 id=&#34;입출력-io&#34;&gt;입출력 (I/O)&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;입력 (Scanner 사용)&lt;/li&gt;
@@ -418,7 +419,7 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello Java!&amp;#34;&lt;/span&gt;);  &lt;span style=&#34;color:#75715e&#34;&gt;// 개행 포함 출력&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;No new line&amp;#34;&lt;/span&gt;);  &lt;span style=&#34;color:#75715e&#34;&gt;// 개행 없이 출력&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\n줄 바꿈 포함&amp;#34;&lt;/span&gt;);  &lt;span style=&#34;color:#75715e&#34;&gt;// `\n` 사용&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h3 id=&#34;연산자&#34;&gt;연산자&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;산술 연산자(&lt;code&gt;+&lt;/code&gt;, &lt;code&gt;-&lt;/code&gt;, &lt;code&gt;*&lt;/code&gt;, &lt;code&gt;/&lt;/code&gt;, &lt;code&gt;%&lt;/code&gt;)&lt;/li&gt;
@@ -437,7 +438,7 @@
 &lt;li&gt;논리 연산자(&lt;code&gt;!&lt;/code&gt;, &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code&gt;||&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;문자열 비교(&lt;code&gt;equals()&lt;/code&gt;)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;조건문&#34;&gt;조건문&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; java.util.Scanner;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Scanner scanner &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Scanner(System.&lt;span style=&#34;color:#a6e22e&#34;&gt;in&lt;/span&gt;);
@@ -469,7 +470,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    	System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;잘못된 입력입니다!&amp;#34;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h3 id=&#34;반복문&#34;&gt;반복문&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0; i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; 5; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;print&lt;/span&gt;(i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;);  &lt;span style=&#34;color:#75715e&#34;&gt;// 0 1 2 3 4&lt;/span&gt;
@@ -484,7 +485,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;print&lt;/span&gt;(i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; 5);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h3 id=&#34;배열&#34;&gt;배열&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 1. 배열 선언&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; arr1;
@@ -519,7 +520,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {3, 4}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(arr4&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;][&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;);  &lt;span style=&#34;color:#75715e&#34;&gt;// 3&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h3 id=&#34;메서드&#34;&gt;메서드&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Calculator&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// 두 정수를 더하는 메서드 (반환값 있음: int)&lt;/span&gt;
@@ -563,7 +564,7 @@ result = 7
 ✅ 프로젝트 회고&lt;/p&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;13조-이름-정하기-어렵조&#34;&gt;[13조] 이름 정하기 어렵조&lt;/h1&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h2 id=&#34;메인-페이지&#34;&gt;메인 페이지&lt;/h2&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://velog.velcdn.com/images/ezro/post/3449fca5-1bf4-4a20-ad62-27100dab79df/image.png&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;팀원-등록&#34;&gt;팀원 등록&lt;/h3&gt;
@@ -572,12 +573,18 @@ result = 7
 &lt;p&gt;팀원 정보 작성 후 &lt;code&gt;저장하기&lt;/code&gt; 버튼 클릭 시 팀원 등록
 &lt;img loading=&#34;lazy&#34; src=&#34;https://velog.velcdn.com/images/ezro/post/2e135f2c-4c7f-4486-a183-13c71c3d14c5/image.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://velog.velcdn.com/images/ezro/post/ac7cb6c0-281e-4a9b-8606-0db92378c463/image.png&#34;&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;팀원-수정&#34;&gt;팀원 수정&lt;/h3&gt;
 &lt;p&gt;메인 페이지에서 해당 카드의 &lt;code&gt;수정 아이콘&lt;/code&gt; 클릭 시 수정창 오픈
 &lt;img loading=&#34;lazy&#34; src=&#34;https://velog.velcdn.com/images/ezro/post/38ac662d-8baa-4bc1-a332-872477a4c356/image.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;수정할 정보 입력 후 &lt;code&gt;수정하기&lt;/code&gt; 버튼 클릭 시 팀원 정보 수정
-&lt;img loading=&#34;lazy&#34; src=&#34;https://velog.velcdn.com/images/ezro/post/a8784abd-5d1d-4dd7-b17e-66c6f2dd4f9f/image.png&#34;&gt;&lt;/p&gt;</description>
+&lt;img loading=&#34;lazy&#34; src=&#34;https://velog.velcdn.com/images/ezro/post/a8784abd-5d1d-4dd7-b17e-66c6f2dd4f9f/image.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://velog.velcdn.com/images/ezro/post/2229a15a-e51f-4914-ac32-c45e226388dd/image.png&#34;&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;팀원-삭제&#34;&gt;팀원 삭제&lt;/h3&gt;
+&lt;p&gt;메인 페이지에서 해당 카드의 &lt;code&gt;삭제 아이콘&lt;/code&gt; 클릭 시 팀원 정보 삭제&lt;br&gt;
+→ 해당 팀원의 방명록 정보도 함께 삭제
+&lt;img loading=&#34;lazy&#34; src=&#34;https://velog.velcdn.com/images/ezro/post/5f0c0ef1-f91f-47db-b913-51e8f0ed6204/image.png&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>[내일배움캠프] 4일차. 미니 프로젝트 3</title>
