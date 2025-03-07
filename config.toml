@@ -93,3 +93,8 @@ Content = "Today I Learned ✏️"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+      
+  [markup.tableOfContents]
+    startLevel = 2 # ##부터 목차에 포함 (#은 보통 문서 제목이라 생략)
+    endLevel = 3 # ###까지 포함
+    ordered = false # 번호 없는 리스트로 표시
