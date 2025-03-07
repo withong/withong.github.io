@@ -88,3 +88,8 @@ Content = "Today I Learned ✏️"
 
 [outputs]
   home = ["HTML", "JSON"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
