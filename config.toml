@@ -6,7 +6,6 @@ title = "withong"
 theme = "papermod"
 disableThemeToggle = true
 defaultTheme = "dark"
-relativeURLs = true
 uglyURLs = false
 
 [taxonomies]
