@@ -2,19 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>과제 on withong</title>
-    <link>http://localhost:1313/tag/%EA%B3%BC%EC%A0%9C/</link>
+    <link>https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/</link>
     <description>Recent content in 과제 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko-kr</language>
     <lastBuildDate>Fri, 07 Mar 2025 16:44:26 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/%EA%B3%BC%EC%A0%9C/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[내일배움캠프] 과제 - 키오스크 1</title>
-      <link>http://localhost:1313/camp/task-04/</link>
+      <link>https://withong.github.io/camp/task-04/</link>
       <pubDate>Fri, 07 Mar 2025 16:44:26 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-04/</guid>
-      <description>&lt;p&gt;{{ .TableOfContents }}&lt;/p&gt;
-&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+      <guid>https://withong.github.io/camp/task-04/</guid>
+      <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;클래스-정의&#34;&gt;클래스 정의&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Main : 시작 지점이 되는 클래스, &lt;code&gt;public static void main(String[] args)&lt;/code&gt;&lt;/li&gt;
@@ -49,9 +48,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 과제 - 계산기 3</title>
-      <link>http://localhost:1313/camp/task-03/</link>
+      <link>https://withong.github.io/camp/task-03/</link>
       <pubDate>Wed, 05 Mar 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-03/</guid>
+      <guid>https://withong.github.io/camp/task-03/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;Enum, 제네릭, 람다 &amp;amp; 스트림을 이해한 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -87,9 +86,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 과제 - 계산기 2</title>
-      <link>http://localhost:1313/camp/task-02/</link>
+      <link>https://withong.github.io/camp/task-02/</link>
       <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-02/</guid>
+      <guid>https://withong.github.io/camp/task-02/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -110,9 +109,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 과제 - 계산기 1</title>
-      <link>http://localhost:1313/camp/task-01/</link>
+      <link>https://withong.github.io/camp/task-01/</link>
       <pubDate>Wed, 26 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-01/</guid>
+      <guid>https://withong.github.io/camp/task-01/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
