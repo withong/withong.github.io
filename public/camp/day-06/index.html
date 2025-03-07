@@ -609,9 +609,9 @@ result = 7
   </header> 
   <div class="post-content"><blockquote>
 <p>✅ Java 문법 강의 1주차</p></blockquote>
-<!-- raw HTML omitted -->
+<hr>
 <h2 id="chapter-1-java-기초-문법-다지기">Chapter 1. Java 기초 문법 다지기<a hidden class="anchor" aria-hidden="true" href="#chapter-1-java-기초-문법-다지기">#</a></h2>
-<!-- raw HTML omitted -->
+<br>
 <h3 id="jdk-java-development-kit">JDK (Java Development Kit)<a hidden class="anchor" aria-hidden="true" href="#jdk-java-development-kit">#</a></h3>
 <ul>
 <li>JDK → Java 프로그램을 개발할 때 필요한 개발 도구 모음
@@ -621,7 +621,7 @@ result = 7
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<br>
 <h3 id="컴퓨터의-기억-방식">컴퓨터의 기억 방식<a hidden class="anchor" aria-hidden="true" href="#컴퓨터의-기억-방식">#</a></h3>
 <ul>
 <li>RAM (메모리) → 휘발성, 프로그램 실행 시 사용됨</li>
@@ -629,7 +629,7 @@ result = 7
 <li>비트(Bit) → 0 또는 1의 값</li>
 <li>바이트(Byte) → 8비트로 구성</li>
 </ul>
-<!-- raw HTML omitted -->
+<br>
 <h3 id="자바-프로젝트-관리">자바 프로젝트 관리<a hidden class="anchor" aria-hidden="true" href="#자바-프로젝트-관리">#</a></h3>
 <ul>
 <li>네이밍 규칙
@@ -641,7 +641,7 @@ result = 7
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<br>
 <h3 id="변수와-자료형">변수와 자료형<a hidden class="anchor" aria-hidden="true" href="#변수와-자료형">#</a></h3>
 <ul>
 <li>변수 → 데이터를 저장하는 공간</li>
@@ -665,7 +665,7 @@ result = 7
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">double</span> d <span style="color:#f92672">=</span> 10;  <span style="color:#75715e">// 자동 형변환 (업캐스팅)</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>) d;  <span style="color:#75715e">// 강제 형변환 (다운캐스팅)</span>
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div><br>
 <h3 id="입출력-io">입출력 (I/O)<a hidden class="anchor" aria-hidden="true" href="#입출력-io">#</a></h3>
 <ul>
 <li>입력 (Scanner 사용)</li>
@@ -679,7 +679,7 @@ result = 7
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello Java!&#34;</span>);  <span style="color:#75715e">// 개행 포함 출력</span>
 </span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#34;No new line&#34;</span>);  <span style="color:#75715e">// 개행 없이 출력</span>
 </span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;\n줄 바꿈 포함&#34;</span>);  <span style="color:#75715e">// `\n` 사용</span>
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div><br>
 <h3 id="연산자">연산자<a hidden class="anchor" aria-hidden="true" href="#연산자">#</a></h3>
 <ul>
 <li>산술 연산자(<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>)</li>
@@ -698,7 +698,7 @@ result = 7
 <li>논리 연산자(<code>!</code>, <code>&amp;&amp;</code>, <code>||</code>)</li>
 <li>문자열 비교(<code>equals()</code>)</li>
 </ul>
-<!-- raw HTML omitted -->
+<br>
 <h3 id="조건문">조건문<a hidden class="anchor" aria-hidden="true" href="#조건문">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Scanner;
 </span></span><span style="display:flex;"><span>Scanner scanner <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Scanner(System.<span style="color:#a6e22e">in</span>);
@@ -730,7 +730,7 @@ result = 7
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">default</span>:
 </span></span><span style="display:flex;"><span>    	System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;잘못된 입력입니다!&#34;</span>);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div><br>
 <h3 id="반복문">반복문<a hidden class="anchor" aria-hidden="true" href="#반복문">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 5; i<span style="color:#f92672">++</span>) {
 </span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">print</span>(i <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span>);  <span style="color:#75715e">// 0 1 2 3 4</span>
@@ -745,7 +745,7 @@ result = 7
 </span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">print</span>(i <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span>);
 </span></span><span style="display:flex;"><span>    i<span style="color:#f92672">++</span>;
 </span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">while</span> (i <span style="color:#f92672">&lt;</span> 5);
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div><br>
 <h3 id="배열">배열<a hidden class="anchor" aria-hidden="true" href="#배열">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 1. 배열 선언</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr1;
@@ -780,7 +780,7 @@ result = 7
 </span></span><span style="display:flex;"><span>    {3, 4}
 </span></span><span style="display:flex;"><span>};
 </span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(arr4<span style="color:#f92672">[</span>1<span style="color:#f92672">][</span>0<span style="color:#f92672">]</span>);  <span style="color:#75715e">// 3</span>
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div><br>
 <h3 id="메서드">메서드<a hidden class="anchor" aria-hidden="true" href="#메서드">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 두 정수를 더하는 메서드 (반환값 있음: int)</span>
