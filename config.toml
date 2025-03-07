@@ -1,5 +1,5 @@
 baseURL = "https://withong.github.io/"
-relativeURLs = true
+relativeURLs = false
 canonifyURLs = true
 languageCode = "ko-kr"
 title = "withong"
