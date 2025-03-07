@@ -406,7 +406,82 @@ AND cuisine_type = &#39;Korean&#39;
     <div class="post-meta"><span title='2025-01-15 23:41:13 +0900 KST'>January 15, 2025</span>
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#sql" aria-label="SQL">SQL</a><ul>
+                        
+                <li>
+                    <a href="#1-select--from" aria-label="1. SELECT / FROM">1. SELECT / FROM</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#food_orders-%ed%85%8c%ec%9d%b4%eb%b8%94%ec%97%90%ec%84%9c-%eb%aa%a8%eb%93%a0-%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%a5%bc-%ec%a1%b0%ed%9a%8c-" aria-label="food_orders 테이블에서 모든 데이터를 조회 :">food_orders 테이블에서 모든 데이터를 조회 :</a></li>
+                <li>
+                    <a href="#customers-%ed%85%8c%ec%9d%b4%eb%b8%94%ec%97%90%ec%84%9c-%ec%9d%b4%eb%a6%84name%ea%b3%bc-%ec%9d%b4%eb%a9%94%ec%9d%bcemail%eb%a7%8c-%ec%a1%b0%ed%9a%8c-" aria-label="customers 테이블에서 이름(name)과 이메일(email)만 조회 :">customers 테이블에서 이름(name)과 이메일(email)만 조회 :</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#2-where" aria-label="2. WHERE">2. WHERE</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#customers-%ed%85%8c%ec%9d%b4%eb%b8%94%ec%97%90%ec%84%9c-%eb%82%98%ec%9d%b4%ea%b0%80-21%ec%84%b8%ec%9d%b8-%ea%b3%a0%ea%b0%9d%eb%a7%8c-%ec%a1%b0%ed%9a%8c-" aria-label="customers 테이블에서 나이가 21세인 고객만 조회 :">customers 테이블에서 나이가 21세인 고객만 조회 :</a></li>
+                <li>
+                    <a href="#food_orders-%ed%85%8c%ec%9d%b4%eb%b8%94%ec%97%90%ec%84%9c-%ec%9d%8c%ec%8b%9d-%ec%a2%85%eb%a5%98%ea%b0%80-%ed%95%9c%ec%8b%9dkorean%ec%9d%b8-%ec%a3%bc%eb%ac%b8%eb%a7%8c-%ec%a1%b0%ed%9a%8c-" aria-label="food_orders 테이블에서 음식 종류가 한식(Korean)인 주문만 조회 :">food_orders 테이블에서 음식 종류가 한식(Korean)인 주문만 조회 :</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#3-%eb%b9%84%ea%b5%90-%ec%97%b0%ec%82%b0%ec%9e%90" aria-label="3. 비교 연산자">3. 비교 연산자</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#salary%ea%b0%80-3000%ec%9d%b8-%ec%a7%81%ec%9b%90%ec%9d%84-%ec%a1%b0%ed%9a%8c-" aria-label="salary가 3000인 직원을 조회 :">salary가 3000인 직원을 조회 :</a></li>
+                <li>
+                    <a href="#salary%ea%b0%80-3000%ec%9d%b4-%ec%95%84%eb%8b%8c-%ec%a7%81%ec%9b%90%ec%9d%84-%ec%a1%b0%ed%9a%8c-" aria-label="salary가 3000이 아닌 직원을 조회 :">salary가 3000이 아닌 직원을 조회 :</a></li>
+                <li>
+                    <a href="#100%eb%b3%b4%eb%8b%a4-%ed%81%b0-%ea%b0%80%ea%b2%a9%ec%9d%98-%ec%83%81%ed%92%88%ec%9d%84-%ec%a1%b0%ed%9a%8c-" aria-label="100보다 큰 가격의 상품을 조회 :">100보다 큰 가격의 상품을 조회 :</a></li>
+                <li>
+                    <a href="#100%eb%b3%b4%eb%8b%a4-%ec%9e%91%ec%9d%80-%ea%b0%80%ea%b2%a9%ec%9d%98-%ec%83%81%ed%92%88%ec%9d%84-%ec%a1%b0%ed%9a%8c-" aria-label="100보다 작은 가격의 상품을 조회 :">100보다 작은 가격의 상품을 조회 :</a></li>
+                <li>
+                    <a href="#%eb%82%98%ec%9d%b4%ea%b0%80-30%ec%84%b8-%ec%9d%b4%ec%83%81%ec%9d%b8-%ec%a7%81%ec%9b%90%ec%9d%84-%ec%a1%b0%ed%9a%8c-" aria-label="나이가 30세 이상인 직원을 조회 :">나이가 30세 이상인 직원을 조회 :</a></li>
+                <li>
+                    <a href="#%eb%82%98%ec%9d%b4%ea%b0%80-30%ec%84%b8-%ec%9d%b4%ed%95%98%ec%9d%b8-%ec%a7%81%ec%9b%90%ec%9d%84-%ec%a1%b0%ed%9a%8c-" aria-label="나이가 30세 이하인 직원을 조회 :">나이가 30세 이하인 직원을 조회 :</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#4-%ed%95%84%ed%84%b0%eb%a7%81-%ed%95%a8%ec%88%98" aria-label="4. 필터링 함수">4. 필터링 함수</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#%ec%a3%bc%eb%ac%b8-%ea%b8%88%ec%95%a1%ec%9d%b4-20000%ec%9b%90%ec%97%90%ec%84%9c-30000%ec%9b%90-%ec%82%ac%ec%9d%b4%ec%9d%b8-%ec%a3%bc%eb%ac%b8-%ec%a1%b0%ed%9a%8c-" aria-label="주문 금액이 20,000원에서 30,000원 사이인 주문 조회 :">주문 금액이 20,000원에서 30,000원 사이인 주문 조회 :</a></li>
+                <li>
+                    <a href="#%eb%82%98%ec%9d%b4%ea%b0%80-21%ec%84%b8-25%ec%84%b8-30%ec%84%b8%ec%9d%b8-%ea%b3%a0%ea%b0%9d-%ec%a1%b0%ed%9a%8c-" aria-label="나이가 21세, 25세, 30세인 고객 조회 :">나이가 21세, 25세, 30세인 고객 조회 :</a></li>
+                <li>
+                    <a href="#%ec%9d%8c%ec%8b%9d-%ec%a2%85%eb%a5%98%ea%b0%80-%ed%95%9c%ec%8b%9dkorean-%eb%98%90%eb%8a%94-%ec%9d%bc%ec%8b%9djapanese%ec%9d%b8-%ec%a3%bc%eb%ac%b8-%ec%a1%b0%ed%9a%8c-" aria-label="음식 종류가 한식(Korean) 또는 일식(Japanese)인 주문 조회 :">음식 종류가 한식(Korean) 또는 일식(Japanese)인 주문 조회 :</a></li>
+                <li>
+                    <a href="#%ec%9d%b4%eb%a6%84%ec%9d%b4-%ea%b9%80%ec%9c%bc%eb%a1%9c-%ec%8b%9c%ec%9e%91%ed%95%98%eb%8a%94-%ea%b3%a0%ea%b0%9d-%ec%a1%b0%ed%9a%8c-" aria-label="이름이 &lsquo;김&rsquo;으로 시작하는 고객 조회 :">이름이 &lsquo;김&rsquo;으로 시작하는 고객 조회 :</a></li>
+                <li>
+                    <a href="#%ec%9d%b4%eb%a9%94%ec%9d%bc-%ec%a3%bc%ec%86%8c%ec%97%90-gmail%ec%9d%b4-%ed%8f%ac%ed%95%a8%eb%90%9c-%ea%b3%a0%ea%b0%9d-%ec%a1%b0%ed%9a%8c-" aria-label="이메일 주소에 &lsquo;gmail&rsquo;이 포함된 고객 조회 :">이메일 주소에 &lsquo;gmail&rsquo;이 포함된 고객 조회 :</a></li>
+                <li>
+                    <a href="#%ec%9d%b4%eb%a6%84%ec%9d%b4-%ea%b9%80%ec%9c%bc%eb%a1%9c-%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0-%eb%91%90-%ea%b8%80%ec%9e%90%ec%9d%b8-%ea%b3%a0%ea%b0%9d-%ec%a1%b0%ed%9a%8c-" aria-label="이름이 &lsquo;김&rsquo;으로 시작하고 두 글자인 고객 조회 :">이름이 &lsquo;김&rsquo;으로 시작하고 두 글자인 고객 조회 :</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#-1%ec%a3%bc%ec%b0%a8-%ec%88%99%ec%a0%9c--%ec%83%81%ed%92%88-%ec%a4%80%eb%b9%84%ec%8b%9c%ea%b0%84%ec%9d%b4-2030%eb%b6%84-%ec%82%ac%ec%9d%b4%ec%9d%b8-%ed%95%9c%ea%b5%ad-%ec%9d%8c%ec%8b%9d%ec%a0%90%ec%9d%98-%ec%8b%9d%eb%8b%b9%eb%aa%85%ea%b3%bc-%ea%b3%a0%ea%b0%9d%eb%b2%88%ed%98%b8-%ec%a1%b0%ed%9a%8c%ed%95%98%ea%b8%b0" aria-label="* 1주차 숙제 : 상품 준비시간이 20~30분 사이인, 한국 음식점의 식당명과 고객번호 조회하기">* 1주차 숙제 : 상품 준비시간이 20~30분 사이인, 한국 음식점의 식당명과 고객번호 조회하기</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><blockquote>
 <p><strong>TASKS</strong><br>
 ✅ SQL 강의 1주차<br>
