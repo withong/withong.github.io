@@ -56,7 +56,7 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
   - 잘못된 메뉴 번호는 예외 발생
   - 모든 예외는 catch 후 메시지 출력
 
-<br>
+---
 
 ### InputValidator
 - **`getValidInt()`**
@@ -103,7 +103,7 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
   - 숫자가 아니면 예외 발생
   - 변환 후 stripTrailingZeros
 
-<br>
+---
 
 ### Operand
 
@@ -122,7 +122,7 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
 - **`toString()`**
   - operand.toString() 결과를 반환
 
-<br>
+---
 
 ### Operator
 - **`Operator(String symbol)`**
@@ -135,7 +135,7 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
   - divide 시 분모가 0이면 CalculatorException 발생
   - 연산 결과(BigDecimal) 반환
 
-<br>
+---
 
 ### CalculationRecord
 - **`CalculationRecord(Operand<?> number1, Operator operator, Operand<?> number2, Operand<?> result)`**
@@ -147,7 +147,7 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
 - **`toString()`**
   - [ number1 operator number2 = result ] 형태의 문자열 반환
 
-<br>
+---
 
 ### ArithmeticCalculator
 - **`ArithmeticCalculator()`**
@@ -179,7 +179,7 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
   - 연산 결과에 과학적 표기법을 적용할 건지 검사
   - 10자리 이상의 정수 또는 소수점 이하가 8자리 이상이면 true
 
-<br>
+---
 
 ### CalculatorException
 - **`CalculatorException(Type type)`**
@@ -197,23 +197,21 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
 
 ## 문제 및 해결
 
-<br>
-
 ### 타입 변환 및 연산 과정
 - **문제**
-  - 초기 설계 - Operand<T\>를 정의하여 입력값을 검증한 후 **적절한 타입(Integer, Long, Double)**으로 변환. Integer, Long, Double을 지원하며, 혼합 연산 시 Double로 변환하여 연산.
-<br>
+  - 초기 설계 - Operand<T\>를 정의하여 입력값을 검증한 후 **적절한 타입(Integer, Long, Double)**으로 변환. Integer, Long, Double을 지원하며, 혼합 연산 시 Double로 변환하여 연산.  
+
   - 타입 변환 과정
     - 소수 입력 → Operand<Double\>
     - int 범위 → Operand<Integer\>
     - int 초과 long 범위 → Operand<Long\>
-    - long 초과 → Operand<Double\>
-<br>    
+    - long 초과 → Operand<Double\>  
+  
   - Double 연산 시 부동소수점 오차 발생
   - Operand<Integer\>, Operand<Long\>를 받아서 Operand<Double\>로 변환하는 코드가 중복됨 → Integer, Long을 Double로 변환하여 연산할 때 매 연산마다 Double.parseDouble()을 사용하여 변환해야 함.
     
 - **분석**
-  - Double 연산 시 부동소수점 오차를 해결할 수 있는 방법은?
+  - Double 연산 시 부동소수점 오차를 해결할 수 있는 방법은?  
   → BigDecimal을 사용하여 연산 수행  
   → BigDecimal은 부동소수점 오차 없이 정확한 연산이 가능.  
   
@@ -225,16 +223,18 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
   - 연산 과정에서 발생하는 부동소수점 오차 해결
   - 모든 숫자를 BigDecimal로 통일하여 변환 과정 단순화
   - 연산 메서드에서 Double 변환 없이 BigDecimal 연산 수행 가능
-
-<br>
-
+  
+---
+  
 ### 과학적 표기법
+
 - **문제**
   - **소수점 8자리 포맷팅 + 과학적 표기법 동시 사용 이슈** - 처음에는 DecimalFormat("0.########")로 8자리까지 소수점을 유지하려 했지만, 큰 수(예: 1.685644e9)에서는 **_아이폰 계산기_**처럼 1.685644e9 형태가 나오길 기대했으나, 실제 출력은 1.68564381645E9처럼 오차가 생기거나 소수 자릿수가 달라지는 문제가 발생.
 
   - **반올림 문제** - DecimalFormat("0.######E0")를 쓰면 과학적 표기법 적용은 되지만, 소수점 이하가 0이면 정수형처럼 보이지 않거나, 소수점 자리가 의도치 않게 잘려서 반올림이 강제로 적용됨.
 
   - **부동소수점(Double) 오차 누적** - 소수점 8자리로 맞춘 뒤에도, 내부에서 Double 변환이 섞여 있으면 “불필요한 자리수(0.30000000004 등)”가 생기는 문제가 계속 발생.
+  
 
 - **분석**
   - Double 부동소수점 오차가 핵심 원인.
@@ -243,17 +243,19 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
     - 큰 수(소수점 이상 10자리 이상)나 소수점 이하 자릿수(8자리 이상)에서 원하는 대로 과학적 표기법을 적용하려면, 별도의 로직이나 세밀한 설정이 필요함.
   - BigDecimal을 직접 사용해야 “소수점 N자리에서 정밀하게 반올림” + “원하지 않는 0 제거(stripTrailingZeros)” 등의 제어가 가능.
 
+
 - **해결 및 개선**
   - BigDecimal으로 연산
     - 중간에 Double를 거치지 않고, 입력부터 BigDecimal로 받음.
     - setScale(8, RoundingMode.HALF_UP)로 소수점 8자리 기준 반올림 후, stripTrailingZeros()로 불필요한 0 제거.
-
+  
   - 과학적 표기법 적용 조건을 명시적으로 구현
     - “소수점 이상 10자리 또는 소수점 이하 8자리 이상이면 과학적 표기법을 적용” 하는 식으로, 직접 기준을 잡아 로직 작성.
     - 과학적 표기법 시에는 DecimalFormat("0.######E0")를 사용하되, 정수 형태(소수점 이하가 0)로 보일 때는 일반 포맷(#.########)을 사용하도록 분기.
-    
+      
   - Double 변환 제거
     - 최종 결과를 다시 Double로 변환하지 않고, 문자열 상태로(Operand<>(formatted)) 반환해 최종 출력. 
+
 
 - **결과**
   - 큰 수에서 1.685644e9처럼 표현되고, 일반 범위에서는 123.45678912처럼 8자리까지만 유지하는 등 원하는 형식대로 출력 가능.
@@ -262,9 +264,7 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
 
 ## 실행 예시
 
-<br>
-
-### 정상 실행 예시
+- **정상 실행 예시**
 ```
 --------- 계산기 Version 3.0 ---------
 [1] 연산하기
@@ -348,9 +348,8 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
 ------------- 계산기 종료 -------------
 ```
 
-<br>
 
-### 예외 실행 예시
+- **예외 실행 예시**
 ```
 -------------------------------------
 [1] 연산하기
@@ -420,4 +419,3 @@ Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
 ***** 유효하지 않은 숫자입니다. *****
 -------------------------------------
 ```
-
