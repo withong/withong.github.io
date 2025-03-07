@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>[사전캠프] 4일차. | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+TASKS
+✅ SQL 강의 2주차
+✅ Web 강의 1주차
+🟩 Java Part01-04
+
+SQL
+1. 집계 함수
+
+SUM : 특정 열의 값들을 모두 더함.
+AVG : 특정 열의 값들의 평균을 계산함.
+COUNT : 레코드(행)의 개수를 셈.
+
+count(distinct 컬럼명) : 중복을 제외한 고유한 값들의 개수 반환
+
+
+MIN : 특정 열에서 가장 작은 값을 반환함.
+MAX : 특정 열에서 가장 큰 값을 반환함.
+
+1-1. 주문 금액이 30,000원 이상인 주문 건의 개수 구하기
+1. 어떤 컬럼을 이용할 것인가 → select order_id, price
+2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 
+3. 어떤 조건을 지정해야 하는가 → where price &gt;= 30000 
+4. 어떤 함수 (수식) 을 이용해야 하는가 → count(order_id) 혹은 count(1)
+
+select count(order_id) count_of_orders
+from food_orders
+where price&gt;=30000;
+1-2. 한국 음식의 주문당 평균 음식 가격 구하기
+1. 어떤 컬럼을 이용할 것인가 → select cuisine_type, price
+2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders
+3. 어떤 조건을 지정해야 하는가 → where cuisint_type=’Korean’
+4. 어떤 함수 (수식)을 이용해야 하는가 → avg(price)
+
+select avg(price) as average_price
+from food_orders
+where cuisine_type=&#39;Korean&#39;;
+2. GROUP BY절
+
+데이터를 그룹화하여 집계 함수와 함께 사용.
+
+2-1. 음식점별 주문 금액 최댓값 조회하기
+1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price
+2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders
+3. 어떤 조건을 지정해야 하는가 → X
+4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)
+5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_name
+
+select restaurant_name,
+       max(price)
+from food_orders
+group by restaurant_name;
+2-2. 결제 타입별 가장 최근 결제일 조회하기
+1. 어떤 컬럼을 이용할 것인가 → select pay_type, date
+2. 어떤 테이블에서 데이터를 뽑을 것인가 → from payments
+3. 어떤 조건을 지정해야 하는가 → X
+4. 어떤 함수 (수식) 을 이용해야 하는가 → max(date)
+5. 어떤 컬럼 기준으로 계산할 것인가 → group by pay_type
+
+select pay_type &#34;결제타입&#34;,
+       max(date) &#34;최근 결제일&#34;
+from payments
+group by pay_type;
+3. ORDER BY절
+
+지정한 컬럼을 기준으로 오름차순(ASC) 또는 내림차순(DESC)으로 정렬
+
+ORDER BY 컬럼명				-- 오름차순
+ORDER BY 컬럼명 DESC		-- 내림차순
+ORDER BY 컬럼명1, 컬럼명2	-- 컬럼1 기준으로 오름차순 정렬 후, 
+							-- 그 결과값 내에서 컬럼2 기준으로 오름차순 정렬
+3-1. 음식점별 주문 금액 최댓값 조회하기 - 최댓값 기준 내림차순 정렬
+1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price
+2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders
+3. 어떤 조건을 지정해야 하는가 → X
+4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)
+5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_name
+6. 어떤 컬럼 기준으로 정렬할 것인가 → order by desc
+
+select restaurant_name,
+       max(price)
+from food_orders
+group by restaurant_name
+order by max(price) desc;
+4. SQL 기본 구조
+SELECT		-- (필수) 반환할 데이터를 선택
+FROM		-- (필수) 데이터를 가져올 테이블 지정
+WHERE		-- (선택) 특정 조건으로 데이터를 필터링
+GROUP BY	-- (선택) 데이터를 그룹화
+ORDER BY	-- (선택) 결과를 정렬
+
+Web
+HTML/CSS
+
+
+HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기
+">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/camp/pre-04-copy/">
+<link crossorigin="anonymous" href="../../assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/favicon.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/favicon.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/favicon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/camp/pre-04-copy/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><script>
+    localStorage.removeItem("pref-theme");
+    localStorage.setItem("pref-theme", "dark");
+    document.documentElement.setAttribute("data-theme", "dark");
+  </script>
+  
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/topic/" title="Topic">
+                    <span>Topic</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      [사전캠프] 4일차.
+    </h1>
+    <div class="post-meta"><span title='2025-01-16 23:41:13 +0900 KST'>January 16, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
+<p><strong>TASKS</strong><br>
+✅ SQL 강의 2주차<br>
+✅ Web 강의 1주차<br>
+🟩 Java Part01-04</p></blockquote>
+<hr>
+<h2 id="sql">SQL<a hidden class="anchor" aria-hidden="true" href="#sql">#</a></h2>
+<h3 id="1-집계-함수">1. 집계 함수<a hidden class="anchor" aria-hidden="true" href="#1-집계-함수">#</a></h3>
+<ul>
+<li><code>SUM</code> : 특정 열의 값들을 모두 더함.</li>
+<li><code>AVG</code> : 특정 열의 값들의 평균을 계산함.</li>
+<li><code>COUNT</code> : 레코드(행)의 개수를 셈.
+<ul>
+<li><code>count(distinct 컬럼명)</code> : 중복을 제외한 고유한 값들의 개수 반환</li>
+</ul>
+</li>
+<li><code>MIN</code> : 특정 열에서 가장 작은 값을 반환함.</li>
+<li><code>MAX</code> : 특정 열에서 가장 큰 값을 반환함.</li>
+</ul>
+<h4 id="1-1-주문-금액이-30000원-이상인-주문-건의-개수-구하기">1-1. 주문 금액이 30,000원 이상인 주문 건의 개수 구하기<a hidden class="anchor" aria-hidden="true" href="#1-1-주문-금액이-30000원-이상인-주문-건의-개수-구하기">#</a></h4>
+<pre><code>1. 어떤 컬럼을 이용할 것인가 → select order_id, price
+2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 
+3. 어떤 조건을 지정해야 하는가 → where price &gt;= 30000 
+4. 어떤 함수 (수식) 을 이용해야 하는가 → count(order_id) 혹은 count(1)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#66d9ef">count</span>(order_id) count_of_orders
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">from</span> food_orders
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span> price<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">30000</span>;
+</span></span></code></pre></div><h4 id="1-2-한국-음식의-주문당-평균-음식-가격-구하기">1-2. 한국 음식의 주문당 평균 음식 가격 구하기<a hidden class="anchor" aria-hidden="true" href="#1-2-한국-음식의-주문당-평균-음식-가격-구하기">#</a></h4>
+<pre><code>1. 어떤 컬럼을 이용할 것인가 → select cuisine_type, price
+2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders
+3. 어떤 조건을 지정해야 하는가 → where cuisint_type=’Korean’
+4. 어떤 함수 (수식)을 이용해야 하는가 → avg(price)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#66d9ef">avg</span>(price) <span style="color:#66d9ef">as</span> average_price
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">from</span> food_orders
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span> cuisine_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Korean&#39;</span>;
+</span></span></code></pre></div><h3 id="2-group-by절">2. GROUP BY절<a hidden class="anchor" aria-hidden="true" href="#2-group-by절">#</a></h3>
+<ul>
+<li>데이터를 그룹화하여 집계 함수와 함께 사용.</li>
+</ul>
+<h4 id="2-1-음식점별-주문-금액-최댓값-조회하기">2-1. 음식점별 주문 금액 최댓값 조회하기<a hidden class="anchor" aria-hidden="true" href="#2-1-음식점별-주문-금액-최댓값-조회하기">#</a></h4>
+<pre><code>1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price
+2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders
+3. 어떤 조건을 지정해야 하는가 → X
+4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)
+5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_name
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> restaurant_name,
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">max</span>(price)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">from</span> food_orders
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> restaurant_name;
+</span></span></code></pre></div><h4 id="2-2-결제-타입별-가장-최근-결제일-조회하기">2-2. 결제 타입별 가장 최근 결제일 조회하기<a hidden class="anchor" aria-hidden="true" href="#2-2-결제-타입별-가장-최근-결제일-조회하기">#</a></h4>
+<pre><code>1. 어떤 컬럼을 이용할 것인가 → select pay_type, date
+2. 어떤 테이블에서 데이터를 뽑을 것인가 → from payments
+3. 어떤 조건을 지정해야 하는가 → X
+4. 어떤 함수 (수식) 을 이용해야 하는가 → max(date)
+5. 어떤 컬럼 기준으로 계산할 것인가 → group by pay_type
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> pay_type <span style="color:#e6db74">&#34;결제타입&#34;</span>,
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">max</span>(date) <span style="color:#e6db74">&#34;최근 결제일&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">from</span> payments
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> pay_type;
+</span></span></code></pre></div><h3 id="3-order-by절">3. ORDER BY절<a hidden class="anchor" aria-hidden="true" href="#3-order-by절">#</a></h3>
+<ul>
+<li>지정한 컬럼을 기준으로 오름차순(ASC) 또는 내림차순(DESC)으로 정렬</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#960050;background-color:#1e0010">컬럼명</span>				<span style="color:#75715e">-- 오름차순
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#960050;background-color:#1e0010">컬럼명</span> <span style="color:#66d9ef">DESC</span>		<span style="color:#75715e">-- 내림차순
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#960050;background-color:#1e0010">컬럼명</span><span style="color:#ae81ff">1</span>, <span style="color:#960050;background-color:#1e0010">컬럼명</span><span style="color:#ae81ff">2</span>	<span style="color:#75715e">-- 컬럼1 기준으로 오름차순 정렬 후, 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>							<span style="color:#75715e">-- 그 결과값 내에서 컬럼2 기준으로 오름차순 정렬
+</span></span></span></code></pre></div><h4 id="3-1-음식점별-주문-금액-최댓값-조회하기---최댓값-기준-내림차순-정렬">3-1. 음식점별 주문 금액 최댓값 조회하기 - 최댓값 기준 내림차순 정렬<a hidden class="anchor" aria-hidden="true" href="#3-1-음식점별-주문-금액-최댓값-조회하기---최댓값-기준-내림차순-정렬">#</a></h4>
+<pre><code>1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price
+2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders
+3. 어떤 조건을 지정해야 하는가 → X
+4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)
+5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_name
+6. 어떤 컬럼 기준으로 정렬할 것인가 → order by desc
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> restaurant_name,
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">max</span>(price)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">from</span> food_orders
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> restaurant_name
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">max</span>(price) <span style="color:#66d9ef">desc</span>;
+</span></span></code></pre></div><h3 id="4-sql-기본-구조">4. SQL 기본 구조<a hidden class="anchor" aria-hidden="true" href="#4-sql-기본-구조">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>		<span style="color:#75715e">-- (필수) 반환할 데이터를 선택
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">FROM</span>		<span style="color:#75715e">-- (필수) 데이터를 가져올 테이블 지정
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">WHERE</span>		<span style="color:#75715e">-- (선택) 특정 조건으로 데이터를 필터링
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span>	<span style="color:#75715e">-- (선택) 데이터를 그룹화
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>	<span style="color:#75715e">-- (선택) 결과를 정렬
+</span></span></span></code></pre></div><hr>
+<h2 id="web">Web<a hidden class="anchor" aria-hidden="true" href="#web">#</a></h2>
+<h3 id="htmlcss">HTML/CSS<a hidden class="anchor" aria-hidden="true" href="#htmlcss">#</a></h3>
+<ul>
+<li>
+<p>HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기
+<img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/fd8f47f4-c6b2-450a-a814-8e6c8092fc0b/image.png"></p>
+</li>
+<li>
+<p>부트스트랩 활용해서 나만의 추억 앨범 만들기
+<img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/bdeb249f-2067-4e12-a4b9-a07d86769c36/image.png"></p>
+</li>
+</ul>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/e1ba22ba-0291-4ed7-8af2-f9f0ace782b7/image.png"></p>
+<ul>
+<li>한 세트로 자주 쓰이는 CSS</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>	<span style="color:#f92672">//</span> <span style="color:#f92672">이미지를</span> <span style="color:#f92672">중앙에</span> <span style="color:#f92672">위치시키고</span> <span style="color:#f92672">비율</span> <span style="color:#f92672">유지하며</span> <span style="color:#f92672">가득차도록</span> <span style="color:#f92672">설정</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">background-image</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">background-position</span><span style="color:#f92672">:</span> <span style="color:#f92672">center</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">background-size</span><span style="color:#f92672">:</span> <span style="color:#f92672">cover</span><span style="color:#f92672">;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>	<span style="color:#f92672">//</span> <span style="color:#f92672">플렉스</span> <span style="color:#f92672">박스를</span> <span style="color:#f92672">중심으로</span> <span style="color:#f92672">컨테이너</span> <span style="color:#f92672">안의</span> <span style="color:#f92672">자식</span> <span style="color:#f92672">요소들을</span> <span style="color:#f92672">중앙에</span> <span style="color:#f92672">정렬</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">display</span><span style="color:#f92672">:</span> <span style="color:#f92672">flex</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">flex-direction</span><span style="color:#f92672">:</span> <span style="color:#f92672">column</span><span style="color:#f92672">;</span> <span style="color:#f92672">&lt;!</span><span style="color:#f92672">--</span> <span style="color:#f92672">또는</span> <span style="color:#f92672">row</span> <span style="color:#f92672">--</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">align-items</span><span style="color:#f92672">:</span> <span style="color:#f92672">center</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">justify-content</span><span style="color:#f92672">:</span> <span style="color:#f92672">center</span><span style="color:#f92672">;</span>
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
