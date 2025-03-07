@@ -1,9 +1,11 @@
 +++
 title = "[Java] 기본형과 참조형"
 date = "2025-02-06T21:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["java"]
 tag = ["study", "java"]
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 ## 변수 대입

@@ -1,10 +1,11 @@
 +++
 title = "[내일배움캠프] 12일차. 과제 회고"
 date = "2025-03-05T23:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL", "회고"]
-ShowToc = "true"
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 >✅ [문제] 알고리즘 & SQL 문제 풀기  

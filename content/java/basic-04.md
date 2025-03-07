@@ -1,9 +1,11 @@
 +++
 title = "[Java] 생성자"
 date = "2025-02-10T21:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["java"]
 tag = ["study", "java"]
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 ## 생성자

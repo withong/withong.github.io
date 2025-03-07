@@ -1,10 +1,11 @@
 +++
 title = "[사전캠프] 5일차."
 date = "2025-01-17T23:41:13+09:00"
-draft = "false"
+draft = false
 topic = ["camp"]
 tag = ["사전캠프", "TIL"]
-ShowToc = "true"
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 > **TASKS**  

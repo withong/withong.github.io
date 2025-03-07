@@ -1,9 +1,11 @@
 +++
 title = "[Java] 메모리 구조와 static"
 date = "2025-02-14T21:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["java"]
 tag = ["study", "java"]
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 ## 메모리 구조  

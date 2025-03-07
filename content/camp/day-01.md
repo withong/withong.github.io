@@ -1,10 +1,11 @@
 +++
 title = "[내일배움캠프] 1일차. Git"
 date = "2025-02-17T21:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL"]
-ShowToc = "true"
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 > **Chapter 1. 온보딩 주차**  

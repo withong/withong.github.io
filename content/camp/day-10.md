@@ -1,10 +1,11 @@
 +++
 title = "[내일배움캠프] 10일차. 과제 회고"
 date = "2025-02-28T21:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL", "회고"]
-ShowToc = "true"
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 >✅ [과제] Java 계산기 만들기 level 2 수정  

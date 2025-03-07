@@ -1,9 +1,11 @@
 +++
 title = "[Java] 패키지"
 date = "2025-02-11T21:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["java"]
 tag = ["study", "java"]
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 ## 패키지

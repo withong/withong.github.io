@@ -1,10 +1,11 @@
 +++
 title = "[내일배움캠프] 4일차. 미니 프로젝트 3"
 date = "2025-02-20T21:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL"]
-ShowToc = "true"
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 >✅ 코드 병합  

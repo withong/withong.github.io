@@ -1,10 +1,11 @@
 +++
 title = "[내일배움캠프] 과제 - 계산기 2"
 date = "2025-02-28T22:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL", "과제", "계산기"]
-ShowToc = "true"
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 ## 요구사항

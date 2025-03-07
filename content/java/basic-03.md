@@ -1,9 +1,11 @@
 +++
 title = "[Java] 객체 지향 프로그래밍"
 date = "2025-02-07T21:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["java"]
 tag = ["study", "java"]
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 ## 절차 지향 프로그래밍

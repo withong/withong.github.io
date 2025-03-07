@@ -1,9 +1,11 @@
 +++
 title = "[Java] final"
 date = "2025-02-25T09:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["java"]
 tag = ["study", "java"]
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 ## final -지역변수

@@ -1,10 +1,11 @@
 +++
 title = "[내일배움캠프] 7일차. 객체지향"
 date = "2025-02-25T21:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL", "java"]
-ShowToc = "true"
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 >  ✅ 문법 세션 1 - 프로그래밍 기초  

@@ -1,10 +1,11 @@
 +++
 title = "[내일배움캠프] 9일차. Java 심화 2"
 date = "2025-02-27T21:00:00+09:00"
-draft = "false"
+draft = false
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL", "java"]
-ShowToc = "true"
+ShowToc = true
+ShowPostNavLinks = true
 +++
 
 >✅ [강의] Java 문법 세션 2 - 객체 활용  
