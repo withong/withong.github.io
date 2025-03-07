@@ -160,19 +160,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">[내일배움캠프] 과제 - 키오스크 1
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>요구사항 클래스 정의 Main : 시작 지점이 되는 클래스, public static void main(String[] args) MenuItem: 세부 메뉴 속성 가지는 클래스 햄버거의 이름, 가격설명 예시: ShackBurger, 6.9, 토마토, 양상추, 쉑소스가 토핑된 치즈버거 new MenuItem(&#34;ShackBurger&#34;, 6.9, &#34;토마토, 양상추, 쉑소스가 토핑된 치즈버거&#34;) 햄버거의 이름, 가격설명 예시: ShackBurger, 6.9, 토마토, 양상추, 쉑소스가 토핑된 치즈버거 new MenuItem(&#34;ShackBurger&#34;, 6.9, &#34;토마토, 양상추, 쉑소스가 토핑된 치즈버거&#34;)토 Kiosk: 프로그램 순서 및 흐름 제어를 담당하는 클래스 Menu: MenuItem 클래스를 관리하는 클래스 예시 : 버거 메뉴, 음료 메뉴 등 각 카테고리 내에 여러 MenuItem을 포함합니다. Lv 1. 기본적인 키오스크를 프로그래밍해보자 요구사항이 가지는 의도
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-07 16:44:26 +0900 KST'>March 7, 2025</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] 과제 - 키오스크 1" href="https://withong.github.io/camp/task-04/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">[내일배움캠프] 12일차. 과제 회고
     </h2>
   </header>
@@ -231,6 +218,22 @@ Enum 타입을 활용하여 연산자 타입에 대한 정보를 관리하고 �
   </div>
   <footer class="entry-footer"><span title='2025-02-28 21:00:00 +0900 KST'>February 28, 2025</span></footer>
   <a class="entry-link" aria-label="post link to [내일배움캠프] 10일차. 과제 회고" href="https://withong.github.io/camp/day-10/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[내일배움캠프] 9일차. Java 심화 2
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ [강의] Java 문법 세션 2 - 객체 활용
+✅ [강의] Java 문법 Chapter 3 (5~7)
+✅ [과제] Java 계산기 만들기 level 2
+람다(Lambda) 함수형 인터페이스 람다식을 사용하기 위한 인터페이스 단 하나의 추상 메서드만 포함해야 함. @FunctionalInterface 애노테이션을 사용. @FunctionalInterface // 함수형 인터페이스 선언 public interface Calculator { int sum(int a, int b); // 오직 하나의 추상 메서드만 선언해야 함 } 익명 클래스 별도의 클래스 파일을 만들지 않고 코드 내에서 일회성으로 정의해 사용하는 클래스. 주로 인터페이스를 구현할 때나 클래스를 상속할 때 간단한 기능을 위해 사용됨. public static void main(String[] args) { // 인터페이스를 활용한 익명 클래스 만들기 Calculator calculator1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator1.sum(2, 2); System.out.println(&#34;ret1 = &#34; &#43; ret1); } 람다식 메서드를 하나의 식(Expression)으로 표현하는 방식 익명 함수(Anonymous Function)와 유사 함수형 인터페이스와 함께 사용됨 불필요한 코드 생략 가능 → 간결한 코드 작성 가능 public static void main(String[] args) { // 인터페이스를 활용한 람다식 만들기 Calculator calculator = (a, b) -&gt; a &#43; b; int ret = calculator.sum(3, 3); System.out.println(&#34;ret = &#34; &#43; ret); } 람다식 활용 public static void main(String[] args) { // 람다식을 매개변수로 전달하는 방법 // 1. 익명 클래스를 변수에 담아 매개변수로 전달 Calculator cal1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator(3, 3, cal1); System.out.println(&#34;ret1 = &#34; &#43; ret1); // 2. 람다식을 변수에 담아 매개변수로 전달 Calculator cal2 = (a, b) -&gt; a &#43; b; int ret2 = calculator(4, 4, cal2); System.out.println(&#34;ret2 = &#34; &#43; ret2); // 3. 람다식을 직접 매개변수로 전달 int ret3 = calculator(5, 5, (a, b) -&gt; a &#43; b); System.out.println(&#34;ret3 = &#34; &#43; ret3); } public static int calculator(int a, int b, Calculator calculator) { return calculator.sum(a, b); } 스트림(Stream) 데이터의 흐름을 표현하는 기능으로, 배열이나 컬렉션 등의 데이터를 함수형 스타일로 처리할 수 있도록 지원하는 API
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-27 21:00:00 +0900 KST'>February 27, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to [내일배움캠프] 9일차. Java 심화 2" href="https://withong.github.io/camp/day-09/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
