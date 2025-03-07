@@ -1,7 +1,7 @@
 +++
 title = "[내일배움캠프] 과제 - 키오스크 1"
 date = "2025-03-07T16:44:26+09:00"
-draft = "false"
+draft = "true"
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL", "과제", "키오스크"]
 ShowToc = true
