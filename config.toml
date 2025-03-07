@@ -20,11 +20,11 @@ uglyURLs = false
 
 [params.assets]
   disableFingerprinting = true
-  favicon = "/icons/favicon.png"
-  favicon16x16 = "/icons/favicon.png"
-  favicon32x32 = "/icons/favicon.png"
-  apple_touch_icon = "/icons/favicon.png"
-  safari_pinned_tab = "/icons/favicon.png"
+  favicon = "/icons/log.png"
+  favicon16x16 = "/icons/log.png"
+  favicon32x32 = "/icons/log.png"
+  apple_touch_icon = "/icons/log.png"
+  safari_pinned_tab = "/icons/log.png"
 
 [params.fuseOpts]
   isCaseSensitive = false
