@@ -1,9 +1,9 @@
 +++
-title = "[Java] 클래스와 객체"
+title = "[Java]"
 date = "2025-03-06T23:45:30+09:00"
-draft = "false"
+draft = "true"
 topic = ["java"]
-tag = ["study"]
+tag = ["study", "java"]
 +++
 
 java study default

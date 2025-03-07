@@ -1,0 +1,260 @@
++++
+title = "[사전캠프] 7일차."
+date = "2025-01-21T23:41:13+09:00"
+draft = "false"
+topic = ["camp"]
+tag = ["사전캠프", "TIL"]
++++
+
+>**TASKS**  
+✅ SQL 강의 5주차  
+✅ Web 강의 4주차  
+✅ 달리기반 SQL 1-2  
+✅ 달리기반 Java 1-2  
+>
+**+**  
+☑️ 달리기반 SQL 3  
+
+---
+
+## SQL
+
+
+### NULL
+데이터가 존재하지 않거나 정의되지 않은 상태
+```sql
+-- NULL 값인 데이터를 찾는 경우
+SELECT * FROM table WHERE column IS NULL;
+
+-- NULL이 아닌 데이터를 찾는 경우
+SELECT * FROM table WHERE column IS NOT NULL;
+
+-- NULL 값 대체하여 조회
+SELECT COALESCE(column, 'default_value') AS alias FROM table;
+```
+
+
+### Pivot Table
+데이터 집계 및 요약을 위해 특정 열의 값들을 열(Column)로 변환하고,  
+관련 데이터를 행(Row)과 열 형태로 구조화한 테이블
+
+*  MySQL의 Pivot Table
+`CASE`와 집계 함수를 사용하여 수동으로 생성
+```sql
+-- 10~59세 연령대의 남성 및 여성 주문 수를 연령대별로 집계하고 피벗 형태로 변환
+
+select age,
+	   -- 남성과 여성의 주문 수를 별도의 열로 출력
+       max(if(gender = 'male', order_count, 0)) male,
+       max(if(gender = 'female', order_count, 0)) female
+from 
+(
+	select b.gender,
+    	   -- 나이를 연령대로 변환
+	       case when age between 10 and 19 then 10
+	            when age between 20 and 29 then 20
+	            when age between 30 and 39 then 30
+	            when age between 40 and 49 then 40
+	            when age between 50 and 59 then 50 end age,
+           -- 성별과 연령대 기준으로 주문 수 계산
+	       count(1) order_count
+	from food_orders a inner join customers b 
+	on a.customer_id = b.customer_id
+	where b.age between 10 and 59
+	group by 1, 2
+) t
+group by 1
+-- 연령대별 정렬
+order by 1 desc
+```
+![](https://velog.velcdn.com/images/ezro/post/23d72c9c-ed0d-45bd-afba-289e8de72876/image.png)
+
+
+### RANK()
+데이터의 순위를 계산하는 윈도우 함수
+```sql
+RANK() OVER (PARTITION BY column_name ORDER BY column_name [ASC|DESC])
+```
+
+* `OVER` : 윈도우 함수가 적용되는 범위를 정의
+* `PARTITION BY` : 데이터를 특정 그룹으로 나누어 순위를 계산 (옵션)
+* `ORDER BY` : 순위를 계산할 기준 열과 정렬 방식 지정
+
+![](https://velog.velcdn.com/images/ezro/post/1bd4af87-c353-4296-8906-0b9a28311bc5/image.png)
+
+* 특정 조건에 따라 정렬된 결과에서 행의 순위를 반환
+* 동일한 값이 있는 경우 같은 순위를 부여하며, 이후 순위는 건너뜀
+
+
+### SUM() OVER()
+
+```sql
+SUM(column_name) OVER ([PARTITION BY column_name] [ORDER BY column_name])
+```
+
+* `SUM(column)` : 합계를 계산할 숫자 열 지정
+* `OVER` : 윈도우 함수가 적용되는 범위를 정의
+* `PARTITION BY` : 데이터를 그룹화하여 각 그룹별 합계를 계산 (옵션)
+* `ORDER BY` : 정렬 순서 지정 및 누적 합계를 계산 (옵션)
+
+![](https://velog.velcdn.com/images/ezro/post/48e04625-25eb-4869-8e67-ceeb2a7110e3/image.png)
+
+* `GROUP BY`와 다르게 그룹화하지 않고도 각 행에 합계를 추가할 수 있음
+* 기존 행을 유지하면서 집계 데이터를 제공하기 때문에 데이터 분석에서 유용
+
+
+### DATE_FORMAT()
+MySQL 날짜 포맷 함수, 날짜나 시간 값을 지정된 형식으로 출력할 때 사용
+```sql
+DATE_FORMAT(date, format)
+```
+
+* 날짜 관련 형식 문자
+
+|형식 문자　　|설명|예시|
+|---|---|---|
+|%Y|4자리|연도|2025|
+|%|2자리|연도|25|
+|%m|2자리|월|01|
+|%d|2자리|일|21|
+|%e|일 (1자리 또는 2자리)|1, 21|
+|%M|월 이름 (전체)|January|
+|%b|월 이름 (축약형)|Jan|
+|%W|요일 이름 (전체)|Monday|
+|%a|요일 이름 (축약형)|Mon|
+|%w|요일의 숫자 값|0 - 6 (0: 일요일, 1: 월요일, 2: 화요일)|
+
+
+* 시간 관련 형식 문자
+
+|형식 문자　　|설명　　　　　　　　　|예시　　|
+|---|---|---|
+|%H|24시간제 시간|15|
+|%h|12시간제 시간|3|
+|%i|분|45|
+|%s|초|30|
+|%p|AM/PM 표시|PM|
+
+
+```sql
+SELECT DATE_FORMAT(NOW(), '%Y-%m-%d') AS formatted_date;
+```
+```
+2025-01-21
+```
+
+```sql
+SELECT DATE_FORMAT(NOW(), '%M %d, %Y') AS formatted_date;
+```
+```
+January 21, 2025
+```
+
+```sql
+SELECT DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s') AS formatted_datetime;
+```
+```
+2025-01-21 15:45:30
+```
+
+```sql
+SELECT DATE_FORMAT(NOW(), '%Y-%m-%d %h:%i:%s %p') AS formatted_datetime;
+```
+```
+2025-01-21 03:45:30 PM
+```
+
+---
+
+## Java
+
+
+### Lv1. 랜덤 닉네임 생성기
+![](https://velog.velcdn.com/images/ezro/post/4dce5f27-07eb-4ea1-984f-93243bd5df6a/image.png)
+
+```java
+import java.util.Random;
+
+public class RandomNickname {
+    public static void main(String[] args) {
+        // 1번째 칸 옵션
+        String[] firstSlot = {"기절초풍", "멋있는", "재미있는"};
+        
+        // 2번째 칸 옵션
+        String[] secondSlot = {"도전적인", "노란색의", "바보같은"};
+        
+        // 3번째 칸 옵션
+        String[] thirdSlot = {"돌고래", "개발자", "오랑우탄"};
+        
+        // 랜덤 객체 생성
+        Random random = new Random();
+
+        // 각 칸에서 랜덤으로 선택
+        String randomFirst = firstSlot[random.nextInt(firstSlot.length)];
+        String randomSecond = secondSlot[random.nextInt(secondSlot.length)];
+        String randomThird = thirdSlot[random.nextInt(thirdSlot.length)];
+
+        // 닉네임 생성
+        String randomNickname = randomFirst + " " + randomSecond + " " + randomThird;
+
+        // 결과 출력
+        System.out.println("랜덤 닉네임: " + randomNickname);
+    }
+}
+```
+![](https://velog.velcdn.com/images/ezro/post/f14a081e-8b29-498d-8e0b-7fa7ba852f56/image.gif)
+
+
+### Lv2. 스파르타 자판기
+![](https://velog.velcdn.com/images/ezro/post/438e6e3a-d1bd-4fb5-8eb6-c3e6f67cdb21/image.png)
+```java
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class VendingMachine {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Map<String, Integer> drinks = new HashMap<>();
+
+        drinks.put("사이다", 1700);
+        drinks.put("콜라", 1900);
+        drinks.put("식혜", 2500);
+        drinks.put("솔의 눈", 3000);
+
+        while (true) {
+            System.out.println("---- MENU ----");
+            for (Map.Entry<String, Integer> drink : drinks.entrySet()) {
+                System.out.println(drink.getKey() + " " + drink.getValue() + "원");
+            }
+            System.out.println("---------------");
+            System.out.print("구매할 음료를 입력하세요: ");
+            String drinkPick = scanner.nextLine();
+
+            if (drinks.containsKey(drinkPick)) {
+                int price = drinks.get(drinkPick);
+                System.out.println(price + "원입니다.");
+
+                System.out.print("지불할 금액을 입력하세요: ");
+                int pay = scanner.nextInt();
+                scanner.nextLine();
+
+                if (pay < price) {
+                    System.out.println("돈이 부족합니다.");
+                    break;
+                } else if (pay > price) {
+                    System.out.println("잔돈: " + (pay - price) + "원");
+                    System.out.println("구매가 완료되었습니다.");
+                } else {
+                    System.out.println("구매가 완료되었습니다.");
+                }
+            } else {
+                System.out.println("목록에 없는 음료입니다.");
+                break;
+            }
+        }
+    }
+}
+```
+![](https://velog.velcdn.com/images/ezro/post/61c2b17d-8a77-42b8-b1c7-cdea099be130/image.gif)

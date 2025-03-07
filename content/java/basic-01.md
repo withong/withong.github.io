@@ -1,0 +1,58 @@
++++
+title = "[Java] 클래스와 객체"
+date = "2025-02-04T21:00:00+09:00"
+draft = "false"
+topic = ["java"]
+tag = ["study", "java"]
++++
+
+## 클래스
+객체를 생성하기 위한 설계도 또는 틀, 사용자 정의 타입 역할을 함.
+
+```java
+public class Student {
+	// 멤버 변수: 클래스 내에서 선언된 변수, 객체의 속성을 나타냄
+    String name;
+    int age;
+    int grade;
+}
+```
+
+<br>
+
+## 객체와 인스턴스
+**객체**: 클래스에서 정의한 속성과 기능을 가진 실체
+**인스턴스**: 특정 클래스로부터 생성된 객체, 어떤 클래스에 속하는지 강조할 때 사용
+
+→ 객체와 특정 클래스의 관계를 명확히 할 때 "인스턴스"라는 용어를 사용하지만, 본질적으로 같은 개념이므로 보통 구분 없이 사용됨
+
+```java
+// 인스턴스 생성
+// 참조 변수: 클래스 타입으로 선언된 변수, 객체의 참조값을 저장
+Student student1 = new Student();
+
+// 객체의 속성 값 설정
+student1.name = "홍길동";
+student1.age = 19;
+student1.grade = 90;
+```
+
+<br>
+
+## 객체 배열
+객체의 참조값을 저장하는 배열
+→ 객체 자체가 아니라 객체를 가리키는 참조 변수들의 배열
+
+```java
+// 객체 배열 생성 (각 요소는 null 상태)
+Student[] students = new Student[2];
+
+// 객체 할당 (기존 객체 사용)
+students[0] = student1;
+
+// 객체 직접 생성 후 할당
+students[1] = new Student();
+students[1].name = "김갑돌";
+students[1].age = 20;
+students[1].grade = 85;
+```
