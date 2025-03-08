@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="ko" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>[내일배움캠프] 10일차. 과제 회고 | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -39,16 +39,16 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
 오류 처리 방식 handleError → 커스텀 예외 처리
 ">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/camp/day-10/">
-<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
-<link rel="apple-touch-icon" href="https://withong.github.io/icons/code.png">
-<link rel="mask-icon" href="https://withong.github.io/icons/code.png">
+<link rel="canonical" href="http://localhost:1313/camp/day-10/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/code.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/code.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/code.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://withong.github.io/camp/day-10/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/camp/day-10/">
 <noscript>
     <style>
         #theme-toggle,
@@ -85,108 +85,7 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/camp/day-10/">
-  <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="[내일배움캠프] 10일차. 과제 회고">
-  <meta property="og:description" content=" ✅ [과제] Java 계산기 만들기 level 2 수정
-✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
-✅ [문제] 알고리즘 문제 풀기
-✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경
-→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 ">
-  <meta property="og:locale" content="ko-kr">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="camp">
-    <meta property="article:published_time" content="2025-02-28T21:00:00+09:00">
-    <meta property="article:modified_time" content="2025-02-28T21:00:00+09:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[내일배움캠프] 10일차. 과제 회고">
-<meta name="twitter:description" content="
-✅ [과제] Java 계산기 만들기 level 2 수정
-✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
-✅ [문제] 알고리즘 문제 풀기
-
-
-✅ 개인 과제 - 필수 구현
-
-[내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1
-[내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2
-
-
-🫠 level 1 vs level 2
-개선된 점
-
-계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리
-calculate()의 반환 타입 double에서 String으로 변경
-→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선
-CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선
-trimRecords() 추가하여 과도한 데이터 누적 방지
-0으로 나누기 처리 Error에서 정의되지 않음으로 개선
-int 범위 초과 처리 Error에서 연산 범위 초과로 개선
-최근 연산 기록 조회할 수 있도록 showRecords() 추가
-사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가.
-
-
-개선할 점
-
-int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
-오류 처리 방식 handleError → 커스텀 예외 처리
-">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Camps",
-      "item": "https://withong.github.io/camp/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "[내일배움캠프] 10일차. 과제 회고",
-      "item": "https://withong.github.io/camp/day-10/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "[내일배움캠프] 10일차. 과제 회고",
-  "name": "[내일배움캠프] 10일차. 과제 회고",
-  "description": " ✅ [과제] Java 계산기 만들기 level 2 수정\n✅ [과제] 과제 TIL \u0026amp; 트러블 슈팅 작성\n✅ [문제] 알고리즘 문제 풀기\n✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경\n→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 ",
-  "keywords": [
-    
-  ],
-  "articleBody": " ✅ [과제] Java 계산기 만들기 level 2 수정\n✅ [과제] 과제 TIL \u0026 트러블 슈팅 작성\n✅ [문제] 알고리즘 문제 풀기\n✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경\n→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 ",
-  "wordCount" : "143",
-  "inLanguage": "en",
-  "datePublished": "2025-02-28T21:00:00+09:00",
-  "dateModified": "2025-02-28T21:00:00+09:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://withong.github.io/camp/day-10/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "withong",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://withong.github.io/icons/code.png"
-    }
-  }
-}
-</script><script>
-    localStorage.removeItem("pref-theme");
-    localStorage.setItem("pref-theme", "dark");
-    document.documentElement.setAttribute("data-theme", "dark");
-  </script>
-  
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -204,7 +103,7 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -230,22 +129,22 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="Log">
+                <a href="http://localhost:1313/log/" title="Log">
                     <span>Log</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/topic/" title="Topic">
+                <a href="http://localhost:1313/topic/" title="Topic">
                     <span>Topic</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
+                <a href="http://localhost:1313/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -256,33 +155,30 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/camp/">Camp</a></div>
     <h1 class="post-title entry-hint-parent">
       [내일배움캠프] 10일차. 과제 회고
     </h1>
-    <div class="post-meta"><span title='2025-02-28 21:00:00 +0900 KST'>February 28, 2025</span>
+    <div class="post-meta"><span title='2025-02-28 21:00:00 +0900 KST'>2025년 2월 28일</span>
 
 </div>
   </header> <div class="toc">
-    <details >
+    <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#-%ea%b0%9c%ec%9d%b8-%ea%b3%bc%ec%a0%9c---%ed%95%84%ec%88%98-%ea%b5%ac%ed%98%84" aria-label="✅ 개인 과제 - 필수 구현">✅ 개인 과제 - 필수 구현</a></li>
-                <li>
-                    <a href="#-level-1-vs-level-2" aria-label="🫠 level 1 vs level 2">🫠 level 1 vs level 2</a><ul>
-                        
-                <li>
-                    <a href="#%ea%b0%9c%ec%84%a0%eb%90%9c-%ec%a0%90" aria-label="개선된 점">개선된 점</a></li>
-                <li>
-                    <a href="#%ea%b0%9c%ec%84%a0%ed%95%a0-%ec%a0%90" aria-label="개선할 점">개선할 점</a>
-                </li>
-            </ul>
-            </li>
-            </ul>
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#-개인-과제---필수-구현">✅ 개인 과제 - 필수 구현</a></li>
+    <li><a href="#-level-1-vs-level-2">🫠 <code>level 1 vs level 2</code></a>
+      <ul>
+        <li><a href="#개선된-점">개선된 점</a></li>
+        <li><a href="#개선할-점">개선할 점</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
         </div>
     </details>
 </div>
@@ -326,12 +222,12 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://withong.github.io/camp/task-02/">
+  <a class="prev" href="http://localhost:1313/camp/task-calculator-02/">
     <span class="title">« Prev</span>
     <br>
     <span>[내일배움캠프] 과제 - 계산기 2</span>
   </a>
-  <a class="next" href="https://withong.github.io/camp/day-09/">
+  <a class="next" href="http://localhost:1313/camp/day-09/">
     <span class="title">Next »</span>
     <br>
     <span>[내일배움캠프] 9일차. Java 심화 2</span>
@@ -343,7 +239,7 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
 
     <span>
         Powered by
@@ -410,6 +306,53 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✓';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

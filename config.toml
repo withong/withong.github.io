@@ -1,12 +1,14 @@
 baseURL = "https://withong.github.io/"
 relativeURLs = false
 canonifyURLs = true
-languageCode = "ko-kr"
+languageCode = "ko"
+defaultContentLanguage = "ko"
 title = "withong"
 theme = "papermod"
 disableThemeToggle = true
 defaultTheme = "dark"
 uglyURLs = false
+pygmentsUseClasses = true
 
 [taxonomies]
   category = "topic"
@@ -15,8 +17,14 @@ uglyURLs = false
 [params]
   title = "withong"
   description = "Today I Learned"
-  dateFormat = "January 2, 2006"
+  dateFormat = "2006년 1월 2일"
   mainsections = ["camp", "java", "topic", "tag", "search"]
+  ShowPostNavLinks = true
+  UseHugoToc = true
+  showtoc = true
+  tocopen = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
 
 [params.assets]
   disableFingerprinting = true
@@ -98,3 +106,6 @@ Content = "Today I Learned ✏️"
     startLevel = 2 # ##부터 목차에 포함 (#은 보통 문서 제목이라 생략)
     endLevel = 3 # ###까지 포함
     ordered = false # 번호 없는 리스트로 표시
+
+  [markup.highlight]
+    noClasses = false

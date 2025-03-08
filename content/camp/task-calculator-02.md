@@ -4,8 +4,6 @@ date = "2025-02-28T22:00:00+09:00"
 draft = false
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL", "과제", "계산기"]
-ShowToc = true
-ShowPostNavLinks = true
 +++
 
 ## 요구사항
@@ -35,6 +33,8 @@ ShowPostNavLinks = true
 
 ## 기능 구현
 
+<br>
+
 ### CalculationRecord
 계산 기록을 저장하는 역할을 하는 클래스  
 
@@ -44,6 +44,7 @@ ShowPostNavLinks = true
 - 불변 객체로 설계되어 한 번 생성된 후 값 변경 불가
 - `toString()` 오버라이딩을 통해 깔끔한 출력 형식 제공
 
+<br>
 
 ### Calculator
 계산기 기능을 제공하는 클래스
@@ -56,7 +57,6 @@ ShowPostNavLinks = true
 
 -  **`Calculator()`**  
    - 클래스가 생성될 때 `records` 리스트 초기화
-
 
 -  **`setUserNumber()`**  
   숫자를 입력받는 메서드.  
@@ -77,8 +77,6 @@ ShowPostNavLinks = true
      - 정상적인 연산자(`+`, `-`, `*`, `/`)가 입력되면 반환.
      - 잘못된 입력이면 오류 메시지를 출력하고 다시 입력 요청.
 
-  
-
 ![](https://velog.velcdn.com/images/ezro/post/30150e87-8fd9-4b12-9acf-c35d5f312ba0/image.png)
  
 -  **`calculate()`**  
@@ -88,8 +86,6 @@ ShowPostNavLinks = true
     - 잘못된 연산자가 입력되었을 경우 오류 출력 후 `Error` 반환.
     - 연산 중 `int` 범위를 초과하면 오류 출력 후 `연산 범위 초과` 반환.
     - 정상적인 경우 `String`으로 변환하여 연산 결과 반환.
-
-  
 
 ![](https://velog.velcdn.com/images/ezro/post/0dafc24a-88f4-4482-9c00-7f3855dc97c8/image.png)
 
@@ -118,8 +114,6 @@ ShowPostNavLinks = true
 -  **`trimRecords()`**  
   기록 개수를 제한하는 메서드.
      - 최대 10개까지만 저장되도록 유지, 초과 시 가장 오래된 기록 삭제.
-
-  
 
 ![](https://velog.velcdn.com/images/ezro/post/9fd97011-49ef-4d07-9a85-644bf90fde1a/image.png)
 
@@ -163,7 +157,7 @@ ShowPostNavLinks = true
     - 입력값이 범위 내에 존재하면 리스트에서 해당 인덱스의 기록을 삭제.
     - 삭제 완료 후 완료 메시지를 출력하고 메서드 종료.
 
----
+<br>
 
 ### App
 
@@ -175,24 +169,24 @@ ShowPostNavLinks = true
 
 -  **`main()`**  
   사용자 입력을 받아 계산기를 동작시키는 역할.  
-  메뉴를 출력하고, `Calculator` 클래스를 사용하여 연산을 수행 및 기록 관리.
-  - 메뉴를 출력하고, 사용자 입력을 받아 선택한 메뉴의 번호를 저장.
-  - `setUserChoice()` 메서드를 호출하여 사용자 입력 값 검증.
-  - 사용자가 유효한 값을 입력할 때까지 반복 요청.
-  
+  메뉴를 출력하고, `Calculator` 클래스를 사용하여 연산을 수행 및 기록 관리.  
+   - 메뉴를 출력하고, 사용자 입력을 받아 선택한 메뉴의 번호를 저장.
+   - `setUserChoice()` 메서드를 호출하여 사용자 입력 값 검증.
+   - 사용자가 유효한 값을 입력할 때까지 반복 요청.
+
    - 사용자로부터 첫 번째 숫자, 연산자, 두 번째 숫자를 입력받음.
    - 각 입력은 `Calculator` 클래스의 메서드를 사용하여 검증 후 저장.
    - 입력받은 숫자와 연산자를 이용하여 `calculate()` 메서드로 연산 수행.
    - 결과값을 `String` 형식으로 반환받아 저장.
    - 연산 결과를 `updateRecords()`를 통해 `Calculator`의 기록 리스트에 저장.
    - `showLastRecord()`를 호출하여 가장 최근 계산 결과를 출력.
-     
+
    - `showRecords()`를 호출하여 최근 10개의 계산 기록을 출력.
    - 기록이 없으면 "조회할 기록이 없습니다." 메시지 출력.
-     
+
    - 사용자가 삭제할 기록을 선택할 수 있도록 `removeRecords()` 호출.
    - 삭제할 기록을 선택하거나 `all`을 입력하면 전체 삭제 가능.
-     
+
    - 사용자가 4를 입력하면 종료 메시지를 출력 후 프로그램 종료.
 
 ![](https://velog.velcdn.com/images/ezro/post/a4f7c5c0-1a79-4bf4-bb8a-87d73dc61720/image.png)
@@ -208,7 +202,9 @@ ShowPostNavLinks = true
 
 ## 문제 및 해결
 
-**캡슐화 구현 방식**
+<br>
+
+### 캡슐화 구현 방식
 - **요구사항**
   - **App 클래스의 main 메서드에서 Calculator 클래스의 연산 결과를 저장하고 있는 컬렉션 필드에 직접 접근하지 못하도록 수정 (캡슐화)**
     - 간접 접근을 통해 필드에 접근하여 **가져올** 수 있도록 구현합니다. (Getter 메서드)
@@ -232,16 +228,16 @@ ShowPostNavLinks = true
 
 - **결과**
   - 주석 설명 추가
-  ```
-  이 'records' 필드는 private으로 감춰져 있습니다.
-  별도의 getRecords(), setRecords() 기능을 제공하지 않고,
-  showRecords(), showLastRecord(), removeRecords(), updateRecords() 메서드를 통해서만
-  기록을 조회/삭제/추가하도록 구현하여 캡슐화를 강화했습니다.
-  ```
+      ```
+      이 'records' 필드는 private으로 감춰져 있습니다.
+      별도의 getRecords(), setRecords() 기능을 제공하지 않고,
+      showRecords(), showLastRecord(), removeRecords(), updateRecords() 메서드를 통해서만
+      기록을 조회/삭제/추가하도록 구현하여 캡슐화를 강화했습니다.
+      ```
 
 ---  
   
-**컬렉션 데이터 삭제 기능**
+### 컬렉션 데이터 삭제 기능
 
 - **요구사항**
   - Calculator 클래스에 저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제하는 기능을 가진 메서드를 구현한 후 App 클래스의 main 메서드에 삭제 메서드가 활용될 수 있도록 수정
@@ -269,7 +265,7 @@ ShowPostNavLinks = true
 
 ---
 
-**연산 오류 처리**
+### 연산 오류 처리
 
 - **문제**
   - 이전 버전에서는 연산 오류가 발생했을 때 -9999를 반환했었으나, 계산기 프로그램에서 오류 결과를 숫자로 처리하는 것이 부적절하다고 판단해서 NaN으로 결과값을 변경함. 하지만 NaN은 int 범위가 초과했을 때의 결과 값으로 부적절함.

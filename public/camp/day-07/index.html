@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="ko" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>[내일배움캠프] 7일차. 객체지향 | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -35,16 +35,16 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 
 래퍼클래스 → 기본형 데이터를 객체처럼 다룰 수 있도록 감싸는 클래스. Integer, Double, Boolean 등 기본형의 객체화된 버전.">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/camp/day-07/">
-<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
-<link rel="apple-touch-icon" href="https://withong.github.io/icons/code.png">
-<link rel="mask-icon" href="https://withong.github.io/icons/code.png">
+<link rel="canonical" href="http://localhost:1313/camp/day-07/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/code.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/code.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/code.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://withong.github.io/camp/day-07/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/camp/day-07/">
 <noscript>
     <style>
         #theme-toggle,
@@ -81,102 +81,7 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/camp/day-07/">
-  <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="[내일배움캠프] 7일차. 객체지향">
-  <meta property="og:description" content=" ✅ 문법 세션 1 - 프로그래밍 기초
-✅ Java 문법 강의 2주차
-Chapter 2. 객체지향 이해하기 클래스와 객체 클래스(class) → 객체를 생성하기 위한 설계도. 속성과 기능을 정의하며, 동일한 구조를 가진 객체를 여러 개 생성할 수 있음. 객체(object) → 클래스를 기반으로 생성된 실체. 메모리에 할당되어 동작하며, 개별적으로 속성과 기능을 가짐. 인스턴스화(instantiate) → 클래스를 이용해 객체를 생성하는 과정. new 키워드를 사용해 객체를 메모리에 할당. 속성(property, field) → 객체가 가지는 데이터. 클래스 내부에서 변수 형태로 선언되며, 객체마다 서로 다른 값을 가질 수 있음. 생성자(constructor) → 객체가 생성될 때 호출되는 특수한 메서드. 속성을 초기화하고, 객체의 기본 상태를 설정하는 역할. 기능(method) → 객체가 수행하는 동작. 클래스 내부에서 정의되며, 특정 입력을 받아 처리한 후 결과를 반환하거나 상태를 변경함. JVM 메모리 영역 Method Area → 클래스 정보(클래스 이름, 메서드, 필드, static 변수 등)를 저장하는 공간. JVM이 시작될 때 로드되며, 모든 쓰레드가 공유. Stack Area → 메서드 호출 시 생성되는 스택 프레임을 저장하는 공간. 지역변수, 매개변수, 메서드 호출 정보가 포함되며, 호출이 끝나면 제거. 각 쓰레드마다 독립적인 스택을 가짐. Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워드로 생성된 객체가 저장되며, GC(Garbage Collector)가 관리. 모든 쓰레드가 공유. 래퍼클래스 래퍼클래스 → 기본형 데이터를 객체처럼 다룰 수 있도록 감싸는 클래스. Integer, Double, Boolean 등 기본형의 객체화된 버전.">
-  <meta property="og:locale" content="ko-kr">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="camp">
-    <meta property="article:published_time" content="2025-02-25T21:00:00+09:00">
-    <meta property="article:modified_time" content="2025-02-25T21:00:00+09:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[내일배움캠프] 7일차. 객체지향">
-<meta name="twitter:description" content="
-✅ 문법 세션 1 - 프로그래밍 기초
-✅ Java 문법 강의 2주차
-
-Chapter 2. 객체지향 이해하기
-
-클래스와 객체
-
-클래스(class) → 객체를 생성하기 위한 설계도. 속성과 기능을 정의하며, 동일한 구조를 가진 객체를 여러 개 생성할 수 있음.
-객체(object) → 클래스를 기반으로 생성된 실체. 메모리에 할당되어 동작하며, 개별적으로 속성과 기능을 가짐.
-인스턴스화(instantiate) → 클래스를 이용해 객체를 생성하는 과정. new 키워드를 사용해 객체를 메모리에 할당.
-속성(property, field) → 객체가 가지는 데이터. 클래스 내부에서 변수 형태로 선언되며, 객체마다 서로 다른 값을 가질 수 있음.
-생성자(constructor) → 객체가 생성될 때 호출되는 특수한 메서드. 속성을 초기화하고, 객체의 기본 상태를 설정하는 역할.
-기능(method) → 객체가 수행하는 동작. 클래스 내부에서 정의되며, 특정 입력을 받아 처리한 후 결과를 반환하거나 상태를 변경함.
-
-
-JVM 메모리 영역
-
-Method Area → 클래스 정보(클래스 이름, 메서드, 필드, static 변수 등)를 저장하는 공간. JVM이 시작될 때 로드되며, 모든 쓰레드가 공유.
-Stack Area → 메서드 호출 시 생성되는 스택 프레임을 저장하는 공간. 지역변수, 매개변수, 메서드 호출 정보가 포함되며, 호출이 끝나면 제거. 각 쓰레드마다 독립적인 스택을 가짐.
-Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워드로 생성된 객체가 저장되며, GC(Garbage Collector)가 관리. 모든 쓰레드가 공유.
-
-
-래퍼클래스
-
-
-래퍼클래스 → 기본형 데이터를 객체처럼 다룰 수 있도록 감싸는 클래스. Integer, Double, Boolean 등 기본형의 객체화된 버전.">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Camps",
-      "item": "https://withong.github.io/camp/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "[내일배움캠프] 7일차. 객체지향",
-      "item": "https://withong.github.io/camp/day-07/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "[내일배움캠프] 7일차. 객체지향",
-  "name": "[내일배움캠프] 7일차. 객체지향",
-  "description": " ✅ 문법 세션 1 - 프로그래밍 기초\n✅ Java 문법 강의 2주차\nChapter 2. 객체지향 이해하기 클래스와 객체 클래스(class) → 객체를 생성하기 위한 설계도. 속성과 기능을 정의하며, 동일한 구조를 가진 객체를 여러 개 생성할 수 있음. 객체(object) → 클래스를 기반으로 생성된 실체. 메모리에 할당되어 동작하며, 개별적으로 속성과 기능을 가짐. 인스턴스화(instantiate) → 클래스를 이용해 객체를 생성하는 과정. new 키워드를 사용해 객체를 메모리에 할당. 속성(property, field) → 객체가 가지는 데이터. 클래스 내부에서 변수 형태로 선언되며, 객체마다 서로 다른 값을 가질 수 있음. 생성자(constructor) → 객체가 생성될 때 호출되는 특수한 메서드. 속성을 초기화하고, 객체의 기본 상태를 설정하는 역할. 기능(method) → 객체가 수행하는 동작. 클래스 내부에서 정의되며, 특정 입력을 받아 처리한 후 결과를 반환하거나 상태를 변경함. JVM 메모리 영역 Method Area → 클래스 정보(클래스 이름, 메서드, 필드, static 변수 등)를 저장하는 공간. JVM이 시작될 때 로드되며, 모든 쓰레드가 공유. Stack Area → 메서드 호출 시 생성되는 스택 프레임을 저장하는 공간. 지역변수, 매개변수, 메서드 호출 정보가 포함되며, 호출이 끝나면 제거. 각 쓰레드마다 독립적인 스택을 가짐. Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워드로 생성된 객체가 저장되며, GC(Garbage Collector)가 관리. 모든 쓰레드가 공유. 래퍼클래스 래퍼클래스 → 기본형 데이터를 객체처럼 다룰 수 있도록 감싸는 클래스. Integer, Double, Boolean 등 기본형의 객체화된 버전.\n",
-  "keywords": [
-    
-  ],
-  "articleBody": " ✅ 문법 세션 1 - 프로그래밍 기초\n✅ Java 문법 강의 2주차\nChapter 2. 객체지향 이해하기 클래스와 객체 클래스(class) → 객체를 생성하기 위한 설계도. 속성과 기능을 정의하며, 동일한 구조를 가진 객체를 여러 개 생성할 수 있음. 객체(object) → 클래스를 기반으로 생성된 실체. 메모리에 할당되어 동작하며, 개별적으로 속성과 기능을 가짐. 인스턴스화(instantiate) → 클래스를 이용해 객체를 생성하는 과정. new 키워드를 사용해 객체를 메모리에 할당. 속성(property, field) → 객체가 가지는 데이터. 클래스 내부에서 변수 형태로 선언되며, 객체마다 서로 다른 값을 가질 수 있음. 생성자(constructor) → 객체가 생성될 때 호출되는 특수한 메서드. 속성을 초기화하고, 객체의 기본 상태를 설정하는 역할. 기능(method) → 객체가 수행하는 동작. 클래스 내부에서 정의되며, 특정 입력을 받아 처리한 후 결과를 반환하거나 상태를 변경함. JVM 메모리 영역 Method Area → 클래스 정보(클래스 이름, 메서드, 필드, static 변수 등)를 저장하는 공간. JVM이 시작될 때 로드되며, 모든 쓰레드가 공유. Stack Area → 메서드 호출 시 생성되는 스택 프레임을 저장하는 공간. 지역변수, 매개변수, 메서드 호출 정보가 포함되며, 호출이 끝나면 제거. 각 쓰레드마다 독립적인 스택을 가짐. Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워드로 생성된 객체가 저장되며, GC(Garbage Collector)가 관리. 모든 쓰레드가 공유. 래퍼클래스 래퍼클래스 → 기본형 데이터를 객체처럼 다룰 수 있도록 감싸는 클래스. Integer, Double, Boolean 등 기본형의 객체화된 버전.\n기본형 변수 → 실제 값을 직접 저장하는 변수. int, double, char 등 메모리에서 고정된 크기로 저장됨.\n참조형 변수 → 객체의 메모리 주소를 저장하는 변수. 배열, 클래스, 인터페이스 등 힙 영역에 저장된 객체를 가리킴.\n오토박싱 \u0026 언박싱 → 기본형 ↔ 래퍼클래스 간 자동 변환 기능.\n오토박싱: 기본형 → 래퍼클래스로 자동 변환 (int → Integer) 언박싱: 래퍼클래스 → 기본형으로 자동 변환 (Integer → int) // 오토 박싱 Integer num2 = 10; // 내부적으로 Integer.valueOf(10) 호출하여 객체 생성 Integer num3 = Integer.valueOf(10); // 직접 Integer 객체 생성 // 오토 언박싱 int num4 = num3; // 내부적으로 num3.intValue()를 호출 int num5 = num3.intValue(); // 직접 intValue() 호출하여 기본형으로 변환 static static 키워드 → 클래스 레벨에서 공유되는 변수 또는 메서드를 정의하는 키워드. static으로 선언된 변수와 메서드는 객체 생성 없이 사용 가능. 인스턴스 멤버 (인스턴스 변수, 인스턴스 메서드) → 객체(인스턴스)마다 독립적으로 존재하는 변수와 메서드. new를 통해 객체를 생성해야 접근 가능. 클래스 멤버 (클래스 변수, 클래스 메서드) → static 키워드를 사용해 클래스에 소속된 변수와 메서드. 모든 객체가 공유하며, 객체 생성 없이 클래스명.변수 또는 클래스명.메서드() 형태로 접근 가능. final final → 변수, 메서드, 클래스에 사용되며 값 변경 불가 또는 참조 변경 불가를 의미. final 변수 → 값 변경 불가능 (초기화 후 재할당 불가) final 메서드 → 하위 클래스에서 오버라이딩 불가 final 클래스 → 상속 불가 상수 (static final) → 변하지 않는 값을 저장하는 변수. static final로 선언하여 클래스 로드 시 한 번만 할당되며, 모든 인스턴스가 공유. 불변 객체 (Immutable Object) → 내부 상태가 한 번 설정되면 절대 변경되지 않는 객체. final 키워드를 활용해 필드 변경을 막고, setter를 제공하지 않음. 인터페이스 인터페이스란 → 클래스가 따라야 할 설계 표준을 정의하는 추상적 타입. 메서드의 시그니처(선언)만 포함하고, 구현은 하지 않음.\ninterface Animal { void makeSound(); // 메서드 선언 (구현 X) } 인터페이스를 사용하는 이유\n코드 표준화 → 여러 클래스가 동일한 방식으로 동작하도록 강제. 결합도 낮추기 → 구현체 변경 시 영향 최소화. 다형성 지원 → 인터페이스 타입으로 여러 구현 객체를 다룰 수 있음. 인터페이스 적용\n구현체 - 인터페이스를 구현한 클래스 Dog 클래스는 Animal 인터페이스를 구현하며, 반드시 makeSound()를 오버라이딩해야 함. class Dog implements Animal { @Override public void makeSound() { System.out.println(\"멍멍!\"); } } 인터페이스의 다양한 기능\n인터페이스 다중 구현 클래스는 여러 개의 인터페이스를 동시에 구현할 수 있음. interface Flyable { void fly(); } interface Swimable { void swim(); } class Duck implements Flyable, Swimable { public void fly() { System.out.println(\"오리가 난다!\"); } public void swim() { System.out.println(\"오리가 수영한다!\"); } } 인터페이스 다중상속\n인터페이스는 여러 개의 부모 인터페이스를 상속할 수 있음.\ninterface Animal { void eat(); } interface Pet { void play(); } interface Dog extends Animal, Pet { void bark(); } 인터페이스에 변수를 선언하는 경우\n인터페이스의 변수는 **항상 public static final(상수)**로 선언됨.\ninterface Config { int MAX_USERS = 100; // public static final 자동 적용 } 객체지향 - 캡슐화 객체의 데이터(필드)와 메서드(기능)를 하나로 묶고, 외부에서 직접 접근을 제한하는 기법. 중요한 데이터를 보호하고, 객체 내부의 구현을 숨길 수 있음.\n캡슐화가 필요한 이유\n데이터 보호 → 외부에서 직접 수정하지 못하게 막음. 코드 유지보수성 향상 → 내부 구현이 바뀌어도 외부에 영향을 주지 않음. 객체의 일관성 유지 → 잘못된 데이터 할당을 방지하고, 유효한 값만 저장 가능. 접근제어자\n데이터와 메서드에 대한 접근을 제어하는 키워드.\npublic → 어디서든 접근 가능 private → 해당 클래스 내에서만 접근 가능 protected → 같은 패키지 및 상속받은 클래스에서 접근 가능 default(지정 안 함) → 같은 패키지 내에서만 접근 가능 데이터 접근 - getter와 setter\nprivate 필드에 접근하기 위해 getter(읽기), setter(쓰기) 메서드를 제공.\nclass Person { private String name; public String getName() { // Getter (읽기) return name; } public void setName(String name) { // Setter (쓰기) this.name = name; } } getName()으로 이름을 읽고, setName()으로 값을 설정. 데이터 검증 로직 추가 가능 → 잘못된 데이터 입력 방지. 객체지향 - 상속 기존 클래스를 확장하여 코드 재사용성과 유지보수성을 높이는 개념.\nextends 키워드를 사용하여 부모 클래스(슈퍼 클래스)의 속성과 메서드를 자식 클래스(서브 클래스)에서 상속받음. 재사용성\n중복 코드 없이 부모 클래스의 기능을 그대로 사용 가능. 필요하면 추가 기능을 확장하거나, 기존 기능을 재정의(오버라이딩)할 수 있음. class Animal { void eat() { System.out.println(\"먹는다\"); } } class Dog extends Animal { void bark() { System.out.println(\"멍멍\"); } } Dog dog = new Dog(); dog.eat(); // \"먹는다\" (부모 클래스 메서드 사용) dog.bark(); // \"멍멍\" (자식 클래스 메서드) super - 부모 인스턴스\nsuper 키워드를 사용해 부모 클래스의 멤버(변수, 메서드)에 접근 가능. **super()**는 부모 클래스의 생성자를 호출할 때 사용. class Animal { String name; Animal(String name) { this.name = name; } } class Dog extends Animal { Dog(String name) { super(name); // 부모 클래스(Animal)의 생성자 호출 } } 확장 (Extending Functionality)\n자식 클래스는 부모 클래스의 기능을 그대로 상속받고, 새로운 기능을 추가할 수 있음. class Bird extends Animal { void fly() { System.out.println(\"날아간다\"); } } Bird bird = new Bird(); bird.eat(); // 부모 클래스 기능 사용 bird.fly(); // 자식 클래스에서 확장한 기능 재정의 - 메서드 오버라이딩\n부모 클래스의 메서드를 자식 클래스에서 **동일한 이름으로 재정의(Override)**하여 동작 변경 가능. @Override 어노테이션을 사용해 의도적인 재정의를 명확히 표현. class Animal { void makeSound() { System.out.println(\"동물이 소리를 낸다\"); } } class Dog extends Animal { @Override void makeSound() { System.out.println(\"멍멍\"); } // 부모 메서드 재정의 } Dog dog = new Dog(); dog.makeSound(); // \"멍멍\" 출력 (오버라이딩된 메서드 실행) 추상 클래스 (Abstract Class)\n객체를 직접 생성할 수 없는 클래스, 상속을 통해서만 사용 가능. 일부 메서드는 구현하지 않고 **추상 메서드(abstract method)**로 선언하여 자식 클래스에서 반드시 구현하도록 강제. abstract class Animal { abstract void makeSound(); // 추상 메서드 (구현 X) } class Dog extends Animal { @Override void makeSound() { System.out.println(\"멍멍\"); } } Object 클래스\n모든 클래스의 최상위 부모 클래스 equals(), hashCode(), toString(), clone() 등의 기본 메서드를 제공. 모든 Java 클래스는 Object를 자동으로 상속받음. class Example {} Example obj = new Example(); System.out.println(obj.toString()); // Object의 메서드 사용 객체지향 - 추상화 객체의 핵심적인 속성과 기능만 표현하고, 불필요한 세부 사항을 숨기는 개념. 객체를 계층적으로 표현하여 공통된 개념을 뽑아내는 과정. abstract class Vehicle { abstract void move(); // 핵심 기능만 선언 } 인터페이스 상속을 활용한 추상 계층 표현 인터페이스를 활용하면 여러 계층에서 공통된 기능을 정의하고, 세부 구현은 각각 다르게 가능. 다중 구현이 가능하여 유연한 설계를 지원. interface Animal { void makeSound(); // 추상화된 메서드 } class Dog implements Animal { public void makeSound() { System.out.println(\"멍멍\"); } } class Cat implements Animal { public void makeSound() { System.out.println(\"야옹\"); } } Animal 인터페이스를 상속받아 Dog, Cat이 각각의 방식으로 기능을 구현. 다형성을 활용할 수 있어 코드의 유연성이 증가. 클래스 상속을 활용한 추상 계층 표현 추상 클래스를 사용하여 공통된 속성과 메서드를 정의하고, 하위 클래스에서 이를 구체화. abstract class Vehicle { String brand; abstract void move(); // 하위 클래스에서 구현 void setBrand(String brand) { // 공통 메서드 this.brand = brand; } } class Car extends Vehicle { @Override void move() { System.out.println(\"도로를 달린다\"); } } class Airplane extends Vehicle { @Override void move() { System.out.println(\"하늘을 난다\"); } } 공통적인 속성을 유지하면서 확장 가능. 객체지향 - 다형성 하나의 객체가 여러 형태를 가질 수 있는 성질. 부모 타입으로 자식 객체를 참조할 수 있어, 코드의 유연성과 확장성이 증가.\nclass Animal { void makeSound() { System.out.println(\"동물이 소리를 낸다\"); } } class Dog extends Animal { @Override void makeSound() { System.out.println(\"멍멍!\"); } } Animal myPet = new Dog(); // 부모 타입으로 자식 객체 참조 (다형성) myPet.makeSound(); // \"멍멍!\" 출력 인터페이스를 활용한 다형성\n인터페이스 타입으로 여러 구현체를 다룰 수 있음.\ninterface Animal { void makeSound(); } class Dog implements Animal { public void makeSound() { System.out.println(\"멍멍!\"); } } class Cat implements Animal { public void makeSound() { System.out.println(\"야옹!\"); } } Animal pet1 = new Dog(); Animal pet2 = new Cat(); pet1.makeSound(); // \"멍멍!\" pet2.makeSound(); // \"야옹!\" 같은 인터페이스를 구현한 객체라면, 동일한 방식으로 다룰 수 있음. 추가 기능이 필요하면 새로운 클래스만 구현하면 됨 → 확장성 증가. 업캐스팅 (Upcasting)\n자식 객체를 부모 타입으로 변환 (자동 형변환).\nDog dog = new Dog(); Animal animal = dog; // 업캐스팅 (자동 변환) animal.makeSound(); // \"멍멍!\" 부모 타입으로 변환되기 때문에 부모가 가진 메서드만 호출 가능. 하지만, 오버라이딩된 메서드는 그대로 실행됨. 업캐스팅 주의사항\n업캐스팅된 객체는 자식 클래스의 고유 기능을 사용할 수 없음. class Dog extends Animal { void bark() { System.out.println(\"짖는다!\"); } } Animal pet = new Dog(); pet.bark(); // 오류! Animal 타입에는 bark() 없음 다운캐스팅 (Downcasting)\n부모 타입을 자식 타입으로 변환 (명시적 형변환 필요).\nAnimal pet = new Dog(); Dog myDog = (Dog) pet; // 다운캐스팅 (명시적 변환) myDog.bark(); // \"짖는다!\" 다운캐스팅하면 자식 클래스의 고유 메서드를 사용할 수 있음. 다운캐스팅 주의사항\n잘못된 다운캐스팅 시 ClassCastException 발생. Animal pet = new Cat(); Dog myDog = (Dog) pet; // 오류! Cat은 Dog로 변환할 수 없음. 안전한 다운캐스팅을 위해 instanceof 체크 필요. if (pet instanceof Dog) { Dog myDog = (Dog) pet; myDog.bark(); } ",
-  "wordCount" : "1573",
-  "inLanguage": "en",
-  "datePublished": "2025-02-25T21:00:00+09:00",
-  "dateModified": "2025-02-25T21:00:00+09:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://withong.github.io/camp/day-07/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "withong",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://withong.github.io/icons/code.png"
-    }
-  }
-}
-</script><script>
-    localStorage.removeItem("pref-theme");
-    localStorage.setItem("pref-theme", "dark");
-    document.documentElement.setAttribute("data-theme", "dark");
-  </script>
-  
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -194,7 +99,7 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -220,22 +125,22 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="Log">
+                <a href="http://localhost:1313/log/" title="Log">
                     <span>Log</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/topic/" title="Topic">
+                <a href="http://localhost:1313/topic/" title="Topic">
                     <span>Topic</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
+                <a href="http://localhost:1313/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -246,47 +151,37 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/camp/">Camp</a></div>
     <h1 class="post-title entry-hint-parent">
       [내일배움캠프] 7일차. 객체지향
     </h1>
-    <div class="post-meta"><span title='2025-02-25 21:00:00 +0900 KST'>February 25, 2025</span>
+    <div class="post-meta"><span title='2025-02-25 21:00:00 +0900 KST'>2025년 2월 25일</span>
 
 </div>
   </header> <div class="toc">
-    <details >
+    <details  open>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#chapter-2-%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5-%ec%9d%b4%ed%95%b4%ed%95%98%ea%b8%b0" aria-label="Chapter 2. 객체지향 이해하기">Chapter 2. 객체지향 이해하기</a><ul>
-                        
-                <li>
-                    <a href="#%ed%81%b4%eb%9e%98%ec%8a%a4%ec%99%80-%ea%b0%9d%ec%b2%b4" aria-label="클래스와 객체">클래스와 객체</a></li>
-                <li>
-                    <a href="#jvm-%eb%a9%94%eb%aa%a8%eb%a6%ac-%ec%98%81%ec%97%ad" aria-label="JVM 메모리 영역">JVM 메모리 영역</a></li>
-                <li>
-                    <a href="#%eb%9e%98%ed%8d%bc%ed%81%b4%eb%9e%98%ec%8a%a4" aria-label="래퍼클래스">래퍼클래스</a></li>
-                <li>
-                    <a href="#static" aria-label="static">static</a></li>
-                <li>
-                    <a href="#final" aria-label="final">final</a></li>
-                <li>
-                    <a href="#%ec%9d%b8%ed%84%b0%ed%8e%98%ec%9d%b4%ec%8a%a4" aria-label="인터페이스">인터페이스</a></li>
-                <li>
-                    <a href="#%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5---%ec%ba%a1%ec%8a%90%ed%99%94" aria-label="객체지향 - 캡슐화">객체지향 - 캡슐화</a></li>
-                <li>
-                    <a href="#%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5---%ec%83%81%ec%86%8d" aria-label="객체지향 - 상속">객체지향 - 상속</a></li>
-                <li>
-                    <a href="#%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5---%ec%b6%94%ec%83%81%ed%99%94" aria-label="객체지향 - 추상화">객체지향 - 추상화</a></li>
-                <li>
-                    <a href="#%ea%b0%9d%ec%b2%b4%ec%a7%80%ed%96%a5---%eb%8b%a4%ed%98%95%ec%84%b1" aria-label="객체지향 - 다형성">객체지향 - 다형성</a>
-                </li>
-            </ul>
-            </li>
-            </ul>
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter-2-객체지향-이해하기">Chapter 2. 객체지향 이해하기</a>
+      <ul>
+        <li><a href="#클래스와-객체">클래스와 객체</a></li>
+        <li><a href="#jvm-메모리-영역">JVM 메모리 영역</a></li>
+        <li><a href="#래퍼클래스">래퍼클래스</a></li>
+        <li><a href="#static">static</a></li>
+        <li><a href="#final">final</a></li>
+        <li><a href="#인터페이스">인터페이스</a></li>
+        <li><a href="#객체지향---캡슐화">객체지향 - 캡슐화</a></li>
+        <li><a href="#객체지향---상속">객체지향 - 상속</a></li>
+        <li><a href="#객체지향---추상화">객체지향 - 추상화</a></li>
+        <li><a href="#객체지향---다형성">객체지향 - 다형성</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
         </div>
     </details>
 </div>
@@ -331,14 +226,14 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <li><strong>오토박싱</strong>: 기본형 → 래퍼클래스로 자동 변환 (<code>int</code> → <code>Integer</code>)</li>
 <li><strong>언박싱</strong>: 래퍼클래스 → 기본형으로 자동 변환 (<code>Integer</code> → <code>int</code>)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 오토 박싱</span>
-</span></span><span style="display:flex;"><span>Integer num2 <span style="color:#f92672">=</span> 10; <span style="color:#75715e">// 내부적으로 Integer.valueOf(10) 호출하여 객체 생성</span>
-</span></span><span style="display:flex;"><span>Integer num3 <span style="color:#f92672">=</span> Integer.<span style="color:#a6e22e">valueOf</span>(10); <span style="color:#75715e">// 직접 Integer 객체 생성</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 오토 언박싱</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> num4 <span style="color:#f92672">=</span> num3; <span style="color:#75715e">// 내부적으로 num3.intValue()를 호출</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> num5 <span style="color:#f92672">=</span> num3.<span style="color:#a6e22e">intValue</span>(); <span style="color:#75715e">// 직접 intValue() 호출하여 기본형으로 변환</span>
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 오토 박싱</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Integer</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// 내부적으로 Integer.valueOf(10) 호출하여 객체 생성</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Integer</span><span class="w"> </span><span class="n">num3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// 직접 Integer 객체 생성</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 오토 언박싱</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">num4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num3</span><span class="p">;</span><span class="w"> </span><span class="c1">// 내부적으로 num3.intValue()를 호출</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">num5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num3</span><span class="p">.</span><span class="na">intValue</span><span class="p">();</span><span class="w"> </span><span class="c1">// 직접 intValue() 호출하여 기본형으로 변환</span><span class="w">
+</span></span></span></code></pre></div></li>
 </ul>
 <br>
 <h3 id="static">static<a hidden class="anchor" aria-hidden="true" href="#static">#</a></h3>
@@ -365,10 +260,10 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <ul>
 <li>
 <p><strong>인터페이스란</strong> → 클래스가 따라야 할 <strong>설계 표준</strong>을 정의하는 추상적 타입. 메서드의 시그니처(선언)만 포함하고, 구현은 하지 않음.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Animal</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// 메서드 선언 (구현 X)</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">();</span><span class="w"> </span><span class="c1">// 메서드 선언 (구현 X)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><strong>인터페이스를 사용하는 이유</strong></p>
 <ul>
@@ -383,50 +278,50 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <li><strong>구현체 - 인터페이스를 구현한 클래스</strong></li>
 <li><code>Dog</code> 클래스는 <code>Animal</code> 인터페이스를 구현하며, <strong>반드시 <code>makeSound()</code>를 오버라이딩해야 함</strong>.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">implements</span> Animal {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;멍멍!&#34;</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;멍멍!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><strong>인터페이스의 다양한 기능</strong></p>
 <ul>
 <li><strong>인터페이스 다중 구현</strong>
 클래스는 여러 개의 인터페이스를 동시에 구현할 수 있음.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Flyable</span> { <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fly</span>(); }
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Swimable</span> { <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swim</span>(); }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Duck</span> <span style="color:#66d9ef">implements</span> Flyable, Swimable {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fly</span>() { 
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;오리가 난다!&#34;</span>); 
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swim</span>() { 
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;오리가 수영한다!&#34;</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">Flyable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">interface</span> <span class="nc">Swimable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swim</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Duck</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Flyable</span><span class="p">,</span><span class="w"> </span><span class="n">Swimable</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;오리가 난다!&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swim</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;오리가 수영한다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
 <li>
 <p><strong>인터페이스 다중상속</strong><br>
 인터페이스는 여러 개의 부모 인터페이스를 상속할 수 있음.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Animal</span> { <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span>(); }
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Pet</span> { <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">play</span>(); }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal, Pet { 
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bark</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">eat</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">interface</span> <span class="nc">Pet</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">play</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">interface</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="p">,</span><span class="w"> </span><span class="n">Pet</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">bark</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 </ul>
 </li>
 <li>
 <p><strong>인터페이스에 변수를 선언하는 경우</strong><br>
 인터페이스의 변수는 **항상 <code>public static final</code>(상수)**로 선언됨.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Config</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> MAX_USERS <span style="color:#f92672">=</span> 100; <span style="color:#75715e">// public static final 자동 적용</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">Config</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX_USERS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">100</span><span class="p">;</span><span class="w"> </span><span class="c1">// public static final 자동 적용</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 </ul>
 <br>
 <h3 id="객체지향---캡슐화">객체지향 - 캡슐화<a hidden class="anchor" aria-hidden="true" href="#객체지향---캡슐화">#</a></h3>
@@ -455,18 +350,18 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <li>
 <p><strong>데이터 접근 - getter와 setter</strong><br>
 <code>private</code> 필드에 접근하기 위해 <strong>getter(읽기), setter(쓰기)</strong> 메서드를 제공.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span>() { <span style="color:#75715e">// Getter (읽기)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> name;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span>(String name) { <span style="color:#75715e">// Setter (쓰기)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Getter (읽기)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Setter (쓰기)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
 <li><code>getName()</code>으로 이름을 읽고, <code>setName()</code>으로 값을 설정.</li>
 <li><strong>데이터 검증 로직 추가 가능</strong> → 잘못된 데이터 입력 방지.</li>
 </ul>
@@ -487,82 +382,82 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <li>중복 코드 없이 <strong>부모 클래스의 기능을 그대로 사용</strong> 가능.</li>
 <li>필요하면 <strong>추가 기능을 확장하거나, 기존 기능을 재정의(오버라이딩)할 수 있음</strong>.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;먹는다&#34;</span>); }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bark</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;멍멍&#34;</span>); }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Dog dog <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
-</span></span><span style="display:flex;"><span>dog.<span style="color:#a6e22e">eat</span>();  <span style="color:#75715e">// &#34;먹는다&#34; (부모 클래스 메서드 사용)</span>
-</span></span><span style="display:flex;"><span>dog.<span style="color:#a6e22e">bark</span>(); <span style="color:#75715e">// &#34;멍멍&#34; (자식 클래스 메서드)</span>
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">eat</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;먹는다&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">bark</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;멍멍&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Dog</span><span class="w"> </span><span class="n">dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">dog</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span><span class="w">  </span><span class="c1">// &#34;먹는다&#34; (부모 클래스 메서드 사용)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">dog</span><span class="p">.</span><span class="na">bark</span><span class="p">();</span><span class="w"> </span><span class="c1">// &#34;멍멍&#34; (자식 클래스 메서드)</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><strong>super - 부모 인스턴스</strong></p>
 <ul>
 <li><strong><code>super</code> 키워드</strong>를 사용해 부모 클래스의 멤버(변수, 메서드)에 접근 가능.</li>
 <li>**<code>super()</code>**는 부모 클래스의 생성자를 호출할 때 사용.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
-</span></span><span style="display:flex;"><span>    String name;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Animal(String name) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name; }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
-</span></span><span style="display:flex;"><span>    Dog(String name) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>(name); <span style="color:#75715e">// 부모 클래스(Animal)의 생성자 호출</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Animal</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Dog</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w"> </span><span class="c1">// 부모 클래스(Animal)의 생성자 호출</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><strong>확장 (Extending Functionality)</strong></p>
 <ul>
 <li>자식 클래스는 부모 클래스의 기능을 <strong>그대로 상속받고, 새로운 기능을 추가할 수 있음</strong>.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Bird</span> <span style="color:#66d9ef">extends</span> Animal {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fly</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;날아간다&#34;</span>); }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Bird bird <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Bird();
-</span></span><span style="display:flex;"><span>bird.<span style="color:#a6e22e">eat</span>(); <span style="color:#75715e">// 부모 클래스 기능 사용</span>
-</span></span><span style="display:flex;"><span>bird.<span style="color:#a6e22e">fly</span>(); <span style="color:#75715e">// 자식 클래스에서 확장한 기능</span>
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Bird</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;날아간다&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Bird</span><span class="w"> </span><span class="n">bird</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Bird</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">bird</span><span class="p">.</span><span class="na">eat</span><span class="p">();</span><span class="w"> </span><span class="c1">// 부모 클래스 기능 사용</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">bird</span><span class="p">.</span><span class="na">fly</span><span class="p">();</span><span class="w"> </span><span class="c1">// 자식 클래스에서 확장한 기능</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><strong>재정의 - 메서드 오버라이딩</strong></p>
 <ul>
 <li>부모 클래스의 메서드를 자식 클래스에서 **동일한 이름으로 재정의(Override)**하여 동작 변경 가능.</li>
 <li><code>@Override</code> 어노테이션을 사용해 의도적인 재정의를 명확히 표현.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;동물이 소리를 낸다&#34;</span>); }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;멍멍&#34;</span>); } <span style="color:#75715e">// 부모 메서드 재정의</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Dog dog <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
-</span></span><span style="display:flex;"><span>dog.<span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// &#34;멍멍&#34; 출력 (오버라이딩된 메서드 실행)</span>
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;동물이 소리를 낸다&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;멍멍&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// 부모 메서드 재정의</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Dog</span><span class="w"> </span><span class="n">dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">dog</span><span class="p">.</span><span class="na">makeSound</span><span class="p">();</span><span class="w"> </span><span class="c1">// &#34;멍멍&#34; 출력 (오버라이딩된 메서드 실행)</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><strong>추상 클래스 (Abstract Class)</strong></p>
 <ul>
 <li><strong>객체를 직접 생성할 수 없는 클래스</strong>, 상속을 통해서만 사용 가능.</li>
 <li>일부 메서드는 구현하지 않고 **추상 메서드(abstract method)**로 선언하여 자식 클래스에서 반드시 구현하도록 강제.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// 추상 메서드 (구현 X)</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;멍멍&#34;</span>); }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">();</span><span class="w"> </span><span class="c1">// 추상 메서드 (구현 X)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;멍멍&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><strong>Object 클래스</strong></p>
 <ul>
@@ -570,41 +465,41 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <li><code>equals()</code>, <code>hashCode()</code>, <code>toString()</code>, <code>clone()</code> 등의 기본 메서드를 제공.</li>
 <li>모든 Java 클래스는 <code>Object</code>를 자동으로 상속받음.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> {}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Example obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Example();
-</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(obj.<span style="color:#a6e22e">toString</span>()); <span style="color:#75715e">// Object의 메서드 사용</span>
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Example</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Example</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Example</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"> </span><span class="c1">// Object의 메서드 사용</span><span class="w">
+</span></span></span></code></pre></div></li>
 </ul>
 <br>
 <h3 id="객체지향---추상화">객체지향 - 추상화<a hidden class="anchor" aria-hidden="true" href="#객체지향---추상화">#</a></h3>
 <ul>
 <li>객체의 <strong>핵심적인 속성과 기능만 표현하고, 불필요한 세부 사항을 숨기는 개념</strong>. 객체를 계층적으로 표현하여 공통된 개념을 뽑아내는 과정.
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Vehicle</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">move</span>(); <span style="color:#75715e">// 핵심 기능만 선언</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Vehicle</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">();</span><span class="w"> </span><span class="c1">// 핵심 기능만 선언</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li><strong>인터페이스 상속을 활용한 추상 계층 표현</strong>
 <ul>
 <li>인터페이스를 활용하면 <strong>여러 계층에서 공통된 기능을 정의하고, 세부 구현은 각각 다르게 가능</strong>.</li>
 <li>다중 구현이 가능하여 유연한 설계를 지원.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Animal</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// 추상화된 메서드</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">implements</span> Animal {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;멍멍&#34;</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">implements</span> Animal {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;야옹&#34;</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">();</span><span class="w"> </span><span class="c1">// 추상화된 메서드</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;멍멍&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;야옹&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
 <li><code>Animal</code> 인터페이스를 상속받아 <code>Dog</code>, <code>Cat</code>이 각각의 방식으로 기능을 구현.</li>
 <li><strong>다형성을 활용할 수 있어 코드의 유연성이 증가</strong>.</li>
 </ul>
@@ -613,30 +508,30 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <ul>
 <li><strong>추상 클래스</strong>를 사용하여 공통된 속성과 메서드를 정의하고, 하위 클래스에서 이를 구체화.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Vehicle</span> {
-</span></span><span style="display:flex;"><span>    String brand;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">move</span>(); <span style="color:#75715e">// 하위 클래스에서 구현</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setBrand</span>(String brand) { <span style="color:#75715e">// 공통 메서드</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">brand</span> <span style="color:#f92672">=</span> brand;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#66d9ef">extends</span> Vehicle {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">move</span>() {
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;도로를 달린다&#34;</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Airplane</span> <span style="color:#66d9ef">extends</span> Vehicle {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">move</span>() {
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;하늘을 난다&#34;</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Vehicle</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">brand</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">();</span><span class="w"> </span><span class="c1">// 하위 클래스에서 구현</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setBrand</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">brand</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 공통 메서드</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">brand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">brand</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Car</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Vehicle</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;도로를 달린다&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Airplane</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Vehicle</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;하늘을 난다&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
 <li><strong>공통적인 속성을 유지하면서 확장 가능.</strong></li>
 </ul>
 </li>
@@ -646,39 +541,39 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <ul>
 <li>
 <p>하나의 객체가 <strong>여러 형태</strong>를 가질 수 있는 성질. 부모 타입으로 자식 객체를 참조할 수 있어, 코드의 <strong>유연성과 확장성</strong>이 증가.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;동물이 소리를 낸다&#34;</span>); }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;멍멍!&#34;</span>); }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Animal myPet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog(); <span style="color:#75715e">// 부모 타입으로 자식 객체 참조 (다형성)</span>
-</span></span><span style="display:flex;"><span>myPet.<span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// &#34;멍멍!&#34; 출력</span>
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;동물이 소리를 낸다&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;멍멍!&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Animal</span><span class="w"> </span><span class="n">myPet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span><span class="w"> </span><span class="c1">// 부모 타입으로 자식 객체 참조 (다형성)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">myPet</span><span class="p">.</span><span class="na">makeSound</span><span class="p">();</span><span class="w"> </span><span class="c1">// &#34;멍멍!&#34; 출력</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><strong>인터페이스를 활용한 다형성</strong><br>
 인터페이스 타입으로 여러 구현체를 다룰 수 있음.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Animal</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">implements</span> Animal {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;멍멍!&#34;</span>); }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">implements</span> Animal {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;야옹!&#34;</span>); }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Animal pet1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
-</span></span><span style="display:flex;"><span>Animal pet2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>pet1.<span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// &#34;멍멍!&#34;</span>
-</span></span><span style="display:flex;"><span>pet2.<span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// &#34;야옹!&#34;</span>
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;멍멍!&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;야옹!&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Animal</span><span class="w"> </span><span class="n">pet1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Animal</span><span class="w"> </span><span class="n">pet2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">pet1</span><span class="p">.</span><span class="na">makeSound</span><span class="p">();</span><span class="w"> </span><span class="c1">// &#34;멍멍!&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">pet2</span><span class="p">.</span><span class="na">makeSound</span><span class="p">();</span><span class="w"> </span><span class="c1">// &#34;야옹!&#34;</span><span class="w">
+</span></span></span></code></pre></div><ul>
 <li><strong>같은 인터페이스를 구현한 객체라면, 동일한 방식으로 다룰 수 있음.</strong></li>
 <li><strong>추가 기능이 필요하면 새로운 클래스만 구현하면 됨 → 확장성 증가.</strong></li>
 </ul>
@@ -686,10 +581,10 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <li>
 <p><strong>업캐스팅 (Upcasting)</strong><br>
 자식 객체를 <strong>부모 타입</strong>으로 변환 (자동 형변환).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Dog dog <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
-</span></span><span style="display:flex;"><span>Animal animal <span style="color:#f92672">=</span> dog; <span style="color:#75715e">// 업캐스팅 (자동 변환)</span>
-</span></span><span style="display:flex;"><span>animal.<span style="color:#a6e22e">makeSound</span>(); <span style="color:#75715e">// &#34;멍멍!&#34;</span>
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Dog</span><span class="w"> </span><span class="n">dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Animal</span><span class="w"> </span><span class="n">animal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dog</span><span class="p">;</span><span class="w"> </span><span class="c1">// 업캐스팅 (자동 변환)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">animal</span><span class="p">.</span><span class="na">makeSound</span><span class="p">();</span><span class="w"> </span><span class="c1">// &#34;멍멍!&#34;</span><span class="w">
+</span></span></span></code></pre></div><ul>
 <li>부모 타입으로 변환되기 때문에 <strong>부모가 가진 메서드만 호출 가능.</strong></li>
 <li><strong>하지만, 오버라이딩된 메서드는 그대로 실행됨.</strong></li>
 </ul>
@@ -699,20 +594,20 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <ul>
 <li>업캐스팅된 객체는 <strong>자식 클래스의 고유 기능을 사용할 수 없음.</strong></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bark</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;짖는다!&#34;</span>); }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Animal pet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
-</span></span><span style="display:flex;"><span>pet.<span style="color:#a6e22e">bark</span>(); <span style="color:#75715e">// 오류! Animal 타입에는 bark() 없음</span>
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">bark</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;짖는다!&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Animal</span><span class="w"> </span><span class="n">pet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">pet</span><span class="p">.</span><span class="na">bark</span><span class="p">();</span><span class="w"> </span><span class="c1">// 오류! Animal 타입에는 bark() 없음</span><span class="w">
+</span></span></span></code></pre></div></li>
 <li>
 <p><strong>다운캐스팅 (Downcasting)</strong><br>
 부모 타입을 <strong>자식 타입</strong>으로 변환 (명시적 형변환 필요).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Animal pet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
-</span></span><span style="display:flex;"><span>Dog myDog <span style="color:#f92672">=</span> (Dog) pet; <span style="color:#75715e">// 다운캐스팅 (명시적 변환)</span>
-</span></span><span style="display:flex;"><span>myDog.<span style="color:#a6e22e">bark</span>(); <span style="color:#75715e">// &#34;짖는다!&#34;</span>
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Animal</span><span class="w"> </span><span class="n">pet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Dog</span><span class="w"> </span><span class="n">myDog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Dog</span><span class="p">)</span><span class="w"> </span><span class="n">pet</span><span class="p">;</span><span class="w"> </span><span class="c1">// 다운캐스팅 (명시적 변환)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">myDog</span><span class="p">.</span><span class="na">bark</span><span class="p">();</span><span class="w"> </span><span class="c1">// &#34;짖는다!&#34;</span><span class="w">
+</span></span></span></code></pre></div><ul>
 <li>다운캐스팅하면 <strong>자식 클래스의 고유 메서드를 사용할 수 있음.</strong></li>
 </ul>
 </li>
@@ -721,16 +616,16 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
 <ul>
 <li>잘못된 다운캐스팅 시 <strong><code>ClassCastException</code> 발생</strong>.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Animal pet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat();
-</span></span><span style="display:flex;"><span>Dog myDog <span style="color:#f92672">=</span> (Dog) pet; <span style="color:#75715e">// 오류! Cat은 Dog로 변환할 수 없음.</span>
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Animal</span><span class="w"> </span><span class="n">pet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Dog</span><span class="w"> </span><span class="n">myDog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Dog</span><span class="p">)</span><span class="w"> </span><span class="n">pet</span><span class="p">;</span><span class="w"> </span><span class="c1">// 오류! Cat은 Dog로 변환할 수 없음.</span><span class="w">
+</span></span></span></code></pre></div><ul>
 <li>안전한 다운캐스팅을 위해 <strong><code>instanceof</code> 체크 필요.</strong></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (pet <span style="color:#66d9ef">instanceof</span> Dog) {
-</span></span><span style="display:flex;"><span>    Dog myDog <span style="color:#f92672">=</span> (Dog) pet;
-</span></span><span style="display:flex;"><span>    myDog.<span style="color:#a6e22e">bark</span>();
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pet</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Dog</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Dog</span><span class="w"> </span><span class="n">myDog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Dog</span><span class="p">)</span><span class="w"> </span><span class="n">pet</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">myDog</span><span class="p">.</span><span class="na">bark</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></li>
 </ul>
 
 
@@ -740,12 +635,12 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://withong.github.io/camp/day-08/">
+  <a class="prev" href="http://localhost:1313/camp/day-08/">
     <span class="title">« Prev</span>
     <br>
     <span>[내일배움캠프] 8일차. Java 심화 1</span>
   </a>
-  <a class="next" href="https://withong.github.io/java/basic-08/">
+  <a class="next" href="http://localhost:1313/java/basic-08/">
     <span class="title">Next »</span>
     <br>
     <span>[Java] final</span>
@@ -757,7 +652,7 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
 
     <span>
         Powered by
@@ -824,6 +719,53 @@ Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워�
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✓';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 
