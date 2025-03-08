@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="ko" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Java | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="Today I Learned">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/topic/java/">
-<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
-<link rel="apple-touch-icon" href="https://withong.github.io/icons/code.png">
-<link rel="mask-icon" href="https://withong.github.io/icons/code.png">
+<link rel="canonical" href="http://localhost:1313/topic/java/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/code.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/code.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/code.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://withong.github.io/topic/java/index.xml">
-<link rel="alternate" hreflang="en" href="https://withong.github.io/topic/java/">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/topic/java/index.xml">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/topic/java/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,20 +56,11 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/topic/java/">
-  <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="Java">
-  <meta property="og:description" content="Today I Learned">
-  <meta property="og:locale" content="ko-kr">
-  <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java">
-<meta name="twitter:description" content="Today I Learned">
-<script>
+</noscript><script>
     localStorage.removeItem("pref-theme");
     localStorage.setItem("pref-theme", "dark");
     document.documentElement.setAttribute("data-theme", "dark");
-  </script>
+</script>
   
 </head>
 
@@ -88,7 +79,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -114,22 +105,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="Log">
+                <a href="http://localhost:1313/log/" title="Log">
                     <span>Log</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/topic/" title="Topic">
+                <a href="http://localhost:1313/topic/" title="Topic">
                     <span>Topic</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
+                <a href="http://localhost:1313/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -137,11 +128,26 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header">
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/topic/">Topic</a></div>
   <h1>
     Java
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[Java] 생성자
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>생성자 객체가 생성될 때 자동으로 호출되는 메서드로, 객체를 초기화하는 데 사용됨. 생성자는 클래스와 동일한 이름을 가지며, 반환 타입이 없음.
+기본 생성자 (Default Constructor) 클래스에 명시적으로 생성자가 없으면, Java가 자동으로 기본 생성자를 제공함. 기본 생성자는 매개변수가 없으며, 객체의 필드를 기본값으로 초기화 됨.
+public class Book { String title; String author; int page; } Book book = new Book(); 매개변수화된 생성자 (Parameterized Constructor) 생성자를 통해 객체 생성 시 값을 전달받아 초기화할 수 있음. 클래스에 명시적으로 생성자가 하나라도 있으면, 기본 생성자는 제공되지 않음.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-10 21:00:00 +0900 KST'>2025년 2월 10일</span></footer>
+  <a class="entry-link" aria-label="post link to [Java] 생성자" href="http://localhost:1313/java/basic-04/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
@@ -153,8 +159,8 @@
 public class MusicPlayerData { int volume = 0; boolean isOn = false; } public static void main(String[] args) { MusicPlayerData data = new MusicPlayerData(); // 음악 플레이어 켜기 on(data); // 볼륨 증가 volumeUp(data); // 음악 플레이어 끄기 off(data); } static void on(MusicPlayerData data) { data.isOn = true; System.out.println(&#34;음악 플레이어를 시작합니다.&#34;); } static void off(MusicPlayerData data) { data.isOn = false; System.out.println(&#34;음악 플레이어를 종료합니다.&#34;); } static void volumeUp(MusicPlayerData data) { data.volume&#43;&#43;; System.out.println(&#34;음악 플레이어 볼륨: &#34; &#43; data.volume); } 데이터와 기능이 분리되어 있으며, 주로 함수로 작업을 처리함.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-02-07 21:00:00 +0900 KST'>February 7, 2025</span></footer>
-  <a class="entry-link" aria-label="post link to [Java] 객체 지향 프로그래밍" href="https://withong.github.io/java/basic-03/"></a>
+  <footer class="entry-footer"><span title='2025-02-07 21:00:00 +0900 KST'>2025년 2월 7일</span></footer>
+  <a class="entry-link" aria-label="post link to [Java] 객체 지향 프로그래밍" href="http://localhost:1313/java/basic-03/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -169,8 +175,8 @@ int a = 10; int b = a; // a: 10, b: 10 a = 20; // a: 20, b: 10 b = 30; // a: 20,
 public class Data { int value; } Data dataA = new Data(); dataA.value = 10; Data dataB = dataA; // dataA.value: 10, dataB.value: 10 dataA.value = 20; // dataA.value: 20, dataB.value: 20 dataB.value = 30; // dataA.value: 30, dataB.value: 30 같은 객체를 가리키므로 하나를 변경하면 다른 하나도 영향을 받음.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-02-06 21:00:00 +0900 KST'>February 6, 2025</span></footer>
-  <a class="entry-link" aria-label="post link to [Java] 기본형과 참조형" href="https://withong.github.io/java/basic-02/"></a>
+  <footer class="entry-footer"><span title='2025-02-06 21:00:00 +0900 KST'>2025년 2월 6일</span></footer>
+  <a class="entry-link" aria-label="post link to [Java] 기본형과 참조형" href="http://localhost:1313/java/basic-02/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -184,20 +190,20 @@ public class Student { // 멤버 변수: 클래스 내에서 선언된 변수, �
 → 객체와 특정 클래스의 관계를 명확히 할 때 “인스턴스&#34;라는 용어를 사용하지만, 본질적으로 같은 개념이므로 보통 구분 없이 사용됨
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-02-04 21:00:00 +0900 KST'>February 4, 2025</span></footer>
-  <a class="entry-link" aria-label="post link to [Java] 클래스와 객체" href="https://withong.github.io/java/basic-01/"></a>
+  <footer class="entry-footer"><span title='2025-02-04 21:00:00 +0900 KST'>2025년 2월 4일</span></footer>
+  <a class="entry-link" aria-label="post link to [Java] 클래스와 객체" href="http://localhost:1313/java/basic-01/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="prev" href="https://withong.github.io/topic/java/">
-      «&nbsp;Prev&nbsp;
+    <a class="prev" href="http://localhost:1313/topic/java/">
+      «&nbsp;이전 페이지&nbsp;
     </a>
   </nav>
 </footer>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
 
     <span>
         Powered by

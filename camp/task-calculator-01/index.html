@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>[내일배움캠프] 과제 - 계산기 1 | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="요구사항
+클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기
+
+
+양의 정수(0 포함)를 입력받기
+
+Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.
+양의 정수는 각각 하나씩 전달 받습니다.
+양의 정수는 적합한 타입으로 선언한 변수에 저장합니다.
+
+
+
+사칙연산 기호(➕,➖,✖️,➗)를 입력받기
+
+Scanner를 사용하여 사칙연산 기호를 전달 받을 수 있습니다.
+사칙연산 기호를 적합한 타입으로 선언한 변수에 저장합니다. (charAt(0))
+
+
+
+위에서 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산을 진행한 후 결과값을 출력하기
+
+키워드 : if switch
+사칙연산 기호에 맞는 연산자를 사용하여 연산을 진행합니다.
+입력받은 연산 기호를 구분하기 위해 제어문을 사용합니다. (예를 들면 if, switch)
+연산 오류가 발생할 경우 해당 오류에 대한 내용을 정제하여 출력합니다.
+
+ex) “나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.“
+
+
+
+
+
+반복문을 사용하되, 반복의 종료를 알려주는 “exit” 문자열을 입력하기 전까지 무한으로 계산을 진행할 수 있도록 소스 코드를 수정하기">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/camp/task-calculator-01/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/code.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/code.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/code.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/camp/task-calculator-01/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/topic/" title="Topic">
+                    <span>Topic</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/camp/">Camp</a></div>
+    <h1 class="post-title entry-hint-parent">
+      [내일배움캠프] 과제 - 계산기 1
+    </h1>
+    <div class="post-meta"><span title='2025-02-26 22:00:00 +0900 KST'>2025년 2월 26일</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#요구사항">요구사항</a></li>
+    <li><a href="#기능-구현">기능 구현</a>
+      <ul>
+        <li><a href="#main"><code>main()</code></a></li>
+        <li><a href="#getusernumber"><code>getUserNumber()</code></a></li>
+        <li><a href="#getuseroperator"><code>getUserOperator()</code></a></li>
+        <li><a href="#calculate"><code>calculate()</code></a></li>
+        <li><a href="#isend"><code>isEnd()</code></a></li>
+        <li><a href="#handleerror"><code>handleError()</code></a></li>
+        <li><a href="#printresultmessage"><code>printResultMessage()</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#문제-및-해결">문제 및 해결</a>
+      <ul>
+        <li><a href="#hasnextint-빈-입력-처리"><code>hasNextInt()</code> 빈 입력 처리</a></li>
+        <li><a href="#int-범위-초과-입력"><code>int</code> 범위 초과 입력</a></li>
+      </ul>
+    </li>
+    <li><a href="#실행-예시">실행 예시</a>
+      <ul>
+        <li><a href="#정상-실행-예시">정상 실행 예시</a></li>
+        <li><a href="#오류-실행-예시">오류 실행 예시</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="요구사항">요구사항<a hidden class="anchor" aria-hidden="true" href="#요구사항">#</a></h2>
+<p>클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기</p>
+<ul>
+<li>
+<p><strong>양의 정수(0 포함)를 입력받기</strong></p>
+<ul>
+<li>Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.</li>
+<li>양의 정수는 각각 하나씩 전달 받습니다.</li>
+<li>양의 정수는 적합한 타입으로 선언한 변수에 저장합니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>사칙연산 기호(➕,➖,✖️,➗)를 입력받기</strong></p>
+<ul>
+<li>Scanner를 사용하여 사칙연산 기호를 전달 받을 수 있습니다.</li>
+<li>사칙연산 기호를 적합한 타입으로 선언한 변수에 저장합니다. (<code>charAt(0)</code>)</li>
+</ul>
+</li>
+<li>
+<p><strong>위에서 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산을 진행한 후 결과값을 출력하기</strong></p>
+<ul>
+<li>키워드 : <code>if</code> <code>switch</code></li>
+<li>사칙연산 기호에 맞는 연산자를 사용하여 연산을 진행합니다.</li>
+<li>입력받은 연산 기호를 구분하기 위해 제어문을 사용합니다. (예를 들면 if, switch)</li>
+<li>연산 오류가 발생할 경우 해당 오류에 대한 내용을 정제하여 출력합니다.
+<ul>
+<li>ex) “나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.“</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>반복문을 사용하되, 반복의 종료를 알려주는 “exit” 문자열을 입력하기 전까지 무한으로 계산을 진행할 수 있도록 소스 코드를 수정하기</strong></p>
+<ul>
+<li>키워드 : 무한으로 반복, 수정하기 (처음부터 무한 반복하는 것이 아니라, 위 스텝별로 진행하며 수정)</li>
+<li>반복문을 사용합니다. (예를 들어, for, while…)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="기능-구현">기능 구현<a hidden class="anchor" aria-hidden="true" href="#기능-구현">#</a></h2>
+<h3 id="main"><code>main()</code><a hidden class="anchor" aria-hidden="true" href="#main">#</a></h3>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/61f931cd-b324-4252-8fdb-dcf3c4bd7825/image.png"></p>
+<ul>
+<li>프로그램 실행 &amp; 반복문으로 지속적인 입력을 받는다.</li>
+<li>0 이상의 정수 2개와 연산자를 입력받고, 연산을 수행한다.</li>
+<li>연산 결과를 일관된 형식으로 출력한다.</li>
+<li>종료 여부를 확인하고 <code>exit</code> 입력 시 프로그램을 종료한다.</li>
+</ul>
+<br>
+<h3 id="getusernumber"><code>getUserNumber()</code><a hidden class="anchor" aria-hidden="true" href="#getusernumber">#</a></h3>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/c517eaa0-3916-44ae-a2da-2623041d91d1/image.png"></p>
+<ul>
+<li>사용자로부터 0 이상의 정수를 입력받는다.</li>
+<li>입력 값 검증을 진행한다. (빈 값, 음수, int 범위 초과)</li>
+<li>입력이 유효하지 않으면 오류 메시지를 출력하고 재입력을 요청한다.</li>
+</ul>
+<br>
+<h3 id="getuseroperator"><code>getUserOperator()</code><a hidden class="anchor" aria-hidden="true" href="#getuseroperator">#</a></h3>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/221f0ffe-f383-4cc8-ada7-0d98f0cfe714/image.png"></p>
+<ul>
+<li>사용자로부터 연산자(<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>)를 입력받고 검증한다.</li>
+<li>입력이 유효하지 않으면 오류 메시지를 출력하고 재입력을 요청한다.</li>
+</ul>
+<br>
+<h3 id="calculate"><code>calculate()</code><a hidden class="anchor" aria-hidden="true" href="#calculate">#</a></h3>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/3c1ff147-5cec-4537-9811-d400af9070bb/image.png"></p>
+<ul>
+<li>입력된 연산자 값에 따라 switch 문을 사용하여 연산을 수행한다.</li>
+<li><code>int</code> 오버플로우를 방지한다. <code>Math.~~~</code></li>
+<li>나눗셈에서 두 번째 숫자가 <code>0</code>이면 <code>handleError()</code>를 호출한다.</li>
+<li>연산 결과를 반환한다. 예외 발생 시 <code>-9999</code>를 반환한다.</li>
+</ul>
+<br>
+<h3 id="isend"><code>isEnd()</code><a hidden class="anchor" aria-hidden="true" href="#isend">#</a></h3>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/88214d52-4de3-42dd-b2d4-e461a6ebe7a8/image.png"></p>
+<ul>
+<li>프로그램 종료 여부를 확인한다.</li>
+<li><code>exit</code> 입력 시 <code>true</code>를 반환한다. (종료)</li>
+<li><code>enter</code> 시 <code>false</code>를 반환한다. (반복)</li>
+<li>그 외의 값일 경우 정상적인 값이 들어올 때까지 반복한다.</li>
+</ul>
+<br>
+<h3 id="handleerror"><code>handleError()</code><a hidden class="anchor" aria-hidden="true" href="#handleerror">#</a></h3>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/8db4b842-f2c5-4fd2-8be0-b41e8c0a7105/image.png"></p>
+<ul>
+<li>오류 메시지를 한 곳에서 관리한다.</li>
+<li>오류 발생 시 적절한 오류 메시지를 반환한다.</li>
+</ul>
+<br>
+<h3 id="printresultmessage"><code>printResultMessage()</code><a hidden class="anchor" aria-hidden="true" href="#printresultmessage">#</a></h3>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/55ee11bf-872d-4a75-967e-60fb3a5673aa/image.png"></p>
+<ul>
+<li><code>DecimalFormat</code>을 활용하여 소수점이 존재하면 최대 8자리까지 반올림하여 표현하고, 소수점 이하가 0이면 정수 형태로 출력한다.</li>
+<li>연산 결과를 일관된 형식으로 출력한다.</li>
+<li>결과 값이 <code>-9999</code>이면 결과 값에 <code>Error</code>를 출력한다.</li>
+<li>정상적인 연산이면 결과 값을 출력한다.</li>
+</ul>
+<hr>
+<h2 id="문제-및-해결">문제 및 해결<a hidden class="anchor" aria-hidden="true" href="#문제-및-해결">#</a></h2>
+<h3 id="hasnextint-빈-입력-처리"><code>hasNextInt()</code> 빈 입력 처리<a hidden class="anchor" aria-hidden="true" href="#hasnextint-빈-입력-처리">#</a></h3>
+<ul>
+<li>
+<p><strong>문제</strong></p>
+<ul>
+<li>사용자로부터 숫자를 입력받을 때 <strong>엔터만</strong> 입력 시 다음 단계로 진행되지 않고 입력을 계속 기다리는 현상 발견.</li>
+</ul>
+</li>
+<li>
+<p><strong>분석</strong></p>
+<ul>
+<li>초기에는 <code>hasNextInt()</code>를 사용하여 입력 값이 숫자인지 확인하고, 숫자일 때만 <code>nextInt()</code>로 변환하여 값을 변수에 담고 있었음.</li>
+<li>이때, 사용자가 엔터만 입력하면 <code>hasNextInt()</code>가 버퍼에서 정수를 찾을 수 없으므로 <code>false</code>를 반환하게 되어, 사용자가 숫자를 입력할 때까지 무한 대기 상태에 빠지게 되는 문제 확인.</li>
+</ul>
+</li>
+<li>
+<p><strong>해결 및 개선</strong></p>
+<ul>
+<li>빈 값 처리와 입력 검증을 위해 입력 값을 <code>nextLine()</code>으로 받게 수정.</li>
+<li>입력 값 확인을 먼저 진행하고 변수에 담았던 이전과 달리 미리 변수에 담은 후 값 검증을 진행.</li>
+<li>잘못된 입력에 대한 명확한 오류 메시지를 출력하도록 <code>HandleError()</code>에서 오류 메시지 관리.</li>
+</ul>
+</li>
+<li>
+<p><strong>결과</strong></p>
+<ul>
+<li>사용자로부터 값을 입력받을 때 엔터만 입력 또는 0 이상의 정수가 아닌 값 입력 시 에러 메시지 출력과 함께 재입력 요청받음.</li>
+</ul>
+</li>
+</ul>
+<h3 id="int-범위-초과-입력"><code>int</code> 범위 초과 입력<a hidden class="anchor" aria-hidden="true" href="#int-범위-초과-입력">#</a></h3>
+<ul>
+<li>
+<p><strong>문제</strong></p>
+<ul>
+<li>사용자로부터 입력받은 값이나 연산 수행 결과가 너무 큰 숫자일 때 오류가 발생하고 프로그램이 종료되는 현상 발견.</li>
+</ul>
+</li>
+<li>
+<p><strong>분석</strong></p>
+<ul>
+<li><code>int</code> 값을 초과하는 범위의 숫자일 때 발생하는 문제.</li>
+</ul>
+</li>
+<li>
+<p><strong>해결 및 개선</strong></p>
+<ul>
+<li>입력 값 검증 과정에서 <code>int</code> 범위 내의 숫자인지 검증하는 과정 추가.</li>
+<li>연산 수행 과정에서 <code>Math</code> 클래스를 활용해 오버플로우를 방지하기 위한 예외 처리 추가.</li>
+<li>예외 발생 시 에러 메시지 출력 후 재입력 요청하도록 변경.</li>
+</ul>
+</li>
+<li>
+<p><strong>결과</strong></p>
+<ul>
+<li>사용자의 입력 값이 <code>int</code> 범위를 초과하면 범위 내의 숫자를 입력할 때까지 오류 메시지와 함께 재입력 요청함.</li>
+<li>연산 수행 결과가 <code>int</code> 범위를 초과하면 오류 메시지와 함께 연산 수행 오류를 출력함.</li>
+</ul>
+</li>
+</ul>
+<h2 id="실행-예시">실행 예시<a hidden class="anchor" aria-hidden="true" href="#실행-예시">#</a></h2>
+<h3 id="정상-실행-예시">정상 실행 예시<a hidden class="anchor" aria-hidden="true" href="#정상-실행-예시">#</a></h3>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/128673b2-d5bb-449d-9f5f-bfdfae68fed1/image.gif"></p>
+<h3 id="오류-실행-예시">오류 실행 예시<a hidden class="anchor" aria-hidden="true" href="#오류-실행-예시">#</a></h3>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/e467765c-766b-4884-854c-d217eecfda87/image.gif"></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/camp/day-09/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>[내일배움캠프] 9일차. Java 심화 2</span>
+  </a>
+  <a class="next" href="http://localhost:1313/camp/day-08/">
+    <span class="title">Next »</span>
+    <br>
+    <span>[내일배움캠프] 8일차. Java 심화 1</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✓';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
