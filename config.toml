@@ -25,6 +25,7 @@ pygmentsUseClasses = true
   tocopen = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
+  disableLiveReload = true
 
 [params.assets]
   disableFingerprinting = true
