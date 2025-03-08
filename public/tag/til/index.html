@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>TIL | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="Today I Learned">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/tag/til/">
-<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
-<link rel="apple-touch-icon" href="https://withong.github.io/icons/code.png">
-<link rel="mask-icon" href="https://withong.github.io/icons/code.png">
+<link rel="canonical" href="http://localhost:1313/tag/til/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/code.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/code.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/code.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://withong.github.io/tag/til/index.xml">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/tag/til/">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tag/til/index.xml">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/tag/til/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,16 +56,7 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/tag/til/">
-  <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="TIL">
-  <meta property="og:description" content="Today I Learned">
-  <meta property="og:locale" content="ko">
-  <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TIL">
-<meta name="twitter:description" content="Today I Learned">
-
+</noscript>
 </head>
 
 <body class="list" id="top">
@@ -83,7 +74,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -109,22 +100,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="Log">
+                <a href="http://localhost:1313/log/" title="Log">
                     <span>Log</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/topic/" title="Topic">
+                <a href="http://localhost:1313/topic/" title="Topic">
                     <span>Topic</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
+                <a href="http://localhost:1313/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -132,7 +123,7 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/tag/">Tag</a></div>
   <h1>
     TIL
   </h1>
@@ -149,7 +140,26 @@
 실행시 햄버거 메뉴가 표시되고, 이후 Scanner로 숫자를 입력받아서 메뉴를 선택할 수 있다. 제시된 메뉴 중 입력받은 숫자에 따라 다른 로직을 실행하는 코드를 작성합니다. 반복문을 이용해서 특정 번호가 입력되면 프로그램을 종료합니다. 기능 구현 Main.java main() 프로그램 시작 → 메뉴 출력 사용자 입력 → 메뉴 선택 (잘못된 입력 시 재입력 요청) 선택한 메뉴 확인 → 결제 여부 선택 사용자가 지불 금액 입력 → 결제 진행 결제 성공 → 잔액 출력 후 다시 메뉴 선택 진행 결제 실패 → 금액 부족 메시지 출력 후 다시 메뉴 선택 진행 사용자가 0 입력 시 프로그램 종료 public static void main(String[] args) { Scanner scanner = new Scanner(System.in); List&lt;List&lt;String&gt;&gt; menu = List.of( List.of(&#34;불고기 버거&#34;, &#34;￦ 4,200&#34;, &#34;불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.&#34;), List.of(&#34;치즈 버거&#34;, &#34;￦ 3,600&#34;, &#34;맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.&#34;), List.of(&#34;슈비 버거&#34;, &#34;￦ 6,600&#34;, &#34;탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.&#34;), List.of(&#34;슈슈 버거&#34;, &#34;￦ 5,500&#34;, &#34;탱글한 통새우살이 가득한 슈슈 버거.&#34;) ); while (true) { System.out.println(&#34;\n[ MENU - BURGER ]&#34;); for (int i = 0; i &lt; menu.size(); i&#43;&#43;) { List&lt;String&gt; burger = menu.get(i); String burgerName = getDisplayBurgerName(menu, burger.get(0)); System.out.println((i &#43; 1) &#43; &#34;. &#34; &#43; burgerName &#43; &#34;\t| &#34; &#43; burger.get(1) &#43; &#34; | &#34; &#43; burger.get(2)); } System.out.println(&#34;0. 종료하기&#34;); int user = getInteger(scanner, &#34;\n주문할 메뉴의 번호를 입력하세요: &#34;); if (user &lt; 0 || user &gt; menu.size()) { System.out.println(&#34;올바른 메뉴 번호를 입력하세요.&#34;); continue; } if (user == 0) { System.out.println(&#34;프로그램을 종료합니다.&#34;); break; } List&lt;String&gt; userChoice = menu.get(user-1); String userBurgerName = userChoice.get(0); String userBurgerPrice = userChoice.get(1); System.out.println(&#34;\n[&#34; &#43; userBurgerName &#43; &#34;] &#34; &#43; userBurgerPrice); user = getInteger(scanner, &#34;결제하시겠습니까? [예: 1, 아니오: 2] &#34;); switch (user) { case 1 -&gt; { user = getInteger(scanner, &#34;\n지불할 금액을 입력하세요: &#34;); String numericPrice = userBurgerPrice.replace(&#34;￦&#34;, &#34;&#34;).replace(&#34;,&#34;, &#34;&#34;).trim(); int price = Integer.parseInt(numericPrice); if (user &gt; price) { System.out.println(String.format(&#34;\n[잔액] ￦ %,d&#34;, (user - price))); } else if (user &lt; price) { System.out.println(&#34;금액이 부족합니다. 결제가 취소됩니다.&#34;); break; } System.out.println(&#34;결제가 완료되었습니다. 감사합니다.&#34;); } case 2 -&gt; System.out.println(&#34;결제가 취소되었습니다.&#34;); default -&gt; System.out.println(&#34;올바른 입력이 아닙니다. 결제가 취소됩니다.&#34;); } } } getDisplayBurgerName() 메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환하는 메서드 public static String getDisplayBurgerName(List&lt;List&lt;String&gt;&gt; menu, String burgerName) { int maxLength = 0; // 최대 길이 계산 for (List&lt;String&gt; item : menu) { maxLength = Math.max(maxLength, getDisplayLength(item.get(0))); } int paddingSize = maxLength - getDisplayLength(burgerName); // 부족한 공백 개수 계산 return burgerName &#43; &#34; &#34;.repeat(paddingSize); // 버거명 &#43; 공백 리턴 } getDisplayLength() 한글을 2칸, 영어/숫자를 1칸으로 계산하는 메서드 public static int getDisplayLength(String text) { int length = 0; for (char c : text.toCharArray()) { if (Character.toString(c).matches(&#34;[가-힣]&#34;)) { length &#43;= 2; // 한글이면 2칸 } else { length &#43;= 1; // 영어/숫자/기타 문자는 1칸 } } return length; } 실행 예시 [ MENU - BURGER ]1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.0. 종료하기주문할 메뉴의 번호를 입력하세요: 3[슈비 버거] ￦ 6,600결제하시겠습니까? [예: 1, 아니오: 2] 1지불할 금액을 입력하세요: 7000[잔액] ￦ 400결제가 완료되었습니다. 감사합니다.[ MENU - BURGER ]1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.0. 종료하기주문할 메뉴의 번호를 입력하세요: 4[슈슈 버거] ￦ 5,500결제하시겠습니까? [예: 1, 아니오: 2] 2결제가 취소되었습니다.[ MENU - BURGER ]1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.0. 종료하기주문할 메뉴의 번호를 입력하세요: 1[불고기 버거] ￦ 4,200결제하시겠습니까? [예: 1, 아니오: 2] 1지불할 금액을 입력하세요: 4200결제가 완료되었습니다. 감사합니다.[ MENU - BURGER ]1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.0. 종료하기주문할 메뉴의 번호를 입력하세요: 2[치즈 버거] ￦ 3,600결제하시겠습니까? [예: 1, 아니오: 2] 1지불할 금액을 입력하세요: 3500금액이 부족합니다. 결제가 취소됩니다.[ MENU - BURGER ]1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.0. 종료하기주문할 메뉴의 번호를 입력하세요: 5올바른 메뉴 번호를 입력하세요.[ MENU - BURGER ]1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.0. 종료하기주문할 메뉴의 번호를 입력하세요: 4[슈슈 버거] ￦ 5,500결제하시겠습니까? [예: 1, 아니오: 2] 2결제가 취소되었습니다.[ MENU - BURGER ]1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.0. 종료하기주문할 메뉴의 번호를 입력하세요: 0프로그램을 종료합니다. </p>
   </div>
   <footer class="entry-footer"><span title='2025-03-07 21:00:00 +0900 KST'>2025년 3월 7일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] 과제 - 키오스크 1" href="https://withong.github.io/camp/task-kiosk-01/"></a>
+  <a class="entry-link" aria-label="post link to [내일배움캠프] 과제 - 키오스크 1" href="http://localhost:1313/camp/task-kiosk-01/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[내일배움캠프] 과제 - 키오스크
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>요구사항 클래스 정의 Main : 시작 지점이 되는 클래스, public static void main(String[] args) MenuItem: 세부 메뉴 속성 가지는 클래스 햄버거의 이름, 가격설명 예시: ShackBurger, 6.9, 토마토, 양상추, 쉑소스가 토핑된 치즈버거 new MenuItem(&#34;ShackBurger&#34;, 6.9, &#34;토마토, 양상추, 쉑소스가 토핑된 치즈버거&#34;) 햄버거의 이름, 가격설명 예시: ShackBurger, 6.9, 토마토, 양상추, 쉑소스가 토핑된 치즈버거 new MenuItem(&#34;ShackBurger&#34;, 6.9, &#34;토마토, 양상추, 쉑소스가 토핑된 치즈버거&#34;)토 Kiosk: 프로그램 순서 및 흐름 제어를 담당하는 클래스 Menu: MenuItem 클래스를 관리하는 클래스 예시 : 버거 메뉴, 음료 메뉴 등 각 카테고리 내에 여러 MenuItem을 포함합니다. Lv 1. 기본적인 키오스크를 프로그래밍해보자 요구사항이 가지는 의도
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-07 16:44:26 +0900 KST'>2025년 3월 7일</span></footer>
+  <a class="entry-link" aria-label="post link to [내일배움캠프] 과제 - 키오스크" href="http://localhost:1313/camp/task-kiosk-00/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -164,7 +174,7 @@
 ✅ 개인 과제 - 도전 구현 [내일배움캠프] 과제 - 계산기 3 / [GitHub] nbc-chapter-02/calculator/level3 🫠 level 2 vs level 3 개선된 점 단일 클래스 구조 → 다층 구조 (패키지 분리) Enum을 통한 연산자(Operator) 관리 제네릭(Operand) &#43; BigDecimal 도입 람다와 스트림을 이용한 결과 필터링 기능 추가 커스텀 예외 클래스(CalculatorException) 활용 개선할 점 Operand&lt;T&gt;가 BigDecimal로만 사용되는 점 </p>
   </div>
   <footer class="entry-footer"><span title='2025-03-05 23:00:00 +0900 KST'>2025년 3월 5일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] 12일차. 과제 회고" href="https://withong.github.io/camp/day-12/"></a>
+  <a class="entry-link" aria-label="post link to [내일배움캠프] 12일차. 과제 회고" href="http://localhost:1313/camp/day-12/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -180,7 +190,7 @@ Enum 타입을 활용하여 연산자 타입에 대한 정보를 관리하고 �
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-05 22:00:00 +0900 KST'>2025년 3월 5일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] 과제 - 계산기 3" href="https://withong.github.io/camp/task-calculator-03/"></a>
+  <a class="entry-link" aria-label="post link to [내일배움캠프] 과제 - 계산기 3" href="http://localhost:1313/camp/task-calculator-03/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -195,34 +205,18 @@ Enum 타입을 활용하여 연산자 타입에 대한 정보를 관리하고 �
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-02-28 22:00:00 +0900 KST'>2025년 2월 28일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] 과제 - 계산기 2" href="https://withong.github.io/camp/task-calculator-02/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[내일배움캠프] 10일차. 과제 회고
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ [과제] Java 계산기 만들기 level 2 수정
-✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
-✅ [문제] 알고리즘 문제 풀기
-✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경
-→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-28 21:00:00 +0900 KST'>2025년 2월 28일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] 10일차. 과제 회고" href="https://withong.github.io/camp/day-10/"></a>
+  <a class="entry-link" aria-label="post link to [내일배움캠프] 과제 - 계산기 2" href="http://localhost:1313/camp/task-calculator-02/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="next" href="https://withong.github.io/tag/til/page/2/">Next&nbsp;&nbsp;»
+    <a class="next" href="http://localhost:1313/tag/til/page/2/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
 
     <span>
         Powered by

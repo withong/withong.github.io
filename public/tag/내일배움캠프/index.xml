@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>내일배움캠프 on withong</title>
-    <link>https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/</link>
+    <link>http://localhost:1313/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/</link>
     <description>Recent content in 내일배움캠프 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Fri, 07 Mar 2025 21:00:00 +0900</lastBuildDate>
-    <atom:link href="https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[내일배움캠프] 과제 - 키오스크 1</title>
-      <link>https://withong.github.io/camp/task-kiosk-01/</link>
+      <link>http://localhost:1313/camp/task-kiosk-01/</link>
       <pubDate>Fri, 07 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/task-kiosk-01/</guid>
+      <guid>http://localhost:1313/camp/task-kiosk-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-1-기본적인-키오스크를-프로그래밍해보자&#34;&gt;Lv 1. 기본적인 키오스크를 프로그래밍해보자&lt;/h3&gt;
@@ -244,10 +244,48 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;</description>
     </item>
     <item>
+      <title>[내일배움캠프] 과제 - 키오스크</title>
+      <link>http://localhost:1313/camp/task-kiosk-00/</link>
+      <pubDate>Fri, 07 Mar 2025 16:44:26 +0900</pubDate>
+      <guid>http://localhost:1313/camp/task-kiosk-00/</guid>
+      <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+&lt;h3 id=&#34;클래스-정의&#34;&gt;클래스 정의&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Main : 시작 지점이 되는 클래스, &lt;code&gt;public static void main(String[] args)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;MenuItem: 세부 메뉴 속성 가지는 클래스
+&lt;ul&gt;
+&lt;li&gt;햄버거의 이름, 가격설명
+&lt;ul&gt;
+&lt;li&gt;예시: ShackBurger, 6.9, 토마토, 양상추, 쉑소스가 토핑된 치즈버거&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;new MenuItem(&amp;quot;ShackBurger&amp;quot;, 6.9, &amp;quot;토마토, 양상추, 쉑소스가 토핑된 치즈버거&amp;quot;)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;햄버거의 이름, 가격설명
+&lt;ul&gt;
+&lt;li&gt;예시: ShackBurger, 6.9, 토마토, 양상추, 쉑소스가 토핑된 치즈버거&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;new MenuItem(&amp;quot;ShackBurger&amp;quot;, 6.9, &amp;quot;토마토, 양상추, 쉑소스가 토핑된 치즈버거&amp;quot;)&lt;/code&gt;토&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kiosk: 프로그램 순서 및 흐름 제어를 담당하는 클래스&lt;/li&gt;
+&lt;li&gt;Menu: MenuItem 클래스를 관리하는 클래스
+&lt;ul&gt;
+&lt;li&gt;예시 : 버거 메뉴, 음료 메뉴 등 각 카테고리 내에 여러 &lt;code&gt;MenuItem&lt;/code&gt;을 포함합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;lv-1-기본적인-키오스크를-프로그래밍해보자&#34;&gt;Lv 1. 기본적인 키오스크를 프로그래밍해보자&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;요구사항이 가지는 의도&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>[내일배움캠프] 12일차. 과제 회고</title>
-      <link>https://withong.github.io/camp/day-12/</link>
+      <link>http://localhost:1313/camp/day-12/</link>
       <pubDate>Wed, 05 Mar 2025 23:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-12/</guid>
+      <guid>http://localhost:1313/camp/day-12/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [문제] 알고리즘 &amp;amp; SQL 문제 풀기&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 3 마무리&lt;br&gt;
@@ -276,9 +314,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 과제 - 계산기 3</title>
-      <link>https://withong.github.io/camp/task-calculator-03/</link>
+      <link>http://localhost:1313/camp/task-calculator-03/</link>
       <pubDate>Wed, 05 Mar 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/task-calculator-03/</guid>
+      <guid>http://localhost:1313/camp/task-calculator-03/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;Enum, 제네릭, 람다 &amp;amp; 스트림을 이해한 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -314,9 +352,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 과제 - 계산기 2</title>
-      <link>https://withong.github.io/camp/task-calculator-02/</link>
+      <link>http://localhost:1313/camp/task-calculator-02/</link>
       <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/task-calculator-02/</guid>
+      <guid>http://localhost:1313/camp/task-calculator-02/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -337,9 +375,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 10일차. 과제 회고</title>
-      <link>https://withong.github.io/camp/day-10/</link>
+      <link>http://localhost:1313/camp/day-10/</link>
       <pubDate>Fri, 28 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-10/</guid>
+      <guid>http://localhost:1313/camp/day-10/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [과제] Java 계산기 만들기 level 2 수정&lt;br&gt;
 ✅ [과제] 과제 TIL &amp;amp; 트러블 슈팅 작성&lt;br&gt;
@@ -374,9 +412,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 9일차. Java 심화 2</title>
-      <link>https://withong.github.io/camp/day-09/</link>
+      <link>http://localhost:1313/camp/day-09/</link>
       <pubDate>Thu, 27 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-09/</guid>
+      <guid>http://localhost:1313/camp/day-09/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 세션 2 - 객체 활용&lt;br&gt;
 ✅ [강의] Java 문법 Chapter 3 (5~7)&lt;br&gt;
@@ -464,9 +502,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 과제 - 계산기 1</title>
-      <link>https://withong.github.io/camp/task-calculator-01/</link>
+      <link>http://localhost:1313/camp/task-calculator-01/</link>
       <pubDate>Wed, 26 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/task-calculator-01/</guid>
+      <guid>http://localhost:1313/camp/task-calculator-01/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -503,9 +541,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 8일차. Java 심화 1</title>
-      <link>https://withong.github.io/camp/day-08/</link>
+      <link>http://localhost:1313/camp/day-08/</link>
       <pubDate>Wed, 26 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-08/</guid>
+      <guid>http://localhost:1313/camp/day-08/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 Chapter 3 (1~4)&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 1&lt;/p&gt;&lt;/blockquote&gt;
@@ -546,9 +584,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 7일차. 객체지향</title>
-      <link>https://withong.github.io/camp/day-07/</link>
+      <link>http://localhost:1313/camp/day-07/</link>
       <pubDate>Tue, 25 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-07/</guid>
+      <guid>http://localhost:1313/camp/day-07/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 문법 세션 1 - 프로그래밍 기초&lt;br&gt;
 ✅ Java 문법 강의 2주차&lt;/p&gt;&lt;/blockquote&gt;
@@ -579,9 +617,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 6일차. Java 기초</title>
-      <link>https://withong.github.io/camp/day-06/</link>
+      <link>http://localhost:1313/camp/day-06/</link>
       <pubDate>Mon, 24 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-06/</guid>
+      <guid>http://localhost:1313/camp/day-06/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ Java 문법 강의 1주차&lt;/p&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
@@ -789,9 +827,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 5일차. 미니 프로젝트 최종</title>
-      <link>https://withong.github.io/camp/day-05/</link>
+      <link>http://localhost:1313/camp/day-05/</link>
       <pubDate>Fri, 21 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-05/</guid>
+      <guid>http://localhost:1313/camp/day-05/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 프로젝트 배포&lt;br&gt;
 ✅ 프로젝트 발표&lt;br&gt;
@@ -823,9 +861,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 4일차. 미니 프로젝트 3</title>
-      <link>https://withong.github.io/camp/day-04/</link>
+      <link>http://localhost:1313/camp/day-04/</link>
       <pubDate>Thu, 20 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-04/</guid>
+      <guid>http://localhost:1313/camp/day-04/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 코드 병합&lt;br&gt;
 ✅ 기능 수정&lt;/p&gt;&lt;/blockquote&gt;
@@ -845,9 +883,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 3일차. 미니 프로젝트 2</title>
-      <link>https://withong.github.io/camp/day-03/</link>
+      <link>http://localhost:1313/camp/day-03/</link>
       <pubDate>Wed, 19 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-03/</guid>
+      <guid>http://localhost:1313/camp/day-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;+&lt;/strong&gt;&lt;br&gt;
 ☑️ 팀원 상세 페이지 화면&lt;br&gt;
@@ -872,9 +910,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 2일차. 미니 프로젝트 1</title>
-      <link>https://withong.github.io/camp/day-02/</link>
+      <link>http://localhost:1313/camp/day-02/</link>
       <pubDate>Tue, 18 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-02/</guid>
+      <guid>http://localhost:1313/camp/day-02/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [미니 프로젝트] 메인 페이지 (HTML/CSS)&lt;br&gt;
@@ -955,9 +993,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 1일차. Git</title>
-      <link>https://withong.github.io/camp/day-01/</link>
+      <link>http://localhost:1313/camp/day-01/</link>
       <pubDate>Mon, 17 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-01/</guid>
+      <guid>http://localhost:1313/camp/day-01/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [특강] Git&lt;br&gt;
@@ -1239,6 +1277,13 @@ result = 7
 &lt;p&gt;📅 기간: 2025.02.17 - 2025.02.21&lt;br&gt;
 📝 프로젝트: 팀 &amp;amp; 팀원 소개 웹 페이지&lt;br&gt;
 🎨 역할: 메인 페이지 및 팀원 정보 입력창 (HTML/CSS)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[내일배움캠프] 00일차.</title>
+      <link>http://localhost:1313/camp/day-00/</link>
+      <pubDate>Wed, 15 Jan 2025 23:41:13 +0900</pubDate>
+      <guid>http://localhost:1313/camp/day-00/</guid>
+      <description>&lt;p&gt;camp default&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

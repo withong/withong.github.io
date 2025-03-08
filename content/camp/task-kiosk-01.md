@@ -141,7 +141,7 @@ public static int getDisplayLength(String text) {
 
 ## 실행 예시
 
-```
+```powershell
 [ MENU - BURGER ]
 1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
 2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
