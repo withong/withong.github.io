@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>키오스크 on withong</title>
-    <link>http://localhost:1313/tag/%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC/</link>
+    <link>https://withong.github.io/tag/%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC/</link>
     <description>Recent content in 키오스크 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Fri, 07 Mar 2025 21:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/tag/%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[내일배움캠프] 과제 - 키오스크 1</title>
-      <link>http://localhost:1313/camp/task-kiosk-01/</link>
+      <link>https://withong.github.io/camp/task-kiosk-01/</link>
       <pubDate>Fri, 07 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-kiosk-01/</guid>
+      <guid>https://withong.github.io/camp/task-kiosk-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-1-기본적인-키오스크를-프로그래밍해보자&#34;&gt;Lv 1. 기본적인 키오스크를 프로그래밍해보자&lt;/h3&gt;
@@ -149,137 +149,99 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h2 id=&#34;실행-예시&#34;&gt;실행 예시&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[ MENU - BURGER ]
-1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
-2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
-3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
-4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
-0. 종료하기
-
-주문할 메뉴의 번호를 입력하세요: 3
-
-[슈비 버거] ￦ 6,600
-결제하시겠습니까? [예: 1, 아니오: 2] 1
-
-지불할 금액을 입력하세요: 7000
-
-[잔액] ￦ 400
-결제가 완료되었습니다. 감사합니다.
-
-[ MENU - BURGER ]
-1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
-2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
-3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
-4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
-0. 종료하기
-
-주문할 메뉴의 번호를 입력하세요: 4
-
-[슈슈 버거] ￦ 5,500
-결제하시겠습니까? [예: 1, 아니오: 2] 2
-결제가 취소되었습니다.
-
-[ MENU - BURGER ]
-1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
-2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
-3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
-4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
-0. 종료하기
-
-주문할 메뉴의 번호를 입력하세요: 1
-
-[불고기 버거] ￦ 4,200
-결제하시겠습니까? [예: 1, 아니오: 2] 1
-
-지불할 금액을 입력하세요: 4200
-결제가 완료되었습니다. 감사합니다.
-
-[ MENU - BURGER ]
-1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
-2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
-3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
-4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
-0. 종료하기
-
-주문할 메뉴의 번호를 입력하세요: 2
-
-[치즈 버거] ￦ 3,600
-결제하시겠습니까? [예: 1, 아니오: 2] 1
-
-지불할 금액을 입력하세요: 3500
-금액이 부족합니다. 결제가 취소됩니다.
-
-[ MENU - BURGER ]
-1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
-2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
-3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
-4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
-0. 종료하기
-
-주문할 메뉴의 번호를 입력하세요: 5
-올바른 메뉴 번호를 입력하세요.
-
-[ MENU - BURGER ]
-1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
-2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
-3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
-4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
-0. 종료하기
-
-주문할 메뉴의 번호를 입력하세요: 4
-
-[슈슈 버거] ￦ 5,500
-결제하시겠습니까? [예: 1, 아니오: 2] 2
-결제가 취소되었습니다.
-
-[ MENU - BURGER ]
-1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
-2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
-3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
-4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
-0. 종료하기
-
-주문할 메뉴의 번호를 입력하세요: 0
-프로그램을 종료합니다.
-&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;</description>
-    </item>
-    <item>
-      <title>[내일배움캠프] 과제 - 키오스크</title>
-      <link>http://localhost:1313/camp/task-kiosk-00/</link>
-      <pubDate>Fri, 07 Mar 2025 16:44:26 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-kiosk-00/</guid>
-      <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
-&lt;h3 id=&#34;클래스-정의&#34;&gt;클래스 정의&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Main : 시작 지점이 되는 클래스, &lt;code&gt;public static void main(String[] args)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;MenuItem: 세부 메뉴 속성 가지는 클래스
-&lt;ul&gt;
-&lt;li&gt;햄버거의 이름, 가격설명
-&lt;ul&gt;
-&lt;li&gt;예시: ShackBurger, 6.9, 토마토, 양상추, 쉑소스가 토핑된 치즈버거&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;new MenuItem(&amp;quot;ShackBurger&amp;quot;, 6.9, &amp;quot;토마토, 양상추, 쉑소스가 토핑된 치즈버거&amp;quot;)&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;햄버거의 이름, 가격설명
-&lt;ul&gt;
-&lt;li&gt;예시: ShackBurger, 6.9, 토마토, 양상추, 쉑소스가 토핑된 치즈버거&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;new MenuItem(&amp;quot;ShackBurger&amp;quot;, 6.9, &amp;quot;토마토, 양상추, 쉑소스가 토핑된 치즈버거&amp;quot;)&lt;/code&gt;토&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Kiosk: 프로그램 순서 및 흐름 제어를 담당하는 클래스&lt;/li&gt;
-&lt;li&gt;Menu: MenuItem 클래스를 관리하는 클래스
-&lt;ul&gt;
-&lt;li&gt;예시 : 버거 메뉴, 음료 메뉴 등 각 카테고리 내에 여러 &lt;code&gt;MenuItem&lt;/code&gt;을 포함합니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br&gt;
-&lt;h3 id=&#34;lv-1-기본적인-키오스크를-프로그래밍해보자&#34;&gt;Lv 1. 기본적인 키오스크를 프로그래밍해보자&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;요구사항이 가지는 의도&lt;/strong&gt;&lt;/p&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MENU&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BURGER&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;소스에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티와&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;마요네즈&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;양상추의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;조합&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈와&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;순&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;쇠고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;클래식&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;비프&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더해&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;푸짐한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;가득한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;종료하기&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;주문할&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;메뉴의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;번호를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력하세요&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;결제하시겠습니까&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;예&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;아니오&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;지불할&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;금액을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력하세요&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;7000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;잔액&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;400&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;결제가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;완료되었습니다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;감사합니다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MENU&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BURGER&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;소스에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티와&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;마요네즈&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;양상추의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;조합&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈와&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;순&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;쇠고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;클래식&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;비프&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더해&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;푸짐한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;가득한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;종료하기&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;주문할&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;메뉴의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;번호를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력하세요&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;500&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;결제하시겠습니까&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;예&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;아니오&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;결제가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;취소되었습니다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MENU&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BURGER&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;소스에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티와&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;마요네즈&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;양상추의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;조합&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈와&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;순&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;쇠고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;클래식&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;비프&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더해&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;푸짐한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;가득한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;종료하기&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;주문할&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;메뉴의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;번호를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력하세요&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;결제하시겠습니까&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;예&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;아니오&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;지불할&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;금액을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력하세요&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;결제가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;완료되었습니다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;감사합니다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MENU&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BURGER&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;소스에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티와&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;마요네즈&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;양상추의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;조합&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈와&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;순&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;쇠고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;클래식&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;비프&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더해&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;푸짐한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;가득한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;종료하기&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;주문할&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;메뉴의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;번호를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력하세요&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;결제하시겠습니까&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;예&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;아니오&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;지불할&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;금액을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력하세요&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3500&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;금액이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;부족합니다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;결제가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;취소됩니다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MENU&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BURGER&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;소스에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티와&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;마요네즈&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;양상추의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;조합&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈와&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;순&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;쇠고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;클래식&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;비프&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더해&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;푸짐한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;가득한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;종료하기&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;주문할&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;메뉴의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;번호를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력하세요&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;올바른&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;메뉴&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;번호를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력하세요&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MENU&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BURGER&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;소스에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티와&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;마요네즈&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;양상추의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;조합&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈와&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;순&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;쇠고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;클래식&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;비프&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더해&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;푸짐한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;가득한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;종료하기&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;주문할&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;메뉴의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;번호를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력하세요&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;500&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;결제하시겠습니까&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;예&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;아니오&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;결제가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;취소되었습니다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MENU&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BURGER&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;불고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;소스에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티와&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;마요네즈&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;양상추의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;조합&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;맛있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈와&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;순&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;쇠고기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;클래식&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;치즈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;600&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;비프&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;패티를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더해&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;푸짐한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈비&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;  	&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;￦&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;탱글한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;통새우살이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;가득한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;슈슈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;버거&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mf&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;종료하기&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;주문할&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;메뉴의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;번호를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력하세요&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;프로그램을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;종료합니다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description>
     </item>
   </channel>
 </rss>
