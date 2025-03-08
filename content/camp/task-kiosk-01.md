@@ -103,8 +103,29 @@ public static void main(String[] args) {
 
 <br>
 
+- **getInteger()**
+    - 사용자 입력 값 검증
+    - 숫자 입력 시 정수로 변환하여 반환
+    - 숫자가 아닌 값 입력 시 오류 메시지 출력 후 재입력 요청
+
+```java
+public static int getInteger(Scanner scanner, String prompt) {
+    while (true) {
+        System.out.print(prompt);
+        String input = scanner.nextLine();
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("숫자만 입력 가능합니다.");
+        }
+    }
+}
+```
+
+<br>
+
 - **getDisplayBurgerName()**  
-    - 메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환하는 메서드
+    - 메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환
 
 ```java
 public static String getDisplayBurgerName(List<List<String>> menu, String burgerName) {
@@ -121,7 +142,7 @@ public static String getDisplayBurgerName(List<List<String>> menu, String burger
 <br>
 
 - **getDisplayLength()**  
-    - 한글을 2칸, 영어/숫자를 1칸으로 계산하는 메서드
+    - 한글을 2칸, 영어/숫자를 1칸으로 계산하여 글자 수 반환
 
 ```java
 public static int getDisplayLength(String text) {
