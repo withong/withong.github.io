@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>[Java] 접근 제어자 | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="private
@@ -20,16 +20,16 @@ protected
 
 패키지 내에서는 자유롭게 접근할 수 있도록 하고, 다른 패키지에서는 상속받은 클래스만 접근 가능하도록 제한. 같은 패키지에서는 default와 동일하지만, 다른 패키지에서도 상속 관계라면 접근 가능.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/java/basic-06/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/icons/code.png">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/code.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/code.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/icons/code.png">
-<link rel="mask-icon" href="http://localhost:1313/icons/code.png">
+<link rel="canonical" href="https://withong.github.io/java/basic-06/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/code.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/code.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="ko" href="http://localhost:1313/java/basic-06/">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/java/basic-06/">
 <noscript>
     <style>
         #theme-toggle,
@@ -66,12 +66,85 @@ protected
         }
 
     </style>
-</noscript><script>
-    localStorage.removeItem("pref-theme");
-    localStorage.setItem("pref-theme", "dark");
-    document.documentElement.setAttribute("data-theme", "dark");
+</noscript><meta property="og:url" content="https://withong.github.io/java/basic-06/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="[Java] 접근 제어자">
+  <meta property="og:description" content="private 클래스 내부에서만 접근 가능
+클래스 내부의 속성과 기능을 숨기고, 직접적인 접근을 제한. 같은 클래스 내부에서만 접근 가능하며, 상속 관계에서도 자식 클래스가 접근할 수 없음.
+default 같은 패키지 내에서만 접근 가능, 명시적 키워드 없음
+패키지 내부에서만 사용할 기능을 숨기고, 외부 패키지에서는 접근을 막음. 접근 제한자를 명시하지 않으면 default가 적용되며, 같은 패키지에 있는 클래스만 접근 가능함.
+protected 같은 패키지 &#43; 상속 관계에서 접근 가능
+패키지 내에서는 자유롭게 접근할 수 있도록 하고, 다른 패키지에서는 상속받은 클래스만 접근 가능하도록 제한. 같은 패키지에서는 default와 동일하지만, 다른 패키지에서도 상속 관계라면 접근 가능.">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="java">
+    <meta property="article:published_time" content="2025-02-12T21:00:00+09:00">
+    <meta property="article:modified_time" content="2025-02-12T21:00:00+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Java] 접근 제어자">
+<meta name="twitter:description" content="private
+클래스 내부에서만 접근 가능
+
+클래스 내부의 속성과 기능을 숨기고, 직접적인 접근을 제한. 같은 클래스 내부에서만 접근 가능하며, 상속 관계에서도 자식 클래스가 접근할 수 없음.
+default
+같은 패키지 내에서만 접근 가능, 명시적 키워드 없음
+
+패키지 내부에서만 사용할 기능을 숨기고, 외부 패키지에서는 접근을 막음. 접근 제한자를 명시하지 않으면 default가 적용되며, 같은 패키지에 있는 클래스만 접근 가능함.
+protected
+같은 패키지 &#43; 상속 관계에서 접근 가능
+
+패키지 내에서는 자유롭게 접근할 수 있도록 하고, 다른 패키지에서는 상속받은 클래스만 접근 가능하도록 제한. 같은 패키지에서는 default와 동일하지만, 다른 패키지에서도 상속 관계라면 접근 가능.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Java",
+      "item": "https://withong.github.io/java/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[Java] 접근 제어자",
+      "item": "https://withong.github.io/java/basic-06/"
+    }
+  ]
+}
 </script>
-  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[Java] 접근 제어자",
+  "name": "[Java] 접근 제어자",
+  "description": "private 클래스 내부에서만 접근 가능\n클래스 내부의 속성과 기능을 숨기고, 직접적인 접근을 제한. 같은 클래스 내부에서만 접근 가능하며, 상속 관계에서도 자식 클래스가 접근할 수 없음.\ndefault 같은 패키지 내에서만 접근 가능, 명시적 키워드 없음\n패키지 내부에서만 사용할 기능을 숨기고, 외부 패키지에서는 접근을 막음. 접근 제한자를 명시하지 않으면 default가 적용되며, 같은 패키지에 있는 클래스만 접근 가능함.\nprotected 같은 패키지 + 상속 관계에서 접근 가능\n패키지 내에서는 자유롭게 접근할 수 있도록 하고, 다른 패키지에서는 상속받은 클래스만 접근 가능하도록 제한. 같은 패키지에서는 default와 동일하지만, 다른 패키지에서도 상속 관계라면 접근 가능.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "private 클래스 내부에서만 접근 가능\n클래스 내부의 속성과 기능을 숨기고, 직접적인 접근을 제한. 같은 클래스 내부에서만 접근 가능하며, 상속 관계에서도 자식 클래스가 접근할 수 없음.\ndefault 같은 패키지 내에서만 접근 가능, 명시적 키워드 없음\n패키지 내부에서만 사용할 기능을 숨기고, 외부 패키지에서는 접근을 막음. 접근 제한자를 명시하지 않으면 default가 적용되며, 같은 패키지에 있는 클래스만 접근 가능함.\nprotected 같은 패키지 + 상속 관계에서 접근 가능\n패키지 내에서는 자유롭게 접근할 수 있도록 하고, 다른 패키지에서는 상속받은 클래스만 접근 가능하도록 제한. 같은 패키지에서는 default와 동일하지만, 다른 패키지에서도 상속 관계라면 접근 가능.\npublic 어디서든 접근 가능\n어떤 클래스에서든 사용할 수 있도록 완전히 공개. 어디에서든 접근 가능하며, 패키지나 상속 관계와 무관하게 사용 가능.\n접근 제어자 접근 가능 범위 상속 관계에서의 접근 private 같은 클래스 내부에서만 가능 ❌ (자식 클래스도 접근 불가) default 같은 패키지 내에서만 가능 ❌ (패키지가 다르면 접근 불가) protected 같은 패키지 + 상속받은 클래스에서만 가능 ✅ (다른 패키지라도 상속받으면 접근 가능) public 어디서든 접근 가능 ✅ (제한 없음) package access.a; public class AccessData { public int publicField; int defaultField; private int privateField; public void publicMethod() { System.out.println(\"publicMethod 호출 \" + publicField); } void defaultMethod() { System.out.println(\"defaultMethod 호출 \" + defaultField); } private void privateMethod() { System.out.println(\"privateMethod 호출 \" + privateField); } public void innerAccess() { System.out.println(\"내부 호출\"); publicField = 100; defaultField = 200; privateField = 300; publicMethod(); defaultMethod(); privateMethod(); } } package access.a; // 동일 패키지 public class AccessInnerMain { public static void main(String[] args) { AccessData data = new AccessData(); // public 호출 가능 data.publicField = 1; data.publicMethod(); // 같은 패키지 default 호출 가능 data.defaultField = 2; data.defaultMethod(); // private 호출 불가 // data.privateField = 3; // data.privateMethod(); data.innerAccess(); } } package access.b; // 다른 패키지 import access.a.AccessData; public class AccessOuterMain { public static void main(String[] args) { AccessData data = new AccessData(); // public 호출 가능 data.publicField = 1; data.publicMethod(); // 다른 패키지 default 호출 불가 // data.defaultField = 2; // data.defaultMethod(); // private 호출 불가 // data.privateField = 3; // data.privateMethod(); data.innerAccess(); } } 클래스 레벨 클래스 레벨의 접근 제어자는 public, default만 사용할 수 있다.\npublic 클래스는 반드시 파일명과 이름이 같아야 한다.\npackage access.a; public class PublicClass { public static void main(String[] args) { PublicClass publicClass = new PublicClass(); DefaultClass1 class1 = new DefaultClass1(); DefaultClass2 class2 = new DefaultClass2(); } } class DefaultClass1 { } class DefaultClass2 { } package access.a; // 동일 패키지 public class PublicClassInnerMain { public static void main(String[] args) { PublicClass publicClass = new PublicClass(); DefaultClass1 class1 = new DefaultClass1(); DefaultClass2 class2 = new DefaultClass2(); } } package access.b; // 다른 패키지 import access.a.PublicClass; public class PublicClassOuterMain { public static void main(String[] args) { PublicClass publicClass = new PublicClass(); // 다른 패키지 접근 불가 // DefaultClass1 class1 = new DefaultClass1(); // DefaultClass2 class2 = new DefaultClass2(); } } 캡슐화 ✅ 데이터를 숨기고(private) 외부에서 직접 접근하지 못하도록 제한한다.\n✅ 객체의 내부 기능을 숨기고(private, protected) 꼭 필요한 기능만 공개한다.\n",
+  "wordCount" : "471",
+  "inLanguage": "ko",
+  "datePublished": "2025-02-12T21:00:00+09:00",
+  "dateModified": "2025-02-12T21:00:00+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/java/basic-06/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/code.png"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -89,7 +162,7 @@ protected
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -115,22 +188,22 @@ protected
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/log/" title="Log">
+                <a href="https://withong.github.io/log/" title="Log">
                     <span>Log</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/topic/" title="Topic">
+                <a href="https://withong.github.io/topic/" title="Topic">
                     <span>Topic</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tag/" title="Tag">
+                <a href="https://withong.github.io/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -141,7 +214,7 @@ protected
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/java/">Java</a></div>
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/java/">Java</a></div>
     <h1 class="post-title entry-hint-parent">
       [Java] 접근 제어자
     </h1>
@@ -345,13 +418,13 @@ protected
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/java/basic-07/">
-    <span class="title">« 이전 페이지</span>
+  <a class="prev" href="https://withong.github.io/java/basic-07/">
+    <span class="title">« Prev</span>
     <br>
     <span>[Java] 메모리 구조와 static</span>
   </a>
-  <a class="next" href="http://localhost:1313/java/basic-05/">
-    <span class="title">다음 페이지 »</span>
+  <a class="next" href="https://withong.github.io/java/basic-05/">
+    <span class="title">Next »</span>
     <br>
     <span>[Java] 패키지</span>
   </a>
@@ -362,7 +435,7 @@ protected
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
 
     <span>
         Powered by
@@ -436,12 +509,12 @@ protected
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = '복사';
+        copybutton.innerHTML = 'copy';
 
         function copyingDone() {
-            copybutton.innerHTML = '복사 완료!';
+            copybutton.innerHTML = '✓';
             setTimeout(() => {
-                copybutton.innerHTML = '복사';
+                copybutton.innerHTML = 'copy';
             }, 2000);
         }
 
