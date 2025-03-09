@@ -1,20 +1,548 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[Java] final | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="final -지역변수
+
+final이 붙은 지역변수는 한 번만 값을 할당할 수 있음.
+값이 할당된 이후에는 변경 불가능.
+메서드의 매개변수에도 final을 적용할 수 있으며, 이 경우 해당 매개변수 값 변경이 불가능.
+
+public class FinalLocalMain {
+    public static void main(String[] args) {
+        // final 지역변수1 - 선언 후 할당 (한 번만 가능)
+        final int data1;
+        data1 = 10; // 최초 할당 가능
+        // data1 = 20; // 오류! final 변수는 한 번만 할당 가능
+
+        // final 지역변수2 - 선언과 동시에 초기화
+        final int data2 = 10;
+        // data2 = 20; // 오류! 이미 값이 설정됨
+
+        method(10);
+    }
+
+    // final 매개변수 (메서드 내부에서 변경 불가능)
+    static void method(final int parameter) {
+        // parameter = 20; // 오류! final 매개변수는 값 변경 불가
+    }
+}
+
+final 지역변수는 최초 한 번만 값을 할당 가능, 이후 변경 불가.
+final 매개변수는 메서드 내부에서 값 변경이 불가능.
 
 
-<script>
-  async function getViewCount() {
-    var path = window.location.pathname; 
-    var apiUrl = "https://withong.goatcounter.com/api/v0/counts?page=" + path;
+final - 필드(멤버변수)
+클래스의 멤버 변수(필드)에 final을 사용하면, 해당 필드는 한 번만 초기화 가능함.">
+<meta name="author" content="">
+<link rel="canonical" href="https://withong.github.io/java/basic-08/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/zep.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/java/basic-08/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-    try {
-      var response = await fetch(apiUrl);
-      if (!response.ok) throw new Error("HTTP Error: " + response.status);
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-      var data = await response.json();
-      document.getElementById("view-count").innerText = data.count || 0;
-    } catch (error) {
-      console.error("조회 수를 불러오는 중 오류 발생:", error);
-      document.getElementById("view-count").innerText = "조회 수 불러오기 실패";
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://withong.github.io/java/basic-08/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="[Java] final">
+  <meta property="og:description" content="final -지역변수 final이 붙은 지역변수는 한 번만 값을 할당할 수 있음. 값이 할당된 이후에는 변경 불가능. 메서드의 매개변수에도 final을 적용할 수 있으며, 이 경우 해당 매개변수 값 변경이 불가능. public class FinalLocalMain { public static void main(String[] args) { // final 지역변수1 - 선언 후 할당 (한 번만 가능) final int data1; data1 = 10; // 최초 할당 가능 // data1 = 20; // 오류! final 변수는 한 번만 할당 가능 // final 지역변수2 - 선언과 동시에 초기화 final int data2 = 10; // data2 = 20; // 오류! 이미 값이 설정됨 method(10); } // final 매개변수 (메서드 내부에서 변경 불가능) static void method(final int parameter) { // parameter = 20; // 오류! final 매개변수는 값 변경 불가 } } final 지역변수는 최초 한 번만 값을 할당 가능, 이후 변경 불가. final 매개변수는 메서드 내부에서 값 변경이 불가능. final - 필드(멤버변수) 클래스의 멤버 변수(필드)에 final을 사용하면, 해당 필드는 한 번만 초기화 가능함.">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="java">
+    <meta property="article:published_time" content="2025-02-25T09:00:00+09:00">
+    <meta property="article:modified_time" content="2025-02-25T09:00:00+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Java] final">
+<meta name="twitter:description" content="final -지역변수
+
+final이 붙은 지역변수는 한 번만 값을 할당할 수 있음.
+값이 할당된 이후에는 변경 불가능.
+메서드의 매개변수에도 final을 적용할 수 있으며, 이 경우 해당 매개변수 값 변경이 불가능.
+
+public class FinalLocalMain {
+    public static void main(String[] args) {
+        // final 지역변수1 - 선언 후 할당 (한 번만 가능)
+        final int data1;
+        data1 = 10; // 최초 할당 가능
+        // data1 = 20; // 오류! final 변수는 한 번만 할당 가능
+
+        // final 지역변수2 - 선언과 동시에 초기화
+        final int data2 = 10;
+        // data2 = 20; // 오류! 이미 값이 설정됨
+
+        method(10);
+    }
+
+    // final 매개변수 (메서드 내부에서 변경 불가능)
+    static void method(final int parameter) {
+        // parameter = 20; // 오류! final 매개변수는 값 변경 불가
+    }
+}
+
+final 지역변수는 최초 한 번만 값을 할당 가능, 이후 변경 불가.
+final 매개변수는 메서드 내부에서 값 변경이 불가능.
+
+
+final - 필드(멤버변수)
+클래스의 멤버 변수(필드)에 final을 사용하면, 해당 필드는 한 번만 초기화 가능함.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Java",
+      "item": "https://withong.github.io/java/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[Java] final",
+      "item": "https://withong.github.io/java/basic-08/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[Java] final",
+  "name": "[Java] final",
+  "description": "final -지역변수 final이 붙은 지역변수는 한 번만 값을 할당할 수 있음. 값이 할당된 이후에는 변경 불가능. 메서드의 매개변수에도 final을 적용할 수 있으며, 이 경우 해당 매개변수 값 변경이 불가능. public class FinalLocalMain { public static void main(String[] args) { // final 지역변수1 - 선언 후 할당 (한 번만 가능) final int data1; data1 = 10; // 최초 할당 가능 // data1 = 20; // 오류! final 변수는 한 번만 할당 가능 // final 지역변수2 - 선언과 동시에 초기화 final int data2 = 10; // data2 = 20; // 오류! 이미 값이 설정됨 method(10); } // final 매개변수 (메서드 내부에서 변경 불가능) static void method(final int parameter) { // parameter = 20; // 오류! final 매개변수는 값 변경 불가 } } final 지역변수는 최초 한 번만 값을 할당 가능, 이후 변경 불가. final 매개변수는 메서드 내부에서 값 변경이 불가능. final - 필드(멤버변수) 클래스의 멤버 변수(필드)에 final을 사용하면, 해당 필드는 한 번만 초기화 가능함.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "final -지역변수 final이 붙은 지역변수는 한 번만 값을 할당할 수 있음. 값이 할당된 이후에는 변경 불가능. 메서드의 매개변수에도 final을 적용할 수 있으며, 이 경우 해당 매개변수 값 변경이 불가능. public class FinalLocalMain { public static void main(String[] args) { // final 지역변수1 - 선언 후 할당 (한 번만 가능) final int data1; data1 = 10; // 최초 할당 가능 // data1 = 20; // 오류! final 변수는 한 번만 할당 가능 // final 지역변수2 - 선언과 동시에 초기화 final int data2 = 10; // data2 = 20; // 오류! 이미 값이 설정됨 method(10); } // final 매개변수 (메서드 내부에서 변경 불가능) static void method(final int parameter) { // parameter = 20; // 오류! final 매개변수는 값 변경 불가 } } final 지역변수는 최초 한 번만 값을 할당 가능, 이후 변경 불가. final 매개변수는 메서드 내부에서 값 변경이 불가능. final - 필드(멤버변수) 클래스의 멤버 변수(필드)에 final을 사용하면, 해당 필드는 한 번만 초기화 가능함.\n(1) 생성자에서 초기화 final 필드를 생성자에서 한 번만 초기화 가능. 이후에는 절대 변경할 수 없음. public class ConstructInit { final int value; // final 필드 public ConstructInit(int value) { // 생성자에서 초기화 this.value = value; } } 객체 생성 시 생성자를 통해 final 필드 값을 설정. 객체별로 다른 값 설정 가능. 생성자에서 값을 설정한 이후에는 변경 불가. (2) 필드 선언과 동시에 초기화 final 필드를 선언과 동시에 초기화하면, 모든 객체가 동일한 값을 가짐. 생성자를 사용하지 않아도 됨. public class FieldInit { final int value = 10; // 필드 초기화 } 모든 객체가 동일한 값을 가짐. 불필요한 중복 생성 방지를 위해 static을 함께 사용하면 메모리 절약 가능. public class FieldInit { // static final → 모든 객체가 공유하는 상수 static final int CONST_VALUE = 10; } 상수 (static final) static final을 사용하면 클래스가 로드될 때 한 번만 초기화되고 모든 인스턴스에서 공유됨. 일반적으로 상수(Constant) 변수는 public static final로 선언하며, 변수명은 대문자로 작성. public class Constant { public static final double PI = 3.14; public static final int MAX_USERS = 1000; } static → 프로그램 실행 중 메모리에 한 번만 로드됨. final → 값 변경 불가. 중앙에서 한 번만 관리 가능하므로 유지보수가 쉬움. System.out.println(Constant.PI); // 3.14 출력 System.out.println(Constant.MAX_USERS); // 1000 출력 매직 넘버(하드코딩된 숫자) 방지 → 의미를 이해하기 쉬움 코드 유지보수성이 증가 → 한 곳만 변경하면 전체 적용됨 final 변수와 참조 타입 기본형 변수(int, double 등): final을 붙이면 값 자체가 변경 불가능. 참조형 변수(객체): final을 붙이면 참조하는 객체(주소) 변경 불가능, 내부 값은 변경 가능. public class FinalBasic { public static void main(String[] args) { final int num = 10; // num = 20; // 오류! final 변수는 값 변경 불가 } } final을 기본형 변수에 적용하면 값 변경 불가. class Data { public int value; } public class FinalRefMain { public static void main(String[] args) { final Data data = new Data(); // data = new Data(); // 오류! 참조 대상 변경 불가 // 참조 대상의 값은 변경 가능 data.value = 10; System.out.println(data.value); // 10 data.value = 20; System.out.println(data.value); // 20 } } final을 참조형 변수에 적용하면 객체의 참조값(주소) 변경 불가능.\n하지만, 객체 내부의 필드는 변경 가능. ",
+  "wordCount" : "495",
+  "inLanguage": "ko",
+  "datePublished": "2025-02-25T09:00:00+09:00",
+  "dateModified": "2025-02-25T09:00:00+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/java/basic-08/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/code.png"
     }
   }
-  getViewCount();
+}
 </script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/topic/" title="Topic">
+                    <span>Topic</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/java/">Java</a></div>
+    <h1 class="post-title entry-hint-parent">
+      [Java] final
+    </h1>
+    <div class="post-meta"><span title='2025-02-25 09:00:00 +0900 KST'>2025년 2월 25일</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#final--지역변수">final -지역변수</a></li>
+    <li><a href="#final---필드멤버변수">final - 필드(멤버변수)</a>
+      <ul>
+        <li><a href="#1-생성자에서-초기화">(1) 생성자에서 초기화</a></li>
+        <li><a href="#2-필드-선언과-동시에-초기화">(2) 필드 선언과 동시에 초기화</a></li>
+      </ul>
+    </li>
+    <li><a href="#상수-static-final">상수 (<code>static final</code>)</a></li>
+    <li><a href="#final-변수와-참조-타입">final 변수와 참조 타입</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="final--지역변수">final -지역변수<a hidden class="anchor" aria-hidden="true" href="#final--지역변수">#</a></h2>
+<ul>
+<li><code>final</code>이 붙은 <strong>지역변수는 한 번만 값을 할당할 수 있음.</strong></li>
+<li>값이 할당된 이후에는 변경 불가능.</li>
+<li>메서드의 매개변수에도 <code>final</code>을 적용할 수 있으며, 이 경우 <strong>해당 매개변수 값 변경이 불가능.</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FinalLocalMain</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// final 지역변수1 - 선언 후 할당 (한 번만 가능)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">data1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">data1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// 최초 할당 가능</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// data1 = 20; // 오류! final 변수는 한 번만 할당 가능</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// final 지역변수2 - 선언과 동시에 초기화</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">data2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// data2 = 20; // 오류! 이미 값이 설정됨</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">method</span><span class="p">(</span><span class="n">10</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// final 매개변수 (메서드 내부에서 변경 불가능)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">method</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">parameter</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// parameter = 20; // 오류! final 매개변수는 값 변경 불가</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li><code>final</code> 지역변수는 <strong>최초 한 번만 값을 할당 가능</strong>, 이후 변경 불가.</li>
+<li><code>final</code> 매개변수는 <strong>메서드 내부에서 값 변경이 불가능</strong>.</li>
+</ul>
+<br>
+<h2 id="final---필드멤버변수">final - 필드(멤버변수)<a hidden class="anchor" aria-hidden="true" href="#final---필드멤버변수">#</a></h2>
+<p>클래스의 <strong>멤버 변수(필드)에 <code>final</code>을 사용하면, 해당 필드는 한 번만 초기화 가능</strong>함.</p>
+<h3 id="1-생성자에서-초기화">(1) 생성자에서 초기화<a hidden class="anchor" aria-hidden="true" href="#1-생성자에서-초기화">#</a></h3>
+<ul>
+<li><code>final</code> 필드를 <strong>생성자에서 한 번만 초기화 가능</strong>.</li>
+<li>이후에는 절대 변경할 수 없음.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ConstructInit</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="c1">// final 필드</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ConstructInit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 생성자에서 초기화</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>객체 생성 시 생성자를 통해 <code>final</code> 필드 값을 설정.</li>
+<li>객체별로 다른 값 설정 가능.</li>
+<li>생성자에서 값을 설정한 이후에는 변경 불가.</li>
+</ul>
+<br>
+<h3 id="2-필드-선언과-동시에-초기화">(2) 필드 선언과 동시에 초기화<a hidden class="anchor" aria-hidden="true" href="#2-필드-선언과-동시에-초기화">#</a></h3>
+<ul>
+<li><code>final</code> 필드를 선언과 동시에 초기화하면, <strong>모든 객체가 동일한 값을 가짐</strong>.</li>
+<li>생성자를 사용하지 않아도 됨.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FieldInit</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// 필드 초기화</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>모든 객체가 동일한 값을 가짐.</li>
+<li><strong>불필요한 중복 생성 방지를 위해 <code>static</code>을 함께 사용하면 메모리 절약 가능.</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FieldInit</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// static final → 모든 객체가 공유하는 상수</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">CONST_VALUE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<h2 id="상수-static-final">상수 (<code>static final</code>)<a hidden class="anchor" aria-hidden="true" href="#상수-static-final">#</a></h2>
+<ul>
+<li><code>static final</code>을 사용하면 <strong>클래스가 로드될 때 한 번만 초기화되고 모든 인스턴스에서 공유</strong>됨.</li>
+<li>일반적으로 <strong>상수(Constant) 변수는 <code>public static final</code>로 선언하며, 변수명은 대문자로 작성</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Constant</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">3</span><span class="p">.</span><span class="na">14</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX_USERS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">1000</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li><code>static</code> → 프로그램 실행 중 메모리에 한 번만 로드됨.</li>
+<li><code>final</code> → 값 변경 불가.</li>
+<li><strong>중앙에서 한 번만 관리 가능하므로 유지보수가 쉬움</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Constant</span><span class="p">.</span><span class="na">PI</span><span class="p">);</span><span class="w">  </span><span class="c1">// 3.14 출력</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Constant</span><span class="p">.</span><span class="na">MAX_USERS</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1000 출력</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li><strong>매직 넘버(하드코딩된 숫자) 방지 → 의미를 이해하기 쉬움</strong></li>
+<li><strong>코드 유지보수성이 증가 → 한 곳만 변경하면 전체 적용됨</strong></li>
+</ul>
+<br>
+<h2 id="final-변수와-참조-타입">final 변수와 참조 타입<a hidden class="anchor" aria-hidden="true" href="#final-변수와-참조-타입">#</a></h2>
+<ul>
+<li><strong>기본형 변수(<code>int</code>, <code>double</code> 등)</strong>: <code>final</code>을 붙이면 <strong>값 자체가 변경 불가능</strong>.</li>
+<li><strong>참조형 변수(객체)</strong>: <code>final</code>을 붙이면 <strong>참조하는 객체(주소) 변경 불가능, 내부 값은 변경 가능</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FinalBasic</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// num = 20; // 오류! final 변수는 값 변경 불가</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li><code>final</code>을 기본형 변수에 적용하면 <strong>값 변경 불가</strong>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Data</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FinalRefMain</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Data</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// data = new Data(); // 오류! 참조 대상 변경 불가</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 참조 대상의 값은 변경 가능</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">data</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="na">value</span><span class="p">);</span><span class="w"> </span><span class="c1">// 10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">data</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">20</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="na">value</span><span class="p">);</span><span class="w"> </span><span class="c1">// 20</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li><code>final</code>을 참조형 변수에 적용하면 <strong>객체의 참조값(주소) 변경 불가능</strong>.<br>
+하지만, <strong>객체 내부의 필드는 변경 가능</strong>.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://withong.github.io/camp/day-07/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>[내일배움캠프] 7일차. 객체지향</span>
+  </a>
+  <a class="next" href="https://withong.github.io/camp/day-06/">
+    <span class="title">Next »</span>
+    <br>
+    <span>[내일배움캠프] 6일차. Java 기초</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✓';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+<script data-goatcounter="https://withong.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
