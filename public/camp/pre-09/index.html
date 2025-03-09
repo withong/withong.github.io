@@ -1,20 +1,984 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[사전캠프] 9일차. | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+TASKS
+✅ 달리기반 Java 보너스 문제
+&#43;
+☑️ 자바의 정석 강의
+
+Java
+보너스 문제: 가위 바위 보
+
+첫 번째 코드
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.Scanner;
+
+public class RockPaperScissors {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;();
+        prize.put(1, &#34;10,000원&#34;);
+        prize.put(2, &#34;20,000원&#34;);
+        prize.put(3, &#34;30,000원&#34;);
+        prize.put(4, &#34;50,000원&#34;);
+        prize.put(5, &#34;100,000원&#34;);
+
+        String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;};
+
+        int gameCount = 0;
+        int winCount = 0;
+        boolean playing = true;
+
+        System.out.println(&#34;*********** GAME START ***********&#34;);
+
+        while (playing) {
+
+            System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;);
+            System.out.print(&#34;가위 바위 보! &#34;);
+            String user = scanner.nextLine();
+            String pc = rps[random.nextInt(rps.length)];
+
+            System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;);
+
+            switch (user) {
+                case &#34;가위&#34;:
+                    if (pc.equals(&#34;바위&#34;)) {
+                        System.out.println(&#34;당신이 졌습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    } else if (pc.equals(&#34;보&#34;)) {
+                        System.out.println(&#34;당신이 이겼습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        winCount&#43;&#43;;
+                        break;
+                    } else {
+                        System.out.println(&#34;무승부입니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    }
+                case &#34;바위&#34;:
+                    if (pc.equals(&#34;보&#34;)) {
+                        System.out.println(&#34;당신이 졌습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    } else if (pc.equals(&#34;가위&#34;)) {
+                        System.out.println(&#34;당신이 이겼습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        winCount&#43;&#43;;
+                        break;
+                    } else {
+                        System.out.println(&#34;무승부입니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    }
+                case &#34;보&#34;:
+                    if (pc.equals(&#34;바위&#34;)) {
+                        System.out.println(&#34;당신이 이겼습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    } else if (pc.equals(&#34;가위&#34;)) {
+                        System.out.println(&#34;당신이 졌습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        winCount&#43;&#43;;
+                        break;
+                    } else {
+                        System.out.println(&#34;무승부입니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    }
+                default:
+                    System.out.println(&#34;잘못된 입력입니다!&#34;);
+                    break;
+            }
+
+            if (gameCount == 5) {
+                System.out.println(&#34;----------------------------------&#34;);
+                if (winCount &gt; 0) {
+                    System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount));
+                } else {
+                    System.out.println(&#34;상품을 획득하지 못했습니다.&#34;);
+                }
+                System.out.println(&#34;************ GAME END ************&#34;);
+                playing = false;
+                break;
+            }
+        }
+    }
+}
+개선 코드
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.Scanner;
+
+public class RpsRef {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;();
+        prize.put(1, &#34;10,000원&#34;);
+        prize.put(2, &#34;20,000원&#34;);
+        prize.put(3, &#34;30,000원&#34;);
+        prize.put(4, &#34;50,000원&#34;);
+        prize.put(5, &#34;100,000원&#34;);
+
+        String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;};
+
+        int gameCount = 0;
+        int winCount = 0;
+
+        System.out.println(&#34;*********** GAME START ***********&#34;);
+
+        // 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경
+        while (gameCount &lt; 5) {
+
+            System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;);
+            System.out.print(&#34;가위 바위 보! &#34;);
+            String user = scanner.nextLine();
+
+            // 사용자 입력 값 검사
+            if (!checkInput(user, rps)) {
+                System.out.println(&#34;잘못된 입력입니다!&#34;);
+                continue;
+            }
+
+            String pc = rps[random.nextInt(rps.length)];
+            System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;);
+
+            // 승패 판정: 중복 코드 제거
+            int result = getResult(user, pc);
+            
+            switch (result) {
+                case 1:
+                    System.out.println(&#34;당신이 이겼습니다!&#34;);
+                    winCount&#43;&#43;;
+                    break;
+                case -1:
+                    System.out.println(&#34;당신이 졌습니다!&#34;);
+                    break;
+                case 0:
+                    System.out.println(&#34;무승부입니다!&#34;);
+                    break;
+            }
+            
+            gameCount&#43;&#43;;
+
+            if (gameCount == 5) {
+                System.out.println(&#34;----------------------------------&#34;);
+                if (winCount &gt; 0) {
+                    System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount));
+                } else {
+                    System.out.println(&#34;꽝! 상품을 획득하지 못했습니다.&#34;);
+                }
+                System.out.println(&#34;************ GAME END ************&#34;);
+                break;
+            }
+        }
+    }
+
+    // 사용자 입력 값 검사: 가위 바위 보가 아니면 false
+    public static boolean checkInput(String input, String[] rps) {
+        for (String check : rps) {
+            if (check.equals(input)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부
+    public static int getResult(String user, String pc) {
+        if (user.equals(pc)) {
+            return 0; // 무승부
+        }
+        if ((user.equals(&#34;가위&#34;) &amp;&amp; pc.equals(&#34;보&#34;)) ||
+                (user.equals(&#34;바위&#34;) &amp;&amp; pc.equals(&#34;가위&#34;)) ||
+                (user.equals(&#34;보&#34;) &amp;&amp; pc.equals(&#34;바위&#34;))) {
+            return 1; // 승리
+        }
+        return -1; // 패배
+    }
+}
+">
+<meta name="author" content="">
+<link rel="canonical" href="https://withong.github.io/camp/pre-09/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/zep.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/camp/pre-09/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://withong.github.io/camp/pre-09/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="[사전캠프] 9일차.">
+  <meta property="og:description" content=" TASKS
+✅ 달리기반 Java 보너스 문제
+&#43;
+☑️ 자바의 정석 강의
+Java 보너스 문제: 가위 바위 보 첫 번째 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RockPaperScissors { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;(); prize.put(1, &#34;10,000원&#34;); prize.put(2, &#34;20,000원&#34;); prize.put(3, &#34;30,000원&#34;); prize.put(4, &#34;50,000원&#34;); prize.put(5, &#34;100,000원&#34;); String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;}; int gameCount = 0; int winCount = 0; boolean playing = true; System.out.println(&#34;*********** GAME START ***********&#34;); while (playing) { System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;); System.out.print(&#34;가위 바위 보! &#34;); String user = scanner.nextLine(); String pc = rps[random.nextInt(rps.length)]; System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;); switch (user) { case &#34;가위&#34;: if (pc.equals(&#34;바위&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;보&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } case &#34;바위&#34;: if (pc.equals(&#34;보&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;가위&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } case &#34;보&#34;: if (pc.equals(&#34;바위&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;가위&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } default: System.out.println(&#34;잘못된 입력입니다!&#34;); break; } if (gameCount == 5) { System.out.println(&#34;----------------------------------&#34;); if (winCount &gt; 0) { System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount)); } else { System.out.println(&#34;상품을 획득하지 못했습니다.&#34;); } System.out.println(&#34;************ GAME END ************&#34;); playing = false; break; } } } } 개선 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RpsRef { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;(); prize.put(1, &#34;10,000원&#34;); prize.put(2, &#34;20,000원&#34;); prize.put(3, &#34;30,000원&#34;); prize.put(4, &#34;50,000원&#34;); prize.put(5, &#34;100,000원&#34;); String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;}; int gameCount = 0; int winCount = 0; System.out.println(&#34;*********** GAME START ***********&#34;); // 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경 while (gameCount &lt; 5) { System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;); System.out.print(&#34;가위 바위 보! &#34;); String user = scanner.nextLine(); // 사용자 입력 값 검사 if (!checkInput(user, rps)) { System.out.println(&#34;잘못된 입력입니다!&#34;); continue; } String pc = rps[random.nextInt(rps.length)]; System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;); // 승패 판정: 중복 코드 제거 int result = getResult(user, pc); switch (result) { case 1: System.out.println(&#34;당신이 이겼습니다!&#34;); winCount&#43;&#43;; break; case -1: System.out.println(&#34;당신이 졌습니다!&#34;); break; case 0: System.out.println(&#34;무승부입니다!&#34;); break; } gameCount&#43;&#43;; if (gameCount == 5) { System.out.println(&#34;----------------------------------&#34;); if (winCount &gt; 0) { System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount)); } else { System.out.println(&#34;꽝! 상품을 획득하지 못했습니다.&#34;); } System.out.println(&#34;************ GAME END ************&#34;); break; } } } // 사용자 입력 값 검사: 가위 바위 보가 아니면 false public static boolean checkInput(String input, String[] rps) { for (String check : rps) { if (check.equals(input)) { return true; } } return false; } // 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부 public static int getResult(String user, String pc) { if (user.equals(pc)) { return 0; // 무승부 } if ((user.equals(&#34;가위&#34;) &amp;&amp; pc.equals(&#34;보&#34;)) || (user.equals(&#34;바위&#34;) &amp;&amp; pc.equals(&#34;가위&#34;)) || (user.equals(&#34;보&#34;) &amp;&amp; pc.equals(&#34;바위&#34;))) { return 1; // 승리 } return -1; // 패배 } } ">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="camp">
+    <meta property="article:published_time" content="2025-01-23T23:41:13+09:00">
+    <meta property="article:modified_time" content="2025-01-23T23:41:13+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[사전캠프] 9일차.">
+<meta name="twitter:description" content="
+TASKS
+✅ 달리기반 Java 보너스 문제
+&#43;
+☑️ 자바의 정석 강의
+
+Java
+보너스 문제: 가위 바위 보
+
+첫 번째 코드
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.Scanner;
+
+public class RockPaperScissors {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;();
+        prize.put(1, &#34;10,000원&#34;);
+        prize.put(2, &#34;20,000원&#34;);
+        prize.put(3, &#34;30,000원&#34;);
+        prize.put(4, &#34;50,000원&#34;);
+        prize.put(5, &#34;100,000원&#34;);
+
+        String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;};
+
+        int gameCount = 0;
+        int winCount = 0;
+        boolean playing = true;
+
+        System.out.println(&#34;*********** GAME START ***********&#34;);
+
+        while (playing) {
+
+            System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;);
+            System.out.print(&#34;가위 바위 보! &#34;);
+            String user = scanner.nextLine();
+            String pc = rps[random.nextInt(rps.length)];
+
+            System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;);
+
+            switch (user) {
+                case &#34;가위&#34;:
+                    if (pc.equals(&#34;바위&#34;)) {
+                        System.out.println(&#34;당신이 졌습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    } else if (pc.equals(&#34;보&#34;)) {
+                        System.out.println(&#34;당신이 이겼습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        winCount&#43;&#43;;
+                        break;
+                    } else {
+                        System.out.println(&#34;무승부입니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    }
+                case &#34;바위&#34;:
+                    if (pc.equals(&#34;보&#34;)) {
+                        System.out.println(&#34;당신이 졌습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    } else if (pc.equals(&#34;가위&#34;)) {
+                        System.out.println(&#34;당신이 이겼습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        winCount&#43;&#43;;
+                        break;
+                    } else {
+                        System.out.println(&#34;무승부입니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    }
+                case &#34;보&#34;:
+                    if (pc.equals(&#34;바위&#34;)) {
+                        System.out.println(&#34;당신이 이겼습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    } else if (pc.equals(&#34;가위&#34;)) {
+                        System.out.println(&#34;당신이 졌습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        winCount&#43;&#43;;
+                        break;
+                    } else {
+                        System.out.println(&#34;무승부입니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    }
+                default:
+                    System.out.println(&#34;잘못된 입력입니다!&#34;);
+                    break;
+            }
+
+            if (gameCount == 5) {
+                System.out.println(&#34;----------------------------------&#34;);
+                if (winCount &gt; 0) {
+                    System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount));
+                } else {
+                    System.out.println(&#34;상품을 획득하지 못했습니다.&#34;);
+                }
+                System.out.println(&#34;************ GAME END ************&#34;);
+                playing = false;
+                break;
+            }
+        }
+    }
+}
+개선 코드
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.Scanner;
+
+public class RpsRef {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;();
+        prize.put(1, &#34;10,000원&#34;);
+        prize.put(2, &#34;20,000원&#34;);
+        prize.put(3, &#34;30,000원&#34;);
+        prize.put(4, &#34;50,000원&#34;);
+        prize.put(5, &#34;100,000원&#34;);
+
+        String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;};
+
+        int gameCount = 0;
+        int winCount = 0;
+
+        System.out.println(&#34;*********** GAME START ***********&#34;);
+
+        // 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경
+        while (gameCount &lt; 5) {
+
+            System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;);
+            System.out.print(&#34;가위 바위 보! &#34;);
+            String user = scanner.nextLine();
+
+            // 사용자 입력 값 검사
+            if (!checkInput(user, rps)) {
+                System.out.println(&#34;잘못된 입력입니다!&#34;);
+                continue;
+            }
+
+            String pc = rps[random.nextInt(rps.length)];
+            System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;);
+
+            // 승패 판정: 중복 코드 제거
+            int result = getResult(user, pc);
+            
+            switch (result) {
+                case 1:
+                    System.out.println(&#34;당신이 이겼습니다!&#34;);
+                    winCount&#43;&#43;;
+                    break;
+                case -1:
+                    System.out.println(&#34;당신이 졌습니다!&#34;);
+                    break;
+                case 0:
+                    System.out.println(&#34;무승부입니다!&#34;);
+                    break;
+            }
+            
+            gameCount&#43;&#43;;
+
+            if (gameCount == 5) {
+                System.out.println(&#34;----------------------------------&#34;);
+                if (winCount &gt; 0) {
+                    System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount));
+                } else {
+                    System.out.println(&#34;꽝! 상품을 획득하지 못했습니다.&#34;);
+                }
+                System.out.println(&#34;************ GAME END ************&#34;);
+                break;
+            }
+        }
+    }
+
+    // 사용자 입력 값 검사: 가위 바위 보가 아니면 false
+    public static boolean checkInput(String input, String[] rps) {
+        for (String check : rps) {
+            if (check.equals(input)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부
+    public static int getResult(String user, String pc) {
+        if (user.equals(pc)) {
+            return 0; // 무승부
+        }
+        if ((user.equals(&#34;가위&#34;) &amp;&amp; pc.equals(&#34;보&#34;)) ||
+                (user.equals(&#34;바위&#34;) &amp;&amp; pc.equals(&#34;가위&#34;)) ||
+                (user.equals(&#34;보&#34;) &amp;&amp; pc.equals(&#34;바위&#34;))) {
+            return 1; // 승리
+        }
+        return -1; // 패배
+    }
+}
+">
 
 
-<script>
-  async function getViewCount() {
-    var path = window.location.pathname; 
-    var apiUrl = "https://withong.goatcounter.com/api/v0/counts?page=" + path;
-
-    try {
-      var response = await fetch(apiUrl);
-      if (!response.ok) throw new Error("HTTP Error: " + response.status);
-
-      var data = await response.json();
-      document.getElementById("view-count").innerText = data.count || 0;
-    } catch (error) {
-      console.error("조회 수를 불러오는 중 오류 발생:", error);
-      document.getElementById("view-count").innerText = "조회 수 불러오기 실패";
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Camp",
+      "item": "https://withong.github.io/camp/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[사전캠프] 9일차.",
+      "item": "https://withong.github.io/camp/pre-09/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[사전캠프] 9일차.",
+  "name": "[사전캠프] 9일차.",
+  "description": " TASKS\n✅ 달리기반 Java 보너스 문제\n+\n☑️ 자바의 정석 강의\nJava 보너스 문제: 가위 바위 보 첫 번째 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RockPaperScissors { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map\u0026lt;Integer, String\u0026gt; prize = new HashMap\u0026lt;\u0026gt;(); prize.put(1, \u0026#34;10,000원\u0026#34;); prize.put(2, \u0026#34;20,000원\u0026#34;); prize.put(3, \u0026#34;30,000원\u0026#34;); prize.put(4, \u0026#34;50,000원\u0026#34;); prize.put(5, \u0026#34;100,000원\u0026#34;); String[] rps = {\u0026#34;가위\u0026#34;, \u0026#34;바위\u0026#34;, \u0026#34;보\u0026#34;}; int gameCount = 0; int winCount = 0; boolean playing = true; System.out.println(\u0026#34;*********** GAME START ***********\u0026#34;); while (playing) { System.out.println(\u0026#34;------------- GAME \u0026#34; + (gameCount + 1) + \u0026#34; -------------\u0026#34;); System.out.print(\u0026#34;가위 바위 보! \u0026#34;); String user = scanner.nextLine(); String pc = rps[random.nextInt(rps.length)]; System.out.print(\u0026#34;[당신: \u0026#34; + user + \u0026#34;, 상대: \u0026#34; + pc + \u0026#34;] \u0026#34;); switch (user) { case \u0026#34;가위\u0026#34;: if (pc.equals(\u0026#34;바위\u0026#34;)) { System.out.println(\u0026#34;당신이 졌습니다!\u0026#34;); gameCount++; break; } else if (pc.equals(\u0026#34;보\u0026#34;)) { System.out.println(\u0026#34;당신이 이겼습니다!\u0026#34;); gameCount++; winCount++; break; } else { System.out.println(\u0026#34;무승부입니다!\u0026#34;); gameCount++; break; } case \u0026#34;바위\u0026#34;: if (pc.equals(\u0026#34;보\u0026#34;)) { System.out.println(\u0026#34;당신이 졌습니다!\u0026#34;); gameCount++; break; } else if (pc.equals(\u0026#34;가위\u0026#34;)) { System.out.println(\u0026#34;당신이 이겼습니다!\u0026#34;); gameCount++; winCount++; break; } else { System.out.println(\u0026#34;무승부입니다!\u0026#34;); gameCount++; break; } case \u0026#34;보\u0026#34;: if (pc.equals(\u0026#34;바위\u0026#34;)) { System.out.println(\u0026#34;당신이 이겼습니다!\u0026#34;); gameCount++; break; } else if (pc.equals(\u0026#34;가위\u0026#34;)) { System.out.println(\u0026#34;당신이 졌습니다!\u0026#34;); gameCount++; winCount++; break; } else { System.out.println(\u0026#34;무승부입니다!\u0026#34;); gameCount++; break; } default: System.out.println(\u0026#34;잘못된 입력입니다!\u0026#34;); break; } if (gameCount == 5) { System.out.println(\u0026#34;----------------------------------\u0026#34;); if (winCount \u0026gt; 0) { System.out.println(\u0026#34;총 \u0026#34; + winCount + \u0026#34;회 승리했습니다. 상품: \u0026#34; + prize.get(winCount)); } else { System.out.println(\u0026#34;상품을 획득하지 못했습니다.\u0026#34;); } System.out.println(\u0026#34;************ GAME END ************\u0026#34;); playing = false; break; } } } } 개선 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RpsRef { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map\u0026lt;Integer, String\u0026gt; prize = new HashMap\u0026lt;\u0026gt;(); prize.put(1, \u0026#34;10,000원\u0026#34;); prize.put(2, \u0026#34;20,000원\u0026#34;); prize.put(3, \u0026#34;30,000원\u0026#34;); prize.put(4, \u0026#34;50,000원\u0026#34;); prize.put(5, \u0026#34;100,000원\u0026#34;); String[] rps = {\u0026#34;가위\u0026#34;, \u0026#34;바위\u0026#34;, \u0026#34;보\u0026#34;}; int gameCount = 0; int winCount = 0; System.out.println(\u0026#34;*********** GAME START ***********\u0026#34;); // 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경 while (gameCount \u0026lt; 5) { System.out.println(\u0026#34;------------- GAME \u0026#34; + (gameCount + 1) + \u0026#34; -------------\u0026#34;); System.out.print(\u0026#34;가위 바위 보! \u0026#34;); String user = scanner.nextLine(); // 사용자 입력 값 검사 if (!checkInput(user, rps)) { System.out.println(\u0026#34;잘못된 입력입니다!\u0026#34;); continue; } String pc = rps[random.nextInt(rps.length)]; System.out.print(\u0026#34;[당신: \u0026#34; + user + \u0026#34;, 상대: \u0026#34; + pc + \u0026#34;] \u0026#34;); // 승패 판정: 중복 코드 제거 int result = getResult(user, pc); switch (result) { case 1: System.out.println(\u0026#34;당신이 이겼습니다!\u0026#34;); winCount++; break; case -1: System.out.println(\u0026#34;당신이 졌습니다!\u0026#34;); break; case 0: System.out.println(\u0026#34;무승부입니다!\u0026#34;); break; } gameCount++; if (gameCount == 5) { System.out.println(\u0026#34;----------------------------------\u0026#34;); if (winCount \u0026gt; 0) { System.out.println(\u0026#34;총 \u0026#34; + winCount + \u0026#34;회 승리했습니다. 상품: \u0026#34; + prize.get(winCount)); } else { System.out.println(\u0026#34;꽝! 상품을 획득하지 못했습니다.\u0026#34;); } System.out.println(\u0026#34;************ GAME END ************\u0026#34;); break; } } } // 사용자 입력 값 검사: 가위 바위 보가 아니면 false public static boolean checkInput(String input, String[] rps) { for (String check : rps) { if (check.equals(input)) { return true; } } return false; } // 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부 public static int getResult(String user, String pc) { if (user.equals(pc)) { return 0; // 무승부 } if ((user.equals(\u0026#34;가위\u0026#34;) \u0026amp;\u0026amp; pc.equals(\u0026#34;보\u0026#34;)) || (user.equals(\u0026#34;바위\u0026#34;) \u0026amp;\u0026amp; pc.equals(\u0026#34;가위\u0026#34;)) || (user.equals(\u0026#34;보\u0026#34;) \u0026amp;\u0026amp; pc.equals(\u0026#34;바위\u0026#34;))) { return 1; // 승리 } return -1; // 패배 } } ",
+  "keywords": [
+    
+  ],
+  "articleBody": " TASKS\n✅ 달리기반 Java 보너스 문제\n+\n☑️ 자바의 정석 강의\nJava 보너스 문제: 가위 바위 보 첫 번째 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RockPaperScissors { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map\u003cInteger, String\u003e prize = new HashMap\u003c\u003e(); prize.put(1, \"10,000원\"); prize.put(2, \"20,000원\"); prize.put(3, \"30,000원\"); prize.put(4, \"50,000원\"); prize.put(5, \"100,000원\"); String[] rps = {\"가위\", \"바위\", \"보\"}; int gameCount = 0; int winCount = 0; boolean playing = true; System.out.println(\"*********** GAME START ***********\"); while (playing) { System.out.println(\"------------- GAME \" + (gameCount + 1) + \" -------------\"); System.out.print(\"가위 바위 보! \"); String user = scanner.nextLine(); String pc = rps[random.nextInt(rps.length)]; System.out.print(\"[당신: \" + user + \", 상대: \" + pc + \"] \"); switch (user) { case \"가위\": if (pc.equals(\"바위\")) { System.out.println(\"당신이 졌습니다!\"); gameCount++; break; } else if (pc.equals(\"보\")) { System.out.println(\"당신이 이겼습니다!\"); gameCount++; winCount++; break; } else { System.out.println(\"무승부입니다!\"); gameCount++; break; } case \"바위\": if (pc.equals(\"보\")) { System.out.println(\"당신이 졌습니다!\"); gameCount++; break; } else if (pc.equals(\"가위\")) { System.out.println(\"당신이 이겼습니다!\"); gameCount++; winCount++; break; } else { System.out.println(\"무승부입니다!\"); gameCount++; break; } case \"보\": if (pc.equals(\"바위\")) { System.out.println(\"당신이 이겼습니다!\"); gameCount++; break; } else if (pc.equals(\"가위\")) { System.out.println(\"당신이 졌습니다!\"); gameCount++; winCount++; break; } else { System.out.println(\"무승부입니다!\"); gameCount++; break; } default: System.out.println(\"잘못된 입력입니다!\"); break; } if (gameCount == 5) { System.out.println(\"----------------------------------\"); if (winCount \u003e 0) { System.out.println(\"총 \" + winCount + \"회 승리했습니다. 상품: \" + prize.get(winCount)); } else { System.out.println(\"상품을 획득하지 못했습니다.\"); } System.out.println(\"************ GAME END ************\"); playing = false; break; } } } } 개선 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RpsRef { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map\u003cInteger, String\u003e prize = new HashMap\u003c\u003e(); prize.put(1, \"10,000원\"); prize.put(2, \"20,000원\"); prize.put(3, \"30,000원\"); prize.put(4, \"50,000원\"); prize.put(5, \"100,000원\"); String[] rps = {\"가위\", \"바위\", \"보\"}; int gameCount = 0; int winCount = 0; System.out.println(\"*********** GAME START ***********\"); // 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경 while (gameCount \u003c 5) { System.out.println(\"------------- GAME \" + (gameCount + 1) + \" -------------\"); System.out.print(\"가위 바위 보! \"); String user = scanner.nextLine(); // 사용자 입력 값 검사 if (!checkInput(user, rps)) { System.out.println(\"잘못된 입력입니다!\"); continue; } String pc = rps[random.nextInt(rps.length)]; System.out.print(\"[당신: \" + user + \", 상대: \" + pc + \"] \"); // 승패 판정: 중복 코드 제거 int result = getResult(user, pc); switch (result) { case 1: System.out.println(\"당신이 이겼습니다!\"); winCount++; break; case -1: System.out.println(\"당신이 졌습니다!\"); break; case 0: System.out.println(\"무승부입니다!\"); break; } gameCount++; if (gameCount == 5) { System.out.println(\"----------------------------------\"); if (winCount \u003e 0) { System.out.println(\"총 \" + winCount + \"회 승리했습니다. 상품: \" + prize.get(winCount)); } else { System.out.println(\"꽝! 상품을 획득하지 못했습니다.\"); } System.out.println(\"************ GAME END ************\"); break; } } } // 사용자 입력 값 검사: 가위 바위 보가 아니면 false public static boolean checkInput(String input, String[] rps) { for (String check : rps) { if (check.equals(input)) { return true; } } return false; } // 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부 public static int getResult(String user, String pc) { if (user.equals(pc)) { return 0; // 무승부 } if ((user.equals(\"가위\") \u0026\u0026 pc.equals(\"보\")) || (user.equals(\"바위\") \u0026\u0026 pc.equals(\"가위\")) || (user.equals(\"보\") \u0026\u0026 pc.equals(\"바위\"))) { return 1; // 승리 } return -1; // 패배 } } ",
+  "wordCount" : "531",
+  "inLanguage": "ko",
+  "datePublished": "2025-01-23T23:41:13+09:00",
+  "dateModified": "2025-01-23T23:41:13+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/camp/pre-09/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/code.png"
     }
   }
-  getViewCount();
+}
 </script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/topic/" title="Topic">
+                    <span>Topic</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/camp/">Camp</a></div>
+    <h1 class="post-title entry-hint-parent">
+      [사전캠프] 9일차.
+    </h1>
+    <div class="post-meta"><span title='2025-01-23 23:41:13 +0900 KST'>2025년 1월 23일</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#java">Java</a>
+      <ul>
+        <li><a href="#보너스-문제-가위-바위-보">보너스 문제: 가위 바위 보</a></li>
+        <li><a href="#첫-번째-코드">첫 번째 코드</a></li>
+        <li><a href="#개선-코드">개선 코드</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p><strong>TASKS</strong><br>
+✅ 달리기반 Java 보너스 문제</p>
+<p><strong>+</strong><br>
+☑️ 자바의 정석 강의</p></blockquote>
+<hr>
+<h2 id="java">Java<a hidden class="anchor" aria-hidden="true" href="#java">#</a></h2>
+<h3 id="보너스-문제-가위-바위-보">보너스 문제: 가위 바위 보<a hidden class="anchor" aria-hidden="true" href="#보너스-문제-가위-바위-보">#</a></h3>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/03819eb6-b262-4cbe-8882-06c7ae3f042e/image.png"></p>
+<h3 id="첫-번째-코드">첫 번째 코드<a hidden class="anchor" aria-hidden="true" href="#첫-번째-코드">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Random</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RockPaperScissors</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">scanner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Random</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Random</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">prize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">prize</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;10,000원&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">prize</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;20,000원&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">prize</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;30,000원&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">prize</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">4</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;50,000원&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">prize</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">5</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;100,000원&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">rps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#34;가위&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;바위&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;보&#34;</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">gameCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">winCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">playing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;*********** GAME START ***********&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">playing</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;------------- GAME &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">gameCount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; -------------&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&#34;가위 바위 보! &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanner</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">pc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rps</span><span class="o">[</span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">rps</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&#34;[당신: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;, 상대: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;] &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s">&#34;가위&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pc</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;바위&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;당신이 졌습니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">gameCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pc</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;보&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;당신이 이겼습니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">gameCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">winCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;무승부입니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">gameCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s">&#34;바위&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pc</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;보&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;당신이 졌습니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">gameCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pc</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;가위&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;당신이 이겼습니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">gameCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">winCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;무승부입니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">gameCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="s">&#34;보&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pc</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;바위&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;당신이 이겼습니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">gameCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pc</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;가위&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;당신이 졌습니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">gameCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">winCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;무승부입니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">gameCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">default</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;잘못된 입력입니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gameCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;----------------------------------&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">winCount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;총 &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">winCount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;회 승리했습니다. 상품: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">prize</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">winCount</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;상품을 획득하지 못했습니다.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;************ GAME END ************&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">playing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="개선-코드">개선 코드<a hidden class="anchor" aria-hidden="true" href="#개선-코드">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Random</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RpsRef</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">scanner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Random</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Random</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">prize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">prize</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;10,000원&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">prize</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;20,000원&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">prize</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;30,000원&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">prize</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">4</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;50,000원&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">prize</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">5</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;100,000원&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">rps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#34;가위&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;바위&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;보&#34;</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">gameCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">winCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;*********** GAME START ***********&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">gameCount</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;------------- GAME &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">gameCount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; -------------&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&#34;가위 바위 보! &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanner</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 사용자 입력 값 검사</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">checkInput</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">rps</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;잘못된 입력입니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">continue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">pc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rps</span><span class="o">[</span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">rps</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&#34;[당신: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;, 상대: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;] &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 승패 판정: 중복 코드 제거</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getResult</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">pc</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="n">1</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;당신이 이겼습니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">winCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="o">-</span><span class="n">1</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;당신이 졌습니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="n">0</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;무승부입니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">gameCount</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gameCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;----------------------------------&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">winCount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;총 &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">winCount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;회 승리했습니다. 상품: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">prize</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">winCount</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;꽝! 상품을 획득하지 못했습니다.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;************ GAME END ************&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 사용자 입력 값 검사: 가위 바위 보가 아니면 false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">checkInput</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">rps</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">rps</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">input</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getResult</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">pc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">pc</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 무승부</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">user</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;가위&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pc</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;보&#34;</span><span class="p">))</span><span class="w"> </span><span class="o">||</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;바위&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pc</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;가위&#34;</span><span class="p">))</span><span class="w"> </span><span class="o">||</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;보&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pc</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;바위&#34;</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 승리</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 패배</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/b07a596c-bb42-4fff-8477-2f600eef0c1e/image.gif"></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://withong.github.io/java/basic-01/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>[Java] 클래스와 객체</span>
+  </a>
+  <a class="next" href="https://withong.github.io/camp/pre-08/">
+    <span class="title">Next »</span>
+    <br>
+    <span>[사전캠프] 8일차.</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✓';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+<script data-goatcounter="https://withong.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

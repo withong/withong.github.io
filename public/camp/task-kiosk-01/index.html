@@ -1,20 +1,1110 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[내일배움캠프] 과제 - 키오스크 1 | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+요구사항
+Lv 1. 기본적인 키오스크를 프로그래밍해보자
 
 
-<script>
-  async function getViewCount() {
-    var path = window.location.pathname; 
-    var apiUrl = "https://withong.goatcounter.com/api/v0/counts?page=" + path;
+요구사항이 가지는 의도
 
-    try {
-      var response = await fetch(apiUrl);
-      if (!response.ok) throw new Error("HTTP Error: " + response.status);
+입력 처리와 간단한 흐름 제어를 복습합니다. (프로그래밍 검증)
+Scanner 활용법, 조건문, 반복문을 재확인하며 입력 데이터를 처리하는 방법 강화
 
-      var data = await response.json();
-      document.getElementById("view-count").innerText = data.count || 0;
-    } catch (error) {
-      console.error("조회 수를 불러오는 중 오류 발생:", error);
-      document.getElementById("view-count").innerText = "조회 수 불러오기 실패";
+
+
+햄버거 메뉴 출력 및 선택하기
+
+실행시 햄버거 메뉴가 표시되고, 이후 Scanner로 숫자를 입력받아서 메뉴를 선택할 수 있다.
+제시된 메뉴 중 입력받은 숫자에 따라 다른 로직을 실행하는 코드를 작성합니다.
+반복문을 이용해서 특정 번호가 입력되면 프로그램을 종료합니다.
+
+
+
+
+기능 구현
+Main.java
+
+main()
+
+프로그램 시작 → 메뉴 출력
+사용자 입력 → 메뉴 선택 (잘못된 입력 시 재입력 요청)
+선택한 메뉴 확인 → 결제 여부 선택
+사용자가 지불 금액 입력 → 결제 진행
+결제 성공 → 잔액 출력 후 다시 메뉴 선택 진행
+결제 실패 → 금액 부족 메시지 출력 후 다시 메뉴 선택 진행
+사용자가 0 입력 시 프로그램 종료
+
+
+
+public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    List&lt;List&lt;String&gt;&gt; menu = List.of(
+            List.of(&#34;불고기 버거&#34;, &#34;￦ 4,200&#34;, &#34;불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.&#34;),
+            List.of(&#34;치즈 버거&#34;, &#34;￦ 3,600&#34;, &#34;맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.&#34;),
+            List.of(&#34;슈비 버거&#34;, &#34;￦ 6,600&#34;, &#34;탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.&#34;),
+            List.of(&#34;슈슈 버거&#34;, &#34;￦ 5,500&#34;, &#34;탱글한 통새우살이 가득한 슈슈 버거.&#34;)
+    );
+
+    while (true) {
+        System.out.println(&#34;\n[ MENU - BURGER ]&#34;);
+
+        for (int i = 0; i &lt; menu.size(); i&#43;&#43;) {
+            List&lt;String&gt; burger = menu.get(i);
+            String burgerName = getDisplayBurgerName(menu, burger.get(0));
+            System.out.println((i &#43; 1) &#43; &#34;. &#34; &#43; burgerName &#43; &#34;\t| &#34; &#43; burger.get(1) &#43; &#34; | &#34; &#43; burger.get(2));
+        }
+        System.out.println(&#34;0. 종료하기&#34;);
+
+        int user = getInteger(scanner, &#34;\n주문할 메뉴의 번호를 입력하세요: &#34;);
+
+        if (user &lt; 0 || user &gt; menu.size()) {
+            System.out.println(&#34;올바른 메뉴 번호를 입력하세요.&#34;);
+            continue;
+        }
+
+        if (user == 0) {
+            System.out.println(&#34;프로그램을 종료합니다.&#34;);
+            break;
+        }
+
+        List&lt;String&gt; userChoice = menu.get(user-1);
+        String userBurgerName = userChoice.get(0);
+        String userBurgerPrice = userChoice.get(1);
+
+        System.out.println(&#34;\n[&#34; &#43; userBurgerName &#43; &#34;] &#34; &#43; userBurgerPrice);
+        user = getInteger(scanner, &#34;결제하시겠습니까? [예: 1, 아니오: 2] &#34;);
+
+        switch (user) {
+            case 1 -&gt; {
+                user = getInteger(scanner, &#34;\n지불할 금액을 입력하세요: &#34;);
+
+                String numericPrice = userBurgerPrice.replace(&#34;￦&#34;, &#34;&#34;).replace(&#34;,&#34;, &#34;&#34;).trim();
+                int price = Integer.parseInt(numericPrice);
+
+                if (user &gt; price) {
+                    System.out.println(String.format(&#34;\n[잔액] ￦ %,d&#34;, (user - price)));
+
+                } else if (user &lt; price) {
+                    System.out.println(&#34;금액이 부족합니다. 결제가 취소됩니다.&#34;);
+                    break;
+                }
+
+                System.out.println(&#34;결제가 완료되었습니다. 감사합니다.&#34;);
+            }
+
+            case 2 -&gt; System.out.println(&#34;결제가 취소되었습니다.&#34;);
+
+            default -&gt; System.out.println(&#34;올바른 입력이 아닙니다. 결제가 취소됩니다.&#34;);
+        }
+    }
+}
+
+
+getInteger()
+
+사용자 입력 값 검증
+숫자 입력 시 정수로 변환하여 반환
+숫자가 아닌 값 입력 시 오류 메시지 출력 후 재입력 요청
+
+
+
+public static int getInteger(Scanner scanner, String prompt) {
+    while (true) {
+        System.out.print(prompt);
+        String input = scanner.nextLine();
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println(&#34;숫자만 입력 가능합니다.&#34;);
+        }
+    }
+}
+
+
+getDisplayBurgerName()
+
+메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환
+
+
+
+public static String getDisplayBurgerName(List&lt;List&lt;String&gt;&gt; menu, String burgerName) {
+    int maxLength = 0; // 최대 길이 계산
+    for (List&lt;String&gt; item : menu) {
+        maxLength = Math.max(maxLength, getDisplayLength(item.get(0)));
+    }
+
+    int paddingSize = maxLength - getDisplayLength(burgerName); // 부족한 공백 개수 계산
+    return burgerName &#43; &#34; &#34;.repeat(paddingSize); // 버거명 &#43; 공백 리턴
+}
+
+
+getDisplayLength()
+
+한글을 2칸, 영어/숫자를 1칸으로 계산하여 글자 수 반환
+
+
+
+public static int getDisplayLength(String text) {
+    int length = 0;
+    for (char c : text.toCharArray()) {
+        if (Character.toString(c).matches(&#34;[가-힣]&#34;)) {
+            length &#43;= 2; // 한글이면 2칸
+        } else {
+            length &#43;= 1; // 영어/숫자/기타 문자는 1칸
+        }
+    }
+    return length;
+}
+
+실행 예시
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 3
+
+[슈비 버거] ￦ 6,600
+결제하시겠습니까? [예: 1, 아니오: 2] 1
+
+지불할 금액을 입력하세요: 7000
+
+[잔액] ￦ 400
+결제가 완료되었습니다. 감사합니다.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 4
+
+[슈슈 버거] ￦ 5,500
+결제하시겠습니까? [예: 1, 아니오: 2] 2
+결제가 취소되었습니다.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 1
+
+[불고기 버거] ￦ 4,200
+결제하시겠습니까? [예: 1, 아니오: 2] 1
+
+지불할 금액을 입력하세요: 4200
+결제가 완료되었습니다. 감사합니다.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 2
+
+[치즈 버거] ￦ 3,600
+결제하시겠습니까? [예: 1, 아니오: 2] 1
+
+지불할 금액을 입력하세요: 3500
+금액이 부족합니다. 결제가 취소됩니다.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 5
+올바른 메뉴 번호를 입력하세요.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 4
+
+[슈슈 버거] ￦ 5,500
+결제하시겠습니까? [예: 1, 아니오: 2] 2
+결제가 취소되었습니다.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 0
+프로그램을 종료합니다.
+">
+<meta name="author" content="">
+<link rel="canonical" href="https://withong.github.io/camp/task-kiosk-01/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/zep.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/camp/task-kiosk-01/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://withong.github.io/camp/task-kiosk-01/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="[내일배움캠프] 과제 - 키오스크 1">
+  <meta property="og:description" content=" 요구사항 Lv 1. 기본적인 키오스크를 프로그래밍해보자 요구사항이 가지는 의도
+입력 처리와 간단한 흐름 제어를 복습합니다. (프로그래밍 검증) Scanner 활용법, 조건문, 반복문을 재확인하며 입력 데이터를 처리하는 방법 강화 햄버거 메뉴 출력 및 선택하기
+실행시 햄버거 메뉴가 표시되고, 이후 Scanner로 숫자를 입력받아서 메뉴를 선택할 수 있다. 제시된 메뉴 중 입력받은 숫자에 따라 다른 로직을 실행하는 코드를 작성합니다. 반복문을 이용해서 특정 번호가 입력되면 프로그램을 종료합니다. 기능 구현 Main.java main() 프로그램 시작 → 메뉴 출력 사용자 입력 → 메뉴 선택 (잘못된 입력 시 재입력 요청) 선택한 메뉴 확인 → 결제 여부 선택 사용자가 지불 금액 입력 → 결제 진행 결제 성공 → 잔액 출력 후 다시 메뉴 선택 진행 결제 실패 → 금액 부족 메시지 출력 후 다시 메뉴 선택 진행 사용자가 0 입력 시 프로그램 종료 public static void main(String[] args) { Scanner scanner = new Scanner(System.in); List&lt;List&lt;String&gt;&gt; menu = List.of( List.of(&#34;불고기 버거&#34;, &#34;￦ 4,200&#34;, &#34;불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.&#34;), List.of(&#34;치즈 버거&#34;, &#34;￦ 3,600&#34;, &#34;맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.&#34;), List.of(&#34;슈비 버거&#34;, &#34;￦ 6,600&#34;, &#34;탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.&#34;), List.of(&#34;슈슈 버거&#34;, &#34;￦ 5,500&#34;, &#34;탱글한 통새우살이 가득한 슈슈 버거.&#34;) ); while (true) { System.out.println(&#34;\n[ MENU - BURGER ]&#34;); for (int i = 0; i &lt; menu.size(); i&#43;&#43;) { List&lt;String&gt; burger = menu.get(i); String burgerName = getDisplayBurgerName(menu, burger.get(0)); System.out.println((i &#43; 1) &#43; &#34;. &#34; &#43; burgerName &#43; &#34;\t| &#34; &#43; burger.get(1) &#43; &#34; | &#34; &#43; burger.get(2)); } System.out.println(&#34;0. 종료하기&#34;); int user = getInteger(scanner, &#34;\n주문할 메뉴의 번호를 입력하세요: &#34;); if (user &lt; 0 || user &gt; menu.size()) { System.out.println(&#34;올바른 메뉴 번호를 입력하세요.&#34;); continue; } if (user == 0) { System.out.println(&#34;프로그램을 종료합니다.&#34;); break; } List&lt;String&gt; userChoice = menu.get(user-1); String userBurgerName = userChoice.get(0); String userBurgerPrice = userChoice.get(1); System.out.println(&#34;\n[&#34; &#43; userBurgerName &#43; &#34;] &#34; &#43; userBurgerPrice); user = getInteger(scanner, &#34;결제하시겠습니까? [예: 1, 아니오: 2] &#34;); switch (user) { case 1 -&gt; { user = getInteger(scanner, &#34;\n지불할 금액을 입력하세요: &#34;); String numericPrice = userBurgerPrice.replace(&#34;￦&#34;, &#34;&#34;).replace(&#34;,&#34;, &#34;&#34;).trim(); int price = Integer.parseInt(numericPrice); if (user &gt; price) { System.out.println(String.format(&#34;\n[잔액] ￦ %,d&#34;, (user - price))); } else if (user &lt; price) { System.out.println(&#34;금액이 부족합니다. 결제가 취소됩니다.&#34;); break; } System.out.println(&#34;결제가 완료되었습니다. 감사합니다.&#34;); } case 2 -&gt; System.out.println(&#34;결제가 취소되었습니다.&#34;); default -&gt; System.out.println(&#34;올바른 입력이 아닙니다. 결제가 취소됩니다.&#34;); } } } getInteger() 사용자 입력 값 검증 숫자 입력 시 정수로 변환하여 반환 숫자가 아닌 값 입력 시 오류 메시지 출력 후 재입력 요청 public static int getInteger(Scanner scanner, String prompt) { while (true) { System.out.print(prompt); String input = scanner.nextLine(); try { return Integer.parseInt(input); } catch (NumberFormatException e) { System.out.println(&#34;숫자만 입력 가능합니다.&#34;); } } } getDisplayBurgerName() 메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환 public static String getDisplayBurgerName(List&lt;List&lt;String&gt;&gt; menu, String burgerName) { int maxLength = 0; // 최대 길이 계산 for (List&lt;String&gt; item : menu) { maxLength = Math.max(maxLength, getDisplayLength(item.get(0))); } int paddingSize = maxLength - getDisplayLength(burgerName); // 부족한 공백 개수 계산 return burgerName &#43; &#34; &#34;.repeat(paddingSize); // 버거명 &#43; 공백 리턴 } getDisplayLength() 한글을 2칸, 영어/숫자를 1칸으로 계산하여 글자 수 반환 public static int getDisplayLength(String text) { int length = 0; for (char c : text.toCharArray()) { if (Character.toString(c).matches(&#34;[가-힣]&#34;)) { length &#43;= 2; // 한글이면 2칸 } else { length &#43;= 1; // 영어/숫자/기타 문자는 1칸 } } return length; } 실행 예시 [ MENU - BURGER ] 1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 3 [슈비 버거] ￦ 6,600 결제하시겠습니까? [예: 1, 아니오: 2] 1 지불할 금액을 입력하세요: 7000 [잔액] ￦ 400 결제가 완료되었습니다. 감사합니다. [ MENU - BURGER ] 1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 4 [슈슈 버거] ￦ 5,500 결제하시겠습니까? [예: 1, 아니오: 2] 2 결제가 취소되었습니다. [ MENU - BURGER ] 1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 1 [불고기 버거] ￦ 4,200 결제하시겠습니까? [예: 1, 아니오: 2] 1 지불할 금액을 입력하세요: 4200 결제가 완료되었습니다. 감사합니다. [ MENU - BURGER ] 1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 2 [치즈 버거] ￦ 3,600 결제하시겠습니까? [예: 1, 아니오: 2] 1 지불할 금액을 입력하세요: 3500 금액이 부족합니다. 결제가 취소됩니다. [ MENU - BURGER ] 1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 5 올바른 메뉴 번호를 입력하세요. [ MENU - BURGER ] 1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 4 [슈슈 버거] ￦ 5,500 결제하시겠습니까? [예: 1, 아니오: 2] 2 결제가 취소되었습니다. [ MENU - BURGER ] 1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 0 프로그램을 종료합니다. ">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="camp">
+    <meta property="article:published_time" content="2025-03-07T21:00:00+09:00">
+    <meta property="article:modified_time" content="2025-03-07T21:00:00+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[내일배움캠프] 과제 - 키오스크 1">
+<meta name="twitter:description" content="
+요구사항
+Lv 1. 기본적인 키오스크를 프로그래밍해보자
+
+
+요구사항이 가지는 의도
+
+입력 처리와 간단한 흐름 제어를 복습합니다. (프로그래밍 검증)
+Scanner 활용법, 조건문, 반복문을 재확인하며 입력 데이터를 처리하는 방법 강화
+
+
+
+햄버거 메뉴 출력 및 선택하기
+
+실행시 햄버거 메뉴가 표시되고, 이후 Scanner로 숫자를 입력받아서 메뉴를 선택할 수 있다.
+제시된 메뉴 중 입력받은 숫자에 따라 다른 로직을 실행하는 코드를 작성합니다.
+반복문을 이용해서 특정 번호가 입력되면 프로그램을 종료합니다.
+
+
+
+
+기능 구현
+Main.java
+
+main()
+
+프로그램 시작 → 메뉴 출력
+사용자 입력 → 메뉴 선택 (잘못된 입력 시 재입력 요청)
+선택한 메뉴 확인 → 결제 여부 선택
+사용자가 지불 금액 입력 → 결제 진행
+결제 성공 → 잔액 출력 후 다시 메뉴 선택 진행
+결제 실패 → 금액 부족 메시지 출력 후 다시 메뉴 선택 진행
+사용자가 0 입력 시 프로그램 종료
+
+
+
+public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    List&lt;List&lt;String&gt;&gt; menu = List.of(
+            List.of(&#34;불고기 버거&#34;, &#34;￦ 4,200&#34;, &#34;불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.&#34;),
+            List.of(&#34;치즈 버거&#34;, &#34;￦ 3,600&#34;, &#34;맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.&#34;),
+            List.of(&#34;슈비 버거&#34;, &#34;￦ 6,600&#34;, &#34;탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.&#34;),
+            List.of(&#34;슈슈 버거&#34;, &#34;￦ 5,500&#34;, &#34;탱글한 통새우살이 가득한 슈슈 버거.&#34;)
+    );
+
+    while (true) {
+        System.out.println(&#34;\n[ MENU - BURGER ]&#34;);
+
+        for (int i = 0; i &lt; menu.size(); i&#43;&#43;) {
+            List&lt;String&gt; burger = menu.get(i);
+            String burgerName = getDisplayBurgerName(menu, burger.get(0));
+            System.out.println((i &#43; 1) &#43; &#34;. &#34; &#43; burgerName &#43; &#34;\t| &#34; &#43; burger.get(1) &#43; &#34; | &#34; &#43; burger.get(2));
+        }
+        System.out.println(&#34;0. 종료하기&#34;);
+
+        int user = getInteger(scanner, &#34;\n주문할 메뉴의 번호를 입력하세요: &#34;);
+
+        if (user &lt; 0 || user &gt; menu.size()) {
+            System.out.println(&#34;올바른 메뉴 번호를 입력하세요.&#34;);
+            continue;
+        }
+
+        if (user == 0) {
+            System.out.println(&#34;프로그램을 종료합니다.&#34;);
+            break;
+        }
+
+        List&lt;String&gt; userChoice = menu.get(user-1);
+        String userBurgerName = userChoice.get(0);
+        String userBurgerPrice = userChoice.get(1);
+
+        System.out.println(&#34;\n[&#34; &#43; userBurgerName &#43; &#34;] &#34; &#43; userBurgerPrice);
+        user = getInteger(scanner, &#34;결제하시겠습니까? [예: 1, 아니오: 2] &#34;);
+
+        switch (user) {
+            case 1 -&gt; {
+                user = getInteger(scanner, &#34;\n지불할 금액을 입력하세요: &#34;);
+
+                String numericPrice = userBurgerPrice.replace(&#34;￦&#34;, &#34;&#34;).replace(&#34;,&#34;, &#34;&#34;).trim();
+                int price = Integer.parseInt(numericPrice);
+
+                if (user &gt; price) {
+                    System.out.println(String.format(&#34;\n[잔액] ￦ %,d&#34;, (user - price)));
+
+                } else if (user &lt; price) {
+                    System.out.println(&#34;금액이 부족합니다. 결제가 취소됩니다.&#34;);
+                    break;
+                }
+
+                System.out.println(&#34;결제가 완료되었습니다. 감사합니다.&#34;);
+            }
+
+            case 2 -&gt; System.out.println(&#34;결제가 취소되었습니다.&#34;);
+
+            default -&gt; System.out.println(&#34;올바른 입력이 아닙니다. 결제가 취소됩니다.&#34;);
+        }
+    }
+}
+
+
+getInteger()
+
+사용자 입력 값 검증
+숫자 입력 시 정수로 변환하여 반환
+숫자가 아닌 값 입력 시 오류 메시지 출력 후 재입력 요청
+
+
+
+public static int getInteger(Scanner scanner, String prompt) {
+    while (true) {
+        System.out.print(prompt);
+        String input = scanner.nextLine();
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println(&#34;숫자만 입력 가능합니다.&#34;);
+        }
+    }
+}
+
+
+getDisplayBurgerName()
+
+메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환
+
+
+
+public static String getDisplayBurgerName(List&lt;List&lt;String&gt;&gt; menu, String burgerName) {
+    int maxLength = 0; // 최대 길이 계산
+    for (List&lt;String&gt; item : menu) {
+        maxLength = Math.max(maxLength, getDisplayLength(item.get(0)));
+    }
+
+    int paddingSize = maxLength - getDisplayLength(burgerName); // 부족한 공백 개수 계산
+    return burgerName &#43; &#34; &#34;.repeat(paddingSize); // 버거명 &#43; 공백 리턴
+}
+
+
+getDisplayLength()
+
+한글을 2칸, 영어/숫자를 1칸으로 계산하여 글자 수 반환
+
+
+
+public static int getDisplayLength(String text) {
+    int length = 0;
+    for (char c : text.toCharArray()) {
+        if (Character.toString(c).matches(&#34;[가-힣]&#34;)) {
+            length &#43;= 2; // 한글이면 2칸
+        } else {
+            length &#43;= 1; // 영어/숫자/기타 문자는 1칸
+        }
+    }
+    return length;
+}
+
+실행 예시
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 3
+
+[슈비 버거] ￦ 6,600
+결제하시겠습니까? [예: 1, 아니오: 2] 1
+
+지불할 금액을 입력하세요: 7000
+
+[잔액] ￦ 400
+결제가 완료되었습니다. 감사합니다.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 4
+
+[슈슈 버거] ￦ 5,500
+결제하시겠습니까? [예: 1, 아니오: 2] 2
+결제가 취소되었습니다.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 1
+
+[불고기 버거] ￦ 4,200
+결제하시겠습니까? [예: 1, 아니오: 2] 1
+
+지불할 금액을 입력하세요: 4200
+결제가 완료되었습니다. 감사합니다.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 2
+
+[치즈 버거] ￦ 3,600
+결제하시겠습니까? [예: 1, 아니오: 2] 1
+
+지불할 금액을 입력하세요: 3500
+금액이 부족합니다. 결제가 취소됩니다.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 5
+올바른 메뉴 번호를 입력하세요.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 4
+
+[슈슈 버거] ￦ 5,500
+결제하시겠습니까? [예: 1, 아니오: 2] 2
+결제가 취소되었습니다.
+
+[ MENU - BURGER ]
+1. 불고기 버거	| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.
+2. 치즈 버거  	| ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.
+3. 슈비 버거  	| ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.
+4. 슈슈 버거  	| ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거.
+0. 종료하기
+
+주문할 메뉴의 번호를 입력하세요: 0
+프로그램을 종료합니다.
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Camp",
+      "item": "https://withong.github.io/camp/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[내일배움캠프] 과제 - 키오스크 1",
+      "item": "https://withong.github.io/camp/task-kiosk-01/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[내일배움캠프] 과제 - 키오스크 1",
+  "name": "[내일배움캠프] 과제 - 키오스크 1",
+  "description": " 요구사항 Lv 1. 기본적인 키오스크를 프로그래밍해보자 요구사항이 가지는 의도\n입력 처리와 간단한 흐름 제어를 복습합니다. (프로그래밍 검증) Scanner 활용법, 조건문, 반복문을 재확인하며 입력 데이터를 처리하는 방법 강화 햄버거 메뉴 출력 및 선택하기\n실행시 햄버거 메뉴가 표시되고, 이후 Scanner로 숫자를 입력받아서 메뉴를 선택할 수 있다. 제시된 메뉴 중 입력받은 숫자에 따라 다른 로직을 실행하는 코드를 작성합니다. 반복문을 이용해서 특정 번호가 입력되면 프로그램을 종료합니다. 기능 구현 Main.java main() 프로그램 시작 → 메뉴 출력 사용자 입력 → 메뉴 선택 (잘못된 입력 시 재입력 요청) 선택한 메뉴 확인 → 결제 여부 선택 사용자가 지불 금액 입력 → 결제 진행 결제 성공 → 잔액 출력 후 다시 메뉴 선택 진행 결제 실패 → 금액 부족 메시지 출력 후 다시 메뉴 선택 진행 사용자가 0 입력 시 프로그램 종료 public static void main(String[] args) { Scanner scanner = new Scanner(System.in); List\u0026lt;List\u0026lt;String\u0026gt;\u0026gt; menu = List.of( List.of(\u0026#34;불고기 버거\u0026#34;, \u0026#34;￦ 4,200\u0026#34;, \u0026#34;불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.\u0026#34;), List.of(\u0026#34;치즈 버거\u0026#34;, \u0026#34;￦ 3,600\u0026#34;, \u0026#34;맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.\u0026#34;), List.of(\u0026#34;슈비 버거\u0026#34;, \u0026#34;￦ 6,600\u0026#34;, \u0026#34;탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.\u0026#34;), List.of(\u0026#34;슈슈 버거\u0026#34;, \u0026#34;￦ 5,500\u0026#34;, \u0026#34;탱글한 통새우살이 가득한 슈슈 버거.\u0026#34;) ); while (true) { System.out.println(\u0026#34;\\n[ MENU - BURGER ]\u0026#34;); for (int i = 0; i \u0026lt; menu.size(); i++) { List\u0026lt;String\u0026gt; burger = menu.get(i); String burgerName = getDisplayBurgerName(menu, burger.get(0)); System.out.println((i + 1) + \u0026#34;. \u0026#34; + burgerName + \u0026#34;\\t| \u0026#34; + burger.get(1) + \u0026#34; | \u0026#34; + burger.get(2)); } System.out.println(\u0026#34;0. 종료하기\u0026#34;); int user = getInteger(scanner, \u0026#34;\\n주문할 메뉴의 번호를 입력하세요: \u0026#34;); if (user \u0026lt; 0 || user \u0026gt; menu.size()) { System.out.println(\u0026#34;올바른 메뉴 번호를 입력하세요.\u0026#34;); continue; } if (user == 0) { System.out.println(\u0026#34;프로그램을 종료합니다.\u0026#34;); break; } List\u0026lt;String\u0026gt; userChoice = menu.get(user-1); String userBurgerName = userChoice.get(0); String userBurgerPrice = userChoice.get(1); System.out.println(\u0026#34;\\n[\u0026#34; + userBurgerName + \u0026#34;] \u0026#34; + userBurgerPrice); user = getInteger(scanner, \u0026#34;결제하시겠습니까? [예: 1, 아니오: 2] \u0026#34;); switch (user) { case 1 -\u0026gt; { user = getInteger(scanner, \u0026#34;\\n지불할 금액을 입력하세요: \u0026#34;); String numericPrice = userBurgerPrice.replace(\u0026#34;￦\u0026#34;, \u0026#34;\u0026#34;).replace(\u0026#34;,\u0026#34;, \u0026#34;\u0026#34;).trim(); int price = Integer.parseInt(numericPrice); if (user \u0026gt; price) { System.out.println(String.format(\u0026#34;\\n[잔액] ￦ %,d\u0026#34;, (user - price))); } else if (user \u0026lt; price) { System.out.println(\u0026#34;금액이 부족합니다. 결제가 취소됩니다.\u0026#34;); break; } System.out.println(\u0026#34;결제가 완료되었습니다. 감사합니다.\u0026#34;); } case 2 -\u0026gt; System.out.println(\u0026#34;결제가 취소되었습니다.\u0026#34;); default -\u0026gt; System.out.println(\u0026#34;올바른 입력이 아닙니다. 결제가 취소됩니다.\u0026#34;); } } } getInteger() 사용자 입력 값 검증 숫자 입력 시 정수로 변환하여 반환 숫자가 아닌 값 입력 시 오류 메시지 출력 후 재입력 요청 public static int getInteger(Scanner scanner, String prompt) { while (true) { System.out.print(prompt); String input = scanner.nextLine(); try { return Integer.parseInt(input); } catch (NumberFormatException e) { System.out.println(\u0026#34;숫자만 입력 가능합니다.\u0026#34;); } } } getDisplayBurgerName() 메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환 public static String getDisplayBurgerName(List\u0026lt;List\u0026lt;String\u0026gt;\u0026gt; menu, String burgerName) { int maxLength = 0; // 최대 길이 계산 for (List\u0026lt;String\u0026gt; item : menu) { maxLength = Math.max(maxLength, getDisplayLength(item.get(0))); } int paddingSize = maxLength - getDisplayLength(burgerName); // 부족한 공백 개수 계산 return burgerName + \u0026#34; \u0026#34;.repeat(paddingSize); // 버거명 + 공백 리턴 } getDisplayLength() 한글을 2칸, 영어/숫자를 1칸으로 계산하여 글자 수 반환 public static int getDisplayLength(String text) { int length = 0; for (char c : text.toCharArray()) { if (Character.toString(c).matches(\u0026#34;[가-힣]\u0026#34;)) { length += 2; // 한글이면 2칸 } else { length += 1; // 영어/숫자/기타 문자는 1칸 } } return length; } 실행 예시 [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 3 [슈비 버거] ￦ 6,600 결제하시겠습니까? [예: 1, 아니오: 2] 1 지불할 금액을 입력하세요: 7000 [잔액] ￦ 400 결제가 완료되었습니다. 감사합니다. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 4 [슈슈 버거] ￦ 5,500 결제하시겠습니까? [예: 1, 아니오: 2] 2 결제가 취소되었습니다. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 1 [불고기 버거] ￦ 4,200 결제하시겠습니까? [예: 1, 아니오: 2] 1 지불할 금액을 입력하세요: 4200 결제가 완료되었습니다. 감사합니다. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 2 [치즈 버거] ￦ 3,600 결제하시겠습니까? [예: 1, 아니오: 2] 1 지불할 금액을 입력하세요: 3500 금액이 부족합니다. 결제가 취소됩니다. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 5 올바른 메뉴 번호를 입력하세요. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 4 [슈슈 버거] ￦ 5,500 결제하시겠습니까? [예: 1, 아니오: 2] 2 결제가 취소되었습니다. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 0 프로그램을 종료합니다. ",
+  "keywords": [
+    
+  ],
+  "articleBody": " 요구사항 Lv 1. 기본적인 키오스크를 프로그래밍해보자 요구사항이 가지는 의도\n입력 처리와 간단한 흐름 제어를 복습합니다. (프로그래밍 검증) Scanner 활용법, 조건문, 반복문을 재확인하며 입력 데이터를 처리하는 방법 강화 햄버거 메뉴 출력 및 선택하기\n실행시 햄버거 메뉴가 표시되고, 이후 Scanner로 숫자를 입력받아서 메뉴를 선택할 수 있다. 제시된 메뉴 중 입력받은 숫자에 따라 다른 로직을 실행하는 코드를 작성합니다. 반복문을 이용해서 특정 번호가 입력되면 프로그램을 종료합니다. 기능 구현 Main.java main() 프로그램 시작 → 메뉴 출력 사용자 입력 → 메뉴 선택 (잘못된 입력 시 재입력 요청) 선택한 메뉴 확인 → 결제 여부 선택 사용자가 지불 금액 입력 → 결제 진행 결제 성공 → 잔액 출력 후 다시 메뉴 선택 진행 결제 실패 → 금액 부족 메시지 출력 후 다시 메뉴 선택 진행 사용자가 0 입력 시 프로그램 종료 public static void main(String[] args) { Scanner scanner = new Scanner(System.in); List\u003cList\u003cString\u003e\u003e menu = List.of( List.of(\"불고기 버거\", \"￦ 4,200\", \"불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.\"), List.of(\"치즈 버거\", \"￦ 3,600\", \"맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.\"), List.of(\"슈비 버거\", \"￦ 6,600\", \"탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.\"), List.of(\"슈슈 버거\", \"￦ 5,500\", \"탱글한 통새우살이 가득한 슈슈 버거.\") ); while (true) { System.out.println(\"\\n[ MENU - BURGER ]\"); for (int i = 0; i \u003c menu.size(); i++) { List\u003cString\u003e burger = menu.get(i); String burgerName = getDisplayBurgerName(menu, burger.get(0)); System.out.println((i + 1) + \". \" + burgerName + \"\\t| \" + burger.get(1) + \" | \" + burger.get(2)); } System.out.println(\"0. 종료하기\"); int user = getInteger(scanner, \"\\n주문할 메뉴의 번호를 입력하세요: \"); if (user \u003c 0 || user \u003e menu.size()) { System.out.println(\"올바른 메뉴 번호를 입력하세요.\"); continue; } if (user == 0) { System.out.println(\"프로그램을 종료합니다.\"); break; } List\u003cString\u003e userChoice = menu.get(user-1); String userBurgerName = userChoice.get(0); String userBurgerPrice = userChoice.get(1); System.out.println(\"\\n[\" + userBurgerName + \"] \" + userBurgerPrice); user = getInteger(scanner, \"결제하시겠습니까? [예: 1, 아니오: 2] \"); switch (user) { case 1 -\u003e { user = getInteger(scanner, \"\\n지불할 금액을 입력하세요: \"); String numericPrice = userBurgerPrice.replace(\"￦\", \"\").replace(\",\", \"\").trim(); int price = Integer.parseInt(numericPrice); if (user \u003e price) { System.out.println(String.format(\"\\n[잔액] ￦ %,d\", (user - price))); } else if (user \u003c price) { System.out.println(\"금액이 부족합니다. 결제가 취소됩니다.\"); break; } System.out.println(\"결제가 완료되었습니다. 감사합니다.\"); } case 2 -\u003e System.out.println(\"결제가 취소되었습니다.\"); default -\u003e System.out.println(\"올바른 입력이 아닙니다. 결제가 취소됩니다.\"); } } } getInteger() 사용자 입력 값 검증 숫자 입력 시 정수로 변환하여 반환 숫자가 아닌 값 입력 시 오류 메시지 출력 후 재입력 요청 public static int getInteger(Scanner scanner, String prompt) { while (true) { System.out.print(prompt); String input = scanner.nextLine(); try { return Integer.parseInt(input); } catch (NumberFormatException e) { System.out.println(\"숫자만 입력 가능합니다.\"); } } } getDisplayBurgerName() 메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환 public static String getDisplayBurgerName(List\u003cList\u003cString\u003e\u003e menu, String burgerName) { int maxLength = 0; // 최대 길이 계산 for (List\u003cString\u003e item : menu) { maxLength = Math.max(maxLength, getDisplayLength(item.get(0))); } int paddingSize = maxLength - getDisplayLength(burgerName); // 부족한 공백 개수 계산 return burgerName + \" \".repeat(paddingSize); // 버거명 + 공백 리턴 } getDisplayLength() 한글을 2칸, 영어/숫자를 1칸으로 계산하여 글자 수 반환 public static int getDisplayLength(String text) { int length = 0; for (char c : text.toCharArray()) { if (Character.toString(c).matches(\"[가-힣]\")) { length += 2; // 한글이면 2칸 } else { length += 1; // 영어/숫자/기타 문자는 1칸 } } return length; } 실행 예시 [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 3 [슈비 버거] ￦ 6,600 결제하시겠습니까? [예: 1, 아니오: 2] 1 지불할 금액을 입력하세요: 7000 [잔액] ￦ 400 결제가 완료되었습니다. 감사합니다. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 4 [슈슈 버거] ￦ 5,500 결제하시겠습니까? [예: 1, 아니오: 2] 2 결제가 취소되었습니다. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 1 [불고기 버거] ￦ 4,200 결제하시겠습니까? [예: 1, 아니오: 2] 1 지불할 금액을 입력하세요: 4200 결제가 완료되었습니다. 감사합니다. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 2 [치즈 버거] ￦ 3,600 결제하시겠습니까? [예: 1, 아니오: 2] 1 지불할 금액을 입력하세요: 3500 금액이 부족합니다. 결제가 취소됩니다. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 5 올바른 메뉴 번호를 입력하세요. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 4 [슈슈 버거] ￦ 5,500 결제하시겠습니까? [예: 1, 아니오: 2] 2 결제가 취소되었습니다. [ MENU - BURGER ] 1. 불고기 버거\t| ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. 2. 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. 3. 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. 4. 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. 0. 종료하기 주문할 메뉴의 번호를 입력하세요: 0 프로그램을 종료합니다. ",
+  "wordCount" : "1094",
+  "inLanguage": "ko",
+  "datePublished": "2025-03-07T21:00:00+09:00",
+  "dateModified": "2025-03-07T21:00:00+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/camp/task-kiosk-01/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/code.png"
     }
   }
-  getViewCount();
+}
 </script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/topic/" title="Topic">
+                    <span>Topic</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/camp/">Camp</a></div>
+    <h1 class="post-title entry-hint-parent">
+      [내일배움캠프] 과제 - 키오스크 1
+    </h1>
+    <div class="post-meta"><span title='2025-03-07 21:00:00 +0900 KST'>2025년 3월 7일</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#요구사항">요구사항</a>
+      <ul>
+        <li><a href="#lv-1-기본적인-키오스크를-프로그래밍해보자">Lv 1. 기본적인 키오스크를 프로그래밍해보자</a></li>
+      </ul>
+    </li>
+    <li><a href="#기능-구현">기능 구현</a>
+      <ul>
+        <li><a href="#mainjava">Main.java</a></li>
+      </ul>
+    </li>
+    <li><a href="#실행-예시">실행 예시</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><hr>
+<h2 id="요구사항">요구사항<a hidden class="anchor" aria-hidden="true" href="#요구사항">#</a></h2>
+<h3 id="lv-1-기본적인-키오스크를-프로그래밍해보자">Lv 1. 기본적인 키오스크를 프로그래밍해보자<a hidden class="anchor" aria-hidden="true" href="#lv-1-기본적인-키오스크를-프로그래밍해보자">#</a></h3>
+<ul>
+<li>
+<p><strong>요구사항이 가지는 의도</strong></p>
+<ul>
+<li>입력 처리와 간단한 흐름 제어를 복습합니다. (프로그래밍 검증)</li>
+<li><code>Scanner</code> 활용법, 조건문, 반복문을 재확인하며 입력 데이터를 처리하는 방법 강화</li>
+</ul>
+</li>
+<li>
+<p><strong>햄버거 메뉴 출력 및 선택하기</strong></p>
+<ul>
+<li>실행시 햄버거 메뉴가 표시되고, 이후 Scanner로 숫자를 입력받아서 메뉴를 선택할 수 있다.</li>
+<li>제시된 메뉴 중 입력받은 숫자에 따라 다른 로직을 실행하는 코드를 작성합니다.</li>
+<li>반복문을 이용해서 특정 번호가 입력되면 프로그램을 종료합니다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="기능-구현">기능 구현<a hidden class="anchor" aria-hidden="true" href="#기능-구현">#</a></h2>
+<h3 id="mainjava">Main.java<a hidden class="anchor" aria-hidden="true" href="#mainjava">#</a></h3>
+<ul>
+<li><strong>main()</strong>
+<ul>
+<li>프로그램 시작 → 메뉴 출력</li>
+<li>사용자 입력 → 메뉴 선택 (잘못된 입력 시 재입력 요청)</li>
+<li>선택한 메뉴 확인 → 결제 여부 선택</li>
+<li>사용자가 지불 금액 입력 → 결제 진행</li>
+<li>결제 성공 → 잔액 출력 후 다시 메뉴 선택 진행</li>
+<li>결제 실패 → 금액 부족 메시지 출력 후 다시 메뉴 선택 진행</li>
+<li>사용자가 <code>0</code> 입력 시 프로그램 종료</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Scanner</span><span class="w"> </span><span class="n">scanner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">menu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&#34;불고기 버거&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;￦ 4,200&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합.&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&#34;치즈 버거&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;￦ 3,600&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거.&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&#34;슈비 버거&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;￦ 6,600&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거.&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&#34;슈슈 버거&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;￦ 5,500&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;탱글한 통새우살이 가득한 슈슈 버거.&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;\n[ MENU - BURGER ]&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">menu</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">burger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menu</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">burgerName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getDisplayBurgerName</span><span class="p">(</span><span class="n">menu</span><span class="p">,</span><span class="w"> </span><span class="n">burger</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">((</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;. &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">burgerName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\t| &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">burger</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; | &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">burger</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">2</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;0. 종료하기&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getInteger</span><span class="p">(</span><span class="n">scanner</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;\n주문할 메뉴의 번호를 입력하세요: &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">menu</span><span class="p">.</span><span class="na">size</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;올바른 메뉴 번호를 입력하세요.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">continue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;프로그램을 종료합니다.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">userChoice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menu</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">user</span><span class="o">-</span><span class="n">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">userBurgerName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userChoice</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">userBurgerPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userChoice</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;\n[&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">userBurgerName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;] &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">userBurgerPrice</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getInteger</span><span class="p">(</span><span class="n">scanner</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;결제하시겠습니까? [예: 1, 아니오: 2] &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getInteger</span><span class="p">(</span><span class="n">scanner</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;\n지불할 금액을 입력하세요: &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">String</span><span class="w"> </span><span class="n">numericPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userBurgerPrice</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">&#34;￦&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;&#34;</span><span class="p">).</span><span class="na">replace</span><span class="p">(</span><span class="s">&#34;,&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;&#34;</span><span class="p">).</span><span class="na">trim</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">numericPrice</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34;\n[잔액] ￦ %,d&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">price</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;금액이 부족합니다. 결제가 취소됩니다.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;결제가 완료되었습니다. 감사합니다.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">2</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;결제가 취소되었습니다.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">default</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;올바른 입력이 아닙니다. 결제가 취소됩니다.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<ul>
+<li><strong>getInteger()</strong>
+<ul>
+<li>사용자 입력 값 검증</li>
+<li>숫자 입력 시 정수로 변환하여 반환</li>
+<li>숫자가 아닌 값 입력 시 오류 메시지 출력 후 재입력 요청</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getInteger</span><span class="p">(</span><span class="n">Scanner</span><span class="w"> </span><span class="n">scanner</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">prompt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">prompt</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanner</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">input</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">NumberFormatException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;숫자만 입력 가능합니다.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<ul>
+<li><strong>getDisplayBurgerName()</strong>
+<ul>
+<li>메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDisplayBurgerName</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">menu</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">burgerName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 최대 길이 계산</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">menu</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">maxLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">maxLength</span><span class="p">,</span><span class="w"> </span><span class="n">getDisplayLength</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">paddingSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxLength</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">getDisplayLength</span><span class="p">(</span><span class="n">burgerName</span><span class="p">);</span><span class="w"> </span><span class="c1">// 부족한 공백 개수 계산</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">burgerName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="p">.</span><span class="na">repeat</span><span class="p">(</span><span class="n">paddingSize</span><span class="p">);</span><span class="w"> </span><span class="c1">// 버거명 + 공백 리턴</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<ul>
+<li><strong>getDisplayLength()</strong>
+<ul>
+<li>한글을 2칸, 영어/숫자를 1칸으로 계산하여 글자 수 반환</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getDisplayLength</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Character</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">c</span><span class="p">).</span><span class="na">matches</span><span class="p">(</span><span class="s">&#34;[가-힣]&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">length</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 한글이면 2칸</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">length</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 영어/숫자/기타 문자는 1칸</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><hr>
+<h2 id="실행-예시">실행 예시<a hidden class="anchor" aria-hidden="true" href="#실행-예시">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">[</span> <span class="n">MENU</span> <span class="p">-</span> <span class="n">BURGER</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="mf">1</span><span class="p">.</span> <span class="n">불고기</span> <span class="n">버거</span>	<span class="p">|</span> <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span> <span class="p">|</span> <span class="n">불고기</span> <span class="n">소스에</span> <span class="n">패티와</span> <span class="n">마요네즈</span><span class="p">,</span> <span class="n">양상추의</span> <span class="n">맛있는</span> <span class="n">조합</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2</span><span class="p">.</span> <span class="n">치즈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">맛있는</span> <span class="n">치즈와</span> <span class="mf">100</span><span class="p">%</span> <span class="n">순</span> <span class="n">쇠고기</span> <span class="n">패티</span><span class="p">,</span> <span class="n">클래식</span> <span class="n">치즈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3</span><span class="p">.</span> <span class="n">슈비</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살에</span> <span class="n">비프</span> <span class="n">패티를</span> <span class="n">더해</span> <span class="n">푸짐한</span> <span class="n">슈비</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4</span><span class="p">.</span> <span class="n">슈슈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살이</span> <span class="n">가득한</span> <span class="n">슈슈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">0</span><span class="p">.</span> <span class="n">종료하기</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">주문할</span> <span class="n">메뉴의</span> <span class="n">번호를</span> <span class="n">입력하세요</span><span class="err">:</span> <span class="mf">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">슈비</span> <span class="n">버거</span><span class="p">]</span> <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span>
+</span></span><span class="line"><span class="cl"><span class="n">결제하시겠습니까</span><span class="p">?</span> <span class="p">[</span><span class="n">예</span><span class="err">:</span> <span class="mf">1</span><span class="p">,</span> <span class="n">아니오</span><span class="err">:</span> <span class="mf">2</span><span class="p">]</span> <span class="mf">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">지불할</span> <span class="n">금액을</span> <span class="n">입력하세요</span><span class="err">:</span> <span class="mf">7000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">잔액</span><span class="p">]</span> <span class="err">￦</span> <span class="mf">400</span>
+</span></span><span class="line"><span class="cl"><span class="n">결제가</span> <span class="n">완료되었습니다</span><span class="p">.</span> <span class="n">감사합니다</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span> <span class="n">MENU</span> <span class="p">-</span> <span class="n">BURGER</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="mf">1</span><span class="p">.</span> <span class="n">불고기</span> <span class="n">버거</span>	<span class="p">|</span> <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span> <span class="p">|</span> <span class="n">불고기</span> <span class="n">소스에</span> <span class="n">패티와</span> <span class="n">마요네즈</span><span class="p">,</span> <span class="n">양상추의</span> <span class="n">맛있는</span> <span class="n">조합</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2</span><span class="p">.</span> <span class="n">치즈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">맛있는</span> <span class="n">치즈와</span> <span class="mf">100</span><span class="p">%</span> <span class="n">순</span> <span class="n">쇠고기</span> <span class="n">패티</span><span class="p">,</span> <span class="n">클래식</span> <span class="n">치즈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3</span><span class="p">.</span> <span class="n">슈비</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살에</span> <span class="n">비프</span> <span class="n">패티를</span> <span class="n">더해</span> <span class="n">푸짐한</span> <span class="n">슈비</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4</span><span class="p">.</span> <span class="n">슈슈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살이</span> <span class="n">가득한</span> <span class="n">슈슈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">0</span><span class="p">.</span> <span class="n">종료하기</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">주문할</span> <span class="n">메뉴의</span> <span class="n">번호를</span> <span class="n">입력하세요</span><span class="err">:</span> <span class="mf">4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">슈슈</span> <span class="n">버거</span><span class="p">]</span> <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span>
+</span></span><span class="line"><span class="cl"><span class="n">결제하시겠습니까</span><span class="p">?</span> <span class="p">[</span><span class="n">예</span><span class="err">:</span> <span class="mf">1</span><span class="p">,</span> <span class="n">아니오</span><span class="err">:</span> <span class="mf">2</span><span class="p">]</span> <span class="mf">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">결제가</span> <span class="n">취소되었습니다</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span> <span class="n">MENU</span> <span class="p">-</span> <span class="n">BURGER</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="mf">1</span><span class="p">.</span> <span class="n">불고기</span> <span class="n">버거</span>	<span class="p">|</span> <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span> <span class="p">|</span> <span class="n">불고기</span> <span class="n">소스에</span> <span class="n">패티와</span> <span class="n">마요네즈</span><span class="p">,</span> <span class="n">양상추의</span> <span class="n">맛있는</span> <span class="n">조합</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2</span><span class="p">.</span> <span class="n">치즈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">맛있는</span> <span class="n">치즈와</span> <span class="mf">100</span><span class="p">%</span> <span class="n">순</span> <span class="n">쇠고기</span> <span class="n">패티</span><span class="p">,</span> <span class="n">클래식</span> <span class="n">치즈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3</span><span class="p">.</span> <span class="n">슈비</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살에</span> <span class="n">비프</span> <span class="n">패티를</span> <span class="n">더해</span> <span class="n">푸짐한</span> <span class="n">슈비</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4</span><span class="p">.</span> <span class="n">슈슈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살이</span> <span class="n">가득한</span> <span class="n">슈슈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">0</span><span class="p">.</span> <span class="n">종료하기</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">주문할</span> <span class="n">메뉴의</span> <span class="n">번호를</span> <span class="n">입력하세요</span><span class="err">:</span> <span class="mf">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">불고기</span> <span class="n">버거</span><span class="p">]</span> <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span>
+</span></span><span class="line"><span class="cl"><span class="n">결제하시겠습니까</span><span class="p">?</span> <span class="p">[</span><span class="n">예</span><span class="err">:</span> <span class="mf">1</span><span class="p">,</span> <span class="n">아니오</span><span class="err">:</span> <span class="mf">2</span><span class="p">]</span> <span class="mf">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">지불할</span> <span class="n">금액을</span> <span class="n">입력하세요</span><span class="err">:</span> <span class="mf">4200</span>
+</span></span><span class="line"><span class="cl"><span class="n">결제가</span> <span class="n">완료되었습니다</span><span class="p">.</span> <span class="n">감사합니다</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span> <span class="n">MENU</span> <span class="p">-</span> <span class="n">BURGER</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="mf">1</span><span class="p">.</span> <span class="n">불고기</span> <span class="n">버거</span>	<span class="p">|</span> <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span> <span class="p">|</span> <span class="n">불고기</span> <span class="n">소스에</span> <span class="n">패티와</span> <span class="n">마요네즈</span><span class="p">,</span> <span class="n">양상추의</span> <span class="n">맛있는</span> <span class="n">조합</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2</span><span class="p">.</span> <span class="n">치즈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">맛있는</span> <span class="n">치즈와</span> <span class="mf">100</span><span class="p">%</span> <span class="n">순</span> <span class="n">쇠고기</span> <span class="n">패티</span><span class="p">,</span> <span class="n">클래식</span> <span class="n">치즈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3</span><span class="p">.</span> <span class="n">슈비</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살에</span> <span class="n">비프</span> <span class="n">패티를</span> <span class="n">더해</span> <span class="n">푸짐한</span> <span class="n">슈비</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4</span><span class="p">.</span> <span class="n">슈슈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살이</span> <span class="n">가득한</span> <span class="n">슈슈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">0</span><span class="p">.</span> <span class="n">종료하기</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">주문할</span> <span class="n">메뉴의</span> <span class="n">번호를</span> <span class="n">입력하세요</span><span class="err">:</span> <span class="mf">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">치즈</span> <span class="n">버거</span><span class="p">]</span> <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span>
+</span></span><span class="line"><span class="cl"><span class="n">결제하시겠습니까</span><span class="p">?</span> <span class="p">[</span><span class="n">예</span><span class="err">:</span> <span class="mf">1</span><span class="p">,</span> <span class="n">아니오</span><span class="err">:</span> <span class="mf">2</span><span class="p">]</span> <span class="mf">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">지불할</span> <span class="n">금액을</span> <span class="n">입력하세요</span><span class="err">:</span> <span class="mf">3500</span>
+</span></span><span class="line"><span class="cl"><span class="n">금액이</span> <span class="n">부족합니다</span><span class="p">.</span> <span class="n">결제가</span> <span class="n">취소됩니다</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span> <span class="n">MENU</span> <span class="p">-</span> <span class="n">BURGER</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="mf">1</span><span class="p">.</span> <span class="n">불고기</span> <span class="n">버거</span>	<span class="p">|</span> <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span> <span class="p">|</span> <span class="n">불고기</span> <span class="n">소스에</span> <span class="n">패티와</span> <span class="n">마요네즈</span><span class="p">,</span> <span class="n">양상추의</span> <span class="n">맛있는</span> <span class="n">조합</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2</span><span class="p">.</span> <span class="n">치즈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">맛있는</span> <span class="n">치즈와</span> <span class="mf">100</span><span class="p">%</span> <span class="n">순</span> <span class="n">쇠고기</span> <span class="n">패티</span><span class="p">,</span> <span class="n">클래식</span> <span class="n">치즈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3</span><span class="p">.</span> <span class="n">슈비</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살에</span> <span class="n">비프</span> <span class="n">패티를</span> <span class="n">더해</span> <span class="n">푸짐한</span> <span class="n">슈비</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4</span><span class="p">.</span> <span class="n">슈슈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살이</span> <span class="n">가득한</span> <span class="n">슈슈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">0</span><span class="p">.</span> <span class="n">종료하기</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">주문할</span> <span class="n">메뉴의</span> <span class="n">번호를</span> <span class="n">입력하세요</span><span class="err">:</span> <span class="mf">5</span>
+</span></span><span class="line"><span class="cl"><span class="n">올바른</span> <span class="n">메뉴</span> <span class="n">번호를</span> <span class="n">입력하세요</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span> <span class="n">MENU</span> <span class="p">-</span> <span class="n">BURGER</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="mf">1</span><span class="p">.</span> <span class="n">불고기</span> <span class="n">버거</span>	<span class="p">|</span> <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span> <span class="p">|</span> <span class="n">불고기</span> <span class="n">소스에</span> <span class="n">패티와</span> <span class="n">마요네즈</span><span class="p">,</span> <span class="n">양상추의</span> <span class="n">맛있는</span> <span class="n">조합</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2</span><span class="p">.</span> <span class="n">치즈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">맛있는</span> <span class="n">치즈와</span> <span class="mf">100</span><span class="p">%</span> <span class="n">순</span> <span class="n">쇠고기</span> <span class="n">패티</span><span class="p">,</span> <span class="n">클래식</span> <span class="n">치즈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3</span><span class="p">.</span> <span class="n">슈비</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살에</span> <span class="n">비프</span> <span class="n">패티를</span> <span class="n">더해</span> <span class="n">푸짐한</span> <span class="n">슈비</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4</span><span class="p">.</span> <span class="n">슈슈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살이</span> <span class="n">가득한</span> <span class="n">슈슈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">0</span><span class="p">.</span> <span class="n">종료하기</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">주문할</span> <span class="n">메뉴의</span> <span class="n">번호를</span> <span class="n">입력하세요</span><span class="err">:</span> <span class="mf">4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">슈슈</span> <span class="n">버거</span><span class="p">]</span> <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span>
+</span></span><span class="line"><span class="cl"><span class="n">결제하시겠습니까</span><span class="p">?</span> <span class="p">[</span><span class="n">예</span><span class="err">:</span> <span class="mf">1</span><span class="p">,</span> <span class="n">아니오</span><span class="err">:</span> <span class="mf">2</span><span class="p">]</span> <span class="mf">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">결제가</span> <span class="n">취소되었습니다</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span> <span class="n">MENU</span> <span class="p">-</span> <span class="n">BURGER</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="mf">1</span><span class="p">.</span> <span class="n">불고기</span> <span class="n">버거</span>	<span class="p">|</span> <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span> <span class="p">|</span> <span class="n">불고기</span> <span class="n">소스에</span> <span class="n">패티와</span> <span class="n">마요네즈</span><span class="p">,</span> <span class="n">양상추의</span> <span class="n">맛있는</span> <span class="n">조합</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2</span><span class="p">.</span> <span class="n">치즈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">맛있는</span> <span class="n">치즈와</span> <span class="mf">100</span><span class="p">%</span> <span class="n">순</span> <span class="n">쇠고기</span> <span class="n">패티</span><span class="p">,</span> <span class="n">클래식</span> <span class="n">치즈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3</span><span class="p">.</span> <span class="n">슈비</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살에</span> <span class="n">비프</span> <span class="n">패티를</span> <span class="n">더해</span> <span class="n">푸짐한</span> <span class="n">슈비</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">4</span><span class="p">.</span> <span class="n">슈슈</span> <span class="n">버거</span>  	<span class="p">|</span> <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span> <span class="p">|</span> <span class="n">탱글한</span> <span class="n">통새우살이</span> <span class="n">가득한</span> <span class="n">슈슈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="mf">0</span><span class="p">.</span> <span class="n">종료하기</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">주문할</span> <span class="n">메뉴의</span> <span class="n">번호를</span> <span class="n">입력하세요</span><span class="err">:</span> <span class="mf">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">프로그램을</span> <span class="n">종료합니다</span><span class="p">.</span>
+</span></span></code></pre></div><hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://withong.github.io/camp/day-12/">
+    <span class="title">Next »</span>
+    <br>
+    <span>[내일배움캠프] 12일차. 과제 회고</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✓';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+<script data-goatcounter="https://withong.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
