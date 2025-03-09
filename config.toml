@@ -32,8 +32,8 @@ pygmentsUseClasses = true
   favicon = "/icons/code.png"
   favicon16x16 = "/icons/code.png"
   favicon32x32 = "/icons/code.png"
-  apple_touch_icon = "/icons/code.png"
-  safari_pinned_tab = "/icons/code.png"
+  apple_touch_icon = "/icons/zep.png"
+  safari_pinned_tab = "/icons/zep.png"
 
 [params.fuseOpts]
   isCaseSensitive = false
