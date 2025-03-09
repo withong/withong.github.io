@@ -25,6 +25,8 @@
       {{- partial "translation_list.html" . -}}
       {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
+      <p>Views <span id="view-count">로딩 중...</span></p>
+
     </div>
     {{- end }}
   </header>
@@ -63,3 +65,22 @@
 </article>
 
 {{- end }}{{/* end main */}}
+
+<script>
+  async function getViewCount() {
+    var path = window.location.pathname; // 현재 게시글 URL 가져오기
+    var apiUrl = "https://withong.goatcounter.com/api/v0/counts?page=" + path;
+
+    try {
+      var response = await fetch(apiUrl);
+      if (!response.ok) throw new Error("HTTP Error: " + response.status);
+
+      var data = await response.json();
+      document.getElementById("view-count").innerText = data.count || 0;
+    } catch (error) {
+      console.error("조회 수를 불러오는 중 오류 발생:", error);
+      document.getElementById("view-count").innerText = "조회 수 불러오기 실패";
+    }
+  }
+  getViewCount();
+</script>
