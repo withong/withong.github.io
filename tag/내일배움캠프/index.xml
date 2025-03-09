@@ -2,17 +2,134 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>내일배움캠프 on withong</title>
-    <link>https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/</link>
+    <link>http://localhost:1313/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/</link>
     <description>Recent content in 내일배움캠프 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Fri, 07 Mar 2025 21:00:00 +0900</lastBuildDate>
-    <atom:link href="https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Mar 2025 22:00:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[내일배움캠프] 과제 - 키오스크 2</title>
+      <link>http://localhost:1313/camp/task-kiosk-02/</link>
+      <pubDate>Fri, 07 Mar 2025 22:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/camp/task-kiosk-02/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+&lt;h3 id=&#34;lv-2-객체-지향-설계를-적용해-햄버거-메뉴를-클래스로-관리하기&#34;&gt;Lv 2. 객체 지향 설계를 적용해 햄버거 메뉴를 클래스로 관리하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;요구사항이 가지는 의도&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;객체 지향 개념을 학습하고, 데이터를 구조적으로 관리하며 프로그램을 설계하는 방법을 익힙니다.&lt;/li&gt;
+&lt;li&gt;햄버거 메뉴를 &lt;code&gt;MenuItem&lt;/code&gt; 클래스와 &lt;code&gt;List&lt;/code&gt;를 통해 관리합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;MenuItem&lt;/code&gt; 클래스 생성하기&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;설명 : 개별 음식 항목을 관리하는 클래스입니다. 현재는 햄버거만 관리합니다.&lt;/li&gt;
+&lt;li&gt;클래스는 &lt;code&gt;이름&lt;/code&gt;, &lt;code&gt;가격&lt;/code&gt;, &lt;code&gt;설명&lt;/code&gt; 필드를 갖습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;main&lt;/code&gt; 함수에서 &lt;code&gt;MenuItem&lt;/code&gt; 클래스를 활용하여 햄버거 메뉴를 출력합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;MenuItem&lt;/code&gt; 객체 생성을 통해 &lt;code&gt;이름&lt;/code&gt;, &lt;code&gt;가격&lt;/code&gt;, &lt;code&gt;설명&lt;/code&gt;을 세팅합니다.
+&lt;ul&gt;
+&lt;li&gt;키워드: &lt;code&gt;new&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;List&lt;/code&gt;를 선언하여 여러 &lt;code&gt;MenuItem&lt;/code&gt;을 추가합니다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;List&amp;lt;MenuItem&amp;gt; menuItems = new ArrayList&amp;lt;&amp;gt;();&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;반복문을 활용해 &lt;code&gt;menuItems&lt;/code&gt;를 탐색하면서 하나씩 접근합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;기능-구현&#34;&gt;기능 구현&lt;/h2&gt;
+&lt;h3 id=&#34;mainjava&#34;&gt;Main.java&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;main()&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;프로그램 시작 → 메뉴 출력&lt;/li&gt;
+&lt;li&gt;사용자 입력 → 메뉴 선택 (잘못된 입력 시 재입력 요청)&lt;/li&gt;
+&lt;li&gt;선택한 메뉴 확인 → 결제 여부 선택&lt;/li&gt;
+&lt;li&gt;사용자가 지불 금액 입력 → 결제 진행&lt;/li&gt;
+&lt;li&gt;결제 성공 → 잔액 출력 후 다시 메뉴 선택 진행&lt;/li&gt;
+&lt;li&gt;결제 실패 → 금액 부족 메시지 출력 후 다시 메뉴 선택 진행&lt;/li&gt;
+&lt;li&gt;사용자가 &lt;code&gt;0&lt;/code&gt; 입력 시 프로그램 종료&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;getInteger()&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;사용자 입력 값 검증&lt;/li&gt;
+&lt;li&gt;숫자 입력 시 정수로 변환하여 반환&lt;/li&gt;
+&lt;li&gt;숫자가 아닌 값 입력 시 오류 메시지 출력 후 재입력 요청&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;getInteger&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Scanner&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;scanner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;scanner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;nextLine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;parseInt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;NumberFormatException&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;숫자만 입력 가능합니다.&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;getDisplayBurgerName()&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;getDisplayBurgerName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;burgerName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;maxLength&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 최대 길이 계산&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;maxLength&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;maxLength&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;getDisplayLength&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)));&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;paddingSize&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;maxLength&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;getDisplayLength&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;burgerName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 부족한 공백 개수 계산&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;burgerName&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;repeat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;paddingSize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 버거명 + 공백 리턴&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;getDisplayLength()&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;한글을 2칸, 영어/숫자를 1칸으로 계산하여 글자 수 반환&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;getDisplayLength&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;toCharArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Character&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;toString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;matches&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;[가-힣]&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 한글이면 2칸&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 영어/숫자/기타 문자는 1칸&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;실행-예시&#34;&gt;실행 예시&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description>
+    </item>
     <item>
       <title>[내일배움캠프] 과제 - 키오스크 1</title>
-      <link>https://withong.github.io/camp/task-kiosk-01/</link>
+      <link>http://localhost:1313/camp/task-kiosk-01/</link>
       <pubDate>Fri, 07 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/task-kiosk-01/</guid>
+      <guid>http://localhost:1313/camp/task-kiosk-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-1-기본적인-키오스크를-프로그래밍해보자&#34;&gt;Lv 1. 기본적인 키오스크를 프로그래밍해보자&lt;/h3&gt;
@@ -265,10 +382,48 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description>
     </item>
     <item>
+      <title>[내일배움캠프] 과제 - 키오스크</title>
+      <link>http://localhost:1313/camp/task-kiosk-00/</link>
+      <pubDate>Fri, 07 Mar 2025 16:44:26 +0900</pubDate>
+      <guid>http://localhost:1313/camp/task-kiosk-00/</guid>
+      <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+&lt;h3 id=&#34;클래스-정의&#34;&gt;클래스 정의&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Main : 시작 지점이 되는 클래스, &lt;code&gt;public static void main(String[] args)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;MenuItem: 세부 메뉴 속성 가지는 클래스
+&lt;ul&gt;
+&lt;li&gt;햄버거의 이름, 가격설명
+&lt;ul&gt;
+&lt;li&gt;예시: ShackBurger, 6.9, 토마토, 양상추, 쉑소스가 토핑된 치즈버거&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;new MenuItem(&amp;quot;ShackBurger&amp;quot;, 6.9, &amp;quot;토마토, 양상추, 쉑소스가 토핑된 치즈버거&amp;quot;)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;햄버거의 이름, 가격설명
+&lt;ul&gt;
+&lt;li&gt;예시: ShackBurger, 6.9, 토마토, 양상추, 쉑소스가 토핑된 치즈버거&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;new MenuItem(&amp;quot;ShackBurger&amp;quot;, 6.9, &amp;quot;토마토, 양상추, 쉑소스가 토핑된 치즈버거&amp;quot;)&lt;/code&gt;토&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kiosk: 프로그램 순서 및 흐름 제어를 담당하는 클래스&lt;/li&gt;
+&lt;li&gt;Menu: MenuItem 클래스를 관리하는 클래스
+&lt;ul&gt;
+&lt;li&gt;예시 : 버거 메뉴, 음료 메뉴 등 각 카테고리 내에 여러 &lt;code&gt;MenuItem&lt;/code&gt;을 포함합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;lv-1-기본적인-키오스크를-프로그래밍해보자&#34;&gt;Lv 1. 기본적인 키오스크를 프로그래밍해보자&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;요구사항이 가지는 의도&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>[내일배움캠프] 12일차. 과제 회고</title>
-      <link>https://withong.github.io/camp/day-12/</link>
+      <link>http://localhost:1313/camp/day-12/</link>
       <pubDate>Wed, 05 Mar 2025 23:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-12/</guid>
+      <guid>http://localhost:1313/camp/day-12/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [문제] 알고리즘 &amp;amp; SQL 문제 풀기&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 3 마무리&lt;br&gt;
@@ -297,9 +452,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 과제 - 계산기 3</title>
-      <link>https://withong.github.io/camp/task-calculator-03/</link>
+      <link>http://localhost:1313/camp/task-calculator-03/</link>
       <pubDate>Wed, 05 Mar 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/task-calculator-03/</guid>
+      <guid>http://localhost:1313/camp/task-calculator-03/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;Enum, 제네릭, 람다 &amp;amp; 스트림을 이해한 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -335,9 +490,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 과제 - 계산기 2</title>
-      <link>https://withong.github.io/camp/task-calculator-02/</link>
+      <link>http://localhost:1313/camp/task-calculator-02/</link>
       <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/task-calculator-02/</guid>
+      <guid>http://localhost:1313/camp/task-calculator-02/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -358,9 +513,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 10일차. 과제 회고</title>
-      <link>https://withong.github.io/camp/day-10/</link>
+      <link>http://localhost:1313/camp/day-10/</link>
       <pubDate>Fri, 28 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-10/</guid>
+      <guid>http://localhost:1313/camp/day-10/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [과제] Java 계산기 만들기 level 2 수정&lt;br&gt;
 ✅ [과제] 과제 TIL &amp;amp; 트러블 슈팅 작성&lt;br&gt;
@@ -395,9 +550,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 9일차. Java 심화 2</title>
-      <link>https://withong.github.io/camp/day-09/</link>
+      <link>http://localhost:1313/camp/day-09/</link>
       <pubDate>Thu, 27 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-09/</guid>
+      <guid>http://localhost:1313/camp/day-09/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 세션 2 - 객체 활용&lt;br&gt;
 ✅ [강의] Java 문법 Chapter 3 (5~7)&lt;br&gt;
@@ -485,9 +640,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 과제 - 계산기 1</title>
-      <link>https://withong.github.io/camp/task-calculator-01/</link>
+      <link>http://localhost:1313/camp/task-calculator-01/</link>
       <pubDate>Wed, 26 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/task-calculator-01/</guid>
+      <guid>http://localhost:1313/camp/task-calculator-01/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -524,9 +679,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 8일차. Java 심화 1</title>
-      <link>https://withong.github.io/camp/day-08/</link>
+      <link>http://localhost:1313/camp/day-08/</link>
       <pubDate>Wed, 26 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-08/</guid>
+      <guid>http://localhost:1313/camp/day-08/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 Chapter 3 (1~4)&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 1&lt;/p&gt;&lt;/blockquote&gt;
@@ -567,9 +722,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 7일차. 객체지향</title>
-      <link>https://withong.github.io/camp/day-07/</link>
+      <link>http://localhost:1313/camp/day-07/</link>
       <pubDate>Tue, 25 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-07/</guid>
+      <guid>http://localhost:1313/camp/day-07/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 문법 세션 1 - 프로그래밍 기초&lt;br&gt;
 ✅ Java 문법 강의 2주차&lt;/p&gt;&lt;/blockquote&gt;
@@ -600,9 +755,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 6일차. Java 기초</title>
-      <link>https://withong.github.io/camp/day-06/</link>
+      <link>http://localhost:1313/camp/day-06/</link>
       <pubDate>Mon, 24 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-06/</guid>
+      <guid>http://localhost:1313/camp/day-06/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ Java 문법 강의 1주차&lt;/p&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
@@ -810,9 +965,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 5일차. 미니 프로젝트 최종</title>
-      <link>https://withong.github.io/camp/day-05/</link>
+      <link>http://localhost:1313/camp/day-05/</link>
       <pubDate>Fri, 21 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-05/</guid>
+      <guid>http://localhost:1313/camp/day-05/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 프로젝트 배포&lt;br&gt;
 ✅ 프로젝트 발표&lt;br&gt;
@@ -844,9 +999,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 4일차. 미니 프로젝트 3</title>
-      <link>https://withong.github.io/camp/day-04/</link>
+      <link>http://localhost:1313/camp/day-04/</link>
       <pubDate>Thu, 20 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-04/</guid>
+      <guid>http://localhost:1313/camp/day-04/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 코드 병합&lt;br&gt;
 ✅ 기능 수정&lt;/p&gt;&lt;/blockquote&gt;
@@ -866,9 +1021,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 3일차. 미니 프로젝트 2</title>
-      <link>https://withong.github.io/camp/day-03/</link>
+      <link>http://localhost:1313/camp/day-03/</link>
       <pubDate>Wed, 19 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-03/</guid>
+      <guid>http://localhost:1313/camp/day-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;+&lt;/strong&gt;&lt;br&gt;
 ☑️ 팀원 상세 페이지 화면&lt;br&gt;
@@ -893,9 +1048,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 2일차. 미니 프로젝트 1</title>
-      <link>https://withong.github.io/camp/day-02/</link>
+      <link>http://localhost:1313/camp/day-02/</link>
       <pubDate>Tue, 18 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-02/</guid>
+      <guid>http://localhost:1313/camp/day-02/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [미니 프로젝트] 메인 페이지 (HTML/CSS)&lt;br&gt;
@@ -976,9 +1131,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 1일차. Git</title>
-      <link>https://withong.github.io/camp/day-01/</link>
+      <link>http://localhost:1313/camp/day-01/</link>
       <pubDate>Mon, 17 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-01/</guid>
+      <guid>http://localhost:1313/camp/day-01/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [특강] Git&lt;br&gt;
@@ -1260,6 +1415,13 @@ result = 7
 &lt;p&gt;📅 기간: 2025.02.17 - 2025.02.21&lt;br&gt;
 📝 프로젝트: 팀 &amp;amp; 팀원 소개 웹 페이지&lt;br&gt;
 🎨 역할: 메인 페이지 및 팀원 정보 입력창 (HTML/CSS)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[내일배움캠프] 00일차.</title>
+      <link>http://localhost:1313/camp/day-00/</link>
+      <pubDate>Wed, 15 Jan 2025 23:41:13 +0900</pubDate>
+      <guid>http://localhost:1313/camp/day-00/</guid>
+      <description>&lt;p&gt;camp default&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

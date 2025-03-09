@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>[내일배움캠프] 과제 - 키오스크 2 | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+요구사항
+Lv 2. 객체 지향 설계를 적용해 햄버거 메뉴를 클래스로 관리하기
+
+
+요구사항이 가지는 의도
+
+객체 지향 개념을 학습하고, 데이터를 구조적으로 관리하며 프로그램을 설계하는 방법을 익힙니다.
+햄버거 메뉴를 MenuItem 클래스와 List를 통해 관리합니다.
+
+
+
+MenuItem 클래스 생성하기
+
+설명 : 개별 음식 항목을 관리하는 클래스입니다. 현재는 햄버거만 관리합니다.
+클래스는 이름, 가격, 설명 필드를 갖습니다.
+
+
+
+main 함수에서 MenuItem 클래스를 활용하여 햄버거 메뉴를 출력합니다.
+
+MenuItem 객체 생성을 통해 이름, 가격, 설명을 세팅합니다.
+
+키워드: new
+
+
+List를 선언하여 여러 MenuItem을 추가합니다.
+
+List&lt;MenuItem&gt; menuItems = new ArrayList&lt;&gt;();
+
+
+반복문을 활용해 menuItems를 탐색하면서 하나씩 접근합니다.
+
+
+
+
+기능 구현
+Main.java
+
+main()
+
+프로그램 시작 → 메뉴 출력
+사용자 입력 → 메뉴 선택 (잘못된 입력 시 재입력 요청)
+선택한 메뉴 확인 → 결제 여부 선택
+사용자가 지불 금액 입력 → 결제 진행
+결제 성공 → 잔액 출력 후 다시 메뉴 선택 진행
+결제 실패 → 금액 부족 메시지 출력 후 다시 메뉴 선택 진행
+사용자가 0 입력 시 프로그램 종료
+
+
+
+
+
+getInteger()
+
+사용자 입력 값 검증
+숫자 입력 시 정수로 변환하여 반환
+숫자가 아닌 값 입력 시 오류 메시지 출력 후 재입력 요청
+
+
+
+public static int getInteger(Scanner scanner, String prompt) {
+    while (true) {
+        System.out.print(prompt);
+        String input = scanner.nextLine();
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println(&#34;숫자만 입력 가능합니다.&#34;);
+        }
+    }
+}
+
+
+getDisplayBurgerName()
+
+메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환
+
+
+
+public static String getDisplayBurgerName(List&lt;List&lt;String&gt;&gt; menu, String burgerName) {
+    int maxLength = 0; // 최대 길이 계산
+    for (List&lt;String&gt; item : menu) {
+        maxLength = Math.max(maxLength, getDisplayLength(item.get(0)));
+    }
+
+    int paddingSize = maxLength - getDisplayLength(burgerName); // 부족한 공백 개수 계산
+    return burgerName &#43; &#34; &#34;.repeat(paddingSize); // 버거명 &#43; 공백 리턴
+}
+
+
+getDisplayLength()
+
+한글을 2칸, 영어/숫자를 1칸으로 계산하여 글자 수 반환
+
+
+
+public static int getDisplayLength(String text) {
+    int length = 0;
+    for (char c : text.toCharArray()) {
+        if (Character.toString(c).matches(&#34;[가-힣]&#34;)) {
+            length &#43;= 2; // 한글이면 2칸
+        } else {
+            length &#43;= 1; // 영어/숫자/기타 문자는 1칸
+        }
+    }
+    return length;
+}
+
+실행 예시
+">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/camp/task-kiosk-02/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/code.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/zep.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/zep.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/camp/task-kiosk-02/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/topic/" title="Topic">
+                    <span>Topic</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/camp/">Camp</a></div>
+    <h1 class="post-title entry-hint-parent">
+      [내일배움캠프] 과제 - 키오스크 2
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h1>
+    <div class="post-meta"><span title='2025-03-07 22:00:00 +0900 KST'>2025년 3월 7일</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#요구사항">요구사항</a>
+      <ul>
+        <li><a href="#lv-2-객체-지향-설계를-적용해-햄버거-메뉴를-클래스로-관리하기">Lv 2. 객체 지향 설계를 적용해 햄버거 메뉴를 클래스로 관리하기</a></li>
+      </ul>
+    </li>
+    <li><a href="#기능-구현">기능 구현</a>
+      <ul>
+        <li><a href="#mainjava">Main.java</a></li>
+      </ul>
+    </li>
+    <li><a href="#실행-예시">실행 예시</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><hr>
+<h2 id="요구사항">요구사항<a hidden class="anchor" aria-hidden="true" href="#요구사항">#</a></h2>
+<h3 id="lv-2-객체-지향-설계를-적용해-햄버거-메뉴를-클래스로-관리하기">Lv 2. 객체 지향 설계를 적용해 햄버거 메뉴를 클래스로 관리하기<a hidden class="anchor" aria-hidden="true" href="#lv-2-객체-지향-설계를-적용해-햄버거-메뉴를-클래스로-관리하기">#</a></h3>
+<ul>
+<li>
+<p><strong>요구사항이 가지는 의도</strong></p>
+<ul>
+<li>객체 지향 개념을 학습하고, 데이터를 구조적으로 관리하며 프로그램을 설계하는 방법을 익힙니다.</li>
+<li>햄버거 메뉴를 <code>MenuItem</code> 클래스와 <code>List</code>를 통해 관리합니다.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>MenuItem</code> 클래스 생성하기</strong></p>
+<ul>
+<li>설명 : 개별 음식 항목을 관리하는 클래스입니다. 현재는 햄버거만 관리합니다.</li>
+<li>클래스는 <code>이름</code>, <code>가격</code>, <code>설명</code> 필드를 갖습니다.</li>
+</ul>
+</li>
+<li>
+<p><code>main</code> 함수에서 <code>MenuItem</code> 클래스를 활용하여 햄버거 메뉴를 출력합니다.</p>
+<ul>
+<li><code>MenuItem</code> 객체 생성을 통해 <code>이름</code>, <code>가격</code>, <code>설명</code>을 세팅합니다.
+<ul>
+<li>키워드: <code>new</code></li>
+</ul>
+</li>
+<li><code>List</code>를 선언하여 여러 <code>MenuItem</code>을 추가합니다.
+<ul>
+<li><code>List&lt;MenuItem&gt; menuItems = new ArrayList&lt;&gt;();</code></li>
+</ul>
+</li>
+<li>반복문을 활용해 <code>menuItems</code>를 탐색하면서 하나씩 접근합니다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="기능-구현">기능 구현<a hidden class="anchor" aria-hidden="true" href="#기능-구현">#</a></h2>
+<h3 id="mainjava">Main.java<a hidden class="anchor" aria-hidden="true" href="#mainjava">#</a></h3>
+<ul>
+<li><strong>main()</strong>
+<ul>
+<li>프로그램 시작 → 메뉴 출력</li>
+<li>사용자 입력 → 메뉴 선택 (잘못된 입력 시 재입력 요청)</li>
+<li>선택한 메뉴 확인 → 결제 여부 선택</li>
+<li>사용자가 지불 금액 입력 → 결제 진행</li>
+<li>결제 성공 → 잔액 출력 후 다시 메뉴 선택 진행</li>
+<li>결제 실패 → 금액 부족 메시지 출력 후 다시 메뉴 선택 진행</li>
+<li>사용자가 <code>0</code> 입력 시 프로그램 종료</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"></code></pre></div><br>
+<ul>
+<li><strong>getInteger()</strong>
+<ul>
+<li>사용자 입력 값 검증</li>
+<li>숫자 입력 시 정수로 변환하여 반환</li>
+<li>숫자가 아닌 값 입력 시 오류 메시지 출력 후 재입력 요청</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getInteger</span><span class="p">(</span><span class="n">Scanner</span><span class="w"> </span><span class="n">scanner</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">prompt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">prompt</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanner</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">input</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">NumberFormatException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;숫자만 입력 가능합니다.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<ul>
+<li><strong>getDisplayBurgerName()</strong>
+<ul>
+<li>메뉴 이름을 한글 기준으로 정렬 후 공백을 포함한 문자열을 반환</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDisplayBurgerName</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">menu</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">burgerName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 최대 길이 계산</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">menu</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">maxLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">maxLength</span><span class="p">,</span><span class="w"> </span><span class="n">getDisplayLength</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">paddingSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxLength</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">getDisplayLength</span><span class="p">(</span><span class="n">burgerName</span><span class="p">);</span><span class="w"> </span><span class="c1">// 부족한 공백 개수 계산</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">burgerName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="p">.</span><span class="na">repeat</span><span class="p">(</span><span class="n">paddingSize</span><span class="p">);</span><span class="w"> </span><span class="c1">// 버거명 + 공백 리턴</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<ul>
+<li><strong>getDisplayLength()</strong>
+<ul>
+<li>한글을 2칸, 영어/숫자를 1칸으로 계산하여 글자 수 반환</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getDisplayLength</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Character</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">c</span><span class="p">).</span><span class="na">matches</span><span class="p">(</span><span class="s">&#34;[가-힣]&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">length</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 한글이면 2칸</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">length</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 영어/숫자/기타 문자는 1칸</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><hr>
+<h2 id="실행-예시">실행 예시<a hidden class="anchor" aria-hidden="true" href="#실행-예시">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"></code></pre></div><hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/camp/task-kiosk-01/">
+    <span class="title">Next »</span>
+    <br>
+    <span>[내일배움캠프] 과제 - 키오스크 1</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✓';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+<script data-goatcounter="https://withong.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
