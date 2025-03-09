@@ -25,17 +25,6 @@
       {{- partial "translation_list.html" . -}}
       {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
-
-      <span id="single-view">Views <span id="view-count"></span></span>
-      <script>
-        async function getViewCount() {
-          var path = window.location.pathname; // 현재 게시글 URL
-          var response = await fetch("https://withong.goatcounter.com/api/v0/counts?page=" + path);
-          var data = await response.json();
-          document.getElementById("view-count").innerText = data.count || 0;
-        }
-        getViewCount();
-      </script>
     </div>
     {{- end }}
   </header>
