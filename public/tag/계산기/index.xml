@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>계산기 on withong</title>
-    <link>http://localhost:1313/tag/%EA%B3%84%EC%82%B0%EA%B8%B0/</link>
+    <link>https://withong.github.io/tag/%EA%B3%84%EC%82%B0%EA%B8%B0/</link>
     <description>Recent content in 계산기 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Wed, 05 Mar 2025 22:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/%EA%B3%84%EC%82%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/tag/%EA%B3%84%EC%82%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[내일배움캠프] 과제 - 계산기 3</title>
-      <link>http://localhost:1313/camp/task-calculator-03/</link>
+      <title>[내일배움캠프] 계산기 Lv 3</title>
+      <link>https://withong.github.io/camp/task-calculator-03/</link>
       <pubDate>Wed, 05 Mar 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-calculator-03/</guid>
+      <guid>https://withong.github.io/camp/task-calculator-03/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;Enum, 제네릭, 람다 &amp;amp; 스트림을 이해한 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -47,10 +47,10 @@
 &lt;p&gt;&lt;strong&gt;저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>[내일배움캠프] 과제 - 계산기 2</title>
-      <link>http://localhost:1313/camp/task-calculator-02/</link>
+      <title>[내일배움캠프] 계산기 Lv 2</title>
+      <link>https://withong.github.io/camp/task-calculator-02/</link>
       <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-calculator-02/</guid>
+      <guid>https://withong.github.io/camp/task-calculator-02/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -70,10 +70,10 @@
 &lt;p&gt;&lt;strong&gt;Lv 1에서 구현한 App 클래스의 main 메서드에 Calculator 클래스가 활용될 수 있도록 수정&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>[내일배움캠프] 과제 - 계산기 1</title>
-      <link>http://localhost:1313/camp/task-calculator-01/</link>
+      <title>[내일배움캠프] 계산기 Lv 1</title>
+      <link>https://withong.github.io/camp/task-calculator-01/</link>
       <pubDate>Wed, 26 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-calculator-01/</guid>
+      <guid>https://withong.github.io/camp/task-calculator-01/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
