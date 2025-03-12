@@ -140,6 +140,19 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[내일배움캠프] 키오스크 도전 Lv 2
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 요구사항 Lv 2. Enum, 람다 &amp; 스트림을 활용한 주문 및 장바구니 관리 요구사항이 가지는 의도 의도 : 고급 자바 기능을 활용해 프로그램의 효율성과 코드의 가독성을 개선하는 것을 목표로 합니다. 목적 Enum을 통해 상수를 안전하게 관리하고, 프로그램 구조를 간결하게 제네릭을 활용하여 데이터 유연성을 높이고, 재사용 가능한 코드를 설계 스트림 API를 사용하여 데이터를 필터링하고, 간결한 코드로 동작을 구현 Enum을 활용한 사용자 유형별 할인율 관리하기 사용자 유형의 Enum 정의 및 각 사용자 유형에 따른 할인율 적용 예시 : 군인, 학생, 일반인 주문 시, 사용자 유형에 맞는 할인율 적용해 총 금액 계산 람다 &amp; 스트림을 활용한 장바구니 조회 기능 기존에 생성한 Menu의 MenuItem을 조회 할 때 스트림을 사용하여 출력하도록 수정 기존 장바구니에서 특정 메뉴 빼기 기능을 통한 스트림 활용 예시 : 장바구니에 SmokeShack 가 들어 있다면, stream.filter를 활용하여 특정 메뉴 이름을 가진 메뉴 장바구니에서 제거 구현 기능 할인 기능 추가 enum Discount 추가 public enum Discount { BIRTHDAY(&#34;생일&#34;,0.2), REVIEW(&#34;리뷰 작성&#34;, 0.1), SNS(&#34;SNS 업로드&#34;, 0.1), STUDENT(&#34;학생&#34;, 0.05); private final String name; private final double rate; Discount(String name, double rate) { this.name = name; this.rate = rate; } public int getDiscounted(int price) { return price - (int) (price * rate); } public String getName() { return name; } public double getRate() { return rate; } } 할인 메뉴 리스트 포맷팅하여 반환하는 메서드 추가 private String getDisplayDiscount() { Discount[] discounts = Discount.values(); String discountList = IntStream.range(0, discounts.length) .mapToObj(i -&gt; String.format(&#34; [%d] %s\t\uD83D\uDD25 %.0f%%&#34;, i &#43; 1, getDisplayName(discounts[i].getName()), discounts[i].getRate() * 100)) .collect(Collectors.joining(&#34;\n&#34;)); return &#34;\n☰ 홈 &gt; 결제 &gt; 할인\n&#34; &#43; discountList &#43; &#34;\n [&#34; &#43; (discounts.length &#43; 1) &#43; &#34;] 해당 없음\n [0] 홈으로&#34;; } Kiosk 클래스에 discount() 메서드 추가 할인 대상인지 확인 후 할인율 적용된 가격 담아서 결제 메서드 호출 private int discount() { while (true) { int price = cart.getTotalPrice(); Discount[] discounts = Discount.values(); int lastNumber = Discount.values().length &#43; 1; // 해당 없음 // 할인 메뉴 출력 System.out.println(getDisplayDiscount()); // 사용자 입력 값 검증 int input = getInteger(); // -1 반환 시 재입력 요청 if (input == -1) continue; if (input == 0) { System.out.println(&#34; 결제가 취소되었습니다.&#34;); return 0; } if (input &lt; 1 || input &gt; lastNumber) { System.out.println(&#34; 올바른 메뉴 번호를 입력하세요.&#34;); continue; } if (input == lastNumber) { pay(price); } int discountedPrice = discounts[input-1].getDiscounted(price); int result = pay(discountedPrice); if (result == 0) return 0; } } 람다 &amp; 스트림 활용 장바구니 목록 삭제 [변경 전]
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-12 21:01:14 +0900 KST'>2025년 3월 12일</span></footer>
+  <a class="entry-link" aria-label="post link to [내일배움캠프] 키오스크 도전 Lv 2" href="https://withong.github.io/camp/task-kiosk-04/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[내일배움캠프] 키오스크 도전 Lv 1
     </h2>
   </header>
@@ -192,21 +205,6 @@ Enum 타입을 활용하여 연산자 타입에 대한 정보를 관리하고 �
   </div>
   <footer class="entry-footer"><span title='2025-03-05 22:00:00 +0900 KST'>2025년 3월 5일</span></footer>
   <a class="entry-link" aria-label="post link to [내일배움캠프] 계산기 Lv 3" href="https://withong.github.io/camp/task-calculator-03/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[내일배움캠프] 계산기 Lv 2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>요구사항 클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기
-사칙연산을 수행 후, 결과값 반환 메서드 구현 &amp; 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성
-사칙연산을 수행한 후, 결과값을 반환하는 메서드 구현 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성 양의 정수 2개(0 포함)와 연산 기호를 매개변수로 받아 사칙연산(➕,➖,✖️,➗) 기능을 수행한 후 2) 결과 값을 반환하는 메서드와 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성합니다. Lv 1에서 구현한 App 클래스의 main 메서드에 Calculator 클래스가 활용될 수 있도록 수정
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-28 22:00:00 +0900 KST'>2025년 2월 28일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] 계산기 Lv 2" href="https://withong.github.io/camp/task-calculator-02/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
