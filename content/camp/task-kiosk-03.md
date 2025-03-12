@@ -155,7 +155,7 @@ cart.addCartItem(menuItem);
 - `cart()` 메서드 추가
     - 결제, 메뉴 삭제, 장바구니 비우기, 홈으로 돌아가기 가능
     - 메뉴 삭제 시 수량이 2 이상인 경우 삭제할 수량을 입력받아서 진행
-    - 결제하기 선택 시 `pay()` 메서드 호출출
+    - 결제하기 선택 시 `pay()` 메서드 호출
 ```java
 private int cart() {
     if (cart.isEmpty()) {
