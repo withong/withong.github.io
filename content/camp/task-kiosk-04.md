@@ -1,7 +1,7 @@
 +++
 title = "[내일배움캠프] 키오스크 도전 Lv 2"
 date = "2025-03-11T21:29:19+09:00"
-draft = false
+draft = true
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL", "과제", "키오스크"]
 +++
