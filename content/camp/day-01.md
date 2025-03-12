@@ -1,5 +1,5 @@
 +++
-title = "[내일배움캠프] 1일차. Git"
+title = "[내일배움캠프] Git"
 date = "2025-02-17T21:00:00+09:00"
 draft = false
 topic = ["camp"]
