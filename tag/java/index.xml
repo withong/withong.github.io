@@ -16,8 +16,8 @@
       <description>&lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Enum&lt;/strong&gt; → 단순한 상수의 모음이 아니라, &lt;strong&gt;객체처럼 동작하는 데이터 타입&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;동등성 (&lt;code&gt;equals()&lt;/code&gt;)&lt;/strong&gt; → **&amp;ldquo;내용&amp;rdquo;**이 같으면 &lt;code&gt;true&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;동일성 (&lt;code&gt;==&lt;/code&gt;)&lt;/strong&gt; → **&amp;ldquo;메모리 주소&amp;rdquo;**가 같으면 &lt;code&gt;true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;동등성 (&lt;code&gt;equals()&lt;/code&gt;)&lt;/strong&gt; → &lt;strong&gt;내용&lt;/strong&gt;이 같으면 &lt;code&gt;true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;동일성 (&lt;code&gt;==&lt;/code&gt;)&lt;/strong&gt; → &lt;strong&gt;메모리 주소&lt;/strong&gt;가 같으면 &lt;code&gt;true&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;hashCode()&lt;/code&gt;&lt;/strong&gt; → 컬렉션에서 &lt;strong&gt;일관성 있게 동작하도록 필수적으로 재정의해야 한다.&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
