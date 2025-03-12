@@ -175,7 +175,7 @@
 &lt;ul&gt;
 &lt;li&gt;결제, 메뉴 삭제, 장바구니 비우기, 홈으로 돌아가기 가능&lt;/li&gt;
 &lt;li&gt;메뉴 삭제 시 수량이 2 이상인 경우 삭제할 수량을 입력받아서 진행&lt;/li&gt;
-&lt;li&gt;결제하기 선택 시 &lt;code&gt;pay()&lt;/code&gt; 메서드 호출출&lt;/li&gt;
+&lt;li&gt;결제하기 선택 시 &lt;code&gt;pay()&lt;/code&gt; 메서드 호출&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
