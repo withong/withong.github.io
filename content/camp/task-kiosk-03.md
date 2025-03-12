@@ -1,6 +1,6 @@
 +++
 title = "[내일배움캠프] 키오스크 도전 Lv 1"
-date = "2025-03-11T21:29:19+09:00"
+date = "2025-03-12T11:17:50+09:00"
 draft = false
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL", "과제", "키오스크"]
@@ -142,11 +142,15 @@ if (!cart.isEmpty()) {
 System.out.println(" [0] 종료하기");
 ```
 
+<br>
+
 - `order()` 메서드에서 메뉴 선택 시 장바구니에 추가
 ```java
 // 장바구니에 추가
 cart.addCartItem(menuItem);
 ```
+
+<br>
 
 - `cart()` 메서드 추가
     - 결제, 메뉴 삭제, 장바구니 비우기, 홈으로 돌아가기 가능
@@ -217,6 +221,8 @@ private int cart() {
 }
 ```
 
+<br>
+
 - 메뉴 출력 시 네비게이션 바 추가
 ```java
 sb.append("\n [0] 홈으로");
@@ -235,6 +241,8 @@ if (!cart.isEmpty()) {
     sb.append("    [c] 장바구니");
 }
 ```
+
+<br>
 
 - 주문 시 네비게이션 바 입력 값에 따른 처리
 ```java
@@ -256,6 +264,8 @@ if (userInput == 112) { // p 이전 메뉴
 }
 ```
 
+<br>
+
 - 예외 처리 추가
 ```java
 catch (ArrayIndexOutOfBoundsException e) {
@@ -276,6 +286,7 @@ catch (ArrayIndexOutOfBoundsException e) {
 - 메뉴 출력 시 카테고리의 인덱스를 확인하고 적절한 네비게이션 메뉴만을 출력하고 있지만, 실제 입력 시에는 없는 네비게이션 메뉴도 입력받을 수 있는 상태이기 때문에 존재하지 않는 인덱스를 호출할 때의의 예외 처리 추가.
 
 ```
+
 ---
 
 ## 실행 예시
