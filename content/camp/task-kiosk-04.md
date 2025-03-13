@@ -283,6 +283,7 @@ private String getDisplayCartItems() {
     String line ="--------------------------------------\n";
 
     String cartList = cartItems.stream()
+            .filter(item -> item.getQuantity() > 0)
             .map(item -> String.format(" [%d] %s\t×  %d  =  ￦ %,d",
                     cartItems.indexOf(item) + 1,
                     getDisplayName(item.getMenuItem().getName()),
@@ -351,10 +352,8 @@ private String getDisplayDiscount() {
 ### `toList()` vs `collect(Collectors.toList())`
 - 장바구니 목록 삭제 기능을 스트림으로 수정하면서 처음에는 `toList()`를 사용하여 장바구니 리스트를 세팅함.
 - 장바구니 목록 삭제 후 새로운 메뉴 추가를 시도하면 `UnsupportedOperationException` 예외 발생.
-- `toList()`는 불변 리스트를 반환하기 때문에 추가를 시도하면 예외가 발생한다는 사실을 알게 됨.
-- `collect(Collectors.toList())`는 가변 리스트를 반환함.
+- `toList()`는 불변 리스트를, `collect(Collectors.toList())`는 가변 리스트를 반환함.
 - 계속해서 메뉴 추가되고 삭제될 가능성이 있는 장바구니에는 가변 리스트가 적합.
-- `collect(Collectors.toList())`로 수정.
 
 깔끔해서 쓰고 싶었는데...🥲
 
