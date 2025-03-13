@@ -38,6 +38,7 @@ tag = ["내일배움캠프", "TIL", "과제", "키오스크"]
 ---
 
 ## 구현 기능
+[# 전체 코드](https://github.com/withong/nbc-chapter-02/tree/main/kiosk/challenge/level1)
 
 <br>
 
