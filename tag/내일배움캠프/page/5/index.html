@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>회고 | withong</title>
+<title>내일배움캠프 | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="Today I Learned">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/tag/%ED%9A%8C%EA%B3%A0/">
+<link rel="canonical" href="https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/">
 <link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://withong.github.io/icons/code.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
@@ -18,8 +18,8 @@
 <link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://withong.github.io/tag/%ED%9A%8C%EA%B3%A0/index.xml">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/tag/%ED%9A%8C%EA%B3%A0/">
+<link rel="alternate" type="application/rss+xml" href="https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/index.xml">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,14 +56,14 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/tag/%ED%9A%8C%EA%B3%A0/">
+</noscript><meta property="og:url" content="https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/">
   <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="회고">
+  <meta property="og:title" content="내일배움캠프">
   <meta property="og:description" content="Today I Learned">
   <meta property="og:locale" content="ko">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="회고">
+<meta name="twitter:title" content="내일배움캠프">
 <meta name="twitter:description" content="Today I Learned">
 
 </head>
@@ -134,52 +134,34 @@
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
   <h1>
-    회고
+    내일배움캠프
   </h1>
 </header>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">[내일배움캠프] 키오스크 코드 분석 및 개선 방향 by GPT
+    <h2 class="entry-hint-parent">[내일배움캠프] Git
     </h2>
   </header>
   <div class="entry-content">
-    <p> 코드의 주요 기능 CartItem 클래스를 도입해 장바구니 아이템을 관리. Discount Enum을 사용해 다양한 할인 유형 적용 가능. Kiosk에서 직접 사용자 입력을 처리하고 메뉴 탐색, 장바구니 관리 등을 수행. Main에서 Kiosk를 실행해 전체 기능을 제어. 분석 Cart와 CartItem을 활용해 객체지향적으로 장바구니를 관리. Discount Enum을 통해 생일, 리뷰 작성 등 다양한 할인 적용 가능. 코드 구조 및 객체지향 설계 Kiosk 클래스가 너무 많은 기능을 포함하고 있어 SRP(단일 책임 원칙)를 지키지 못하는 부분이 있다. UI 출력과 비즈니스 로직이 혼재되어 있어 유지보수성이 낮다. 코드 스타일 및 가독성 Kiosk에서 너무 많은 로직을 처리하여 일부 메서드가 길어지고 복잡해질 가능성이 있음. 예외 처리가 부족하여, 예상치 못한 입력이 들어왔을 때 프로그램이 멈출 가능성이 있음. 코드 내 중복이 일부 존재하며, 이를 줄이면 가독성이 더 좋아질 수 있음. 실행 흐름 Main에서 Kiosk를 초기화하고 start() 실행. 사용자의 입력을 받아 메뉴 탐색, 장바구니 관리 진행. 주문 시 할인 정보를 입력받아 Discount Enum을 활용해 적용. 결제 후 장바구니를 비움. 분석 Kiosk에서 거의 모든 것을 관리하기 때문에 실행 흐름이 길어질수록 복잡해질 가능성이 있음. 기능별로 적절히 분리하면 코드의 유지보수성과 확장성이 더 좋아질 수 있음. 개선할 점 Kiosk 클래스의 역할을 분리해 KioskService 같은 클래스를 만들어야 함. UI 출력과 비즈니스 로직을 분리하여 코드의 가독성과 유지보수성을 높여야 함. 예외 처리가 부족하므로 IllegalArgumentException 등을 적극 활용해야 함. 중복된 코드가 일부 존재하므로 메서드로 분리하여 코드의 일관성을 높일 필요가 있음. 사용자의 입력을 검증하는 로직을 별도로 분리하여 입력 오류를 방지해야 함. </p>
+    <p> Chapter 1. 온보딩 주차
+✅ [특강] Git
+✅ 미니 프로젝트 S.A
+Git 1. 기본 명령어 명령어 기능 git init 현재 폴더를 Git 저장소로 초기화 git status 현재 저장소의 상태 확인 (추적되지 않은 파일, 변경 사항 등) git add &lt;파일명&gt; 특정 파일을 스테이징 영역에 추가 git add . 변경된 모든 파일을 스테이징 영역에 추가 git commit -m &#34;메시지&#34; 스테이징된 파일을 저장소에 커밋 git log 커밋 내역 확인 git log --oneline 한 줄 요약된 커밋 내역 확인 git config --global user.name &#34;이름&#34; Git 전역 사용자 이름 설정 git config --global user.email &#34;이메일&#34; Git 전역 이메일 설정 git config --list 설정된 Git 사용자 정보 확인 2. 브랜치 관련 명령어 명령어 기능 git branch 현재 존재하는 브랜치 목록 확인 git branch &lt;브랜치명&gt; 새로운 브랜치 생성 git checkout &lt;브랜치명&gt; 해당 브랜치로 이동 git checkout -b &lt;브랜치명&gt; 브랜치 생성 후 바로 이동 git merge &lt;브랜치명&gt; 현재 브랜치에 다른 브랜치를 병합 git branch -d &lt;브랜치명&gt; 특정 브랜치 삭제 git branch -D &lt;브랜치명&gt; 브랜치 강제 삭제 git branch -M main 브랜치 이름 변경 (기본 브랜치를 main으로 변경) 3. 원격 저장소(GitHub) 관련 명령어 명령어 기능 git remote add origin &lt;저장소 URL&gt; 원격 저장소 추가 (GitHub와 연결) git remote -v 원격 저장소 목록 확인 git push origin main 현재 브랜치를 원격 저장소의 main 브랜치에 업로드 git push -u origin main 기본 업스트림 브랜치 설정 후 푸시 git push --force 강제 푸시 (주의 필요) git pull origin main 원격 저장소의 최신 변경 사항 가져오기 git remote remove origin 원격 저장소 연결 해제 git clone &lt;저장소 URL&gt; 원격 저장소를 로컬로 복제 4. 파일 관리 및 변경 사항 되돌리기 명령어 기능 git reset --soft HEAD~1 마지막 커밋 취소 (파일 변경 사항 유지) git reset --hard HEAD~1 마지막 커밋 취소 (변경 사항도 삭제) git checkout -- &lt;파일명&gt; 특정 파일의 변경 사항 취소 git stash 변경 사항을 임시 저장 git stash pop 임시 저장한 변경 사항 적용 git revert &lt;커밋ID&gt; 특정 커밋을 취소하는 새로운 커밋 생성 5. 협업 및 충돌 해결 명령어 기능 git fetch origin 원격 저장소의 변경 사항 가져오기 (병합 X) git pull origin main 원격 저장소에서 최신 코드 가져오기 (병합 O) git merge &lt;브랜치명&gt; 브랜치를 병합 git mergetool 충돌 해결 도구 실행 git rebase &lt;브랜치명&gt; 다른 브랜치 위에 현재 브랜치를 재배치 git reset --hard origin/main 원격 저장소 기준으로 강제 리셋 git cherry-pick &lt;커밋ID&gt; 특정 커밋만 현재 브랜치에 적용 git diff 변경 사항 비교 git diff --staged 스테이징된 변경 사항 비교 git log --graph --all --decorate --oneline 브랜치와 커밋 히스토리를 그래프로 확인 6. 설정 및 기타 유용한 명령어 명령어 기능 git config --global core.editor &#34;vim&#34; 기본 텍스트 편집기 설정 git config --global core.autocrlf true 자동 줄바꿈 설정 (Windows) git gc Git 저장소 정리 및 최적화 git fsck 저장소의 무결성 검사 git blame &lt;파일명&gt; 특정 파일에서 누가 어떤 줄을 변경했는지 확인 7. 협업을 위한 기본 Workflow 1) GitHub에서 프로젝트 생성 후 클론 git clone &lt;저장소 URL&gt; cd 프로젝트 폴더 2) 새로운 브랜치에서 개발 진행 git checkout -b feature-branch 3) 변경 사항 저장 git add . git commit -m &#34;기능 추가&#34; 4) GitHub에 업로드 git push origin feature-branch 5) 메인 브랜치와 병합 git checkout main git merge feature-branch 6) 최신 코드 유지 git pull origin main 미니 프로젝트 S.A 📅 기간: 2025.02.17 - 2025.02.21
+📝 프로젝트: 팀 &amp; 팀원 소개 웹 페이지
+🎨 역할: 메인 페이지 및 팀원 정보 입력창 (HTML/CSS)
+...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-03-14 19:14:24 +0900 KST'>2025년 3월 14일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] 키오스크 코드 분석 및 개선 방향 by GPT" href="https://withong.github.io/camp/day-19/"></a>
+  <footer class="entry-footer"><span title='2025-02-17 21:00:00 +0900 KST'>2025년 2월 17일</span></footer>
+  <a class="entry-link" aria-label="post link to [내일배움캠프] Git" href="https://withong.github.io/camp/day-01/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[내일배움캠프] 계산기 Lv 3 회고
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ [문제] 알고리즘 &amp; SQL 문제 풀기
-✅ [과제] Java 계산기 만들기 level 3 마무리
-✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
-✅ 개인 과제 - 도전 구현 [내일배움캠프] 과제 - 계산기 3 / [GitHub] nbc-chapter-02/calculator/level3 🫠 level 2 vs level 3 개선된 점 단일 클래스 구조 → 다층 구조 (패키지 분리) Enum을 통한 연산자(Operator) 관리 제네릭(Operand) &#43; BigDecimal 도입 람다와 스트림을 이용한 결과 필터링 기능 추가 커스텀 예외 클래스(CalculatorException) 활용 개선할 점 Operand&lt;T&gt;가 BigDecimal로만 사용되는 점 </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-05 23:00:00 +0900 KST'>2025년 3월 5일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] 계산기 Lv 3 회고" href="https://withong.github.io/camp/day-12/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[내일배움캠프] 계산기 Lv 1-2 회고
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ [과제] Java 계산기 만들기 level 2 수정
-✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
-✅ [문제] 알고리즘 문제 풀기
-✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경
-→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-28 21:00:00 +0900 KST'>2025년 2월 28일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] 계산기 Lv 1-2 회고" href="https://withong.github.io/camp/day-10/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/page/4/">
+      «&nbsp;Prev&nbsp;
+    </a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">
