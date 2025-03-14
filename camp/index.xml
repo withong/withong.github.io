@@ -6,8 +6,41 @@
     <description>Recent content in Camp on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 12 Mar 2025 21:01:14 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 13 Mar 2025 21:00:00 +0900</lastBuildDate>
     <atom:link href="https://withong.github.io/camp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[내일배움캠프] Collection &amp; Stream</title>
+      <link>https://withong.github.io/camp/day-18/</link>
+      <pubDate>Thu, 13 Mar 2025 21:00:00 +0900</pubDate>
+      <guid>https://withong.github.io/camp/day-18/</guid>
+      <description>&lt;hr&gt;
+&lt;h3 id=&#34;1-배열-vs-컬렉션&#34;&gt;&lt;strong&gt;1. 배열 vs. 컬렉션&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;배열: 크기 고정, 동일 타입 데이터만 저장, 인덱스로 접근 가능, 단순한 구조.&lt;/li&gt;
+&lt;li&gt;컬렉션: 크기 동적 조절 가능, 다양한 타입 지원(제네릭), List/Set/Map 등 다양한 자료구조 제공.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-컬렉션-주요-인터페이스&#34;&gt;&lt;strong&gt;2. 컬렉션 주요 인터페이스&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;List&lt;/code&gt; (ArrayList, LinkedList): 순서 O, 중복 O, 인덱스로 접근 가능.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Set&lt;/code&gt; (HashSet, TreeSet): 순서 X, 중복 X.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Map&lt;/code&gt; (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-원시-타입-vs-래퍼-클래스&#34;&gt;&lt;strong&gt;3. 원시 타입 vs. 래퍼 클래스&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;컬렉션에는 원시 타입(&lt;code&gt;int&lt;/code&gt;, &lt;code&gt;char&lt;/code&gt;)을 직접 저장할 수 없고, 래퍼 클래스(&lt;code&gt;Integer&lt;/code&gt;, &lt;code&gt;Character&lt;/code&gt;)를 사용해야 함.&lt;/li&gt;
+&lt;li&gt;래퍼 클래스는 객체로 취급되며, 다양한 메서드를 제공.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-스트림stream&#34;&gt;&lt;strong&gt;4. 스트림(Stream)&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;자바 8에서 도입된 데이터 처리 방식.&lt;/li&gt;
+&lt;li&gt;원본 데이터를 변경하지 않고 가공 가능.&lt;/li&gt;
+&lt;li&gt;중간 연산(필터링, 변환)과 최종 연산(집계, 출력)으로 구성됨.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-스트림-주요-연산&#34;&gt;&lt;strong&gt;5. 스트림 주요 연산&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;중간 연산 (Intermediate Operations)&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[내일배움캠프] 키오스크 도전 Lv 2</title>
       <link>https://withong.github.io/camp/task-kiosk-04/</link>
