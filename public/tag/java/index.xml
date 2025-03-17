@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Java on withong</title>
-    <link>https://withong.github.io/tag/java/</link>
+    <link>http://localhost:1313/tag/java/</link>
     <description>Recent content in Java on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Thu, 13 Mar 2025 21:00:00 +0900</lastBuildDate>
-    <atom:link href="https://withong.github.io/tag/java/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tag/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[내일배움캠프] Collection &amp; Stream</title>
-      <link>https://withong.github.io/camp/day-18/</link>
+      <link>http://localhost:1313/camp/day-18/</link>
       <pubDate>Thu, 13 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-18/</guid>
+      <guid>http://localhost:1313/camp/day-18/</guid>
       <description>&lt;hr&gt;
 &lt;h3 id=&#34;1-배열-vs-컬렉션&#34;&gt;&lt;strong&gt;1. 배열 vs. 컬렉션&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
@@ -43,9 +43,9 @@
     </item>
     <item>
       <title>[내일배움캠프] Enum &amp; 동일성/동등성</title>
-      <link>https://withong.github.io/camp/day-16/</link>
+      <link>http://localhost:1313/camp/day-16/</link>
       <pubDate>Tue, 11 Mar 2025 10:44:41 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-16/</guid>
+      <guid>http://localhost:1313/camp/day-16/</guid>
       <description>&lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Enum&lt;/strong&gt; → 단순한 상수의 모음이 아니라, &lt;strong&gt;객체처럼 동작하는 데이터 타입&lt;/strong&gt;&lt;/li&gt;
@@ -71,9 +71,9 @@
     </item>
     <item>
       <title>[내일배움캠프] Java 심화 2</title>
-      <link>https://withong.github.io/camp/day-09/</link>
+      <link>http://localhost:1313/camp/day-09/</link>
       <pubDate>Thu, 27 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-09/</guid>
+      <guid>http://localhost:1313/camp/day-09/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 세션 2 - 객체 활용&lt;br&gt;
 ✅ [강의] Java 문법 Chapter 3 (5~7)&lt;br&gt;
@@ -161,9 +161,9 @@
     </item>
     <item>
       <title>[내일배움캠프] Java 심화 1</title>
-      <link>https://withong.github.io/camp/day-08/</link>
+      <link>http://localhost:1313/camp/day-08/</link>
       <pubDate>Wed, 26 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-08/</guid>
+      <guid>http://localhost:1313/camp/day-08/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 Chapter 3 (1~4)&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 1&lt;/p&gt;&lt;/blockquote&gt;
@@ -204,9 +204,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 객체지향</title>
-      <link>https://withong.github.io/camp/day-07/</link>
+      <link>http://localhost:1313/camp/day-07/</link>
       <pubDate>Tue, 25 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-07/</guid>
+      <guid>http://localhost:1313/camp/day-07/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 문법 세션 1 - 프로그래밍 기초&lt;br&gt;
 ✅ Java 문법 강의 2주차&lt;/p&gt;&lt;/blockquote&gt;
@@ -237,9 +237,9 @@
     </item>
     <item>
       <title>[Java] final</title>
-      <link>https://withong.github.io/java/basic-08/</link>
+      <link>http://localhost:1313/java/basic-08/</link>
       <pubDate>Tue, 25 Feb 2025 09:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/java/basic-08/</guid>
+      <guid>http://localhost:1313/java/basic-08/</guid>
       <description>&lt;h2 id=&#34;final--지역변수&#34;&gt;final -지역변수&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;final&lt;/code&gt;이 붙은 &lt;strong&gt;지역변수는 한 번만 값을 할당할 수 있음.&lt;/strong&gt;&lt;/li&gt;
@@ -275,9 +275,9 @@
     </item>
     <item>
       <title>[내일배움캠프] Java 기초</title>
-      <link>https://withong.github.io/camp/day-06/</link>
+      <link>http://localhost:1313/camp/day-06/</link>
       <pubDate>Mon, 24 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-06/</guid>
+      <guid>http://localhost:1313/camp/day-06/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ Java 문법 강의 1주차&lt;/p&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
@@ -485,9 +485,9 @@ result = 7
     </item>
     <item>
       <title>[Java] 메모리 구조와 static</title>
-      <link>https://withong.github.io/java/basic-07/</link>
+      <link>http://localhost:1313/java/basic-07/</link>
       <pubDate>Fri, 14 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/java/basic-07/</guid>
+      <guid>http://localhost:1313/java/basic-07/</guid>
       <description>&lt;h2 id=&#34;메모리-구조&#34;&gt;메모리 구조&lt;/h2&gt;
 &lt;p&gt;Java 메모리는 크게 &lt;strong&gt;메서드 영역, 스택 영역, 힙 영역&lt;/strong&gt;으로 나뉜다.&lt;/p&gt;
 &lt;br&gt;
@@ -524,9 +524,9 @@ result = 7
     </item>
     <item>
       <title>[Java] 접근 제어자</title>
-      <link>https://withong.github.io/java/basic-06/</link>
+      <link>http://localhost:1313/java/basic-06/</link>
       <pubDate>Wed, 12 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/java/basic-06/</guid>
+      <guid>http://localhost:1313/java/basic-06/</guid>
       <description>&lt;h2 id=&#34;private&#34;&gt;private&lt;/h2&gt;
 &lt;p&gt;클래스 내부에서만 접근 가능&lt;/p&gt;
 &lt;blockquote&gt;
@@ -542,9 +542,9 @@ result = 7
     </item>
     <item>
       <title>[Java] 패키지</title>
-      <link>https://withong.github.io/java/basic-05/</link>
+      <link>http://localhost:1313/java/basic-05/</link>
       <pubDate>Tue, 11 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/java/basic-05/</guid>
+      <guid>http://localhost:1313/java/basic-05/</guid>
       <description>&lt;h2 id=&#34;패키지&#34;&gt;패키지&lt;/h2&gt;
 &lt;p&gt;클래스를 논리적으로 그룹화하는 방법.&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://velog.velcdn.com/images/ezro/post/e824c372-3653-4b2d-ae8e-51e3452a3a73/image.png&#34;&gt;&lt;/p&gt;
@@ -574,9 +574,9 @@ result = 7
     </item>
     <item>
       <title>[Java] 생성자</title>
-      <link>https://withong.github.io/java/basic-04/</link>
+      <link>http://localhost:1313/java/basic-04/</link>
       <pubDate>Mon, 10 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/java/basic-04/</guid>
+      <guid>http://localhost:1313/java/basic-04/</guid>
       <description>&lt;h2 id=&#34;생성자&#34;&gt;생성자&lt;/h2&gt;
 &lt;p&gt;객체가 생성될 때 자동으로 호출되는 메서드로, 객체를 초기화하는 데 사용됨.
 생성자는 클래스와 동일한 이름을 가지며, 반환 타입이 없음.&lt;/p&gt;
@@ -597,9 +597,9 @@ result = 7
     </item>
     <item>
       <title>[Java] 객체 지향 프로그래밍</title>
-      <link>https://withong.github.io/java/basic-03/</link>
+      <link>http://localhost:1313/java/basic-03/</link>
       <pubDate>Fri, 07 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/java/basic-03/</guid>
+      <guid>http://localhost:1313/java/basic-03/</guid>
       <description>&lt;h2 id=&#34;절차-지향-프로그래밍&#34;&gt;절차 지향 프로그래밍&lt;/h2&gt;
 &lt;p&gt;프로그램의 흐름을 순차적으로 따르며 처리하는 방식. 즉, &lt;code&gt;어떻게&lt;/code&gt; 를 중심으로 프로그래밍 함.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MusicPlayerData&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -634,9 +634,9 @@ result = 7
     </item>
     <item>
       <title>[Java] 기본형과 참조형</title>
-      <link>https://withong.github.io/java/basic-02/</link>
+      <link>http://localhost:1313/java/basic-02/</link>
       <pubDate>Thu, 06 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/java/basic-02/</guid>
+      <guid>http://localhost:1313/java/basic-02/</guid>
       <description>&lt;h2 id=&#34;변수-대입&#34;&gt;변수 대입&lt;/h2&gt;
 &lt;br&gt;
 &lt;h3 id=&#34;기본형-변수-대입&#34;&gt;기본형 변수 대입&lt;/h3&gt;
@@ -663,9 +663,9 @@ result = 7
     </item>
     <item>
       <title>[Java] 클래스와 객체</title>
-      <link>https://withong.github.io/java/basic-01/</link>
+      <link>http://localhost:1313/java/basic-01/</link>
       <pubDate>Tue, 04 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/java/basic-01/</guid>
+      <guid>http://localhost:1313/java/basic-01/</guid>
       <description>&lt;h2 id=&#34;클래스&#34;&gt;클래스&lt;/h2&gt;
 &lt;p&gt;객체를 생성하기 위한 설계도 또는 틀, 사용자 정의 타입 역할을 함.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Student&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
