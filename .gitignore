@@ -1,5 +1,2 @@
 resources/
 .hugo_build.lock
-
-# Ignore Hugo output folder
-public/
