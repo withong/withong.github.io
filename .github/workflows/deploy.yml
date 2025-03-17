@@ -5,34 +5,35 @@ on:
     branches:
       - main  # main 브랜치에 푸시될 때 실행됨
 
+permissions:
+  contents: write  # GitHub Actions가 push할 수 있도록 권한 변경
+
 jobs:
   deploy:
     runs-on: ubuntu-latest  # 실행 환경 (리눅스)
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (with submodules)
         uses: actions/checkout@v3
         with:
-          lfs: true  # Git LFS 파일도 포함
+          submodules: true  # 서브모듈을 자동으로 불러옴
+          fetch-depth: 0
 
       - name: Install latest Hugo
         run: |
           wget https://github.com/gohugoio/hugo/releases/download/v0.125.7/hugo_extended_0.125.7_linux-amd64.deb
           sudo dpkg -i hugo_extended_0.125.7_linux-amd64.deb
-          hugo version  # 설치된 버전 확인
+          hugo version
 
-      - name: Clone Hugo theme (PaperMod)
+      - name: Clone Hugo theme manually (if submodule fails)
         run: |
-          git submodule update --init --recursive
+          if [ ! -d "themes/PaperMod" ]; then
+            git clone --depth 1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+          fi
 
       - name: Download LFS JSON
         run: |
           curl -L -o static/index.json "https://raw.githubusercontent.com/withong/withong.github.io/main/public/index.json"
-
-      - name: Ensure required template exists
-        run: |
-          mkdir -p layouts/partials/templates
-          touch layouts/partials/templates/schema_json.html
 
       - name: Remove existing public folder
         run: |
@@ -45,8 +46,11 @@ jobs:
       - name: Build Hugo Site
         run: hugo --cleanDestinationDir
 
-      - name: Deploy to GitHub Pages (using Subtree)
+      - name: Set up Git credentials
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git subtree push --prefix public origin blog
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/withong/withong.github.io.git
+
+      - name: Deploy to GitHub Pages (using Subtree)
+        run: git subtree push --prefix public origin blog
