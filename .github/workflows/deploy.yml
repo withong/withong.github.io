@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # 실행 환경
+    runs-on: ubuntu-latest  # 실행 환경 (리눅스)
 
     steps:
       - name: Checkout repository
@@ -15,15 +15,24 @@ jobs:
         with:
           lfs: true  # Git LFS 파일도 포함
 
-      - name: Install Hugo
-        run: sudo apt-get install hugo
+      - name: Install latest Hugo
+        run: |
+          wget https://github.com/gohugoio/hugo/releases/download/v0.125.7/hugo_extended_0.125.7_linux-amd64.deb
+          sudo dpkg -i hugo_extended_0.125.7_linux-amd64.deb
+          hugo version  # 설치된 버전 확인
+
+      - name: Clone Hugo theme (PaperMod)
+        run: |
+          git submodule update --init --recursive
 
       - name: Download LFS JSON
         run: |
           curl -L -o static/index.json "https://raw.githubusercontent.com/withong/withong.github.io/main/public/index.json"
 
-      - name: Build Hugo Site
-        run: hugo --cleanDestinationDir
+      - name: Ensure required template exists
+        run: |
+          mkdir -p layouts/partials/templates
+          touch layouts/partials/templates/schema_json.html
 
       - name: Remove existing public folder
         run: |
@@ -32,6 +41,9 @@ jobs:
           else
             rm -rf public
           fi
+
+      - name: Build Hugo Site
+        run: hugo --cleanDestinationDir
 
       - name: Deploy to GitHub Pages (using Subtree)
         run: |
