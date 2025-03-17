@@ -23,6 +23,8 @@ tag = ["내일배움캠프", "TIL", "Spring"]
     - 서버: 요청을 처리하고 응답을 주는 역할.
     - 클라이언트: 요청을 보내고 응답을 받는 역할.
 
+<br>
+
 ### 인터넷 프로토콜 IP(Internet Protocol)
 인터넷에서 데이터를 전송하는 규칙
 - 데이터를 목적지까지 전달하기 위해 경로(Route)를 설정 함.
@@ -30,6 +32,8 @@ tag = ["내일배움캠프", "TIL", "Spring"]
 - 패킷(Packet)이라는 작은 단위로 데이터를 나누어 전송함.
 - IP 자체만으로는 데이터의 신뢰성을 보장하지 않음. 
 - 패킷이 순서대로 도착하거나 손실되지 않는다는 보장은 TCP 같은 상위 프로토콜에서 처리함.
+
+<br>
 
 ### IP 방식의 문제점
 - 비연결성
@@ -40,6 +44,8 @@ tag = ["내일배움캠프", "TIL", "Spring"]
     - 데이터가 중간에 유실될 경우 재전송이 필요하지만, IP 자체는 이를 처리하지 않음.
 - 패킷 분실 가능성
     - 네트워크가 혼잡하면 패킷이 사라질 수 있음.
+
+<br>
 
 ### TCP(Transmission Control Protocol)
 서버와 클라이언트 간에 데이터를 신뢰성 있게 전달하기 위해 만들어진 프로토콜.
@@ -52,6 +58,8 @@ tag = ["내일배움캠프", "TIL", "Spring"]
 - 흐름 제어 및 혼잡 제어
     - 네트워크 속도 차이를 고려하여 데이터를 조절하고, 네트워크가 과부하 상태가 되지 않도록 조정함.
 
+<br>
+
 ### UDP(User Datagram Protocol)
 비연결형, 신뢰성이 없는 전송 프로토콜.
 - 비연결형
@@ -61,6 +69,8 @@ tag = ["내일배움캠프", "TIL", "Spring"]
     - 패킷이 유실될 수 있어도 다시 전송하지 않음.
 - 순서 보장 없음
     - 패킷이 순서대로 도착한다는 보장이 없음.
+
+<br>
 
 ### PORT
 같은 IP 내에서 프로세스 구분을 하기 위해서 사용.
@@ -91,6 +101,8 @@ tag = ["내일배움캠프", "TIL", "Spring"]
 - 클라이언트 to 서버의 통신에 JSON을 사용
 - 서버 to 서버의 통신에도 JSON을 사용
 
+<br>
+
 ### Scale Up, Scale Out (서버 및 네트워크 확장 관련)
 서버의 성능 향상을 위한 두 가지 방법
 - Scale Up (수직 확장)
@@ -99,6 +111,8 @@ tag = ["내일배움캠프", "TIL", "Spring"]
 - Scale Out (수평 확장)
     - 여러 개의 서버를 추가하여 부하를 분산하는 방식
     - 로드 밸런서를 사용하여 여러 서버에 부하를 분산함.
+
+<br>
 
 ### Stateful, Stateless (네트워크 세션 관리와 관련)
 웹 애플리케이션이 사용자의 상태(데이터)를 어떻게 관리하는지에 대한 개념
@@ -116,6 +130,8 @@ tag = ["내일배움캠프", "TIL", "Spring"]
       - 확장성이 좋음 (Scale out 쉬움)
     - 단점
       - 매 요청마다 필요한 데이터를 보내야 함
+
+<br>
 
 ### Connection, Connectionless (네트워크 연결 방식)
 네트워크에서 데이터를 주고받을 때 연결을 유지하는지 여부에 따른 개념
@@ -136,6 +152,8 @@ tag = ["내일배움캠프", "TIL", "Spring"]
       - 추가 요청 시 새 연결(3 way handshake)로 인해 응답 시간 증가
       - 현재는 HTTP 지속 연결로 문제를 해결
 
+<br>
+
 ### HTTP 지속연결(Persistent Connections)
 - 여러 HTTP 요청을 하나의 TCP 연결에서 처리하여, 매 요청마다 새 연결을 맺는 비용을 줄임.
 
@@ -152,6 +170,8 @@ tag = ["내일배움캠프", "TIL", "Spring"]
     - DNS 서버가 142.250.190.78 같은 IP 주소를 반환.
     - 브라우저가 해당 IP 주소의 서버에 접속하여 웹 페이지를 요청.
 
+<br>
+
 ### URI(Uniform Resource Identifier)
 웹에서 특정 자원을 식별하는 고유한 주소
 
@@ -163,6 +183,8 @@ https://www.example.com/products?id=1234
 - 호스트(Host) : www.example.com (서버의 주소)
 - 경로(Path) : /products (서버에서 자원의 위치)
 - 쿼리(Query) : ?id=1234 (추가적인 데이터)
+
+<br>
 
 ### URL(Uniform Resource Locator)
 웹 상에서 특정 자원의 위치를 나타내는 주소
@@ -186,6 +208,8 @@ https://www.example.com:8080/products?id=1234#section
 - 프래그먼트 (Fragment, 앵커 태그) : #section
     - 페이지 내 특정 위치를 가리킴.
 
+<br>
+
 ### URL과 URI의 차이점
 | 구분  | URI | URL |
 |-------|----|----|
@@ -206,6 +230,8 @@ https://www.example.com:8080/products?id=1234#section
     - HTTP/1.1 (가장 많이 사용됨, TCP 기반)
     - HTTP/2, HTTP/3 (성능 개선, HTTP/3는 UDP 기반)
 
+<br>
+
 ### HTTP 특징
 1. 클라이언트-서버 구조
    - 클라이언트(UI)와 서버(비즈니스 로직, 데이터 관리)를 분리하여 독립적인 발전 가능.
@@ -216,6 +242,8 @@ https://www.example.com:8080/products?id=1234#section
 3. Connectionless(비연결성)
     - 요청 후 응답을 받으면 연결 종료.
     - 성능 최적화를 위해 Persistent Connection(지속 연결) 사용.
+
+<br>
 
 ### HTTP Message 구조
 - 요청(Request)
@@ -241,6 +269,8 @@ https://www.example.com:8080/products?id=1234#section
   - Header: 응답 관련 추가 정보  
   - Body: HTML, JSON 등 실제 데이터
 
+<br>
+
 ### HTTP Method
 | 메서드  | 설명 |
 |--------|------|
@@ -249,6 +279,8 @@ https://www.example.com:8080/products?id=1234#section
 | `PUT` | 데이터 전체 수정 |
 | `PATCH` | 데이터 일부 수정 |
 | `DELETE` | 데이터 삭제 |
+
+<br>
 
 ### HTTP Method 속성
 | 메서드  | 안전(Safe) | 멱등(Idempotent) | 캐시 가능(Cacheable) |
@@ -275,6 +307,8 @@ https://www.example.com:8080/products?id=1234#section
    - `GET`은 캐시가 가능하며, 성능 최적화에 유용함.  
    - `POST`, `PUT`, `PATCH`, `DELETE`는 일반적으로 캐시되지 않음. 특히 `POST`는 호출할 때마다 새로운 리소스를 생성할 가능성이 있어 캐시되지 않음.
 
+<br>
+
 ### HTTP 상태 코드
 | 상태 코드 | 의미 |
 |----------|------|
@@ -282,6 +316,8 @@ https://www.example.com:8080/products?id=1234#section
 | 3xx (리다이렉션) | `301 Moved Permanently`, `302 Found` |
 | 4xx (클라이언트 오류) | `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found` |
 | 5xx (서버 오류) | `500 Internal Server Error`, `503 Service Unavailable` |
+
+<br>
 
 ### HTTP API 설계
 | 기능 | HTTP 메서드 | URL |
@@ -296,6 +332,8 @@ https://www.example.com:8080/products?id=1234#section
 - 리소스 중심 (URI는 명사 사용, 동사 사용 X)
 - 복수형 사용 (`board → boards`)
 - HTTP 메서드를 활용하여 CRUD 표현
+
+<br>
 
 ### HTTP Header
 1. 요청 헤더
@@ -319,12 +357,14 @@ https://www.example.com:8080/products?id=1234#section
    | `ETag` | 캐시 무결성 체크 |
    | `If-Modified-Since` | 마지막 수정 날짜 |
 
+<br>
+
 ### Restful API
 REST(Representational State Transfer)란?
 - HTTP 기반의 API 설계 원칙.
 - 리소스를 고유한 URI로 식별하고, HTTP 메서드를 활용하여 조작.
 
-### RESTful API 설계 규칙
+#### RESTful API 설계 규칙
 1. URI는 명사 사용, 동사 X
    - ❌ `/getUsers` → ✅ `/users`
 2. 복수형 사용
@@ -338,7 +378,7 @@ REST(Representational State Transfer)란?
    - `PATCH /users/{id}` (일부 수정)
    - `DELETE /users/{id}` (삭제)
 
-### REST API 성숙도 모델
+#### REST API 성숙도 모델
 | 레벨 | 설명 |
 |------|------|
 | Level 0 | URI만 사용 (`POST /operation`) |
@@ -357,11 +397,13 @@ REST(Representational State Transfer)란?
   - NGINX
   - Apache
 
-### Web Server의 역할
+#### Web Server의 역할
 1. 정적 리소스 제공
    - HTML, CSS, JS, 이미지, 영상 파일 등의 요청 처리.
 2. 요청을 WAS로 전달
    - API 요청 또는 동적인 처리가 필요한 요청을 WAS로 넘김.
+
+<br>
 
 ### WAS (Web Application Server)
 - HTTP 기반으로 동작하며 웹 서버의 기능 + 애플리케이션 로직 실행 + DB와 연동.
@@ -371,12 +413,16 @@ REST(Representational State Transfer)란?
   - Jetty
   - Undertow
 
+<br>
+
 ### Web Server와 WAS 차이점
 |  | Web Server | WAS |
 |---|---|---|
 | 역할 | 정적 리소스 제공 | 동적 콘텐츠 처리 |
 | 예시 | HTML, CSS, JS, 이미지 | DB 조회, 로직 실행 |
 | 대표 서버 | NGINX, Apache | Tomcat, Jetty, Undertow |
+
+<br>
 
 ### Web System 구성 방식
 
@@ -393,12 +439,14 @@ REST(Representational State Transfer)란?
   - 서버 부담 분산 (정적 리소스는 Web Server, 동적 처리는 WAS).
   - 오류 페이지 제공 가능 (WAS 다운 시 Web Server가 대체 응답).
 
+<br>
+
 ### Servlet
 - Java 기반 HTTP 요청 및 응답 처리 기술.
 - `HttpServlet` 클래스를 상속받아 구현.
 - 웹 애플리케이션에서 사용자의 요청을 받고 비즈니스 로직을 실행한 후 응답을 반환.
 
-### Servlet 동작 순서
+#### 동작 순서
 1. 클라이언트가 요청을 보냄 (`localhost:8080/example`).
 2. WAS가 Request, Response 객체 생성.
 3. Servlet 실행 (`service()` 메서드 호출).
@@ -406,12 +454,14 @@ REST(Representational State Transfer)란?
 5. 응답 작성 후 클라이언트에게 전송.
 6. Request, Response 객체 소멸.
 
-### Servlet Container
+#### Servlet Container
 - Servlet을 관리하는 환경 (WAS 내부에서 동작).
 - 역할:
   - Servlet 객체 생성, 초기화, 호출, 종료 관리.
   - 싱글톤 관리 (Servlet 하나만 생성하여 공유).
   - Multi-Thread 지원 (동시 요청 처리 가능).
+
+<br>
 
 ### Thread & Multi-Thread
 
@@ -431,6 +481,8 @@ REST(Representational State Transfer)란?
 2. 서버 과부하 방지 (최대 Thread 개수 제한).
 3. 동시 요청을 효율적으로 처리.
 
+<br>
+
 ### SSR(Server Side Rendering)
 - 서버에서 HTML을 생성 후 클라이언트에 전달하는 방식.
 - Java에서는 JSP, Thymeleaf 등을 사용.
@@ -447,6 +499,8 @@ REST(Representational State Transfer)란?
 #### 단점:
 1. 서버 부하 증가 (모든 요청마다 HTML을 생성해야 함).
 2. 페이지 전환 시 속도 느림 (서버에서 매번 HTML 생성).
+
+<br>
 
 ### CSR(Client Side Rendering)
 - 클라이언트(브라우저)에서 HTML을 동적으로 생성하는 방식.
