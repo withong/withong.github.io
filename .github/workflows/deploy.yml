@@ -1,0 +1,40 @@
+name: Deploy Hugo Site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 푸시될 때 실행됨
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # 실행 환경
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          lfs: true  # Git LFS 파일도 포함
+
+      - name: Install Hugo
+        run: sudo apt-get install hugo
+
+      - name: Download LFS JSON
+        run: |
+          curl -L -o static/index.json "https://raw.githubusercontent.com/withong/withong.github.io/main/public/index.json"
+
+      - name: Build Hugo Site
+        run: hugo --cleanDestinationDir
+
+      - name: Remove existing public folder
+        run: |
+          if [[ "$RUNNER_OS" == "Windows" ]]; then
+            Remove-Item -Recurse -Force public
+          else
+            rm -rf public
+          fi
+
+      - name: Deploy to GitHub Pages (using Subtree)
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git subtree push --prefix public origin blog
