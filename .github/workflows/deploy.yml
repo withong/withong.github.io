@@ -27,11 +27,11 @@ jobs:
             rm -rf public
           fi
 
-      - name: Install Hugo v0.145.0 Extended
+      - name: Install latest Hugo
         run: |
-          wget https://github.com/gohugoio/hugo/releases/download/v0.145.0/hugo_extended_0.145.0_linux-amd64.deb
-          sudo dpkg -i hugo_extended_0.145.0_linux-amd64.deb
-          hugo version        
+          wget https://github.com/gohugoio/hugo/releases/download/v0.125.7/hugo_extended_0.125.7_linux-amd64.deb
+          sudo dpkg -i hugo_extended_0.125.7_linux-amd64.deb
+          hugo version
 
       - name: Build Hugo Site
         run: hugo --cleanDestinationDir
