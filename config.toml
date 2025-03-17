@@ -9,6 +9,7 @@ disableThemeToggle = true
 defaultTheme = "dark"
 uglyURLs = false
 pygmentsUseClasses = true
+publishDir = "docs"
 
 [taxonomies]
   category = "topic"
