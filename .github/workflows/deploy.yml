@@ -34,7 +34,7 @@ jobs:
           hugo version
 
       - name: Build Hugo Site
-        run: hugo --cleanDestinationDir
+        run: hugo --theme papermod --cleanDestinationDir
 
       - name: Deploy to GitHub Pages (using Subtree)
         run: |
