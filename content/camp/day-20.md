@@ -11,7 +11,7 @@ tag = ["내일배움캠프", "TIL", "Spring"]
 ## 네트워크(Network)
 
 ### 인터넷(Internet)
-전 세계의 컴퓨터들이 연결된 거대한 네트워크
+전 세계의 컴퓨터들이 연결된 거대한 네트워크.
 
 #### 인터넷의 핵심 요소:
 - ISP(Internet Service Provider, 인터넷 서비스 제공자)
