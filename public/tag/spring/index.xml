@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Spring on withong</title>
-    <link>http://localhost:1313/tag/spring/</link>
+    <link>https://withong.github.io/tag/spring/</link>
     <description>Recent content in Spring on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Mon, 17 Mar 2025 21:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/spring/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/tag/spring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[내일배움캠프] Spring 기초 1</title>
-      <link>http://localhost:1313/camp/day-20/</link>
+      <link>https://withong.github.io/camp/day-20/</link>
       <pubDate>Mon, 17 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/day-20/</guid>
+      <guid>https://withong.github.io/camp/day-20/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;네트워크network&#34;&gt;네트워크(Network)&lt;/h2&gt;
 &lt;h3 id=&#34;인터넷internet&#34;&gt;인터넷(Internet)&lt;/h3&gt;
@@ -43,7 +43,8 @@
 &lt;li&gt;데이터를 목적지까지 전달하기 위해 경로(Route)를 설정 함.&lt;/li&gt;
 &lt;li&gt;각 컴퓨터에 고유한 주소(IP Address)를 할당 함.&lt;/li&gt;
 &lt;li&gt;패킷(Packet)이라는 작은 단위로 데이터를 나누어 전송함.&lt;/li&gt;
-&lt;li&gt;IP는 데이터를 목적지까지 전달하는 역할만 하고, 데이터의 정확한 전달을 보장하지 않는다. (데이터가 유실될 수도 있다.)&lt;/li&gt;
+&lt;li&gt;IP 자체만으로는 데이터의 신뢰성을 보장하지 않음.&lt;/li&gt;
+&lt;li&gt;패킷이 순서대로 도착하거나 손실되지 않는다는 보장은 TCP 같은 상위 프로토콜에서 처리함.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;ip-방식의-문제점&#34;&gt;IP 방식의 문제점&lt;/h3&gt;
 &lt;ul&gt;

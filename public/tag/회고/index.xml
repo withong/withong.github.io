@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>회고 on withong</title>
-    <link>http://localhost:1313/tag/%ED%9A%8C%EA%B3%A0/</link>
+    <link>https://withong.github.io/tag/%ED%9A%8C%EA%B3%A0/</link>
     <description>Recent content in 회고 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Fri, 14 Mar 2025 19:14:24 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/%ED%9A%8C%EA%B3%A0/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/tag/%ED%9A%8C%EA%B3%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[내일배움캠프] 키오스크 코드 분석 및 개선 방향</title>
-      <link>http://localhost:1313/camp/day-19/</link>
+      <link>https://withong.github.io/camp/day-19/</link>
       <pubDate>Fri, 14 Mar 2025 19:14:24 +0900</pubDate>
-      <guid>http://localhost:1313/camp/day-19/</guid>
+      <guid>https://withong.github.io/camp/day-19/</guid>
       <description>&lt;hr&gt;
 &lt;h3 id=&#34;코드의-주요-기능&#34;&gt;코드의 주요 기능&lt;/h3&gt;
 &lt;ul&gt;
@@ -66,9 +66,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 계산기 Lv 3 회고</title>
-      <link>http://localhost:1313/camp/day-12/</link>
+      <link>https://withong.github.io/camp/day-12/</link>
       <pubDate>Wed, 05 Mar 2025 23:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/day-12/</guid>
+      <guid>https://withong.github.io/camp/day-12/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [문제] 알고리즘 &amp;amp; SQL 문제 풀기&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 3 마무리&lt;br&gt;
@@ -97,9 +97,9 @@
     </item>
     <item>
       <title>[내일배움캠프] 계산기 Lv 1-2 회고</title>
-      <link>http://localhost:1313/camp/day-10/</link>
+      <link>https://withong.github.io/camp/day-10/</link>
       <pubDate>Fri, 28 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/day-10/</guid>
+      <guid>https://withong.github.io/camp/day-10/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [과제] Java 계산기 만들기 level 2 수정&lt;br&gt;
 ✅ [과제] 과제 TIL &amp;amp; 트러블 슈팅 작성&lt;br&gt;
