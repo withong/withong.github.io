@@ -2,17 +2,115 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Spring on withong</title>
-    <link>https://withong.github.io/tag/spring/</link>
+    <link>http://localhost:1313/tag/spring/</link>
     <description>Recent content in Spring on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Mon, 17 Mar 2025 22:00:03 +0900</lastBuildDate>
-    <atom:link href="https://withong.github.io/tag/spring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Mar 2025 17:53:16 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tag/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[내일배움캠프] Spring 기초 3</title>
+      <link>http://localhost:1313/camp/day-21-2/</link>
+      <pubDate>Tue, 18 Mar 2025 17:53:16 +0900</pubDate>
+      <guid>http://localhost:1313/camp/day-21-2/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;1-mvc-패턴&#34;&gt;1. MVC 패턴&lt;/h2&gt;
+&lt;h3 id=&#34;template-engine-템플릿-엔진&#34;&gt;Template Engine (템플릿 엔진)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;동적인 웹 페이지를 생성하는 도구&lt;/li&gt;
+&lt;li&gt;HTML과 데이터를 결합해 서버에서 페이지를 렌더링함&lt;/li&gt;
+&lt;li&gt;대표적인 템플릿 엔진
+&lt;ul&gt;
+&lt;li&gt;Thymeleaf → Spring과 통합이 잘 되어 가장 많이 사용됨&lt;/li&gt;
+&lt;li&gt;JSP (Java Server Pages) → 예전에는 많이 사용했으나 현재는 거의 사용되지 않음&lt;/li&gt;
+&lt;li&gt;FreeMarker, Velocity, Mustache → 특정 환경에서 사용됨&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;과거에는 Java 코드로 직접 HTML을 생성했으나, 유지보수가 어려워서 HTML에 필요한 부분만 Java 코드로 처리하도록 발전함&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;mvc-패턴-개요&#34;&gt;MVC 패턴 개요&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;원래 Servlet과 JSP만으로 웹 개발을 했으나, 비즈니스 로직과 UI가 한 파일에 섞이면서 유지보수가 어려워짐&lt;/li&gt;
+&lt;li&gt;MVC (Model-View-Controller) 패턴은 역할을 분리하여 코드의 유지보수를 쉽게 하기 위해 등장함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;mvc-패턴-구조&#34;&gt;MVC 패턴 구조&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;컴포넌트&lt;/th&gt;
+          &lt;th&gt;설명&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Model&lt;/td&gt;
+          &lt;td&gt;데이터를 저장하고 처리하는 역할 (비즈니스 로직)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;View&lt;/td&gt;
+          &lt;td&gt;사용자에게 보여주는 UI (HTML, 템플릿 엔진)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Controller&lt;/td&gt;
+          &lt;td&gt;사용자의 요청을 받아 Model과 View를 연결&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;View가 변경되어도 Model(비즈니스 로직)에 영향을 주지 않도록 분리&lt;/li&gt;
+&lt;li&gt;Model이 변경되어도 View를 수정할 필요가 없음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;mvc-패턴의-문제점&#34;&gt;MVC 패턴의 문제점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;중복 코드 발생
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dispatcher.forward(request, response)&lt;/code&gt; 호출이 중복됨&lt;/li&gt;
+&lt;li&gt;View의 경로 (&lt;code&gt;/WEB-INF/views/...jsp&lt;/code&gt;)가 코드 곳곳에 하드코딩되어 변경이 어렵다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;공통 기능이 많아질수록 Controller의 역할이 커짐
+&lt;ul&gt;
+&lt;li&gt;로깅, 인증, 인가 등의 기능이 모든 Controller에 중복 작성됨&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;→ 프론트 컨트롤러 패턴&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[내일배움캠프] Spring 기초 2</title>
+      <link>http://localhost:1313/camp/day-21-1/</link>
+      <pubDate>Tue, 18 Mar 2025 17:32:05 +0900</pubDate>
+      <guid>http://localhost:1313/camp/day-21-1/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;1-프레임워크와-라이브러리&#34;&gt;1. 프레임워크와 라이브러리&lt;/h2&gt;
+&lt;h3 id=&#34;프레임워크-framework&#34;&gt;프레임워크 (Framework)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;소프트웨어 개발을 간편하게 만들기 위한 개발 환경.&lt;/li&gt;
+&lt;li&gt;일정한 틀(Frame) 안에서 개발해야 하며, 개발의 일관성을 제공함.&lt;/li&gt;
+&lt;li&gt;장점: 코드의 일관성, 보안 강화, 테스트 환경 제공, 커뮤니티 지원.&lt;/li&gt;
+&lt;li&gt;단점: 학습 곡선이 높음, 새로운 버전과의 호환성 문제 발생 가능, 구조 변경 어려움.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;라이브러리-library&#34;&gt;라이브러리 (Library)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;특정 기능을 수행하는 코드의 모음.&lt;/li&gt;
+&lt;li&gt;개발자가 필요할 때 가져다 사용 가능.&lt;/li&gt;
+&lt;li&gt;장점: 개발 생산성 증가, 안정성이 높은 코드 활용 가능.&lt;/li&gt;
+&lt;li&gt;단점: 업데이트 또는 지원 중단 시 문제 발생, 호환성 이슈.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-annotation&#34;&gt;2. Annotation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;코드에 메타데이터를 추가하는 기능으로, 컴파일러나 런타임에서 특정 동작을 트리거함.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[내일배움캠프] Spring 기초 1</title>
-      <link>https://withong.github.io/camp/day-20/</link>
+      <link>http://localhost:1313/camp/day-20/</link>
       <pubDate>Mon, 17 Mar 2025 22:00:03 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-20/</guid>
+      <guid>http://localhost:1313/camp/day-20/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;네트워크&#34;&gt;네트워크&lt;/h2&gt;
 &lt;ul&gt;
