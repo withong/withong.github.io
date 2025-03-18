@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>[사전캠프] 5일차. | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -285,16 +285,16 @@ Java
 1부터 100까지의 숫자 출력하기.
 for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력하세요.">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/camp/pre-05/">
-<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
-<link rel="apple-touch-icon" href="https://withong.github.io/icons/zep.png">
-<link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
+<link rel="canonical" href="http://localhost:1313/camp/pre-05/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/code.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/zep.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/zep.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/camp/pre-05/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/camp/pre-05/">
 <noscript>
     <style>
         #theme-toggle,
@@ -331,353 +331,7 @@ for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/camp/pre-05/">
-  <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="[사전캠프] 5일차.">
-  <meta property="og:description" content=" TASKS
-✅ SQL 강의 3주차
-✅ Web 강의 2주차
-✅ Java 강의 Part 03.
-&#43;
-☑️ 퀘스트 걷기반 Java Part 3
-☑️ 퀘스트 걷기반 SQL 45번
-SQL 1. 문자열 함수 REPLACE : 문자열의 특정 부분을 다른 문자열로 대체. replace(바꿀 컬럼, 현재 값, 바꿀 값) SUBSTR 또는 SUBSTRING : 문자열의 일부를 추출. substr(조회할 컬럼, 시작 위치, 글자 수) CONCAT : 문자열을 연결. concat(붙이고 싶은 값1, 붙이고 싶은 값2, 붙이고 싶은 값3, ...) 1-1. 서울 지역의 음식 타입별 평균 음식 주문 금액 구하기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 2. 어떤 컬럼을 이용할 것인가 → price, cuisine_type, addr3. 어떤 조건을 지정해야 하는가 → where addr like ‘%서울%’4. 어떤 함수 (수식) 을 이용해야 하는가 → avg(price), substring(addr, 1, 2)select substring(addr, 1, 2) &#34;시도&#34;, -- addr 첫 번째 글자에서 두 글자를 출력 cuisine_type &#34;음식 종류&#34;, avg(price) &#34;평균 금액&#34; from food_orders where addr like &#39;%서울%&#39; group by 1, 2	-- 컬럼 순서로 입력 가능 -- 1 = substring(addr, 1, 2) &#34;시도&#34; -- 2 = cuisine_type &#34;음식 종류&#34; 1-2. ‘[지역(시도)] 음식점이름 (음식종류)’ 컬럼을 만들고, 총 주문 건수 구하기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 2. 어떤 컬럼을 이용할 것인가 → addr, restaurant_name, cuisine_type, order_id3. 어떤 조건을 지정해야 하는가 → X4. 어떤 함수 (수식) 을 이용해야 하는가 → count(1), substring(addr, 1, 2), concat(’[’, 뽑은시도, ‘] ‘, restaurant_name, ‘ (’, cuisine_type, ‘)’)select concat(&#39;[&#39;, substring(addr, 1, 2), &#39;] &#39;, restaurant_name, &#39; (&#39;, cuisine_type, &#39;)&#39;) &#34;바뀐이름&#34;, -- [서울] Hangawi (Korean) count(1) &#34;주문건수&#34; from food_orders group by 1 2. 조건문 IF : 특정 조건이 참인지 여부를 확인하고 참일 경우 특정 값을 반환. if(조건, 조건을 충족할 때, 조건을 충족하지 못할 때) CASE : 다양한 조건을 정의하고 조건에 따라 값을 반환. case when 조건1 then 값(수식)1 when 조건2 then 값(수식)2 else 값(수식)3 end 2-1. 10세 이상, 30세 미만의 고객의 나이와 성별로 그룹 나누기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from customers2. 어떤 컬럼을 이용할 것인가 → name, age, gender3. 어떤 조건을 지정해야 하는가 → where age between 10 and 294. 어떤 함수 (수식) 을 이용해야 하는가 → case when … endselect name, age, gender, case when (age between 10 and 19) and gender=&#39;male&#39; then &#34;10대 남자&#34; when (age between 10 and 19) and gender=&#39;female&#39; then &#34;10대 여자&#34; when (age between 20 and 29) and gender=&#39;male&#39; then &#34;20대 남자&#34; when (age between 20 and 29) and gender=&#39;female&#39; then &#34;20대 여자&#34; end &#34;그룹&#34; from customers where age between 10 and 29 2-1. 지역과 배달 시간을 기반으로 배달 수수료 구하기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 2. 어떤 컬럼을 이용할 것인가 → restaurant_name, order_id, addr, derlivery_time, price3. 어떤 조건을 지정해야 하는가 → X4. 어떤 함수 (수식) 을 이용해야 하는가 → case when, ifselect restaurant_name, order_id, delivery_time, price, addr, case when delivery_time&gt;25 and delivery_time&lt;=30 then price*0.05*(if(addr like &#39;%서울%&#39;, 1.1, 1)) when delivery_time&gt;30 then price*1.1*(if(addr like &#39;%서울%&#39;, 1.1, 1)) else 0 end &#34;수수료&#34; from food_orders 3주차 숙제 다음의 조건으로 배달 시간이 늦었는지 판단하는 값을 만들어주세요. 주중 : 25분 이상 주말 : 30분 이상 select day_of_the_week, delivery_time, case when day_of_the_week=&#39;Weekday&#39; and delivery_time&gt;=25 then &#39;지연&#39; when day_of_the_week=&#39;Weekend&#39; and delivery_time&gt;=30 then &#39;지연&#39; else &#39;정시&#39; end &#34;지연 여부&#34; from food_orders JavaScript 1. 딕셔너리 : 객체 (Object) 키-값 쌍(key-value pairs)으로 데이터를 저장하는 데이터 구조. let dictionary = { key1: &#34;value1&#34;, key2: &#34;value2&#34;, key3: 123, }; 접근 console.log(dictionary[&#34;key1&#34;]) console.log(dictionary[&#34;key2&#34;]) console.log(dictionary[&#34;key3&#34;]) 결과 value1value2123 2. 리스트 : 배열 (Array) 순서가 있는 데이터의 리스트로, 인덱스로 요소를 접근. let list = [&#34;item1&#34;, &#34;item2&#34;, 456]; 접근 console.log(list[0]); console.log(list[1]); console.log(list[2]); 결과 item1item2456 3. 리스트 안의 딕서녀리 : 배열과 객체의 조합 배열의 순서 유지: 배열의 인덱스를 통해 각 객체에 접근. 객체의 키-값 접근: 배열의 요소인 객체에서 키를 사용해 값 출력. let people = [ {&#34;name&#34;: &#34;김서영&#34;, &#34;age&#34;: 23}, {&#34;name&#34;: &#34;이현아&#34;, &#34;age&#34;: 33}, {&#34;name&#34;: &#34;최영환&#34;, &#34;age&#34;: 18}, {&#34;name&#34;: &#34;빅서연&#34;, &#34;age&#34;: 19}, {&#34;name&#34;: &#34;김지용&#34;, &#34;age&#34;: 21}, {&#34;name&#34;: &#34;나예지&#34;, &#34;age&#34;: 30} ] 접근 console.log(people[0]); console.log(people[2][&#34;name&#34;]); console.log(people[3][&#34;age&#34;]); 결과 {name: &#39;김서영&#39;, age: 23}최영환19 4. 배열 함수 forEach 배열의 각 요소에 대해 주어진 콜백 함수를 한 번씩 실행. 반환값은 없으며, 주로 배열 요소를 순회하며 특정 작업을 수행할 때 사용. array.forEach(element =&gt; {}); 실행 people.forEach(person =&gt; { console.log(person[&#34;name&#34;], person[&#34;age&#34;]); }); 결과 김서영 23 이현아 33 최영환 18 빅서연 19 김지용 21 나예지 30 5. 조건문 if-else 조건에 따라 서로 다른 코드를 실행하는 데 사용. 특정 조건을 만족하는 경우에만 코드를 실행할 수 있음. if (조건) { // 조건이 true일 때 실행되는 코드 } else { // 조건이 false일 때 실행되는 코드 } 실행 let age = 18; if (age &lt; 20) { console.log(&#34;미성년자입니다.&#34;) } else { console.log(&#34;성인입니다.&#34;) } 결과 미성년자입니다. 5. 활용하기 20살 미만일 경우 “[이름]님은 미성년자입니다.”
-20살 이상일 경우 “[이름]님은 성인입니다.” 출력 people.forEach(person =&gt; { if (person[&#34;age&#34;] &lt; 20) { console.log(person[&#34;name&#34;] &#43; &#34;님은 미성년자입니다.&#34;) } else { console.log(person[&#34;name&#34;] &#43; &#34;님은 성인입니다.&#34;) } }); 결과 김서영님은 성인입니다.이현아님은 성인입니다.최영환님은 미성년자입니다.빅서연님은 미성년자입니다.김지용님은 성인입니다.나예지님은 성인입니다. 6. function 특정 작업을 수행하는 코드를 정의하고 필요할 때 호출해서 사용. function hello() {	// hello 라는 이름의 함수를 생성 alert(&#34;안녕하세요!&#34;);	// 안녕하세요! 를 출력하는 알림창 } 호출 &lt;!-- 인사하기 버튼 클릭 시 hello() 함수 호출 --&gt; &lt;button onclick=&#34;hello()&#34;&gt;인사하기&lt;/button&gt; 결과 jQuery JavaScript 코드를 간단하게 작성하도록 돕는 경량 JavaScript 라이브러리 &lt;div id=&#34;htmlId&#34;&gt;Hello, ID!&lt;/div&gt; &lt;div class=&#34;htmlClass&#34;&gt;Hello, Class!&lt;/div&gt; JavaScript로 호출 let getId = document.getElementById(&#34;htmlId&#34;); let getId2 = document.querySelector(&#34;#htmlId&#34;); let getClass = document.getElementsByClassName(&#34;htmlClass&#34;); let getClass2 = document.querySelectorAll(&#34;.htmlClass&#34;); jQuery로 호출 let getId = $(&#34;#htmlId&#34;); let getClass = $(&#34;.htmlClass&#34;); Java 반복문 연습하기 Part 1 1부터 100까지의 숫자 출력하기. for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력하세요.">
-  <meta property="og:locale" content="ko">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="camp">
-    <meta property="article:published_time" content="2025-01-17T23:41:13+09:00">
-    <meta property="article:modified_time" content="2025-01-17T23:41:13+09:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[사전캠프] 5일차.">
-<meta name="twitter:description" content="
-TASKS
-✅ SQL 강의 3주차
-✅ Web 강의 2주차
-✅ Java 강의 Part 03.
-&#43;
-☑️ 퀘스트 걷기반 Java Part 3
-☑️ 퀘스트 걷기반 SQL 45번
-
-SQL
-1. 문자열 함수
-
-REPLACE : 문자열의 특정 부분을 다른 문자열로 대체.
-
-	replace(바꿀 컬럼, 현재 값, 바꿀 값)
-
-SUBSTR 또는 SUBSTRING : 문자열의 일부를 추출.
-
-	substr(조회할 컬럼, 시작 위치, 글자 수)
-
-CONCAT : 문자열을 연결.
-
-	concat(붙이고 싶은 값1, 붙이고 싶은 값2, 붙이고 싶은 값3, ...)
-1-1. 서울 지역의 음식 타입별 평균 음식 주문 금액 구하기
-1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 
-2. 어떤 컬럼을 이용할 것인가 → price, cuisine_type, addr
-3. 어떤 조건을 지정해야 하는가 → where addr like ‘%서울%’
-4. 어떤 함수 (수식) 을 이용해야 하는가 → avg(price), substring(addr, 1, 2)
-
-select substring(addr, 1, 2) &#34;시도&#34;, -- addr 첫 번째 글자에서 두 글자를 출력
-       cuisine_type &#34;음식 종류&#34;,
-       avg(price) &#34;평균 금액&#34;
-from food_orders
-where addr like &#39;%서울%&#39;
-group by 1, 2	-- 컬럼 순서로 입력 가능 
-				-- 1 = substring(addr, 1, 2) &#34;시도&#34;
-				-- 2 = cuisine_type &#34;음식 종류&#34;
-1-2. ‘[지역(시도)] 음식점이름 (음식종류)’ 컬럼을 만들고, 총 주문 건수 구하기
-1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 
-2. 어떤 컬럼을 이용할 것인가 → addr, restaurant_name, cuisine_type, order_id
-3. 어떤 조건을 지정해야 하는가 → X
-4. 어떤 함수 (수식) 을 이용해야 하는가 → count(1), substring(addr, 1, 2), concat(’[’, 뽑은시도, ‘] ‘, restaurant_name, ‘ (’, cuisine_type, ‘)’)
-
-select concat(&#39;[&#39;, substring(addr, 1, 2), &#39;] &#39;, restaurant_name, &#39; (&#39;, cuisine_type, &#39;)&#39;) &#34;바뀐이름&#34;, -- [서울] Hangawi (Korean)
-       count(1) &#34;주문건수&#34;
-from food_orders
-group by 1
-2. 조건문
-
-IF : 특정 조건이 참인지 여부를 확인하고 참일 경우 특정 값을 반환.
-
-	if(조건, 조건을 충족할 때, 조건을 충족하지 못할 때)
-
-CASE : 다양한 조건을 정의하고 조건에 따라 값을 반환.
-
-	case when 조건1 then 값(수식)1
-	 	 when 조건2 then 값(수식)2
-		 else 값(수식)3
-	end
-2-1. 10세 이상, 30세 미만의 고객의 나이와 성별로 그룹 나누기
-1. 어떤 테이블에서 데이터를 뽑을 것인가 → from customers
-2. 어떤 컬럼을 이용할 것인가 → name, age, gender
-3. 어떤 조건을 지정해야 하는가 → where age between 10 and 29
-4. 어떤 함수 (수식) 을 이용해야 하는가 → case when … end
-
-select name, 
-	   age, 
-       gender,
-	   case when (age between 10 and 19) and gender=&#39;male&#39; then &#34;10대 남자&#34;
-			when (age between 10 and 19) and gender=&#39;female&#39; then &#34;10대 여자&#34;
-            when (age between 20 and 29) and gender=&#39;male&#39; then &#34;20대 남자&#34;
-            when (age between 20 and 29) and gender=&#39;female&#39; then &#34;20대 여자&#34;
-       end &#34;그룹&#34; 
-from customers
-where age between 10 and 29
-2-1. 지역과 배달 시간을 기반으로 배달 수수료 구하기
-1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 
-2. 어떤 컬럼을 이용할 것인가 → restaurant_name, order_id, addr, derlivery_time, price
-3. 어떤 조건을 지정해야 하는가 → X
-4. 어떤 함수 (수식) 을 이용해야 하는가 → case when, if
-
-select restaurant_name,
-       order_id,
-       delivery_time,
-       price,
-       addr,
-       case when delivery_time&gt;25 and delivery_time&lt;=30 then price*0.05*(if(addr like &#39;%서울%&#39;, 1.1, 1))
-            when delivery_time&gt;30 then price*1.1*(if(addr like &#39;%서울%&#39;, 1.1, 1))
-            else 0 end &#34;수수료&#34;
-from food_orders
-3주차 숙제
-
-다음의 조건으로 배달 시간이 늦었는지 판단하는 값을 만들어주세요.
-
-주중 : 25분 이상
-주말 : 30분 이상
-
-
-
-select day_of_the_week,
-       delivery_time,
-       case when day_of_the_week=&#39;Weekday&#39; and delivery_time&gt;=25 then &#39;지연&#39;
-            when day_of_the_week=&#39;Weekend&#39; and delivery_time&gt;=30 then &#39;지연&#39;
-            else &#39;정시&#39; end &#34;지연 여부&#34;
-from food_orders
-
-JavaScript
-1. 딕셔너리 : 객체 (Object)
-
-키-값 쌍(key-value pairs)으로 데이터를 저장하는 데이터 구조.
-
-	let dictionary = {
-		key1: &#34;value1&#34;,
-		key2: &#34;value2&#34;,
-		key3: 123,
-	};
-
-접근
-
-	console.log(dictionary[&#34;key1&#34;])
-	console.log(dictionary[&#34;key2&#34;])
-	console.log(dictionary[&#34;key3&#34;])
-
-결과
-
-	value1
-	value2
-	123
-2. 리스트 : 배열 (Array)
-
-순서가 있는 데이터의 리스트로, 인덱스로 요소를 접근.
-
-	let list = [&#34;item1&#34;, &#34;item2&#34;, 456];
-
-접근
-
-	console.log(list[0]);
-	console.log(list[1]);
-	console.log(list[2]);
-
-결과
-
-	item1
-	item2
-	456
-3. 리스트 안의 딕서녀리 : 배열과 객체의 조합
-
-배열의 순서 유지: 배열의 인덱스를 통해 각 객체에 접근.
-객체의 키-값 접근: 배열의 요소인 객체에서 키를 사용해 값 출력.
-
-	let people = [
-		{&#34;name&#34;: &#34;김서영&#34;, &#34;age&#34;: 23},
-		{&#34;name&#34;: &#34;이현아&#34;, &#34;age&#34;: 33},
-		{&#34;name&#34;: &#34;최영환&#34;, &#34;age&#34;: 18},
-		{&#34;name&#34;: &#34;빅서연&#34;, &#34;age&#34;: 19},
-		{&#34;name&#34;: &#34;김지용&#34;, &#34;age&#34;: 21},
-		{&#34;name&#34;: &#34;나예지&#34;, &#34;age&#34;: 30}
-    ]
-
-접근
-
-	console.log(people[0]);
-	console.log(people[2][&#34;name&#34;]);
-	console.log(people[3][&#34;age&#34;]);
-
-결과
-
-	{name: &#39;김서영&#39;, age: 23}
-    최영환
-    19
-4. 배열 함수 forEach
-
-배열의 각 요소에 대해 주어진 콜백 함수를 한 번씩 실행.
-반환값은 없으며, 주로 배열 요소를 순회하며 특정 작업을 수행할 때 사용.
-
-	array.forEach(element =&gt; {});
-
-실행
-
-	people.forEach(person =&gt; {
-    	console.log(person[&#34;name&#34;], person[&#34;age&#34;]);
-    });
-
-결과
-
-	김서영 23
-	이현아 33
-	최영환 18
-	빅서연 19
-	김지용 21
-	나예지 30
-5. 조건문 if-else
-
-조건에 따라 서로 다른 코드를 실행하는 데 사용.
-특정 조건을 만족하는 경우에만 코드를 실행할 수 있음.
-
-	if (조건) {
-		// 조건이 true일 때 실행되는 코드
-	} else {
-		// 조건이 false일 때 실행되는 코드
-	}
-
-실행
-
-	let age = 18;
-
-	if (age &lt; 20) {
-		console.log(&#34;미성년자입니다.&#34;)
-    } else {
-    	console.log(&#34;성인입니다.&#34;)
-    }
-
-결과
-
-	미성년자입니다.
-5. 활용하기
-
-20살 미만일 경우 &ldquo;[이름]님은 미성년자입니다.&rdquo;
-20살 이상일 경우 &ldquo;[이름]님은 성인입니다.&rdquo; 출력
-
-	people.forEach(person =&gt; {
-		if (person[&#34;age&#34;] &lt; 20) {
-			console.log(person[&#34;name&#34;] &#43; &#34;님은 미성년자입니다.&#34;)
-		} else {
-			console.log(person[&#34;name&#34;] &#43; &#34;님은 성인입니다.&#34;)
-		}
-	});
-
-결과
-
-	김서영님은 성인입니다.
-	이현아님은 성인입니다.
-	최영환님은 미성년자입니다.
-	빅서연님은 미성년자입니다.
-	김지용님은 성인입니다.
-	나예지님은 성인입니다.
-6. function
-
-특정 작업을 수행하는 코드를 정의하고 필요할 때 호출해서 사용.
-
-	function hello() {			// hello 라는 이름의 함수를 생성
-    	alert(&#34;안녕하세요!&#34;);	// 안녕하세요! 를 출력하는 알림창
-    }
-
-호출
-
-	&lt;!-- 인사하기 버튼 클릭 시 hello() 함수 호출 --&gt;
-	&lt;button onclick=&#34;hello()&#34;&gt;인사하기&lt;/button&gt; 
-
-결과
-
-
-
-jQuery
-
-JavaScript 코드를 간단하게 작성하도록 돕는 경량 JavaScript 라이브러리
-
-  &lt;div id=&#34;htmlId&#34;&gt;Hello, ID!&lt;/div&gt;
-  &lt;div class=&#34;htmlClass&#34;&gt;Hello, Class!&lt;/div&gt;
-
-JavaScript로 호출
-
-	let getId = document.getElementById(&#34;htmlId&#34;);
-	let getId2 = document.querySelector(&#34;#htmlId&#34;);
-
-	let getClass = document.getElementsByClassName(&#34;htmlClass&#34;);
-	let getClass2 = document.querySelectorAll(&#34;.htmlClass&#34;);
-
-jQuery로 호출
-
-	let getId = $(&#34;#htmlId&#34;);
-	let getClass = $(&#34;.htmlClass&#34;);
-
-Java
-반복문 연습하기 Part 1
-1부터 100까지의 숫자 출력하기.
-for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력하세요.">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Camp",
-      "item": "https://withong.github.io/camp/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "[사전캠프] 5일차.",
-      "item": "https://withong.github.io/camp/pre-05/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "[사전캠프] 5일차.",
-  "name": "[사전캠프] 5일차.",
-  "description": " TASKS\n✅ SQL 강의 3주차\n✅ Web 강의 2주차\n✅ Java 강의 Part 03.\n+\n☑️ 퀘스트 걷기반 Java Part 3\n☑️ 퀘스트 걷기반 SQL 45번\nSQL 1. 문자열 함수 REPLACE : 문자열의 특정 부분을 다른 문자열로 대체. replace(바꿀 컬럼, 현재 값, 바꿀 값) SUBSTR 또는 SUBSTRING : 문자열의 일부를 추출. substr(조회할 컬럼, 시작 위치, 글자 수) CONCAT : 문자열을 연결. concat(붙이고 싶은 값1, 붙이고 싶은 값2, 붙이고 싶은 값3, ...) 1-1. 서울 지역의 음식 타입별 평균 음식 주문 금액 구하기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 2. 어떤 컬럼을 이용할 것인가 → price, cuisine_type, addr\r3. 어떤 조건을 지정해야 하는가 → where addr like ‘%서울%’\r4. 어떤 함수 (수식) 을 이용해야 하는가 → avg(price), substring(addr, 1, 2)\rselect substring(addr, 1, 2) \u0026#34;시도\u0026#34;, -- addr 첫 번째 글자에서 두 글자를 출력 cuisine_type \u0026#34;음식 종류\u0026#34;, avg(price) \u0026#34;평균 금액\u0026#34; from food_orders where addr like \u0026#39;%서울%\u0026#39; group by 1, 2\t-- 컬럼 순서로 입력 가능 -- 1 = substring(addr, 1, 2) \u0026#34;시도\u0026#34; -- 2 = cuisine_type \u0026#34;음식 종류\u0026#34; 1-2. ‘[지역(시도)] 음식점이름 (음식종류)’ 컬럼을 만들고, 총 주문 건수 구하기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 2. 어떤 컬럼을 이용할 것인가 → addr, restaurant_name, cuisine_type, order_id\r3. 어떤 조건을 지정해야 하는가 → X\r4. 어떤 함수 (수식) 을 이용해야 하는가 → count(1), substring(addr, 1, 2), concat(’[’, 뽑은시도, ‘] ‘, restaurant_name, ‘ (’, cuisine_type, ‘)’)\rselect concat(\u0026#39;[\u0026#39;, substring(addr, 1, 2), \u0026#39;] \u0026#39;, restaurant_name, \u0026#39; (\u0026#39;, cuisine_type, \u0026#39;)\u0026#39;) \u0026#34;바뀐이름\u0026#34;, -- [서울] Hangawi (Korean) count(1) \u0026#34;주문건수\u0026#34; from food_orders group by 1 2. 조건문 IF : 특정 조건이 참인지 여부를 확인하고 참일 경우 특정 값을 반환. if(조건, 조건을 충족할 때, 조건을 충족하지 못할 때) CASE : 다양한 조건을 정의하고 조건에 따라 값을 반환. case when 조건1 then 값(수식)1 when 조건2 then 값(수식)2 else 값(수식)3 end 2-1. 10세 이상, 30세 미만의 고객의 나이와 성별로 그룹 나누기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from customers\r2. 어떤 컬럼을 이용할 것인가 → name, age, gender\r3. 어떤 조건을 지정해야 하는가 → where age between 10 and 29\r4. 어떤 함수 (수식) 을 이용해야 하는가 → case when … end\rselect name, age, gender, case when (age between 10 and 19) and gender=\u0026#39;male\u0026#39; then \u0026#34;10대 남자\u0026#34; when (age between 10 and 19) and gender=\u0026#39;female\u0026#39; then \u0026#34;10대 여자\u0026#34; when (age between 20 and 29) and gender=\u0026#39;male\u0026#39; then \u0026#34;20대 남자\u0026#34; when (age between 20 and 29) and gender=\u0026#39;female\u0026#39; then \u0026#34;20대 여자\u0026#34; end \u0026#34;그룹\u0026#34; from customers where age between 10 and 29 2-1. 지역과 배달 시간을 기반으로 배달 수수료 구하기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 2. 어떤 컬럼을 이용할 것인가 → restaurant_name, order_id, addr, derlivery_time, price\r3. 어떤 조건을 지정해야 하는가 → X\r4. 어떤 함수 (수식) 을 이용해야 하는가 → case when, if\rselect restaurant_name, order_id, delivery_time, price, addr, case when delivery_time\u0026gt;25 and delivery_time\u0026lt;=30 then price*0.05*(if(addr like \u0026#39;%서울%\u0026#39;, 1.1, 1)) when delivery_time\u0026gt;30 then price*1.1*(if(addr like \u0026#39;%서울%\u0026#39;, 1.1, 1)) else 0 end \u0026#34;수수료\u0026#34; from food_orders 3주차 숙제 다음의 조건으로 배달 시간이 늦었는지 판단하는 값을 만들어주세요. 주중 : 25분 이상 주말 : 30분 이상 select day_of_the_week, delivery_time, case when day_of_the_week=\u0026#39;Weekday\u0026#39; and delivery_time\u0026gt;=25 then \u0026#39;지연\u0026#39; when day_of_the_week=\u0026#39;Weekend\u0026#39; and delivery_time\u0026gt;=30 then \u0026#39;지연\u0026#39; else \u0026#39;정시\u0026#39; end \u0026#34;지연 여부\u0026#34; from food_orders JavaScript 1. 딕셔너리 : 객체 (Object) 키-값 쌍(key-value pairs)으로 데이터를 저장하는 데이터 구조. let dictionary = { key1: \u0026#34;value1\u0026#34;, key2: \u0026#34;value2\u0026#34;, key3: 123, }; 접근 console.log(dictionary[\u0026#34;key1\u0026#34;]) console.log(dictionary[\u0026#34;key2\u0026#34;]) console.log(dictionary[\u0026#34;key3\u0026#34;]) 결과 value1\rvalue2\r123 2. 리스트 : 배열 (Array) 순서가 있는 데이터의 리스트로, 인덱스로 요소를 접근. let list = [\u0026#34;item1\u0026#34;, \u0026#34;item2\u0026#34;, 456]; 접근 console.log(list[0]); console.log(list[1]); console.log(list[2]); 결과 item1\ritem2\r456 3. 리스트 안의 딕서녀리 : 배열과 객체의 조합 배열의 순서 유지: 배열의 인덱스를 통해 각 객체에 접근. 객체의 키-값 접근: 배열의 요소인 객체에서 키를 사용해 값 출력. let people = [ {\u0026#34;name\u0026#34;: \u0026#34;김서영\u0026#34;, \u0026#34;age\u0026#34;: 23}, {\u0026#34;name\u0026#34;: \u0026#34;이현아\u0026#34;, \u0026#34;age\u0026#34;: 33}, {\u0026#34;name\u0026#34;: \u0026#34;최영환\u0026#34;, \u0026#34;age\u0026#34;: 18}, {\u0026#34;name\u0026#34;: \u0026#34;빅서연\u0026#34;, \u0026#34;age\u0026#34;: 19}, {\u0026#34;name\u0026#34;: \u0026#34;김지용\u0026#34;, \u0026#34;age\u0026#34;: 21}, {\u0026#34;name\u0026#34;: \u0026#34;나예지\u0026#34;, \u0026#34;age\u0026#34;: 30} ] 접근 console.log(people[0]); console.log(people[2][\u0026#34;name\u0026#34;]); console.log(people[3][\u0026#34;age\u0026#34;]); 결과 {name: \u0026#39;김서영\u0026#39;, age: 23}\r최영환\r19 4. 배열 함수 forEach 배열의 각 요소에 대해 주어진 콜백 함수를 한 번씩 실행. 반환값은 없으며, 주로 배열 요소를 순회하며 특정 작업을 수행할 때 사용. array.forEach(element =\u0026gt; {}); 실행 people.forEach(person =\u0026gt; { console.log(person[\u0026#34;name\u0026#34;], person[\u0026#34;age\u0026#34;]); }); 결과 김서영 23 이현아 33 최영환 18 빅서연 19 김지용 21 나예지 30 5. 조건문 if-else 조건에 따라 서로 다른 코드를 실행하는 데 사용. 특정 조건을 만족하는 경우에만 코드를 실행할 수 있음. if (조건) { // 조건이 true일 때 실행되는 코드 } else { // 조건이 false일 때 실행되는 코드 } 실행 let age = 18; if (age \u0026lt; 20) { console.log(\u0026#34;미성년자입니다.\u0026#34;) } else { console.log(\u0026#34;성인입니다.\u0026#34;) } 결과 미성년자입니다. 5. 활용하기 20살 미만일 경우 \u0026ldquo;[이름]님은 미성년자입니다.\u0026rdquo;\n20살 이상일 경우 \u0026ldquo;[이름]님은 성인입니다.\u0026rdquo; 출력 people.forEach(person =\u0026gt; { if (person[\u0026#34;age\u0026#34;] \u0026lt; 20) { console.log(person[\u0026#34;name\u0026#34;] + \u0026#34;님은 미성년자입니다.\u0026#34;) } else { console.log(person[\u0026#34;name\u0026#34;] + \u0026#34;님은 성인입니다.\u0026#34;) } }); 결과 김서영님은 성인입니다.\r이현아님은 성인입니다.\r최영환님은 미성년자입니다.\r빅서연님은 미성년자입니다.\r김지용님은 성인입니다.\r나예지님은 성인입니다. 6. function 특정 작업을 수행하는 코드를 정의하고 필요할 때 호출해서 사용. function hello() {\t// hello 라는 이름의 함수를 생성 alert(\u0026#34;안녕하세요!\u0026#34;);\t// 안녕하세요! 를 출력하는 알림창 } 호출 \u0026lt;!-- 인사하기 버튼 클릭 시 hello() 함수 호출 --\u0026gt; \u0026lt;button onclick=\u0026#34;hello()\u0026#34;\u0026gt;인사하기\u0026lt;/button\u0026gt; 결과 jQuery JavaScript 코드를 간단하게 작성하도록 돕는 경량 JavaScript 라이브러리 \u0026lt;div id=\u0026#34;htmlId\u0026#34;\u0026gt;Hello, ID!\u0026lt;/div\u0026gt; \u0026lt;div class=\u0026#34;htmlClass\u0026#34;\u0026gt;Hello, Class!\u0026lt;/div\u0026gt; JavaScript로 호출 let getId = document.getElementById(\u0026#34;htmlId\u0026#34;); let getId2 = document.querySelector(\u0026#34;#htmlId\u0026#34;); let getClass = document.getElementsByClassName(\u0026#34;htmlClass\u0026#34;); let getClass2 = document.querySelectorAll(\u0026#34;.htmlClass\u0026#34;); jQuery로 호출 let getId = $(\u0026#34;#htmlId\u0026#34;); let getClass = $(\u0026#34;.htmlClass\u0026#34;); Java 반복문 연습하기 Part 1 1부터 100까지의 숫자 출력하기. for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력하세요.\n",
-  "keywords": [
-    
-  ],
-  "articleBody": " TASKS\n✅ SQL 강의 3주차\n✅ Web 강의 2주차\n✅ Java 강의 Part 03.\n+\n☑️ 퀘스트 걷기반 Java Part 3\n☑️ 퀘스트 걷기반 SQL 45번\nSQL 1. 문자열 함수 REPLACE : 문자열의 특정 부분을 다른 문자열로 대체. replace(바꿀 컬럼, 현재 값, 바꿀 값) SUBSTR 또는 SUBSTRING : 문자열의 일부를 추출. substr(조회할 컬럼, 시작 위치, 글자 수) CONCAT : 문자열을 연결. concat(붙이고 싶은 값1, 붙이고 싶은 값2, 붙이고 싶은 값3, ...) 1-1. 서울 지역의 음식 타입별 평균 음식 주문 금액 구하기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 2. 어떤 컬럼을 이용할 것인가 → price, cuisine_type, addr\r3. 어떤 조건을 지정해야 하는가 → where addr like ‘%서울%’\r4. 어떤 함수 (수식) 을 이용해야 하는가 → avg(price), substring(addr, 1, 2)\rselect substring(addr, 1, 2) \"시도\", -- addr 첫 번째 글자에서 두 글자를 출력 cuisine_type \"음식 종류\", avg(price) \"평균 금액\" from food_orders where addr like '%서울%' group by 1, 2\t-- 컬럼 순서로 입력 가능 -- 1 = substring(addr, 1, 2) \"시도\" -- 2 = cuisine_type \"음식 종류\" 1-2. ‘[지역(시도)] 음식점이름 (음식종류)’ 컬럼을 만들고, 총 주문 건수 구하기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 2. 어떤 컬럼을 이용할 것인가 → addr, restaurant_name, cuisine_type, order_id\r3. 어떤 조건을 지정해야 하는가 → X\r4. 어떤 함수 (수식) 을 이용해야 하는가 → count(1), substring(addr, 1, 2), concat(’[’, 뽑은시도, ‘] ‘, restaurant_name, ‘ (’, cuisine_type, ‘)’)\rselect concat('[', substring(addr, 1, 2), '] ', restaurant_name, ' (', cuisine_type, ')') \"바뀐이름\", -- [서울] Hangawi (Korean) count(1) \"주문건수\" from food_orders group by 1 2. 조건문 IF : 특정 조건이 참인지 여부를 확인하고 참일 경우 특정 값을 반환. if(조건, 조건을 충족할 때, 조건을 충족하지 못할 때) CASE : 다양한 조건을 정의하고 조건에 따라 값을 반환. case when 조건1 then 값(수식)1 when 조건2 then 값(수식)2 else 값(수식)3 end 2-1. 10세 이상, 30세 미만의 고객의 나이와 성별로 그룹 나누기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from customers\r2. 어떤 컬럼을 이용할 것인가 → name, age, gender\r3. 어떤 조건을 지정해야 하는가 → where age between 10 and 29\r4. 어떤 함수 (수식) 을 이용해야 하는가 → case when … end\rselect name, age, gender, case when (age between 10 and 19) and gender='male' then \"10대 남자\" when (age between 10 and 19) and gender='female' then \"10대 여자\" when (age between 20 and 29) and gender='male' then \"20대 남자\" when (age between 20 and 29) and gender='female' then \"20대 여자\" end \"그룹\" from customers where age between 10 and 29 2-1. 지역과 배달 시간을 기반으로 배달 수수료 구하기 1. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 2. 어떤 컬럼을 이용할 것인가 → restaurant_name, order_id, addr, derlivery_time, price\r3. 어떤 조건을 지정해야 하는가 → X\r4. 어떤 함수 (수식) 을 이용해야 하는가 → case when, if\rselect restaurant_name, order_id, delivery_time, price, addr, case when delivery_time\u003e25 and delivery_time\u003c=30 then price*0.05*(if(addr like '%서울%', 1.1, 1)) when delivery_time\u003e30 then price*1.1*(if(addr like '%서울%', 1.1, 1)) else 0 end \"수수료\" from food_orders 3주차 숙제 다음의 조건으로 배달 시간이 늦었는지 판단하는 값을 만들어주세요. 주중 : 25분 이상 주말 : 30분 이상 select day_of_the_week, delivery_time, case when day_of_the_week='Weekday' and delivery_time\u003e=25 then '지연' when day_of_the_week='Weekend' and delivery_time\u003e=30 then '지연' else '정시' end \"지연 여부\" from food_orders JavaScript 1. 딕셔너리 : 객체 (Object) 키-값 쌍(key-value pairs)으로 데이터를 저장하는 데이터 구조. let dictionary = { key1: \"value1\", key2: \"value2\", key3: 123, }; 접근 console.log(dictionary[\"key1\"]) console.log(dictionary[\"key2\"]) console.log(dictionary[\"key3\"]) 결과 value1\rvalue2\r123 2. 리스트 : 배열 (Array) 순서가 있는 데이터의 리스트로, 인덱스로 요소를 접근. let list = [\"item1\", \"item2\", 456]; 접근 console.log(list[0]); console.log(list[1]); console.log(list[2]); 결과 item1\ritem2\r456 3. 리스트 안의 딕서녀리 : 배열과 객체의 조합 배열의 순서 유지: 배열의 인덱스를 통해 각 객체에 접근. 객체의 키-값 접근: 배열의 요소인 객체에서 키를 사용해 값 출력. let people = [ {\"name\": \"김서영\", \"age\": 23}, {\"name\": \"이현아\", \"age\": 33}, {\"name\": \"최영환\", \"age\": 18}, {\"name\": \"빅서연\", \"age\": 19}, {\"name\": \"김지용\", \"age\": 21}, {\"name\": \"나예지\", \"age\": 30} ] 접근 console.log(people[0]); console.log(people[2][\"name\"]); console.log(people[3][\"age\"]); 결과 {name: '김서영', age: 23}\r최영환\r19 4. 배열 함수 forEach 배열의 각 요소에 대해 주어진 콜백 함수를 한 번씩 실행. 반환값은 없으며, 주로 배열 요소를 순회하며 특정 작업을 수행할 때 사용. array.forEach(element =\u003e {}); 실행 people.forEach(person =\u003e { console.log(person[\"name\"], person[\"age\"]); }); 결과 김서영 23 이현아 33 최영환 18 빅서연 19 김지용 21 나예지 30 5. 조건문 if-else 조건에 따라 서로 다른 코드를 실행하는 데 사용. 특정 조건을 만족하는 경우에만 코드를 실행할 수 있음. if (조건) { // 조건이 true일 때 실행되는 코드 } else { // 조건이 false일 때 실행되는 코드 } 실행 let age = 18; if (age \u003c 20) { console.log(\"미성년자입니다.\") } else { console.log(\"성인입니다.\") } 결과 미성년자입니다. 5. 활용하기 20살 미만일 경우 “[이름]님은 미성년자입니다.”\n20살 이상일 경우 “[이름]님은 성인입니다.” 출력 people.forEach(person =\u003e { if (person[\"age\"] \u003c 20) { console.log(person[\"name\"] + \"님은 미성년자입니다.\") } else { console.log(person[\"name\"] + \"님은 성인입니다.\") } }); 결과 김서영님은 성인입니다.\r이현아님은 성인입니다.\r최영환님은 미성년자입니다.\r빅서연님은 미성년자입니다.\r김지용님은 성인입니다.\r나예지님은 성인입니다. 6. function 특정 작업을 수행하는 코드를 정의하고 필요할 때 호출해서 사용. function hello() {\t// hello 라는 이름의 함수를 생성 alert(\"안녕하세요!\");\t// 안녕하세요! 를 출력하는 알림창 } 호출 \u003cbutton onclick=\"hello()\"\u003e인사하기\u003c/button\u003e 결과 jQuery JavaScript 코드를 간단하게 작성하도록 돕는 경량 JavaScript 라이브러리 \u003cdiv id=\"htmlId\"\u003eHello, ID!\u003c/div\u003e \u003cdiv class=\"htmlClass\"\u003eHello, Class!\u003c/div\u003e JavaScript로 호출 let getId = document.getElementById(\"htmlId\"); let getId2 = document.querySelector(\"#htmlId\"); let getClass = document.getElementsByClassName(\"htmlClass\"); let getClass2 = document.querySelectorAll(\".htmlClass\"); jQuery로 호출 let getId = $(\"#htmlId\"); let getClass = $(\".htmlClass\"); Java 반복문 연습하기 Part 1 1부터 100까지의 숫자 출력하기. for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력하세요.\nfor문 for (int i = 1; i \u003c= 100; i++) { System.out.println(\"i = \" + i); } while문 int i = 1; while (i \u003c= 100) { System.out.println(\"i = \" + i); i++; } 반복문 연습하기 Part 2 1부터 100까지의 짝수만 출력하기. 반복문을 사용하여 1부터 100까지의 숫자 중 짝수만 출력하세요.\nfor문 for (int i = 1; i \u003c= 100; i++) { if (i % 2 == 0) { System.out.println(\"i = \" + i); } while문 int i = 1; while(i \u003c= 100) { if (i % 2 == 0) { System.out.println(\"i = \" + i); } i++; } 반복문 연습하기 Part 3 구구단 출력하기. 2단부터 9단까지의 구구단을 출력하세요.\nfor (int i = 2; i \u003c= 9; i++) { System.out.println(\"--- \" + i + \"단 ---\"); for(int j = 1; j \u003c= 9; j++) { System.out.println(i + \" * \" + j + \" = \" + i * j); } } ",
-  "wordCount" : "1049",
-  "inLanguage": "ko",
-  "datePublished": "2025-01-17T23:41:13+09:00",
-  "dateModified": "2025-01-17T23:41:13+09:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://withong.github.io/camp/pre-05/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "withong",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://withong.github.io/icons/code.png"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -695,7 +349,7 @@ for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -721,22 +375,22 @@ for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="Log">
+                <a href="http://localhost:1313/log/" title="Log">
                     <span>Log</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/topic/" title="Topic">
+                <a href="http://localhost:1313/topic/" title="Topic">
                     <span>Topic</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
+                <a href="http://localhost:1313/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -747,7 +401,7 @@ for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://withong.github.io/">홈</a>&nbsp;»&nbsp;<a href="https://withong.github.io/camp/">Camp</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/camp/">Camp</a></div>
     <h1 class="post-title entry-hint-parent">
       [사전캠프] 5일차.
     </h1>
@@ -1124,15 +778,15 @@ for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://withong.github.io/camp/pre-06/">
-    <span class="title">« 이전 페이지</span>
-    <br>
-    <span>[사전캠프] 6일차.</span>
-  </a>
-  <a class="next" href="https://withong.github.io/camp/pre-04/">
-    <span class="title">다음 페이지 »</span>
+  <a class="prev" href="http://localhost:1313/camp/pre-04/">
+    <span class="title">« Prev</span>
     <br>
     <span>[사전캠프] 4일차.</span>
+  </a>
+  <a class="next" href="http://localhost:1313/camp/pre-06/">
+    <span class="title">Next »</span>
+    <br>
+    <span>[사전캠프] 6일차.</span>
   </a>
 </nav>
 
@@ -1141,7 +795,7 @@ for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
 
     <span>
         Powered by
@@ -1215,12 +869,12 @@ for 또는 while 반복문을 사용하여 1부터 100까지의 숫자를 출력
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = '복사';
+        copybutton.innerHTML = 'copy';
 
         function copyingDone() {
-            copybutton.innerHTML = '복사 완료!';
+            copybutton.innerHTML = '✔';
             setTimeout(() => {
-                copybutton.innerHTML = '복사';
+                copybutton.innerHTML = 'copy';
             }, 2000);
         }
 

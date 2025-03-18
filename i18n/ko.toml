@@ -1,0 +1,31 @@
+[prev_page]
+other = "Prev"
+
+[next_page]
+other = "Next"
+
+[read_time]
+one = "1 분"
+other = "{{ .Count }} 분"
+
+[words]
+one = "단어"
+other = "{{ .Count }} 단어"
+
+[toc]
+other = "목차"
+
+[translations]
+other = "번역"
+
+[home]
+other = "Home"
+
+[edit_post]
+other = "편집"
+
+[code_copy]
+other = "copy"
+
+[code_copied]
+other = "✔"

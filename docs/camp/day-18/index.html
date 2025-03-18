@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>[내일배움캠프] Collection &amp; Stream | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -35,16 +35,16 @@ Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O.
 
 중간 연산 (Intermediate Operations)">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/camp/day-18/">
-<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
-<link rel="apple-touch-icon" href="https://withong.github.io/icons/zep.png">
-<link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
+<link rel="canonical" href="http://localhost:1313/camp/day-18/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/code.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/zep.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/zep.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/camp/day-18/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/camp/day-18/">
 <noscript>
     <style>
         #theme-toggle,
@@ -81,95 +81,7 @@ Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O.
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/camp/day-18/">
-  <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="[내일배움캠프] Collection & Stream">
-  <meta property="og:description" content=" 1. 배열 vs. 컬렉션 배열: 크기 고정, 동일 타입 데이터만 저장, 인덱스로 접근 가능, 단순한 구조. 컬렉션: 크기 동적 조절 가능, 다양한 타입 지원(제네릭), List/Set/Map 등 다양한 자료구조 제공. 2. 컬렉션 주요 인터페이스 List (ArrayList, LinkedList): 순서 O, 중복 O, 인덱스로 접근 가능. Set (HashSet, TreeSet): 순서 X, 중복 X. Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O. 3. 원시 타입 vs. 래퍼 클래스 컬렉션에는 원시 타입(int, char)을 직접 저장할 수 없고, 래퍼 클래스(Integer, Character)를 사용해야 함. 래퍼 클래스는 객체로 취급되며, 다양한 메서드를 제공. 4. 스트림(Stream) 자바 8에서 도입된 데이터 처리 방식. 원본 데이터를 변경하지 않고 가공 가능. 중간 연산(필터링, 변환)과 최종 연산(집계, 출력)으로 구성됨. 5. 스트림 주요 연산 중간 연산 (Intermediate Operations)">
-  <meta property="og:locale" content="ko">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="camp">
-    <meta property="article:published_time" content="2025-03-13T21:00:00+09:00">
-    <meta property="article:modified_time" content="2025-03-13T21:00:00+09:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[내일배움캠프] Collection &amp; Stream">
-<meta name="twitter:description" content="
-1. 배열 vs. 컬렉션
-
-배열: 크기 고정, 동일 타입 데이터만 저장, 인덱스로 접근 가능, 단순한 구조.
-컬렉션: 크기 동적 조절 가능, 다양한 타입 지원(제네릭), List/Set/Map 등 다양한 자료구조 제공.
-
-2. 컬렉션 주요 인터페이스
-
-List (ArrayList, LinkedList): 순서 O, 중복 O, 인덱스로 접근 가능.
-Set (HashSet, TreeSet): 순서 X, 중복 X.
-Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O.
-
-3. 원시 타입 vs. 래퍼 클래스
-
-컬렉션에는 원시 타입(int, char)을 직접 저장할 수 없고, 래퍼 클래스(Integer, Character)를 사용해야 함.
-래퍼 클래스는 객체로 취급되며, 다양한 메서드를 제공.
-
-4. 스트림(Stream)
-
-자바 8에서 도입된 데이터 처리 방식.
-원본 데이터를 변경하지 않고 가공 가능.
-중간 연산(필터링, 변환)과 최종 연산(집계, 출력)으로 구성됨.
-
-5. 스트림 주요 연산
-
-
-중간 연산 (Intermediate Operations)">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Camp",
-      "item": "https://withong.github.io/camp/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "[내일배움캠프] Collection \u0026 Stream",
-      "item": "https://withong.github.io/camp/day-18/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "[내일배움캠프] Collection \u0026 Stream",
-  "name": "[내일배움캠프] Collection \u0026 Stream",
-  "description": " 1. 배열 vs. 컬렉션 배열: 크기 고정, 동일 타입 데이터만 저장, 인덱스로 접근 가능, 단순한 구조. 컬렉션: 크기 동적 조절 가능, 다양한 타입 지원(제네릭), List/Set/Map 등 다양한 자료구조 제공. 2. 컬렉션 주요 인터페이스 List (ArrayList, LinkedList): 순서 O, 중복 O, 인덱스로 접근 가능. Set (HashSet, TreeSet): 순서 X, 중복 X. Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O. 3. 원시 타입 vs. 래퍼 클래스 컬렉션에는 원시 타입(int, char)을 직접 저장할 수 없고, 래퍼 클래스(Integer, Character)를 사용해야 함. 래퍼 클래스는 객체로 취급되며, 다양한 메서드를 제공. 4. 스트림(Stream) 자바 8에서 도입된 데이터 처리 방식. 원본 데이터를 변경하지 않고 가공 가능. 중간 연산(필터링, 변환)과 최종 연산(집계, 출력)으로 구성됨. 5. 스트림 주요 연산 중간 연산 (Intermediate Operations)\n",
-  "keywords": [
-    
-  ],
-  "articleBody": " 1. 배열 vs. 컬렉션 배열: 크기 고정, 동일 타입 데이터만 저장, 인덱스로 접근 가능, 단순한 구조. 컬렉션: 크기 동적 조절 가능, 다양한 타입 지원(제네릭), List/Set/Map 등 다양한 자료구조 제공. 2. 컬렉션 주요 인터페이스 List (ArrayList, LinkedList): 순서 O, 중복 O, 인덱스로 접근 가능. Set (HashSet, TreeSet): 순서 X, 중복 X. Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O. 3. 원시 타입 vs. 래퍼 클래스 컬렉션에는 원시 타입(int, char)을 직접 저장할 수 없고, 래퍼 클래스(Integer, Character)를 사용해야 함. 래퍼 클래스는 객체로 취급되며, 다양한 메서드를 제공. 4. 스트림(Stream) 자바 8에서 도입된 데이터 처리 방식. 원본 데이터를 변경하지 않고 가공 가능. 중간 연산(필터링, 변환)과 최종 연산(집계, 출력)으로 구성됨. 5. 스트림 주요 연산 중간 연산 (Intermediate Operations)\nfilter(): 조건에 맞는 요소만 선택. map(): 요소를 변환. sorted(): 정렬. distinct(): 중복 제거. limit(n), skip(n): 특정 개수 제한 또는 건너뛰기. 최종 연산 (Terminal Operations)\nforEach(): 요소 하나씩 처리. collect(): 리스트, 집합 등으로 변환. reduce(): 하나의 결과값으로 축소. count(), max(), min(), findFirst(), findAny() 등. 6. 스트림 특징 함수형 스타일로 가독성 향상. 원본 데이터 변경 없이 불변성 유지. 최종 연산이 호출될 때 한꺼번에 실행됨 (Lazy Evaluation). parallelStream()을 사용하면 멀티코어를 활용한 병렬 처리 가능. 7. 반복문 vs. 스트림 반복문은 명령형 스타일, 코드가 길어질 수 있음. 스트림은 선언형 스타일, 가독성이 높고, 데이터 처리 로직을 직관적으로 표현 가능. 8. 실전 활용 컬렉션 데이터를 효과적으로 가공 및 필터링할 때 스트림 활용. 반복문보다 간결하고 유지보수하기 쉬운 코드 작성 가능. 데이터가 많거나 병렬 처리가 필요하면 parallelStream() 고려. ",
-  "wordCount" : "236",
-  "inLanguage": "ko",
-  "datePublished": "2025-03-13T21:00:00+09:00",
-  "dateModified": "2025-03-13T21:00:00+09:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://withong.github.io/camp/day-18/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "withong",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://withong.github.io/icons/code.png"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -187,7 +99,7 @@ Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O.
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -213,22 +125,22 @@ Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O.
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="Log">
+                <a href="http://localhost:1313/log/" title="Log">
                     <span>Log</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/topic/" title="Topic">
+                <a href="http://localhost:1313/topic/" title="Topic">
                     <span>Topic</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
+                <a href="http://localhost:1313/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -239,7 +151,7 @@ Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O.
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://withong.github.io/">홈</a>&nbsp;»&nbsp;<a href="https://withong.github.io/camp/">Camp</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/camp/">Camp</a></div>
     <h1 class="post-title entry-hint-parent">
       [내일배움캠프] Collection &amp; Stream
     </h1>
@@ -344,15 +256,15 @@ Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O.
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://withong.github.io/camp/day-19/">
-    <span class="title">« 이전 페이지</span>
-    <br>
-    <span>[내일배움캠프] 키오스크 회고</span>
-  </a>
-  <a class="next" href="https://withong.github.io/camp/task-kiosk-04/">
-    <span class="title">다음 페이지 »</span>
+  <a class="prev" href="http://localhost:1313/camp/task-kiosk-04/">
+    <span class="title">« Prev</span>
     <br>
     <span>[내일배움캠프] 키오스크 도전 Lv 2</span>
+  </a>
+  <a class="next" href="http://localhost:1313/camp/day-19/">
+    <span class="title">Next »</span>
+    <br>
+    <span>[내일배움캠프] 키오스크 회고</span>
   </a>
 </nav>
 
@@ -361,7 +273,7 @@ Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O.
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
 
     <span>
         Powered by
@@ -435,12 +347,12 @@ Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O.
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = '복사';
+        copybutton.innerHTML = 'copy';
 
         function copyingDone() {
-            copybutton.innerHTML = '복사 완료!';
+            copybutton.innerHTML = '✔';
             setTimeout(() => {
-                copybutton.innerHTML = '복사';
+                copybutton.innerHTML = 'copy';
             }, 2000);
         }
 

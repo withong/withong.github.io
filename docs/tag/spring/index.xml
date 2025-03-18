@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Spring on withong</title>
-    <link>https://withong.github.io/tag/spring/</link>
+    <link>http://localhost:1313/tag/spring/</link>
     <description>Recent content in Spring on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Mon, 17 Mar 2025 22:00:03 +0900</lastBuildDate>
-    <atom:link href="https://withong.github.io/tag/spring/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tag/spring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[내일배움캠프] Spring 기초 1</title>
-      <link>https://withong.github.io/camp/day-20/</link>
+      <link>http://localhost:1313/camp/day-20/</link>
       <pubDate>Mon, 17 Mar 2025 22:00:03 +0900</pubDate>
-      <guid>https://withong.github.io/camp/day-20/</guid>
+      <guid>http://localhost:1313/camp/day-20/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;네트워크&#34;&gt;네트워크&lt;/h2&gt;
 &lt;ul&gt;
