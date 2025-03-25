@@ -6,8 +6,24 @@
     <description>Recent content in TIL on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 19 Mar 2025 21:54:12 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 25 Mar 2025 20:07:52 +0900</lastBuildDate>
     <atom:link href="https://withong.github.io/tag/til/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[내일배움캠프] 최대 공약수와 최소 공배수</title>
+      <link>https://withong.github.io/camp/til-19/</link>
+      <pubDate>Tue, 25 Mar 2025 20:07:52 +0900</pubDate>
+      <guid>https://withong.github.io/camp/til-19/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;문제-설명&#34;&gt;문제 설명&lt;/h2&gt;
+&lt;p&gt;두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 배열의 맨 앞에 최대공약수, 그다음 최소공배수를 넣어 반환하면 됩니다. 예를 들어 두 수 3, 12의 최대공약수는 3, 최소공배수는 12이므로 solution(3, 12)는 [3, 12]를 반환해야 합니다.&lt;/p&gt;
+&lt;h2 id=&#34;코딩에서-쓰이는-공식&#34;&gt;코딩에서 쓰이는 공식&lt;/h2&gt;
+&lt;h3 id=&#34;최대공약수gcd-유클리드-호제법-사용&#34;&gt;최대공약수(GCD): 유클리드 호제법 사용&lt;/h3&gt;
+&lt;p&gt;GCD(a, b) = GCD(b, a % b)
+나머지가 0이 될 때까지 반복하면, 그때의 값이 최대공약수&lt;/p&gt;
+&lt;h3 id=&#34;최소공배수lcm&#34;&gt;최소공배수(LCM):&lt;/h3&gt;
+&lt;p&gt;LCM(a, b) = a * b / GCD(a, b)
+곱해서 최대공약수로 나누면 최소공배수&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[내일배움캠프] Spring 기초 4</title>
       <link>https://withong.github.io/camp/til-18/</link>
