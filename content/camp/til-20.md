@@ -14,11 +14,11 @@ tag = ["내일배움캠프", "TIL", "일정_관리_서버", "트러블_슈팅"]
 
 <br>
 
-## 1. 등록 시 createAt, updatedAt Null
+## 1. 등록 시 createdAt, updatedAt Null
 createAt, updatedAt는 DB에서 자동 갱신됨
 
 ### 1.1. 문제
-일정/사용자 등록 후 반환된 createAt, updatedAt 값이 Null
+일정/사용자 등록 후 반환된 createdAt, updatedAt 값이 Null
 
 ### 1.2. 원인
 당연함... 등록 요청 시 전달받은 정보를 응답 DTO에 넣어주고 그 값을 반환하는데  
@@ -57,7 +57,7 @@ repository에 전달하기 전에 변경 전 정보를 변수로 기억함.
 
 ## 3. DTO 목적별 분리
 ### 3.1. 문제
-유효성 검증을 적용해야 하는데 등록할 때와 수정할 때의 필수 입력 값이 다름.
+유효성 검증을 적용해야 하는데 등록할 때와 수정할 때의 필수 입력 값이 다름.  
 등록할 때에는 이름과 이메일이 필수 입력 값이지만, 수정할 때에는 둘 다 Null이 가능함.
 
 ### 3.2. 원인
@@ -70,4 +70,17 @@ DTO를 목적별로 분리하고 각 목적에 맞는 유효성 검증을 적용
 <hr>
 <br>
 
-## 4. 
+## 4. GET 요청 시 유효성 검증 실패 예외 메시지
+### 4.1. 문제
+@RequestParam에 @NotNull(message = "...") 같이 유효성 어노테이션을 붙였을 때,  
+내가 작성한 예외 메시지 앞에 메서드 경로 정보가 포함되어 전달됨...  
+```json
+"message": "findSchedulesWithUserByUserId.userId: userId는 필수 입력값입니다."
+```
+
+### 4.2. 원인
+@RequestParam + @Validated 조합에서는 내부적으로 ConstraintViolationException이 발생함.  
+이 예외 객체 안의 message는 `<메서드이름>.<파라미터이름>: <어노테이션 message>`와 같이 구성됨.  
+
+### 4.3. 해결
+파라미터들을 @RequestParam이 아니라 DTO로 묶은 후 @ModelAttribute로 받는 방식으로 변경
