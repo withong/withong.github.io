@@ -82,4 +82,21 @@ DTO를 목적별로 분리하고 각 목적에 맞는 유효성 검증을 적용
 @RequestParam + @Validated 조합에서는 내부적으로 ConstraintViolationException이 발생함. 이 예외 객체 안의 message는 `<메서드이름>.<파라미터이름>: <어노테이션 message>`와 같이 구성됨.  
 
 ### 4.3. 해결
-파라미터들을 @RequestParam이 아니라 DTO로 묶은 후 @ModelAttribute로 받는 방식으로 변경
+파라미터들을 DTO로 묶은 후 @ModelAttribute로 받는 방식으로 변경
+```java
+/**
+ * 일정 목록 조회 요청 DTO
+ */
+@Setter
+@Getter
+@NoArgsConstructor
+public class ScheduleQueryRequestDto {
+
+    /**
+     * 사용자 식별자 (필수)
+     */
+    @NotNull(message = "사용자 ID는 필수 값입니다.")
+    private Long userId;
+    ...
+}
+```
