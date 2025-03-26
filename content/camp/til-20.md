@@ -1,7 +1,7 @@
 +++
 title = "[내일배움캠프] 일정 관리 서버 트러블 슈팅"
 date = "2025-03-25T20:20:11+09:00"
-draft = true
+draft = false
 topic = ["camp"]
 tag = ["내일배움캠프", "TIL", "일정_관리_서버", "트러블_슈팅"]
 +++
@@ -11,6 +11,8 @@ tag = ["내일배움캠프", "TIL", "일정_관리_서버", "트러블_슈팅"]
 ### ▶ [nbc-chapter-03-basic](https://github.com/withong/nbc-chapter-03-basic.git)
 
 ---
+
+<br>
 
 ## 1. 등록 시 createAt, updatedAt Null
 createAt, updatedAt는 DB에서 자동 갱신됨
@@ -35,9 +37,9 @@ DB 조회해서 가져오기 전까지 당연히 Null임.
 ### 2.1. 문제
 클라이언트가 기존 정보와 동일한 정보로 변경 요청 시  
 jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나  
-예상 결과와 다르게 같은 값도 update 후 1이 반환됨  
+예상 결과와 다르게 동일한 값도 update 후 1이 반환됨  
 
-#jdbcTemplate.update(...)의 반환값: 영향받은 row의 개수
+>jdbcTemplate.update(...)의 반환값: 영향받은 row의 개수
 
 ### 2.2. 원인
 동일한 값이어도 query의 문법 오류는 없으므로 실행됨
@@ -50,4 +52,16 @@ repository에 전달하기 전에 변경 전 정보를 변수로 기억함.
 프론트에서 클라이언트에게 보여줄 메시지를 위해 해야 할 고민이었을까?  
 하지만 데이터 관련 문제니까 백엔드에서 하는 게 맞는 것 같기도?
 
----
+<br>
+<hr>
+<br>
+
+## 3. DTO 분리
+등록/수정/삭제 시 클라이언트 요청에서 필수 값이 다름...  
+필드에 @NotBlank 등 각 상황에 맞는 설정을 위해 DTO 분리
+
+<br>
+<hr>
+<br>
+
+작성중...
