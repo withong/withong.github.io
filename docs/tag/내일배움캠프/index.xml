@@ -2,21 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>내일배움캠프 on withong</title>
-    <link>http://localhost:1313/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/</link>
+    <link>https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/</link>
     <description>Recent content in 내일배움캠프 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Tue, 25 Mar 2025 20:20:11 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[내일배움캠프] 일정 관리 서버 트러블 슈팅</title>
-      <link>http://localhost:1313/camp/til-20/</link>
+      <link>https://withong.github.io/camp/til-20/</link>
       <pubDate>Tue, 25 Mar 2025 20:20:11 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-20/</guid>
+      <guid>https://withong.github.io/camp/til-20/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
 &lt;h3 id=&#34;-nbc-chapter-03-basic&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-basic.git&#34;&gt;nbc-chapter-03-basic&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
+&lt;br&gt;
 &lt;h2 id=&#34;1-등록-시-createat-updatedat-null&#34;&gt;1. 등록 시 createAt, updatedAt Null&lt;/h2&gt;
 &lt;p&gt;createAt, updatedAt는 DB에서 자동 갱신됨&lt;/p&gt;
 &lt;h3 id=&#34;11-문제&#34;&gt;1.1. 문제&lt;/h3&gt;
@@ -35,13 +36,13 @@ DB 조회해서 가져오기 전까지 당연히 Null임.&lt;/p&gt;
 &lt;h3 id=&#34;21-문제&#34;&gt;2.1. 문제&lt;/h3&gt;
 &lt;p&gt;클라이언트가 기존 정보와 동일한 정보로 변경 요청 시&lt;br&gt;
 jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt;
-예상 결과와 다르게 같은 값도 update 후 1이 반환됨&lt;/p&gt;</description>
+예상 결과와 다르게 동일한 값도 update 후 1이 반환됨&lt;/p&gt;</description>
     </item>
     <item>
       <title>[내일배움캠프] 최대 공약수와 최소 공배수</title>
-      <link>http://localhost:1313/camp/til-19/</link>
+      <link>https://withong.github.io/camp/til-19/</link>
       <pubDate>Tue, 25 Mar 2025 20:07:52 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-19/</guid>
+      <guid>https://withong.github.io/camp/til-19/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;문제-설명&#34;&gt;문제 설명&lt;/h2&gt;
 &lt;p&gt;두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 배열의 맨 앞에 최대공약수, 그다음 최소공배수를 넣어 반환하면 됩니다. 예를 들어 두 수 3, 12의 최대공약수는 3, 최소공배수는 12이므로 solution(3, 12)는 [3, 12]를 반환해야 합니다.&lt;/p&gt;
@@ -56,9 +57,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] Spring 기초 4</title>
-      <link>http://localhost:1313/camp/til-18/</link>
+      <link>https://withong.github.io/camp/til-18/</link>
       <pubDate>Wed, 19 Mar 2025 21:54:12 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-18/</guid>
+      <guid>https://withong.github.io/camp/til-18/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;slf4j&#34;&gt;Slf4j&lt;/h2&gt;
 &lt;ul&gt;
@@ -200,9 +201,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] Spring 기초 3</title>
-      <link>http://localhost:1313/camp/til-17/</link>
+      <link>https://withong.github.io/camp/til-17/</link>
       <pubDate>Tue, 18 Mar 2025 18:00:16 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-17/</guid>
+      <guid>https://withong.github.io/camp/til-17/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;1-mvc-패턴&#34;&gt;1. MVC 패턴&lt;/h2&gt;
 &lt;h3 id=&#34;template-engine-템플릿-엔진&#34;&gt;Template Engine (템플릿 엔진)&lt;/h3&gt;
@@ -271,9 +272,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] Spring 기초 2</title>
-      <link>http://localhost:1313/camp/til-16/</link>
+      <link>https://withong.github.io/camp/til-16/</link>
       <pubDate>Tue, 18 Mar 2025 17:32:05 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-16/</guid>
+      <guid>https://withong.github.io/camp/til-16/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;1-프레임워크와-라이브러리&#34;&gt;1. 프레임워크와 라이브러리&lt;/h2&gt;
 &lt;h3 id=&#34;프레임워크-framework&#34;&gt;프레임워크 (Framework)&lt;/h3&gt;
@@ -298,9 +299,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] Spring 기초 1</title>
-      <link>http://localhost:1313/camp/til-15/</link>
+      <link>https://withong.github.io/camp/til-15/</link>
       <pubDate>Mon, 17 Mar 2025 22:00:03 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-15/</guid>
+      <guid>https://withong.github.io/camp/til-15/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;네트워크&#34;&gt;네트워크&lt;/h2&gt;
 &lt;ul&gt;
@@ -560,9 +561,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] 키오스크 회고</title>
-      <link>http://localhost:1313/camp/til-14/</link>
+      <link>https://withong.github.io/camp/til-14/</link>
       <pubDate>Fri, 14 Mar 2025 19:14:24 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-14/</guid>
+      <guid>https://withong.github.io/camp/til-14/</guid>
       <description>&lt;hr&gt;
 &lt;h3 id=&#34;코드의-주요-기능&#34;&gt;코드의 주요 기능&lt;/h3&gt;
 &lt;ul&gt;
@@ -616,9 +617,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] Collection &amp; Stream</title>
-      <link>http://localhost:1313/camp/til-13/</link>
+      <link>https://withong.github.io/camp/til-13/</link>
       <pubDate>Thu, 13 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-13/</guid>
+      <guid>https://withong.github.io/camp/til-13/</guid>
       <description>&lt;hr&gt;
 &lt;h3 id=&#34;1-배열-vs-컬렉션&#34;&gt;&lt;strong&gt;1. 배열 vs. 컬렉션&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
@@ -649,9 +650,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] 키오스크 도전 Lv 2</title>
-      <link>http://localhost:1313/camp/task-kiosk-04/</link>
+      <link>https://withong.github.io/camp/task-kiosk-04/</link>
       <pubDate>Wed, 12 Mar 2025 21:01:14 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-kiosk-04/</guid>
+      <guid>https://withong.github.io/camp/task-kiosk-04/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-2-enum-람다--스트림을-활용한-주문-및-장바구니-관리&#34;&gt;Lv 2. Enum, 람다 &amp;amp; 스트림을 활용한 주문 및 장바구니 관리&lt;/h3&gt;
@@ -695,9 +696,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] 키오스크 도전 Lv 1</title>
-      <link>http://localhost:1313/camp/task-kiosk-03/</link>
+      <link>https://withong.github.io/camp/task-kiosk-03/</link>
       <pubDate>Wed, 12 Mar 2025 11:17:50 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-kiosk-03/</guid>
+      <guid>https://withong.github.io/camp/task-kiosk-03/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-1-장바구니-및-구매하기-기능을-추가하기&#34;&gt;Lv 1. 장바구니 및 구매하기 기능을 추가하기&lt;/h3&gt;
@@ -755,9 +756,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] Enum &amp; 동일성/동등성</title>
-      <link>http://localhost:1313/camp/til-12/</link>
+      <link>https://withong.github.io/camp/til-12/</link>
       <pubDate>Tue, 11 Mar 2025 10:44:41 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-12/</guid>
+      <guid>https://withong.github.io/camp/til-12/</guid>
       <description>&lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Enum&lt;/strong&gt; → 단순한 상수의 모음이 아니라, &lt;strong&gt;객체처럼 동작하는 데이터 타입&lt;/strong&gt;&lt;/li&gt;
@@ -783,9 +784,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] 키오스크 필수 Lv 4-5</title>
-      <link>http://localhost:1313/camp/task-kiosk-02/</link>
+      <link>https://withong.github.io/camp/task-kiosk-02/</link>
       <pubDate>Mon, 10 Mar 2025 19:13:06 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-kiosk-02/</guid>
+      <guid>https://withong.github.io/camp/task-kiosk-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-4-객체-지향-설계를-적용해-음식-메뉴와-주문-내역을-클래스-기반으로-관리하기&#34;&gt;Lv 4. 객체 지향 설계를 적용해 음식 메뉴와 주문 내역을 클래스 기반으로 관리하기&lt;/h3&gt;
@@ -812,9 +813,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] 키오스크 필수 Lv 1-3</title>
-      <link>http://localhost:1313/camp/task-kiosk-01/</link>
+      <link>https://withong.github.io/camp/task-kiosk-01/</link>
       <pubDate>Fri, 07 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-kiosk-01/</guid>
+      <guid>https://withong.github.io/camp/task-kiosk-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-1-기본적인-키오스크를-프로그래밍해보자&#34;&gt;Lv 1. 기본적인 키오스크를 프로그래밍해보자&lt;/h3&gt;
@@ -843,9 +844,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] 계산기 Lv 3 회고</title>
-      <link>http://localhost:1313/camp/til-11/</link>
+      <link>https://withong.github.io/camp/til-11/</link>
       <pubDate>Wed, 05 Mar 2025 23:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-11/</guid>
+      <guid>https://withong.github.io/camp/til-11/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [문제] 알고리즘 &amp;amp; SQL 문제 풀기&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 3 마무리&lt;br&gt;
@@ -874,9 +875,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] 계산기 Lv 3</title>
-      <link>http://localhost:1313/camp/task-calculator-03/</link>
+      <link>https://withong.github.io/camp/task-calculator-03/</link>
       <pubDate>Wed, 05 Mar 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-calculator-03/</guid>
+      <guid>https://withong.github.io/camp/task-calculator-03/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;Enum, 제네릭, 람다 &amp;amp; 스트림을 이해한 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -912,9 +913,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] 계산기 Lv 2</title>
-      <link>http://localhost:1313/camp/task-calculator-02/</link>
+      <link>https://withong.github.io/camp/task-calculator-02/</link>
       <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-calculator-02/</guid>
+      <guid>https://withong.github.io/camp/task-calculator-02/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -935,9 +936,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] 계산기 Lv 1-2 회고</title>
-      <link>http://localhost:1313/camp/til-10/</link>
+      <link>https://withong.github.io/camp/til-10/</link>
       <pubDate>Fri, 28 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-10/</guid>
+      <guid>https://withong.github.io/camp/til-10/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [과제] Java 계산기 만들기 level 2 수정&lt;br&gt;
 ✅ [과제] 과제 TIL &amp;amp; 트러블 슈팅 작성&lt;br&gt;
@@ -972,9 +973,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] Java 심화 2</title>
-      <link>http://localhost:1313/camp/til-09/</link>
+      <link>https://withong.github.io/camp/til-09/</link>
       <pubDate>Thu, 27 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-09/</guid>
+      <guid>https://withong.github.io/camp/til-09/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 세션 2 - 객체 활용&lt;br&gt;
 ✅ [강의] Java 문법 Chapter 3 (5~7)&lt;br&gt;
@@ -1062,9 +1063,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] 계산기 Lv 1</title>
-      <link>http://localhost:1313/camp/task-calculator-01/</link>
+      <link>https://withong.github.io/camp/task-calculator-01/</link>
       <pubDate>Wed, 26 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/task-calculator-01/</guid>
+      <guid>https://withong.github.io/camp/task-calculator-01/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -1101,9 +1102,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] Java 심화 1</title>
-      <link>http://localhost:1313/camp/til-08/</link>
+      <link>https://withong.github.io/camp/til-08/</link>
       <pubDate>Wed, 26 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-08/</guid>
+      <guid>https://withong.github.io/camp/til-08/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 Chapter 3 (1~4)&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 1&lt;/p&gt;&lt;/blockquote&gt;
@@ -1144,9 +1145,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] 객체지향</title>
-      <link>http://localhost:1313/camp/til-07/</link>
+      <link>https://withong.github.io/camp/til-07/</link>
       <pubDate>Tue, 25 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-07/</guid>
+      <guid>https://withong.github.io/camp/til-07/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 문법 세션 1 - 프로그래밍 기초&lt;br&gt;
 ✅ Java 문법 강의 2주차&lt;/p&gt;&lt;/blockquote&gt;
@@ -1177,9 +1178,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>[내일배움캠프] Java 기초</title>
-      <link>http://localhost:1313/camp/til-06/</link>
+      <link>https://withong.github.io/camp/til-06/</link>
       <pubDate>Mon, 24 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-06/</guid>
+      <guid>https://withong.github.io/camp/til-06/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ Java 문법 강의 1주차&lt;/p&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
@@ -1387,9 +1388,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 미니 프로젝트 최종</title>
-      <link>http://localhost:1313/camp/til-05/</link>
+      <link>https://withong.github.io/camp/til-05/</link>
       <pubDate>Fri, 21 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-05/</guid>
+      <guid>https://withong.github.io/camp/til-05/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 프로젝트 배포&lt;br&gt;
 ✅ 프로젝트 발표&lt;br&gt;
@@ -1421,9 +1422,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 미니 프로젝트 3</title>
-      <link>http://localhost:1313/camp/til-04/</link>
+      <link>https://withong.github.io/camp/til-04/</link>
       <pubDate>Thu, 20 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-04/</guid>
+      <guid>https://withong.github.io/camp/til-04/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 코드 병합&lt;br&gt;
 ✅ 기능 수정&lt;/p&gt;&lt;/blockquote&gt;
@@ -1443,9 +1444,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 미니 프로젝트 2</title>
-      <link>http://localhost:1313/camp/til-03/</link>
+      <link>https://withong.github.io/camp/til-03/</link>
       <pubDate>Wed, 19 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-03/</guid>
+      <guid>https://withong.github.io/camp/til-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;+&lt;/strong&gt;&lt;br&gt;
 ☑️ 팀원 상세 페이지 화면&lt;br&gt;
@@ -1470,9 +1471,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] 미니 프로젝트 1</title>
-      <link>http://localhost:1313/camp/til-02/</link>
+      <link>https://withong.github.io/camp/til-02/</link>
       <pubDate>Tue, 18 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-02/</guid>
+      <guid>https://withong.github.io/camp/til-02/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [미니 프로젝트] 메인 페이지 (HTML/CSS)&lt;br&gt;
@@ -1553,9 +1554,9 @@ result = 7
     </item>
     <item>
       <title>[내일배움캠프] Git</title>
-      <link>http://localhost:1313/camp/til-01/</link>
+      <link>https://withong.github.io/camp/til-01/</link>
       <pubDate>Mon, 17 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-01/</guid>
+      <guid>https://withong.github.io/camp/til-01/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [특강] Git&lt;br&gt;
@@ -1837,13 +1838,6 @@ result = 7
 &lt;p&gt;📅 기간: 2025.02.17 - 2025.02.21&lt;br&gt;
 📝 프로젝트: 팀 &amp;amp; 팀원 소개 웹 페이지&lt;br&gt;
 🎨 역할: 메인 페이지 및 팀원 정보 입력창 (HTML/CSS)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>[내일배움캠프] 00일차.</title>
-      <link>http://localhost:1313/camp/til-00/</link>
-      <pubDate>Wed, 15 Jan 2025 23:41:13 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-00/</guid>
-      <description>&lt;p&gt;camp default&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

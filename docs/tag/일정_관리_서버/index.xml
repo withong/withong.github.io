@@ -2,21 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>일정_관리_서버 on withong</title>
-    <link>http://localhost:1313/tag/%EC%9D%BC%EC%A0%95_%EA%B4%80%EB%A6%AC_%EC%84%9C%EB%B2%84/</link>
+    <link>https://withong.github.io/tag/%EC%9D%BC%EC%A0%95_%EA%B4%80%EB%A6%AC_%EC%84%9C%EB%B2%84/</link>
     <description>Recent content in 일정_관리_서버 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Tue, 25 Mar 2025 20:20:11 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/%EC%9D%BC%EC%A0%95_%EA%B4%80%EB%A6%AC_%EC%84%9C%EB%B2%84/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/tag/%EC%9D%BC%EC%A0%95_%EA%B4%80%EB%A6%AC_%EC%84%9C%EB%B2%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[내일배움캠프] 일정 관리 서버 트러블 슈팅</title>
-      <link>http://localhost:1313/camp/til-20/</link>
+      <link>https://withong.github.io/camp/til-20/</link>
       <pubDate>Tue, 25 Mar 2025 20:20:11 +0900</pubDate>
-      <guid>http://localhost:1313/camp/til-20/</guid>
+      <guid>https://withong.github.io/camp/til-20/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
 &lt;h3 id=&#34;-nbc-chapter-03-basic&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-basic.git&#34;&gt;nbc-chapter-03-basic&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
+&lt;br&gt;
 &lt;h2 id=&#34;1-등록-시-createat-updatedat-null&#34;&gt;1. 등록 시 createAt, updatedAt Null&lt;/h2&gt;
 &lt;p&gt;createAt, updatedAt는 DB에서 자동 갱신됨&lt;/p&gt;
 &lt;h3 id=&#34;11-문제&#34;&gt;1.1. 문제&lt;/h3&gt;
@@ -35,7 +36,7 @@ DB 조회해서 가져오기 전까지 당연히 Null임.&lt;/p&gt;
 &lt;h3 id=&#34;21-문제&#34;&gt;2.1. 문제&lt;/h3&gt;
 &lt;p&gt;클라이언트가 기존 정보와 동일한 정보로 변경 요청 시&lt;br&gt;
 jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt;
-예상 결과와 다르게 같은 값도 update 후 1이 반환됨&lt;/p&gt;</description>
+예상 결과와 다르게 동일한 값도 update 후 1이 반환됨&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
