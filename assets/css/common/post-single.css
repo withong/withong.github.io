@@ -202,6 +202,7 @@
     padding: 4px 6px;
     font-size: 0.78em;
     line-height: 1.5;
+    color: rgb(213, 213, 214);
     background: var(--code-block-bg) !important;
     border-radius: var(--radius);
 }
