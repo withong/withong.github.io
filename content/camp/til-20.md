@@ -15,7 +15,7 @@ tag = ["내일배움캠프", "TIL", "일정_관리_서버", "트러블_슈팅"]
 <br>
 
 ## 1. 등록 시 createdAt, updatedAt Null
-createAt, updatedAt는 DB에서 자동 갱신됨
+createdAt, updatedAt는 DB에서 자동 갱신됨
 
 ### 1.1. 문제
 일정/사용자 등록 후 반환된 createdAt, updatedAt 값이 Null
