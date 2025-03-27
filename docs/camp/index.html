@@ -155,11 +155,26 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[내일배움캠프] 3진법 뒤집기
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 문제 설명 자연수 n이 매개변수로 주어집니다. n을 3진법 상에서 앞뒤로 뒤집은 후,
+이를 다시 10진법으로 표현한 수를 return 하도록 solution 함수를 완성해주세요.
+10진법 → k진법 n % k → 현재 자릿수 값 (맨 끝자리부터) n = n / k → 다음 자릿수를 위해 나눔 1~2를 반복하다가 n == 0이면 멈춤 나머지들을 역순으로 조합 k진법 → 10진법 int result = Integer.parseInt(&#34;k진법으로 표현된 숫자&#34;, k); 해당 문자열을 k진법으로 해석한 후 10진법 정수로 반환
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-27 11:08:08 +0900 KST'>2025년 3월 27일</span></footer>
+  <a class="entry-link" aria-label="post link to [내일배움캠프] 3진법 뒤집기" href="https://withong.github.io/camp/til-21/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[내일배움캠프] 일정 관리 서버 트러블 슈팅
     </h2>
   </header>
   <div class="entry-content">
-    <p> GitHub ▶ nbc-chapter-03-basic 1. 등록 시 createdAt, updatedAt Null createAt, updatedAt는 DB에서 자동 갱신됨
+    <p> GitHub ▶ nbc-chapter-03-basic 1. 등록 시 createdAt, updatedAt Null createdAt, updatedAt는 DB에서 자동 갱신됨
 1.1. 문제 일정/사용자 등록 후 반환된 createdAt, updatedAt 값이 Null
 1.2. 원인 당연함… 등록 요청 시 전달받은 정보를 응답 DTO에 넣어주고 그 값을 반환하는데
 DB에서 자동으로 업데이트 하는 값은 안 들어오니까 안 넣어줬고…
@@ -217,19 +232,6 @@ MVC 패턴 개요 원래 Servlet과 JSP만으로 웹 개발을 했으나, 비즈
   </div>
   <footer class="entry-footer"><span title='2025-03-18 18:00:16 +0900 KST'>2025년 3월 18일</span></footer>
   <a class="entry-link" aria-label="post link to [내일배움캠프] Spring 기초 3" href="https://withong.github.io/camp/til-17/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[내일배움캠프] Spring 기초 2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 1. 프레임워크와 라이브러리 프레임워크 (Framework) 소프트웨어 개발을 간편하게 만들기 위한 개발 환경. 일정한 틀(Frame) 안에서 개발해야 하며, 개발의 일관성을 제공함. 장점: 코드의 일관성, 보안 강화, 테스트 환경 제공, 커뮤니티 지원. 단점: 학습 곡선이 높음, 새로운 버전과의 호환성 문제 발생 가능, 구조 변경 어려움. 라이브러리 (Library) 특정 기능을 수행하는 코드의 모음. 개발자가 필요할 때 가져다 사용 가능. 장점: 개발 생산성 증가, 안정성이 높은 코드 활용 가능. 단점: 업데이트 또는 지원 중단 시 문제 발생, 호환성 이슈. 2. Annotation 코드에 메타데이터를 추가하는 기능으로, 컴파일러나 런타임에서 특정 동작을 트리거함.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-18 17:32:05 +0900 KST'>2025년 3월 18일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] Spring 기초 2" href="https://withong.github.io/camp/til-16/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -19,7 +19,7 @@
 &lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;1-등록-시-createdat-updatedat-null&#34;&gt;1. 등록 시 createdAt, updatedAt Null&lt;/h2&gt;
-&lt;p&gt;createAt, updatedAt는 DB에서 자동 갱신됨&lt;/p&gt;
+&lt;p&gt;createdAt, updatedAt는 DB에서 자동 갱신됨&lt;/p&gt;
 &lt;h3 id=&#34;11-문제&#34;&gt;1.1. 문제&lt;/h3&gt;
 &lt;p&gt;일정/사용자 등록 후 반환된 createdAt, updatedAt 값이 Null&lt;/p&gt;
 &lt;h3 id=&#34;12-원인&#34;&gt;1.2. 원인&lt;/h3&gt;
