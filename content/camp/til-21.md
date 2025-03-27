@@ -30,6 +30,7 @@ int result = Integer.parseInt("k진법으로 표현된 숫자", k);
 
 <br>
 
+## 활용
 ```java
 class Solution {
     public int solution(int n) {
