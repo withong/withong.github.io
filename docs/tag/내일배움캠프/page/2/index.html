@@ -140,6 +140,22 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[내일배움캠프] Spring 기초 4
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Slf4j 인터페이스이며, Logback 같은 구현체를 사용할 수 있음.
+Spring Boot는 기본적으로 Logback을 제공.
+System.out.println() 대신 로깅 라이브러리를 사용.
+Log Level: TRACE → DEBUG → INFO → WARN → ERROR
+@Slf4j @RestController public class Slf4jController { @RequestMapping(&#34;/logging&#34;) public String logging() { String sparta = &#34;Sparta&#34;; log.info(&#34;문자 info={}&#34;, sparta); return &#34;success&#34;; } } Controller vs RestController @Controller: View 반환 (Thymeleaf, JSP 사용) @Controller public class ViewController { @RequestMapping(&#34;/view&#34;) public String example() { return &#34;sparta&#34;; // View Name 반환 } } @RestController: Data 반환 (REST API) @RestController public class ResponseController { @RequestMapping(&#34;/string&#34;) public String example() { return &#34;sparta&#34;; // HTTP Body에 Data 입력 } } Annotation @Component: Spring Bean 등록하는 역할을 수행. @Target: 애노테이션 적용 범위를 지정. @Retention: 유지 기간을 결정. (SOURCE, CLASS, RUNTIME) @Documented: 문서화 도구에 의해 문서화되도록 지정. RequestMapping 특정 URL 요청을 특정 메서드와 매핑함. 여러 요소(URL, HTTP Method 등)를 조합하여 매핑할 수 있음. Spring Boot 3.0부터 /example/ 대신 /example만 허용됨. @RestController public class RequestMappingController { @RequestMapping(value = &#34;/v1&#34;, method = RequestMethod.GET) public String exampleV1() { return &#34;this is sparta!&#34;; } @GetMapping(value = &#34;/v2&#34;) public String exampleV2() { return &#34;this is sparta!&#34;; } } PathVariable URL 값을 파라미터로 받아오는 방식. @GetMapping(&#34;/{postId}&#34;) public String pathVariable(@PathVariable Long postId) { return &#34;Post ID: &#34; &#43; postId; } @GetMapping(&#34;/{postId}/comments/{commentId}&#34;) public String pathVariableMulti(@PathVariable Long postId, @PathVariable Long commentId) { return &#34;Post ID: &#34; &#43; postId &#43; &#34;, Comment ID: &#34; &#43; commentId; } 특정 파라미터 매핑 Query Parameter 매핑 @GetMapping(value = &#34;/users&#34;, params = &#34;gender=man&#34;) public String params() { return &#34;params API 호출됨&#34;; } Header 매핑 @PostMapping(value = &#34;/users&#34;, headers = &#34;Content-Type=application/json&#34;) public String headers() { return &#34;headers API 호출됨&#34;; } MediaType 매핑 @PostMapping(value = &#34;/users&#34;, consumes = MediaType.APPLICATION_JSON_VALUE) public String consumes() { return &#34;consumes API 호출됨&#34;; } produces 속성을 이용해 특정 응답 타입을 지정할 수 있음. Spring이 지원하는 Parameter 요청 헤더 조회 @Slf4j @RestController public class RequestHeaderController { @GetMapping(&#34;/request/headers&#34;) public String headers(@RequestHeader(&#34;host&#34;) String host) { log.info(&#34;host={}&#34;, host); return &#34;success&#34;; } } MultiValueMap 여러 개의 값을 받을 때 사용 MultiValueMap&lt;String, String&gt; map = new LinkedMultiValueMap&lt;&gt;(); map.add(&#34;key1&#34;, &#34;value1&#34;); map.add(&#34;key1&#34;, &#34;value2&#34;); </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-19 21:54:12 +0900 KST'>2025년 3월 19일</span></footer>
+  <a class="entry-link" aria-label="post link to [내일배움캠프] Spring 기초 4" href="https://withong.github.io/camp/til-18/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[내일배움캠프] Spring 기초 3
     </h2>
   </header>
@@ -188,19 +204,6 @@ MVC 패턴 개요 원래 Servlet과 JSP만으로 웹 개발을 했으나, 비즈
   </div>
   <footer class="entry-footer"><span title='2025-03-14 19:14:24 +0900 KST'>2025년 3월 14일</span></footer>
   <a class="entry-link" aria-label="post link to [내일배움캠프] 키오스크 회고" href="https://withong.github.io/camp/til-14/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[내일배움캠프] Collection &amp; Stream
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 1. 배열 vs. 컬렉션 배열: 크기 고정, 동일 타입 데이터만 저장, 인덱스로 접근 가능, 단순한 구조. 컬렉션: 크기 동적 조절 가능, 다양한 타입 지원(제네릭), List/Set/Map 등 다양한 자료구조 제공. 2. 컬렉션 주요 인터페이스 List (ArrayList, LinkedList): 순서 O, 중복 O, 인덱스로 접근 가능. Set (HashSet, TreeSet): 순서 X, 중복 X. Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O. 3. 원시 타입 vs. 래퍼 클래스 컬렉션에는 원시 타입(int, char)을 직접 저장할 수 없고, 래퍼 클래스(Integer, Character)를 사용해야 함. 래퍼 클래스는 객체로 취급되며, 다양한 메서드를 제공. 4. 스트림(Stream) 자바 8에서 도입된 데이터 처리 방식. 원본 데이터를 변경하지 않고 가공 가능. 중간 연산(필터링, 변환)과 최종 연산(집계, 출력)으로 구성됨. 5. 스트림 주요 연산 중간 연산 (Intermediate Operations)
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-13 21:00:00 +0900 KST'>2025년 3월 13일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] Collection & Stream" href="https://withong.github.io/camp/til-13/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
