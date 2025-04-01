@@ -2,7 +2,7 @@
 title = "문자열 사전순 비교: compareTo()"
 date = "2025-04-01T09:54:56+09:00"
 draft = false
-topic = ["TIL"]
+topic = ["record"]
 tag = ["내일배움캠프", "Java", "Algorism"]
 +++
 

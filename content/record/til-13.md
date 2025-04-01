@@ -2,7 +2,7 @@
 title = "Collection & Stream"
 date = "2025-03-13T21:00:00+09:00"
 draft = false
-topic = ["TIL"]
+topic = ["record"]
 tag = ["내일배움캠프", "Java"]
 +++
 

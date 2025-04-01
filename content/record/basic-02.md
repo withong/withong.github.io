@@ -2,7 +2,7 @@
 title = "기본형과 참조형"
 date = "2025-02-06T21:00:00+09:00"
 draft = false
-topic = ["TIL"]
+topic = ["record"]
 tag = ["Study", "Java"]
 +++
 

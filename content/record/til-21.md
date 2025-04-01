@@ -2,7 +2,7 @@
 title = "3진법 뒤집기"
 date = "2025-03-27T11:08:08+09:00"
 draft = false
-topic = ["TIL"]
+topic = ["record"]
 tag = ["내일배움캠프", "Java", "Algorism"]
 +++
 

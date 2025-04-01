@@ -2,7 +2,7 @@
 title = "계산기 Lv 3 회고"
 date = "2025-03-05T23:00:00+09:00"
 draft = false
-topic = ["TIL"]
+topic = ["record"]
 tag = ["내일배움캠프", "TIL", "과제", "회고"]
 +++
 

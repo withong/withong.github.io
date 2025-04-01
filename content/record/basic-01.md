@@ -2,7 +2,7 @@
 title = "클래스와 객체"
 date = "2025-02-04T21:00:00+09:00"
 draft = false
-topic = ["TIL"]
+topic = ["record"]
 tag = ["Study", "Java"]
 +++
 

@@ -2,7 +2,7 @@
 title = "사용자 정보 정규 표현식으로 검증하기"
 date = "2025-04-01T16:13:32+09:00"
 draft = true
-topic = ["TIL"]
+topic = ["record"]
 tag = ["내일배움캠프", "Java", "과제", "일정 관리 API", "정규 표현식"]
 +++
 

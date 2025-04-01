@@ -2,7 +2,7 @@
 title = "[사전캠프] 3일차."
 date = "2025-01-15T23:41:13+09:00"
 draft = false
-topic = ["TIL"]
+topic = ["record"]
 tag = ["사전캠프", "SQL"]
 +++
 

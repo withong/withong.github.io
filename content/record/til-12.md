@@ -2,7 +2,7 @@
 title = "Enum & 동일성/동등성"
 date = "2025-03-11T10:44:41+09:00"
 draft = false
-topic = ["TIL"]
+topic = ["record"]
 tag = ["내일배움캠프", "Java"]
 +++
 

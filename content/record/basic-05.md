@@ -2,7 +2,7 @@
 title = "패키지"
 date = "2025-02-11T21:00:00+09:00"
 draft = false
-topic = ["TIL"]
+topic = ["record"]
 tag = ["Study", "Java"]
 +++
 
