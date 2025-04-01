@@ -140,6 +140,22 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[Java] 기본형과 참조형
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>변수 대입 기본형 변수 대입 기본형 변수는 값을 복사하여 저장함.
+int a = 10; int b = a; // a: 10, b: 10 a = 20; // a: 20, b: 10 b = 30; // a: 20, b: 30 b에 a의 값을 복사해서 저장하므로, b를 변경해도 a에 영향을 주지 않음.
+참조형 변수 대입 참조형 변수는 객체의 메모리 주소를 저장함 → 주소(참조)가 복사됨.
+public class Data { int value; } Data dataA = new Data(); dataA.value = 10; Data dataB = dataA; // dataA.value: 10, dataB.value: 10 dataA.value = 20; // dataA.value: 20, dataB.value: 20 dataB.value = 30; // dataA.value: 30, dataB.value: 30 같은 객체를 가리키므로 하나를 변경하면 다른 하나도 영향을 받음.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-06 21:00:00 +0900 KST'>2025년 2월 6일</span></footer>
+  <a class="entry-link" aria-label="post link to [Java] 기본형과 참조형" href="https://withong.github.io/java/basic-02/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[Java] 클래스와 객체
     </h2>
   </header>

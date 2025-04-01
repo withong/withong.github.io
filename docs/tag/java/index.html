@@ -140,6 +140,23 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">문자열 사전순 비교: compareTo()
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 문제 숫자로 이루어진 문자열 t와 p가 주어질 때, t에서 p와 길이가 같은 부분문자열 중에서, 이 부분문자열이 나타내는 수가 p가 나타내는 수보다 작거나 같은 것이 나오는 횟수를 return하는 함수 solution을 완성하세요.
+예를 들어, t=“3141592&#34;이고 p=“271” 인 경우, t의 길이가 3인 부분 문자열은 314, 141, 415, 159, 592입니다. 이 문자열이 나타내는 수 중 271보다 작거나 같은 수는 141, 159 2개 입니다.
+오답 일부 정답, 일부 런타임 에러 발생
+class Solution { public int solution(String t, String p) { int count = 0; int pToInt = Integer.parseInt(p); for (int i = 0; i &lt; t.length() - p.length() &#43; 1; i&#43;&#43;) { String s = t.substring(i, i &#43; p.length()); int sToInt = Integer.parseInt(s); if (sToInt &lt;= pToInt) count&#43;&#43;; } return count; } } 원인: p의 길이가 최대 18이기 때문에, Long 범위를 초과할 수 있으며,
+Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatException이 발생할 수 있음.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-01 09:54:56 +0900 KST'>2025년 4월 1일</span></footer>
+  <a class="entry-link" aria-label="post link to 문자열 사전순 비교: compareTo()" href="https://withong.github.io/camp/til-24/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[내일배움캠프] 3진법 뒤집기
     </h2>
   </header>
@@ -194,22 +211,6 @@ Enum의 특징 상수들의 집합으로 사용된다. 내부적으로 final cla
   </div>
   <footer class="entry-footer"><span title='2025-03-11 10:44:41 +0900 KST'>2025년 3월 11일</span></footer>
   <a class="entry-link" aria-label="post link to [내일배움캠프] Enum & 동일성/동등성" href="https://withong.github.io/camp/til-12/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[내일배움캠프] Java 심화 2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ [강의] Java 문법 세션 2 - 객체 활용
-✅ [강의] Java 문법 Chapter 3 (5~7)
-✅ [과제] Java 계산기 만들기 level 2
-람다(Lambda) 함수형 인터페이스 람다식을 사용하기 위한 인터페이스 단 하나의 추상 메서드만 포함해야 함. @FunctionalInterface 애노테이션을 사용. @FunctionalInterface // 함수형 인터페이스 선언 public interface Calculator { int sum(int a, int b); // 오직 하나의 추상 메서드만 선언해야 함 } 익명 클래스 별도의 클래스 파일을 만들지 않고 코드 내에서 일회성으로 정의해 사용하는 클래스. 주로 인터페이스를 구현할 때나 클래스를 상속할 때 간단한 기능을 위해 사용됨. public static void main(String[] args) { // 인터페이스를 활용한 익명 클래스 만들기 Calculator calculator1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator1.sum(2, 2); System.out.println(&#34;ret1 = &#34; &#43; ret1); } 람다식 메서드를 하나의 식(Expression)으로 표현하는 방식 익명 함수(Anonymous Function)와 유사 함수형 인터페이스와 함께 사용됨 불필요한 코드 생략 가능 → 간결한 코드 작성 가능 public static void main(String[] args) { // 인터페이스를 활용한 람다식 만들기 Calculator calculator = (a, b) -&gt; a &#43; b; int ret = calculator.sum(3, 3); System.out.println(&#34;ret = &#34; &#43; ret); } 람다식 활용 public static void main(String[] args) { // 람다식을 매개변수로 전달하는 방법 // 1. 익명 클래스를 변수에 담아 매개변수로 전달 Calculator cal1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator(3, 3, cal1); System.out.println(&#34;ret1 = &#34; &#43; ret1); // 2. 람다식을 변수에 담아 매개변수로 전달 Calculator cal2 = (a, b) -&gt; a &#43; b; int ret2 = calculator(4, 4, cal2); System.out.println(&#34;ret2 = &#34; &#43; ret2); // 3. 람다식을 직접 매개변수로 전달 int ret3 = calculator(5, 5, (a, b) -&gt; a &#43; b); System.out.println(&#34;ret3 = &#34; &#43; ret3); } public static int calculator(int a, int b, Calculator calculator) { return calculator.sum(a, b); } 스트림(Stream) 데이터의 흐름을 표현하는 기능으로, 배열이나 컬렉션 등의 데이터를 함수형 스타일로 처리할 수 있도록 지원하는 API
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-27 21:00:00 +0900 KST'>2025년 2월 27일</span></footer>
-  <a class="entry-link" aria-label="post link to [내일배움캠프] Java 심화 2" href="https://withong.github.io/camp/til-09/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

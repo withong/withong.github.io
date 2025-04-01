@@ -140,6 +140,22 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[내일배움캠프] Java 심화 2
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ [강의] Java 문법 세션 2 - 객체 활용
+✅ [강의] Java 문법 Chapter 3 (5~7)
+✅ [과제] Java 계산기 만들기 level 2
+람다(Lambda) 함수형 인터페이스 람다식을 사용하기 위한 인터페이스 단 하나의 추상 메서드만 포함해야 함. @FunctionalInterface 애노테이션을 사용. @FunctionalInterface // 함수형 인터페이스 선언 public interface Calculator { int sum(int a, int b); // 오직 하나의 추상 메서드만 선언해야 함 } 익명 클래스 별도의 클래스 파일을 만들지 않고 코드 내에서 일회성으로 정의해 사용하는 클래스. 주로 인터페이스를 구현할 때나 클래스를 상속할 때 간단한 기능을 위해 사용됨. public static void main(String[] args) { // 인터페이스를 활용한 익명 클래스 만들기 Calculator calculator1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator1.sum(2, 2); System.out.println(&#34;ret1 = &#34; &#43; ret1); } 람다식 메서드를 하나의 식(Expression)으로 표현하는 방식 익명 함수(Anonymous Function)와 유사 함수형 인터페이스와 함께 사용됨 불필요한 코드 생략 가능 → 간결한 코드 작성 가능 public static void main(String[] args) { // 인터페이스를 활용한 람다식 만들기 Calculator calculator = (a, b) -&gt; a &#43; b; int ret = calculator.sum(3, 3); System.out.println(&#34;ret = &#34; &#43; ret); } 람다식 활용 public static void main(String[] args) { // 람다식을 매개변수로 전달하는 방법 // 1. 익명 클래스를 변수에 담아 매개변수로 전달 Calculator cal1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator(3, 3, cal1); System.out.println(&#34;ret1 = &#34; &#43; ret1); // 2. 람다식을 변수에 담아 매개변수로 전달 Calculator cal2 = (a, b) -&gt; a &#43; b; int ret2 = calculator(4, 4, cal2); System.out.println(&#34;ret2 = &#34; &#43; ret2); // 3. 람다식을 직접 매개변수로 전달 int ret3 = calculator(5, 5, (a, b) -&gt; a &#43; b); System.out.println(&#34;ret3 = &#34; &#43; ret3); } public static int calculator(int a, int b, Calculator calculator) { return calculator.sum(a, b); } 스트림(Stream) 데이터의 흐름을 표현하는 기능으로, 배열이나 컬렉션 등의 데이터를 함수형 스타일로 처리할 수 있도록 지원하는 API
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-27 21:00:00 +0900 KST'>2025년 2월 27일</span></footer>
+  <a class="entry-link" aria-label="post link to [내일배움캠프] Java 심화 2" href="https://withong.github.io/camp/til-09/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[내일배움캠프] Java 심화 1
     </h2>
   </header>
@@ -195,22 +211,6 @@ Chapter 1. Java 기초 문법 다지기 JDK (Java Development Kit) JDK → Java 
   </div>
   <footer class="entry-footer"><span title='2025-02-24 21:00:00 +0900 KST'>2025년 2월 24일</span></footer>
   <a class="entry-link" aria-label="post link to [내일배움캠프] Java 기초" href="https://withong.github.io/camp/til-06/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[Java] 메모리 구조와 static
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>메모리 구조 Java 메모리는 크게 메서드 영역, 스택 영역, 힙 영역으로 나뉜다.
-메서드 영역 (Method Area) 클래스 정보를 보관하는 공간 프로그램을 실행하는 데 필요한 공통 데이터를 관리
-(클래스 정보, static 영역, 런타임 상수 풀 등) 프로그램 실행 중 변경되지 않는 데이터 저장 프로그램이 종료될 때까지 유지됨 스택 영역 (Stack Area) 실제 프로그램이 실행되는 영역 메서드가 호출될 때마다 새로운 스택 프레임이 스택 영역에 생성됨 각 프레임은 지역 변수, 매개변수, 연산 결과, 메서드 호출 정보 저장함 메서드가 종료되면 해당 스택 프레임이 제거됨 LIFO(Last In First Out) 방식으로 동작함 힙 영역 (Heap Area) 객체(인스턴스)가 생성되는 영역 new 키워드로 생성된 객체와 배열이 저장됨 객체가 생성될 때마다 메모리 크기만큼 힙에서 메모리가 동적으로 할당됨 가비지 컬렉터에 의해 관리됨 참조되는 객체는 유지되며, 참조되지 않는 객체는 제거됨 static static 변수와 static 메서드와 같은 클래스 레벨의 정보를 저장하는 공간.
-static 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 관계없이 클래스 자체에 속하며, 메서드 영역의 static 영역에 저장됨
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-14 21:00:00 +0900 KST'>2025년 2월 14일</span></footer>
-  <a class="entry-link" aria-label="post link to [Java] 메모리 구조와 static" href="https://withong.github.io/java/basic-07/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

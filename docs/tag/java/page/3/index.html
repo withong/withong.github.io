@@ -140,6 +140,22 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[Java] 메모리 구조와 static
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>메모리 구조 Java 메모리는 크게 메서드 영역, 스택 영역, 힙 영역으로 나뉜다.
+메서드 영역 (Method Area) 클래스 정보를 보관하는 공간 프로그램을 실행하는 데 필요한 공통 데이터를 관리
+(클래스 정보, static 영역, 런타임 상수 풀 등) 프로그램 실행 중 변경되지 않는 데이터 저장 프로그램이 종료될 때까지 유지됨 스택 영역 (Stack Area) 실제 프로그램이 실행되는 영역 메서드가 호출될 때마다 새로운 스택 프레임이 스택 영역에 생성됨 각 프레임은 지역 변수, 매개변수, 연산 결과, 메서드 호출 정보 저장함 메서드가 종료되면 해당 스택 프레임이 제거됨 LIFO(Last In First Out) 방식으로 동작함 힙 영역 (Heap Area) 객체(인스턴스)가 생성되는 영역 new 키워드로 생성된 객체와 배열이 저장됨 객체가 생성될 때마다 메모리 크기만큼 힙에서 메모리가 동적으로 할당됨 가비지 컬렉터에 의해 관리됨 참조되는 객체는 유지되며, 참조되지 않는 객체는 제거됨 static static 변수와 static 메서드와 같은 클래스 레벨의 정보를 저장하는 공간.
+static 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 관계없이 클래스 자체에 속하며, 메서드 영역의 static 영역에 저장됨
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-14 21:00:00 +0900 KST'>2025년 2월 14일</span></footer>
+  <a class="entry-link" aria-label="post link to [Java] 메모리 구조와 static" href="https://withong.github.io/java/basic-07/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[Java] 접근 제어자
     </h2>
   </header>
@@ -200,22 +216,6 @@ public class MusicPlayerData { int volume = 0; boolean isOn = false; } public st
   </div>
   <footer class="entry-footer"><span title='2025-02-07 21:00:00 +0900 KST'>2025년 2월 7일</span></footer>
   <a class="entry-link" aria-label="post link to [Java] 객체 지향 프로그래밍" href="https://withong.github.io/java/basic-03/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[Java] 기본형과 참조형
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>변수 대입 기본형 변수 대입 기본형 변수는 값을 복사하여 저장함.
-int a = 10; int b = a; // a: 10, b: 10 a = 20; // a: 20, b: 10 b = 30; // a: 20, b: 30 b에 a의 값을 복사해서 저장하므로, b를 변경해도 a에 영향을 주지 않음.
-참조형 변수 대입 참조형 변수는 객체의 메모리 주소를 저장함 → 주소(참조)가 복사됨.
-public class Data { int value; } Data dataA = new Data(); dataA.value = 10; Data dataB = dataA; // dataA.value: 10, dataB.value: 10 dataA.value = 20; // dataA.value: 20, dataB.value: 20 dataB.value = 30; // dataA.value: 30, dataB.value: 30 같은 객체를 가리키므로 하나를 변경하면 다른 하나도 영향을 받음.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-06 21:00:00 +0900 KST'>2025년 2월 6일</span></footer>
-  <a class="entry-link" aria-label="post link to [Java] 기본형과 참조형" href="https://withong.github.io/java/basic-02/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
