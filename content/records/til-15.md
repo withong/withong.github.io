@@ -2,7 +2,7 @@
 title = "Spring 기초 1"
 date = "2025-03-17T22:00:03+09:00"
 draft = false
-topic = ["record"]
+topic = ["records"]
 tag = ["내일배움캠프", "Spring"]
 +++
 

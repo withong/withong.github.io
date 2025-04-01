@@ -2,7 +2,7 @@
 title = "미니 프로젝트 3"
 date = "2025-02-20T21:00:00+09:00"
 draft = false
-topic = ["record"]
+topic = ["records"]
 tag = ["내일배움캠프", "과제", "팀 소개 페이지"]
 +++
 

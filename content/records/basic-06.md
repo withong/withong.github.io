@@ -2,7 +2,7 @@
 title = "접근 제어자"
 date = "2025-02-12T21:00:00+09:00"
 draft = false
-topic = ["record"]
+topic = ["records"]
 tag = ["Study", "Java"]
 +++
 

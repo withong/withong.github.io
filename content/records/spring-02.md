@@ -2,7 +2,7 @@
 title = "Querydsl"
 date = "2025-03-31T22:21:19+09:00"
 draft = true
-topic = ["record"]
+topic = ["records"]
 tag = ["Study", "Spring", "JPA", "Querydsl"]
 +++
 

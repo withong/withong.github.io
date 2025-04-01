@@ -2,7 +2,7 @@
 title = "키오스크 필수 Lv 4-5"
 date = "2025-03-10T19:13:06+09:00"
 draft = false
-topic = ["task"]
+topic = ["tasks"]
 tag = ["내일배움캠프", "키오스크"]
 +++
 

@@ -2,7 +2,7 @@
 title = "Java 심화 1"
 date = "2025-02-26T21:00:00+09:00"
 draft = false
-topic = ["record"]
+topic = ["records"]
 tag = ["내일배움캠프", "Java"]
 +++
 

@@ -2,7 +2,7 @@
 title = "[Java]"
 date = "2025-03-06T23:45:30+09:00"
 draft = true
-topic = ["record"]
+topic = ["records"]
 tag = ["Study", "Java"]
 +++
 

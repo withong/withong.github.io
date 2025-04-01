@@ -2,7 +2,7 @@
 title = "생성자"
 date = "2025-02-10T21:00:00+09:00"
 draft = false
-topic = ["record"]
+topic = ["records"]
 tag = ["Study", "Java"]
 +++
 

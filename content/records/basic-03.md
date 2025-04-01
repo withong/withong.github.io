@@ -2,7 +2,7 @@
 title = "객체 지향 프로그래밍"
 date = "2025-02-07T21:00:00+09:00"
 draft = false
-topic = ["record"]
+topic = ["records"]
 tag = ["Study", "Java"]
 +++
 

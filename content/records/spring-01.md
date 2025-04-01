@@ -2,7 +2,7 @@
 title = "Spring Data JPA"
 date = "2025-03-30T19:24:21+09:00"
 draft = true
-topic = ["record"]
+topic = ["records"]
 tag = ["Study", "Spring", "JPA"]
 +++
 

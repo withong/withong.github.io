@@ -2,7 +2,7 @@
 title = "키오스크 회고"
 date = "2025-03-14T19:14:24+09:00"
 draft = false
-topic = ["record"]
+topic = ["records"]
 tag = ["내일배움캠프", "TIL", "과제", "회고"]
 +++
 
