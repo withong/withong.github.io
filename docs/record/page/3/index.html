@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Study Records | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="Today I Learned">
+<meta name="author" content="">
+<link rel="canonical" href="https://withong.github.io/record/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/zep.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://withong.github.io/record/index.xml">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/record/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://withong.github.io/record/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="Study Records">
+  <meta property="og:description" content="Today I Learned">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Study Records">
+<meta name="twitter:description" content="Today I Learned">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Study Records",
+      "item": "https://withong.github.io/record/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/topic/" title="Topic">
+                    <span>Topic</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Home</a></div>
+  <h1>
+    Study Records
+  </h1>
+  <div class="post-description">
+    Today I Learned
+  </div>
+</header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Collection &amp; Stream
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 1. 배열 vs. 컬렉션 배열: 크기 고정, 동일 타입 데이터만 저장, 인덱스로 접근 가능, 단순한 구조. 컬렉션: 크기 동적 조절 가능, 다양한 타입 지원(제네릭), List/Set/Map 등 다양한 자료구조 제공. 2. 컬렉션 주요 인터페이스 List (ArrayList, LinkedList): 순서 O, 중복 O, 인덱스로 접근 가능. Set (HashSet, TreeSet): 순서 X, 중복 X. Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O. 3. 원시 타입 vs. 래퍼 클래스 컬렉션에는 원시 타입(int, char)을 직접 저장할 수 없고, 래퍼 클래스(Integer, Character)를 사용해야 함. 래퍼 클래스는 객체로 취급되며, 다양한 메서드를 제공. 4. 스트림(Stream) 자바 8에서 도입된 데이터 처리 방식. 원본 데이터를 변경하지 않고 가공 가능. 중간 연산(필터링, 변환)과 최종 연산(집계, 출력)으로 구성됨. 5. 스트림 주요 연산 중간 연산 (Intermediate Operations)
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-13 21:00:00 +0900 KST'>2025년 3월 13일</span></footer>
+  <a class="entry-link" aria-label="post link to Collection & Stream" href="https://withong.github.io/record/til-13/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Enum &amp; 동일성/동등성
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Enum → 단순한 상수의 모음이 아니라, 객체처럼 동작하는 데이터 타입 동등성 (equals()) → 내용이 같으면 true 동일성 (==) → 메모리 주소가 같으면 true hashCode() → 컬렉션에서 일관성 있게 동작하도록 필수적으로 재정의해야 한다. 1. Enum (열거형) Enum은 서로 연관된 상수들의 집합을 정의하는 특별한 데이터 타입이다.
+기존 final static 상수를 사용하는 것보다 더 안전하고 가독성이 좋다.
+Enum의 특징 상수들의 집합으로 사용된다. 내부적으로 final class처럼 동작하며, 새로운 인스턴스를 생성할 수 없다. 객체처럼 필드와 메서드를 가질 수 있다. 타입 안정성을 제공한다. enum Day { SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY; } Day는 요일을 표현하는 상수 그룹이다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-11 10:44:41 +0900 KST'>2025년 3월 11일</span></footer>
+  <a class="entry-link" aria-label="post link to Enum & 동일성/동등성" href="https://withong.github.io/record/til-12/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">계산기 Lv 3 회고
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ [문제] 알고리즘 &amp; SQL 문제 풀기
+✅ [과제] Java 계산기 만들기 level 3 마무리
+✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
+✅ 개인 과제 - 도전 구현 [내일배움캠프] 과제 - 계산기 3 / [GitHub] nbc-chapter-02/calculator/level3 🫠 level 2 vs level 3 개선된 점 단일 클래스 구조 → 다층 구조 (패키지 분리) Enum을 통한 연산자(Operator) 관리 제네릭(Operand) &#43; BigDecimal 도입 람다와 스트림을 이용한 결과 필터링 기능 추가 커스텀 예외 클래스(CalculatorException) 활용 개선할 점 Operand&lt;T&gt;가 BigDecimal로만 사용되는 점 </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-05 23:00:00 +0900 KST'>2025년 3월 5일</span></footer>
+  <a class="entry-link" aria-label="post link to 계산기 Lv 3 회고" href="https://withong.github.io/record/til-11/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">계산기 Lv 1-2 회고
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ [과제] Java 계산기 만들기 level 2 수정
+✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
+✅ [문제] 알고리즘 문제 풀기
+✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경
+→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-28 21:00:00 +0900 KST'>2025년 2월 28일</span></footer>
+  <a class="entry-link" aria-label="post link to 계산기 Lv 1-2 회고" href="https://withong.github.io/record/til-10/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java 심화 2
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ [강의] Java 문법 세션 2 - 객체 활용
+✅ [강의] Java 문법 Chapter 3 (5~7)
+✅ [과제] Java 계산기 만들기 level 2
+람다(Lambda) 함수형 인터페이스 람다식을 사용하기 위한 인터페이스 단 하나의 추상 메서드만 포함해야 함. @FunctionalInterface 애노테이션을 사용. @FunctionalInterface // 함수형 인터페이스 선언 public interface Calculator { int sum(int a, int b); // 오직 하나의 추상 메서드만 선언해야 함 } 익명 클래스 별도의 클래스 파일을 만들지 않고 코드 내에서 일회성으로 정의해 사용하는 클래스. 주로 인터페이스를 구현할 때나 클래스를 상속할 때 간단한 기능을 위해 사용됨. public static void main(String[] args) { // 인터페이스를 활용한 익명 클래스 만들기 Calculator calculator1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator1.sum(2, 2); System.out.println(&#34;ret1 = &#34; &#43; ret1); } 람다식 메서드를 하나의 식(Expression)으로 표현하는 방식 익명 함수(Anonymous Function)와 유사 함수형 인터페이스와 함께 사용됨 불필요한 코드 생략 가능 → 간결한 코드 작성 가능 public static void main(String[] args) { // 인터페이스를 활용한 람다식 만들기 Calculator calculator = (a, b) -&gt; a &#43; b; int ret = calculator.sum(3, 3); System.out.println(&#34;ret = &#34; &#43; ret); } 람다식 활용 public static void main(String[] args) { // 람다식을 매개변수로 전달하는 방법 // 1. 익명 클래스를 변수에 담아 매개변수로 전달 Calculator cal1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator(3, 3, cal1); System.out.println(&#34;ret1 = &#34; &#43; ret1); // 2. 람다식을 변수에 담아 매개변수로 전달 Calculator cal2 = (a, b) -&gt; a &#43; b; int ret2 = calculator(4, 4, cal2); System.out.println(&#34;ret2 = &#34; &#43; ret2); // 3. 람다식을 직접 매개변수로 전달 int ret3 = calculator(5, 5, (a, b) -&gt; a &#43; b); System.out.println(&#34;ret3 = &#34; &#43; ret3); } public static int calculator(int a, int b, Calculator calculator) { return calculator.sum(a, b); } 스트림(Stream) 데이터의 흐름을 표현하는 기능으로, 배열이나 컬렉션 등의 데이터를 함수형 스타일로 처리할 수 있도록 지원하는 API
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-27 21:00:00 +0900 KST'>2025년 2월 27일</span></footer>
+  <a class="entry-link" aria-label="post link to Java 심화 2" href="https://withong.github.io/record/til-09/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://withong.github.io/record/page/2/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://withong.github.io/record/page/4/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
