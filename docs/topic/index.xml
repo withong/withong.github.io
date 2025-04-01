@@ -9,17 +9,17 @@
     <lastBuildDate>Tue, 01 Apr 2025 09:54:56 +0900</lastBuildDate>
     <atom:link href="https://withong.github.io/topic/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Record</title>
-      <link>https://withong.github.io/topic/record/</link>
+      <title>Records</title>
+      <link>https://withong.github.io/topic/records/</link>
       <pubDate>Tue, 01 Apr 2025 09:54:56 +0900</pubDate>
-      <guid>https://withong.github.io/topic/record/</guid>
+      <guid>https://withong.github.io/topic/records/</guid>
       <description></description>
     </item>
     <item>
-      <title>Task</title>
-      <link>https://withong.github.io/topic/task/</link>
+      <title>Tasks</title>
+      <link>https://withong.github.io/topic/tasks/</link>
       <pubDate>Tue, 25 Mar 2025 20:20:11 +0900</pubDate>
-      <guid>https://withong.github.io/topic/task/</guid>
+      <guid>https://withong.github.io/topic/tasks/</guid>
       <description></description>
     </item>
   </channel>
