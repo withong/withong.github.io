@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Spring 기초 1 | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+네트워크
+
+인터넷(Internet)
+
+TCP/IP 기반으로 동작하는 글로벌 네트워크.
+데이터 전송을 위해 유선(해저 케이블) 및 무선(위성 통신) 활용.
+
+
+인터넷 프로토콜(IP, Internet Protocol)
+
+네트워크 내에서 기기를 식별하는 주소 체계.
+예시: 192.168.0.1
+
+
+IP 방식의 문제점
+
+애플리케이션 구분 불가능.
+비연결성: 수신 대상의 상태를 고려하지 않고 전송.
+비신뢰성: 패킷 손실 및 순서 뒤섞임 가능.
+
+
+
+
+TCP와 UDP
+
+TCP(Transmission Control Protocol)
+
+신뢰성 있는 데이터 전송 (3-Way Handshake 방식).
+패킷 순서 보장 및 오류 검출 가능.
+
+
+UDP(User Datagram Protocol)
+
+빠른 전송 속도를 우선시 (비신뢰성 전송).
+실시간 스트리밍, 온라인 게임 등에 사용.
+
+
+PORT
+
+같은 IP에서 여러 프로세스를 구분하는 번호.
+주요 포트 번호: HTTP(80), HTTPS(443), FTP(21), SSH(22).
+
+
+
+
+Web
+
+DNS(Domain Name System)
+
+도메인과 IP 주소를 매핑하는 시스템.
+사람이 이해하기 쉬운 도메인(google.com)을 IP 주소로 변환.
+
+
+URI(Uniform Resource Identifier)
+
+인터넷 자원의 고유 식별자.
+
+
+URL(Uniform Resource Locator)
+
+리소스의 위치를 나타내는 형식 (https://spartacodingclub.kr/).
+
+
+
+
+브라우저에 URL을 입력하면
+
+사용자가 브라우저에 URL을 입력.
+DNS 조회를 통해 도메인에 해당하는 IP 주소 확인.
+웹 브라우저가 HTTP 요청을 생성.
+요청 패킷이 서버로 전송.
+서버에서 HTTP 요청을 처리 후 응답 생성.
+응답 패킷이 클라이언트로 전송.
+브라우저가 응답 데이터를 렌더링하여 화면 표시.
+
+
+용어 모음
+
+프로그래밍 명명규칙(Casing)
+
+snake_case: Python, DB 테이블에서 사용 (user_name).
+camelCase: Java, JavaScript에서 변수 및 메서드 이름에 사용 (userName).
+PascalCase: 클래스 및 객체 이름에 사용 (UserName).
+kebab-case: URL 및 CSS에서 사용 (user-name).
+
+
+JSON(JavaScript Object Notation)
+
+클라이언트-서버 간 데이터 교환을 위한 경량 데이터 포맷.
+XML 대비 가독성이 뛰어나고 용량이 작음.
+
+
+Scale Up, Scale Out
+
+Scale Up: 단일 서버의 성능 향상 (CPU, RAM 증가).
+Scale Out: 여러 대의 서버 확장 (부하 분산).
+
+
+Stateful vs Stateless
+
+Stateful: 클라이언트의 상태를 유지해야 하는 서비스.
+Stateless: 서버가 클라이언트 상태를 저장하지 않음 (확장성 우수).
+
+
+Connection vs Connectionless
+
+Connection: 지속적 연결 유지 (HTTP/1.0).
+Connectionless: 필요할 때만 연결 (HTTP/1.1, HTTP/2).
+
+
+
+
+HTTP
+
+HTTP(HyperText Transfer Protocol)
+
+인터넷 상에서 클라이언트와 서버 간 데이터를 교환하는 프로토콜.
+
+
+HTTP 특징
+
+Stateless(무상태): 클라이언트의 상태를 저장하지 않음.
+Connectionless(비연결): 요청-응답 후 연결을 끊음.
+
+
+HTTP Message 구조
+
+Request (요청)
+
+Start Line: HTTP Method, URL, HTTP Version.
+Header: 추가적인 요청 정보 (예: Content-Type).
+Body: 요청 데이터 포함 (POST 요청 등).
+
+
+Response (응답)
+
+Status Code: 요청의 처리 결과 (200 OK, 404 Not Found 등).
+Header: 응답 메타데이터.
+Body: 응답 데이터.
+
+
+
+
+
+
+HTTP Method와 상태 코드
+
+HTTP Method
+
+GET: 데이터 조회.
+POST: 데이터 생성.
+PUT: 데이터 전체 수정.
+PATCH: 데이터 일부 수정.
+DELETE: 데이터 삭제.
+
+
+HTTP 상태 코드
+
+200 OK: 정상 응답.
+201 Created: 리소스 생성 완료.
+400 Bad Request: 잘못된 요청.
+401 Unauthorized: 인증 필요.
+404 Not Found: 리소스 없음.
+500 Internal Server Error: 서버 내부 오류.
+
+
+
+
+HTTP Header
+
+HTTP Header의 역할
+
+요청과 응답의 부가 정보 제공.
+
+
+자주 사용하는 Header
+
+Content-Type: 데이터 형식 지정 (application/json).
+Authorization: 인증 정보 포함.
+Cache-Control: 캐시 정책 (max-age, no-cache 등).
+Set-Cookie: 쿠키 설정 (세션 관리).
+
+
+
+
+Restful API
+
+REST (Representational State Transfer)
+
+리소스를 기반으로 한 API 설계 원칙.
+
+
+RESTful API 설계 예시
+
+POST /boards → 게시글 생성.
+GET /boards → 게시글 목록 조회.
+GET /boards/{id} → 특정 게시글 조회.
+PUT /boards/{id} → 게시글 수정.
+DELETE /boards/{id} → 게시글 삭제.
+
+
+
+
+Web Application
+
+Web Server vs WAS(Web Application Server)
+
+Web Server: 정적 콘텐츠 제공 (예: Nginx, Apache).
+WAS: 동적 콘텐츠 처리 (예: Tomcat, Spring Boot).
+
+
+Web System 구성
+
+프론트엔드(클라이언트) → 백엔드(WAS) → 데이터베이스(DB).
+
+
+
+
+Servlet
+
+Servlet
+
+Java 기반 웹 애플리케이션을 처리하는 기술.
+
+
+Servlet 동작 순서
+
+클라이언트가 요청 전송.
+Servlet Container가 요청을 분석하여 Servlet 실행.
+Servlet이 요청을 처리하고 응답 생성.
+응답이 클라이언트에게 전달됨.
+
+
+
+
+Thread
+
+Thread
+
+하나의 프로세스 내에서 실행되는 작업 단위.
+
+
+Multi-Thread
+
+여러 작업을 동시에 실행하는 기술 (서버 성능 향상 가능).
+
+
+
+
+SSR(Server Side Rendering) vs CSR(Client Side Rendering)
+
+SSR: 서버에서 HTML을 생성하여 클라이언트로 전송 (초기 로딩 속도 빠름).
+CSR: 클라이언트에서 JavaScript를 이용해 동적으로 렌더링 (SPA에서 주로 사용).
+
+">
+<meta name="author" content="">
+<link rel="canonical" href="https://withong.github.io/til/til-15/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/zep.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/til/til-15/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://withong.github.io/til/til-15/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="Spring 기초 1">
+  <meta property="og:description" content=" 네트워크 인터넷(Internet) TCP/IP 기반으로 동작하는 글로벌 네트워크. 데이터 전송을 위해 유선(해저 케이블) 및 무선(위성 통신) 활용. 인터넷 프로토콜(IP, Internet Protocol) 네트워크 내에서 기기를 식별하는 주소 체계. 예시: 192.168.0.1 IP 방식의 문제점 애플리케이션 구분 불가능. 비연결성: 수신 대상의 상태를 고려하지 않고 전송. 비신뢰성: 패킷 손실 및 순서 뒤섞임 가능. TCP와 UDP TCP(Transmission Control Protocol) 신뢰성 있는 데이터 전송 (3-Way Handshake 방식). 패킷 순서 보장 및 오류 검출 가능. UDP(User Datagram Protocol) 빠른 전송 속도를 우선시 (비신뢰성 전송). 실시간 스트리밍, 온라인 게임 등에 사용. PORT 같은 IP에서 여러 프로세스를 구분하는 번호. 주요 포트 번호: HTTP(80), HTTPS(443), FTP(21), SSH(22). Web DNS(Domain Name System) 도메인과 IP 주소를 매핑하는 시스템. 사람이 이해하기 쉬운 도메인(google.com)을 IP 주소로 변환. URI(Uniform Resource Identifier) 인터넷 자원의 고유 식별자. URL(Uniform Resource Locator) 리소스의 위치를 나타내는 형식 (https://spartacodingclub.kr/). 브라우저에 URL을 입력하면 사용자가 브라우저에 URL을 입력. DNS 조회를 통해 도메인에 해당하는 IP 주소 확인. 웹 브라우저가 HTTP 요청을 생성. 요청 패킷이 서버로 전송. 서버에서 HTTP 요청을 처리 후 응답 생성. 응답 패킷이 클라이언트로 전송. 브라우저가 응답 데이터를 렌더링하여 화면 표시. 용어 모음 프로그래밍 명명규칙(Casing) snake_case: Python, DB 테이블에서 사용 (user_name). camelCase: Java, JavaScript에서 변수 및 메서드 이름에 사용 (userName). PascalCase: 클래스 및 객체 이름에 사용 (UserName). kebab-case: URL 및 CSS에서 사용 (user-name). JSON(JavaScript Object Notation) 클라이언트-서버 간 데이터 교환을 위한 경량 데이터 포맷. XML 대비 가독성이 뛰어나고 용량이 작음. Scale Up, Scale Out Scale Up: 단일 서버의 성능 향상 (CPU, RAM 증가). Scale Out: 여러 대의 서버 확장 (부하 분산). Stateful vs Stateless Stateful: 클라이언트의 상태를 유지해야 하는 서비스. Stateless: 서버가 클라이언트 상태를 저장하지 않음 (확장성 우수). Connection vs Connectionless Connection: 지속적 연결 유지 (HTTP/1.0). Connectionless: 필요할 때만 연결 (HTTP/1.1, HTTP/2). HTTP HTTP(HyperText Transfer Protocol) 인터넷 상에서 클라이언트와 서버 간 데이터를 교환하는 프로토콜. HTTP 특징 Stateless(무상태): 클라이언트의 상태를 저장하지 않음. Connectionless(비연결): 요청-응답 후 연결을 끊음. HTTP Message 구조 Request (요청) Start Line: HTTP Method, URL, HTTP Version. Header: 추가적인 요청 정보 (예: Content-Type). Body: 요청 데이터 포함 (POST 요청 등). Response (응답) Status Code: 요청의 처리 결과 (200 OK, 404 Not Found 등). Header: 응답 메타데이터. Body: 응답 데이터. HTTP Method와 상태 코드 HTTP Method GET: 데이터 조회. POST: 데이터 생성. PUT: 데이터 전체 수정. PATCH: 데이터 일부 수정. DELETE: 데이터 삭제. HTTP 상태 코드 200 OK: 정상 응답. 201 Created: 리소스 생성 완료. 400 Bad Request: 잘못된 요청. 401 Unauthorized: 인증 필요. 404 Not Found: 리소스 없음. 500 Internal Server Error: 서버 내부 오류. HTTP Header HTTP Header의 역할 요청과 응답의 부가 정보 제공. 자주 사용하는 Header Content-Type: 데이터 형식 지정 (application/json). Authorization: 인증 정보 포함. Cache-Control: 캐시 정책 (max-age, no-cache 등). Set-Cookie: 쿠키 설정 (세션 관리). Restful API REST (Representational State Transfer) 리소스를 기반으로 한 API 설계 원칙. RESTful API 설계 예시 POST /boards → 게시글 생성. GET /boards → 게시글 목록 조회. GET /boards/{id} → 특정 게시글 조회. PUT /boards/{id} → 게시글 수정. DELETE /boards/{id} → 게시글 삭제. Web Application Web Server vs WAS(Web Application Server) Web Server: 정적 콘텐츠 제공 (예: Nginx, Apache). WAS: 동적 콘텐츠 처리 (예: Tomcat, Spring Boot). Web System 구성 프론트엔드(클라이언트) → 백엔드(WAS) → 데이터베이스(DB). Servlet Servlet Java 기반 웹 애플리케이션을 처리하는 기술. Servlet 동작 순서 클라이언트가 요청 전송. Servlet Container가 요청을 분석하여 Servlet 실행. Servlet이 요청을 처리하고 응답 생성. 응답이 클라이언트에게 전달됨. Thread Thread 하나의 프로세스 내에서 실행되는 작업 단위. Multi-Thread 여러 작업을 동시에 실행하는 기술 (서버 성능 향상 가능). SSR(Server Side Rendering) vs CSR(Client Side Rendering) SSR: 서버에서 HTML을 생성하여 클라이언트로 전송 (초기 로딩 속도 빠름). CSR: 클라이언트에서 JavaScript를 이용해 동적으로 렌더링 (SPA에서 주로 사용). ">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="til">
+    <meta property="article:published_time" content="2025-03-17T22:00:03+09:00">
+    <meta property="article:modified_time" content="2025-03-17T22:00:03+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring 기초 1">
+<meta name="twitter:description" content="
+네트워크
+
+인터넷(Internet)
+
+TCP/IP 기반으로 동작하는 글로벌 네트워크.
+데이터 전송을 위해 유선(해저 케이블) 및 무선(위성 통신) 활용.
+
+
+인터넷 프로토콜(IP, Internet Protocol)
+
+네트워크 내에서 기기를 식별하는 주소 체계.
+예시: 192.168.0.1
+
+
+IP 방식의 문제점
+
+애플리케이션 구분 불가능.
+비연결성: 수신 대상의 상태를 고려하지 않고 전송.
+비신뢰성: 패킷 손실 및 순서 뒤섞임 가능.
+
+
+
+
+TCP와 UDP
+
+TCP(Transmission Control Protocol)
+
+신뢰성 있는 데이터 전송 (3-Way Handshake 방식).
+패킷 순서 보장 및 오류 검출 가능.
+
+
+UDP(User Datagram Protocol)
+
+빠른 전송 속도를 우선시 (비신뢰성 전송).
+실시간 스트리밍, 온라인 게임 등에 사용.
+
+
+PORT
+
+같은 IP에서 여러 프로세스를 구분하는 번호.
+주요 포트 번호: HTTP(80), HTTPS(443), FTP(21), SSH(22).
+
+
+
+
+Web
+
+DNS(Domain Name System)
+
+도메인과 IP 주소를 매핑하는 시스템.
+사람이 이해하기 쉬운 도메인(google.com)을 IP 주소로 변환.
+
+
+URI(Uniform Resource Identifier)
+
+인터넷 자원의 고유 식별자.
+
+
+URL(Uniform Resource Locator)
+
+리소스의 위치를 나타내는 형식 (https://spartacodingclub.kr/).
+
+
+
+
+브라우저에 URL을 입력하면
+
+사용자가 브라우저에 URL을 입력.
+DNS 조회를 통해 도메인에 해당하는 IP 주소 확인.
+웹 브라우저가 HTTP 요청을 생성.
+요청 패킷이 서버로 전송.
+서버에서 HTTP 요청을 처리 후 응답 생성.
+응답 패킷이 클라이언트로 전송.
+브라우저가 응답 데이터를 렌더링하여 화면 표시.
+
+
+용어 모음
+
+프로그래밍 명명규칙(Casing)
+
+snake_case: Python, DB 테이블에서 사용 (user_name).
+camelCase: Java, JavaScript에서 변수 및 메서드 이름에 사용 (userName).
+PascalCase: 클래스 및 객체 이름에 사용 (UserName).
+kebab-case: URL 및 CSS에서 사용 (user-name).
+
+
+JSON(JavaScript Object Notation)
+
+클라이언트-서버 간 데이터 교환을 위한 경량 데이터 포맷.
+XML 대비 가독성이 뛰어나고 용량이 작음.
+
+
+Scale Up, Scale Out
+
+Scale Up: 단일 서버의 성능 향상 (CPU, RAM 증가).
+Scale Out: 여러 대의 서버 확장 (부하 분산).
+
+
+Stateful vs Stateless
+
+Stateful: 클라이언트의 상태를 유지해야 하는 서비스.
+Stateless: 서버가 클라이언트 상태를 저장하지 않음 (확장성 우수).
+
+
+Connection vs Connectionless
+
+Connection: 지속적 연결 유지 (HTTP/1.0).
+Connectionless: 필요할 때만 연결 (HTTP/1.1, HTTP/2).
+
+
+
+
+HTTP
+
+HTTP(HyperText Transfer Protocol)
+
+인터넷 상에서 클라이언트와 서버 간 데이터를 교환하는 프로토콜.
+
+
+HTTP 특징
+
+Stateless(무상태): 클라이언트의 상태를 저장하지 않음.
+Connectionless(비연결): 요청-응답 후 연결을 끊음.
+
+
+HTTP Message 구조
+
+Request (요청)
+
+Start Line: HTTP Method, URL, HTTP Version.
+Header: 추가적인 요청 정보 (예: Content-Type).
+Body: 요청 데이터 포함 (POST 요청 등).
+
+
+Response (응답)
+
+Status Code: 요청의 처리 결과 (200 OK, 404 Not Found 등).
+Header: 응답 메타데이터.
+Body: 응답 데이터.
+
+
+
+
+
+
+HTTP Method와 상태 코드
+
+HTTP Method
+
+GET: 데이터 조회.
+POST: 데이터 생성.
+PUT: 데이터 전체 수정.
+PATCH: 데이터 일부 수정.
+DELETE: 데이터 삭제.
+
+
+HTTP 상태 코드
+
+200 OK: 정상 응답.
+201 Created: 리소스 생성 완료.
+400 Bad Request: 잘못된 요청.
+401 Unauthorized: 인증 필요.
+404 Not Found: 리소스 없음.
+500 Internal Server Error: 서버 내부 오류.
+
+
+
+
+HTTP Header
+
+HTTP Header의 역할
+
+요청과 응답의 부가 정보 제공.
+
+
+자주 사용하는 Header
+
+Content-Type: 데이터 형식 지정 (application/json).
+Authorization: 인증 정보 포함.
+Cache-Control: 캐시 정책 (max-age, no-cache 등).
+Set-Cookie: 쿠키 설정 (세션 관리).
+
+
+
+
+Restful API
+
+REST (Representational State Transfer)
+
+리소스를 기반으로 한 API 설계 원칙.
+
+
+RESTful API 설계 예시
+
+POST /boards → 게시글 생성.
+GET /boards → 게시글 목록 조회.
+GET /boards/{id} → 특정 게시글 조회.
+PUT /boards/{id} → 게시글 수정.
+DELETE /boards/{id} → 게시글 삭제.
+
+
+
+
+Web Application
+
+Web Server vs WAS(Web Application Server)
+
+Web Server: 정적 콘텐츠 제공 (예: Nginx, Apache).
+WAS: 동적 콘텐츠 처리 (예: Tomcat, Spring Boot).
+
+
+Web System 구성
+
+프론트엔드(클라이언트) → 백엔드(WAS) → 데이터베이스(DB).
+
+
+
+
+Servlet
+
+Servlet
+
+Java 기반 웹 애플리케이션을 처리하는 기술.
+
+
+Servlet 동작 순서
+
+클라이언트가 요청 전송.
+Servlet Container가 요청을 분석하여 Servlet 실행.
+Servlet이 요청을 처리하고 응답 생성.
+응답이 클라이언트에게 전달됨.
+
+
+
+
+Thread
+
+Thread
+
+하나의 프로세스 내에서 실행되는 작업 단위.
+
+
+Multi-Thread
+
+여러 작업을 동시에 실행하는 기술 (서버 성능 향상 가능).
+
+
+
+
+SSR(Server Side Rendering) vs CSR(Client Side Rendering)
+
+SSR: 서버에서 HTML을 생성하여 클라이언트로 전송 (초기 로딩 속도 빠름).
+CSR: 클라이언트에서 JavaScript를 이용해 동적으로 렌더링 (SPA에서 주로 사용).
+
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Today I Learned",
+      "item": "https://withong.github.io/til/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Spring 기초 1",
+      "item": "https://withong.github.io/til/til-15/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Spring 기초 1",
+  "name": "Spring 기초 1",
+  "description": " 네트워크 인터넷(Internet) TCP/IP 기반으로 동작하는 글로벌 네트워크. 데이터 전송을 위해 유선(해저 케이블) 및 무선(위성 통신) 활용. 인터넷 프로토콜(IP, Internet Protocol) 네트워크 내에서 기기를 식별하는 주소 체계. 예시: 192.168.0.1 IP 방식의 문제점 애플리케이션 구분 불가능. 비연결성: 수신 대상의 상태를 고려하지 않고 전송. 비신뢰성: 패킷 손실 및 순서 뒤섞임 가능. TCP와 UDP TCP(Transmission Control Protocol) 신뢰성 있는 데이터 전송 (3-Way Handshake 방식). 패킷 순서 보장 및 오류 검출 가능. UDP(User Datagram Protocol) 빠른 전송 속도를 우선시 (비신뢰성 전송). 실시간 스트리밍, 온라인 게임 등에 사용. PORT 같은 IP에서 여러 프로세스를 구분하는 번호. 주요 포트 번호: HTTP(80), HTTPS(443), FTP(21), SSH(22). Web DNS(Domain Name System) 도메인과 IP 주소를 매핑하는 시스템. 사람이 이해하기 쉬운 도메인(google.com)을 IP 주소로 변환. URI(Uniform Resource Identifier) 인터넷 자원의 고유 식별자. URL(Uniform Resource Locator) 리소스의 위치를 나타내는 형식 (https://spartacodingclub.kr/). 브라우저에 URL을 입력하면 사용자가 브라우저에 URL을 입력. DNS 조회를 통해 도메인에 해당하는 IP 주소 확인. 웹 브라우저가 HTTP 요청을 생성. 요청 패킷이 서버로 전송. 서버에서 HTTP 요청을 처리 후 응답 생성. 응답 패킷이 클라이언트로 전송. 브라우저가 응답 데이터를 렌더링하여 화면 표시. 용어 모음 프로그래밍 명명규칙(Casing) snake_case: Python, DB 테이블에서 사용 (user_name). camelCase: Java, JavaScript에서 변수 및 메서드 이름에 사용 (userName). PascalCase: 클래스 및 객체 이름에 사용 (UserName). kebab-case: URL 및 CSS에서 사용 (user-name). JSON(JavaScript Object Notation) 클라이언트-서버 간 데이터 교환을 위한 경량 데이터 포맷. XML 대비 가독성이 뛰어나고 용량이 작음. Scale Up, Scale Out Scale Up: 단일 서버의 성능 향상 (CPU, RAM 증가). Scale Out: 여러 대의 서버 확장 (부하 분산). Stateful vs Stateless Stateful: 클라이언트의 상태를 유지해야 하는 서비스. Stateless: 서버가 클라이언트 상태를 저장하지 않음 (확장성 우수). Connection vs Connectionless Connection: 지속적 연결 유지 (HTTP/1.0). Connectionless: 필요할 때만 연결 (HTTP/1.1, HTTP/2). HTTP HTTP(HyperText Transfer Protocol) 인터넷 상에서 클라이언트와 서버 간 데이터를 교환하는 프로토콜. HTTP 특징 Stateless(무상태): 클라이언트의 상태를 저장하지 않음. Connectionless(비연결): 요청-응답 후 연결을 끊음. HTTP Message 구조 Request (요청) Start Line: HTTP Method, URL, HTTP Version. Header: 추가적인 요청 정보 (예: Content-Type). Body: 요청 데이터 포함 (POST 요청 등). Response (응답) Status Code: 요청의 처리 결과 (200 OK, 404 Not Found 등). Header: 응답 메타데이터. Body: 응답 데이터. HTTP Method와 상태 코드 HTTP Method GET: 데이터 조회. POST: 데이터 생성. PUT: 데이터 전체 수정. PATCH: 데이터 일부 수정. DELETE: 데이터 삭제. HTTP 상태 코드 200 OK: 정상 응답. 201 Created: 리소스 생성 완료. 400 Bad Request: 잘못된 요청. 401 Unauthorized: 인증 필요. 404 Not Found: 리소스 없음. 500 Internal Server Error: 서버 내부 오류. HTTP Header HTTP Header의 역할 요청과 응답의 부가 정보 제공. 자주 사용하는 Header Content-Type: 데이터 형식 지정 (application/json). Authorization: 인증 정보 포함. Cache-Control: 캐시 정책 (max-age, no-cache 등). Set-Cookie: 쿠키 설정 (세션 관리). Restful API REST (Representational State Transfer) 리소스를 기반으로 한 API 설계 원칙. RESTful API 설계 예시 POST /boards → 게시글 생성. GET /boards → 게시글 목록 조회. GET /boards/{id} → 특정 게시글 조회. PUT /boards/{id} → 게시글 수정. DELETE /boards/{id} → 게시글 삭제. Web Application Web Server vs WAS(Web Application Server) Web Server: 정적 콘텐츠 제공 (예: Nginx, Apache). WAS: 동적 콘텐츠 처리 (예: Tomcat, Spring Boot). Web System 구성 프론트엔드(클라이언트) → 백엔드(WAS) → 데이터베이스(DB). Servlet Servlet Java 기반 웹 애플리케이션을 처리하는 기술. Servlet 동작 순서 클라이언트가 요청 전송. Servlet Container가 요청을 분석하여 Servlet 실행. Servlet이 요청을 처리하고 응답 생성. 응답이 클라이언트에게 전달됨. Thread Thread 하나의 프로세스 내에서 실행되는 작업 단위. Multi-Thread 여러 작업을 동시에 실행하는 기술 (서버 성능 향상 가능). SSR(Server Side Rendering) vs CSR(Client Side Rendering) SSR: 서버에서 HTML을 생성하여 클라이언트로 전송 (초기 로딩 속도 빠름). CSR: 클라이언트에서 JavaScript를 이용해 동적으로 렌더링 (SPA에서 주로 사용). ",
+  "keywords": [
+    
+  ],
+  "articleBody": " 네트워크 인터넷(Internet) TCP/IP 기반으로 동작하는 글로벌 네트워크. 데이터 전송을 위해 유선(해저 케이블) 및 무선(위성 통신) 활용. 인터넷 프로토콜(IP, Internet Protocol) 네트워크 내에서 기기를 식별하는 주소 체계. 예시: 192.168.0.1 IP 방식의 문제점 애플리케이션 구분 불가능. 비연결성: 수신 대상의 상태를 고려하지 않고 전송. 비신뢰성: 패킷 손실 및 순서 뒤섞임 가능. TCP와 UDP TCP(Transmission Control Protocol) 신뢰성 있는 데이터 전송 (3-Way Handshake 방식). 패킷 순서 보장 및 오류 검출 가능. UDP(User Datagram Protocol) 빠른 전송 속도를 우선시 (비신뢰성 전송). 실시간 스트리밍, 온라인 게임 등에 사용. PORT 같은 IP에서 여러 프로세스를 구분하는 번호. 주요 포트 번호: HTTP(80), HTTPS(443), FTP(21), SSH(22). Web DNS(Domain Name System) 도메인과 IP 주소를 매핑하는 시스템. 사람이 이해하기 쉬운 도메인(google.com)을 IP 주소로 변환. URI(Uniform Resource Identifier) 인터넷 자원의 고유 식별자. URL(Uniform Resource Locator) 리소스의 위치를 나타내는 형식 (https://spartacodingclub.kr/). 브라우저에 URL을 입력하면 사용자가 브라우저에 URL을 입력. DNS 조회를 통해 도메인에 해당하는 IP 주소 확인. 웹 브라우저가 HTTP 요청을 생성. 요청 패킷이 서버로 전송. 서버에서 HTTP 요청을 처리 후 응답 생성. 응답 패킷이 클라이언트로 전송. 브라우저가 응답 데이터를 렌더링하여 화면 표시. 용어 모음 프로그래밍 명명규칙(Casing) snake_case: Python, DB 테이블에서 사용 (user_name). camelCase: Java, JavaScript에서 변수 및 메서드 이름에 사용 (userName). PascalCase: 클래스 및 객체 이름에 사용 (UserName). kebab-case: URL 및 CSS에서 사용 (user-name). JSON(JavaScript Object Notation) 클라이언트-서버 간 데이터 교환을 위한 경량 데이터 포맷. XML 대비 가독성이 뛰어나고 용량이 작음. Scale Up, Scale Out Scale Up: 단일 서버의 성능 향상 (CPU, RAM 증가). Scale Out: 여러 대의 서버 확장 (부하 분산). Stateful vs Stateless Stateful: 클라이언트의 상태를 유지해야 하는 서비스. Stateless: 서버가 클라이언트 상태를 저장하지 않음 (확장성 우수). Connection vs Connectionless Connection: 지속적 연결 유지 (HTTP/1.0). Connectionless: 필요할 때만 연결 (HTTP/1.1, HTTP/2). HTTP HTTP(HyperText Transfer Protocol) 인터넷 상에서 클라이언트와 서버 간 데이터를 교환하는 프로토콜. HTTP 특징 Stateless(무상태): 클라이언트의 상태를 저장하지 않음. Connectionless(비연결): 요청-응답 후 연결을 끊음. HTTP Message 구조 Request (요청) Start Line: HTTP Method, URL, HTTP Version. Header: 추가적인 요청 정보 (예: Content-Type). Body: 요청 데이터 포함 (POST 요청 등). Response (응답) Status Code: 요청의 처리 결과 (200 OK, 404 Not Found 등). Header: 응답 메타데이터. Body: 응답 데이터. HTTP Method와 상태 코드 HTTP Method GET: 데이터 조회. POST: 데이터 생성. PUT: 데이터 전체 수정. PATCH: 데이터 일부 수정. DELETE: 데이터 삭제. HTTP 상태 코드 200 OK: 정상 응답. 201 Created: 리소스 생성 완료. 400 Bad Request: 잘못된 요청. 401 Unauthorized: 인증 필요. 404 Not Found: 리소스 없음. 500 Internal Server Error: 서버 내부 오류. HTTP Header HTTP Header의 역할 요청과 응답의 부가 정보 제공. 자주 사용하는 Header Content-Type: 데이터 형식 지정 (application/json). Authorization: 인증 정보 포함. Cache-Control: 캐시 정책 (max-age, no-cache 등). Set-Cookie: 쿠키 설정 (세션 관리). Restful API REST (Representational State Transfer) 리소스를 기반으로 한 API 설계 원칙. RESTful API 설계 예시 POST /boards → 게시글 생성. GET /boards → 게시글 목록 조회. GET /boards/{id} → 특정 게시글 조회. PUT /boards/{id} → 게시글 수정. DELETE /boards/{id} → 게시글 삭제. Web Application Web Server vs WAS(Web Application Server) Web Server: 정적 콘텐츠 제공 (예: Nginx, Apache). WAS: 동적 콘텐츠 처리 (예: Tomcat, Spring Boot). Web System 구성 프론트엔드(클라이언트) → 백엔드(WAS) → 데이터베이스(DB). Servlet Servlet Java 기반 웹 애플리케이션을 처리하는 기술. Servlet 동작 순서 클라이언트가 요청 전송. Servlet Container가 요청을 분석하여 Servlet 실행. Servlet이 요청을 처리하고 응답 생성. 응답이 클라이언트에게 전달됨. Thread Thread 하나의 프로세스 내에서 실행되는 작업 단위. Multi-Thread 여러 작업을 동시에 실행하는 기술 (서버 성능 향상 가능). SSR(Server Side Rendering) vs CSR(Client Side Rendering) SSR: 서버에서 HTML을 생성하여 클라이언트로 전송 (초기 로딩 속도 빠름). CSR: 클라이언트에서 JavaScript를 이용해 동적으로 렌더링 (SPA에서 주로 사용). ",
+  "wordCount" : "573",
+  "inLanguage": "ko",
+  "datePublished": "2025-03-17T22:00:03+09:00",
+  "dateModified": "2025-03-17T22:00:03+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/til/til-15/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/code.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/topic/" title="Topic">
+                    <span>Topic</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/til/">Today I Learned</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Spring 기초 1
+    </h1>
+    <div class="post-meta"><span title='2025-03-17 22:00:03 +0900 KST'>2025년 3월 17일</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#네트워크">네트워크</a>
+      <ul>
+        <li><a href="#tcp와-udp">TCP와 UDP</a></li>
+      </ul>
+    </li>
+    <li><a href="#web">Web</a>
+      <ul>
+        <li><a href="#브라우저에-url을-입력하면">브라우저에 URL을 입력하면</a></li>
+      </ul>
+    </li>
+    <li><a href="#용어-모음">용어 모음</a></li>
+    <li><a href="#http">HTTP</a>
+      <ul>
+        <li><a href="#http-method와-상태-코드">HTTP Method와 상태 코드</a></li>
+        <li><a href="#http-header">HTTP Header</a></li>
+      </ul>
+    </li>
+    <li><a href="#restful-api">Restful API</a></li>
+    <li><a href="#web-application">Web Application</a>
+      <ul>
+        <li><a href="#servlet">Servlet</a></li>
+        <li><a href="#thread">Thread</a></li>
+        <li><a href="#ssrserver-side-rendering-vs-csrclient-side-rendering">SSR(Server Side Rendering) vs CSR(Client Side Rendering)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><hr>
+<h2 id="네트워크">네트워크<a hidden class="anchor" aria-hidden="true" href="#네트워크">#</a></h2>
+<ul>
+<li>인터넷(Internet)
+<ul>
+<li>TCP/IP 기반으로 동작하는 글로벌 네트워크.</li>
+<li>데이터 전송을 위해 유선(해저 케이블) 및 무선(위성 통신) 활용.</li>
+</ul>
+</li>
+<li>인터넷 프로토콜(IP, Internet Protocol)
+<ul>
+<li>네트워크 내에서 기기를 식별하는 주소 체계.</li>
+<li>예시: <code>192.168.0.1</code></li>
+</ul>
+</li>
+<li>IP 방식의 문제점
+<ul>
+<li>애플리케이션 구분 불가능.</li>
+<li>비연결성: 수신 대상의 상태를 고려하지 않고 전송.</li>
+<li>비신뢰성: 패킷 손실 및 순서 뒤섞임 가능.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="tcp와-udp">TCP와 UDP<a hidden class="anchor" aria-hidden="true" href="#tcp와-udp">#</a></h3>
+<ul>
+<li>TCP(Transmission Control Protocol)
+<ul>
+<li>신뢰성 있는 데이터 전송 (3-Way Handshake 방식).</li>
+<li>패킷 순서 보장 및 오류 검출 가능.</li>
+</ul>
+</li>
+<li>UDP(User Datagram Protocol)
+<ul>
+<li>빠른 전송 속도를 우선시 (비신뢰성 전송).</li>
+<li>실시간 스트리밍, 온라인 게임 등에 사용.</li>
+</ul>
+</li>
+<li>PORT
+<ul>
+<li>같은 IP에서 여러 프로세스를 구분하는 번호.</li>
+<li>주요 포트 번호: HTTP(80), HTTPS(443), FTP(21), SSH(22).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="web">Web<a hidden class="anchor" aria-hidden="true" href="#web">#</a></h2>
+<ul>
+<li>DNS(Domain Name System)
+<ul>
+<li>도메인과 IP 주소를 매핑하는 시스템.</li>
+<li>사람이 이해하기 쉬운 도메인(<code>google.com</code>)을 IP 주소로 변환.</li>
+</ul>
+</li>
+<li>URI(Uniform Resource Identifier)
+<ul>
+<li>인터넷 자원의 고유 식별자.</li>
+</ul>
+</li>
+<li>URL(Uniform Resource Locator)
+<ul>
+<li>리소스의 위치를 나타내는 형식 (<code>https://spartacodingclub.kr/</code>).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="브라우저에-url을-입력하면">브라우저에 URL을 입력하면<a hidden class="anchor" aria-hidden="true" href="#브라우저에-url을-입력하면">#</a></h3>
+<ol>
+<li>사용자가 브라우저에 URL을 입력.</li>
+<li>DNS 조회를 통해 도메인에 해당하는 IP 주소 확인.</li>
+<li>웹 브라우저가 HTTP 요청을 생성.</li>
+<li>요청 패킷이 서버로 전송.</li>
+<li>서버에서 HTTP 요청을 처리 후 응답 생성.</li>
+<li>응답 패킷이 클라이언트로 전송.</li>
+<li>브라우저가 응답 데이터를 렌더링하여 화면 표시.</li>
+</ol>
+<hr>
+<h2 id="용어-모음">용어 모음<a hidden class="anchor" aria-hidden="true" href="#용어-모음">#</a></h2>
+<ul>
+<li>프로그래밍 명명규칙(Casing)
+<ul>
+<li><code>snake_case</code>: Python, DB 테이블에서 사용 (<code>user_name</code>).</li>
+<li><code>camelCase</code>: Java, JavaScript에서 변수 및 메서드 이름에 사용 (<code>userName</code>).</li>
+<li><code>PascalCase</code>: 클래스 및 객체 이름에 사용 (<code>UserName</code>).</li>
+<li><code>kebab-case</code>: URL 및 CSS에서 사용 (<code>user-name</code>).</li>
+</ul>
+</li>
+<li>JSON(JavaScript Object Notation)
+<ul>
+<li>클라이언트-서버 간 데이터 교환을 위한 경량 데이터 포맷.</li>
+<li>XML 대비 가독성이 뛰어나고 용량이 작음.</li>
+</ul>
+</li>
+<li>Scale Up, Scale Out
+<ul>
+<li>Scale Up: 단일 서버의 성능 향상 (CPU, RAM 증가).</li>
+<li>Scale Out: 여러 대의 서버 확장 (부하 분산).</li>
+</ul>
+</li>
+<li>Stateful vs Stateless
+<ul>
+<li>Stateful: 클라이언트의 상태를 유지해야 하는 서비스.</li>
+<li>Stateless: 서버가 클라이언트 상태를 저장하지 않음 (확장성 우수).</li>
+</ul>
+</li>
+<li>Connection vs Connectionless
+<ul>
+<li>Connection: 지속적 연결 유지 (HTTP/1.0).</li>
+<li>Connectionless: 필요할 때만 연결 (HTTP/1.1, HTTP/2).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="http">HTTP<a hidden class="anchor" aria-hidden="true" href="#http">#</a></h2>
+<ul>
+<li>HTTP(HyperText Transfer Protocol)
+<ul>
+<li>인터넷 상에서 클라이언트와 서버 간 데이터를 교환하는 프로토콜.</li>
+</ul>
+</li>
+<li>HTTP 특징
+<ul>
+<li>Stateless(무상태): 클라이언트의 상태를 저장하지 않음.</li>
+<li>Connectionless(비연결): 요청-응답 후 연결을 끊음.</li>
+</ul>
+</li>
+<li>HTTP Message 구조
+<ul>
+<li>Request (요청)
+<ul>
+<li>Start Line: HTTP Method, URL, HTTP Version.</li>
+<li>Header: 추가적인 요청 정보 (예: <code>Content-Type</code>).</li>
+<li>Body: 요청 데이터 포함 (POST 요청 등).</li>
+</ul>
+</li>
+<li>Response (응답)
+<ul>
+<li>Status Code: 요청의 처리 결과 (<code>200 OK</code>, <code>404 Not Found</code> 등).</li>
+<li>Header: 응답 메타데이터.</li>
+<li>Body: 응답 데이터.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="http-method와-상태-코드">HTTP Method와 상태 코드<a hidden class="anchor" aria-hidden="true" href="#http-method와-상태-코드">#</a></h3>
+<ul>
+<li>HTTP Method
+<ul>
+<li><code>GET</code>: 데이터 조회.</li>
+<li><code>POST</code>: 데이터 생성.</li>
+<li><code>PUT</code>: 데이터 전체 수정.</li>
+<li><code>PATCH</code>: 데이터 일부 수정.</li>
+<li><code>DELETE</code>: 데이터 삭제.</li>
+</ul>
+</li>
+<li>HTTP 상태 코드
+<ul>
+<li><code>200 OK</code>: 정상 응답.</li>
+<li><code>201 Created</code>: 리소스 생성 완료.</li>
+<li><code>400 Bad Request</code>: 잘못된 요청.</li>
+<li><code>401 Unauthorized</code>: 인증 필요.</li>
+<li><code>404 Not Found</code>: 리소스 없음.</li>
+<li><code>500 Internal Server Error</code>: 서버 내부 오류.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="http-header">HTTP Header<a hidden class="anchor" aria-hidden="true" href="#http-header">#</a></h3>
+<ul>
+<li>HTTP Header의 역할
+<ul>
+<li>요청과 응답의 부가 정보 제공.</li>
+</ul>
+</li>
+<li>자주 사용하는 Header
+<ul>
+<li><code>Content-Type</code>: 데이터 형식 지정 (<code>application/json</code>).</li>
+<li><code>Authorization</code>: 인증 정보 포함.</li>
+<li><code>Cache-Control</code>: 캐시 정책 (<code>max-age</code>, <code>no-cache</code> 등).</li>
+<li><code>Set-Cookie</code>: 쿠키 설정 (세션 관리).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="restful-api">Restful API<a hidden class="anchor" aria-hidden="true" href="#restful-api">#</a></h2>
+<ul>
+<li>REST (Representational State Transfer)
+<ul>
+<li>리소스를 기반으로 한 API 설계 원칙.</li>
+</ul>
+</li>
+<li>RESTful API 설계 예시
+<ul>
+<li><code>POST /boards</code> → 게시글 생성.</li>
+<li><code>GET /boards</code> → 게시글 목록 조회.</li>
+<li><code>GET /boards/{id}</code> → 특정 게시글 조회.</li>
+<li><code>PUT /boards/{id}</code> → 게시글 수정.</li>
+<li><code>DELETE /boards/{id}</code> → 게시글 삭제.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="web-application">Web Application<a hidden class="anchor" aria-hidden="true" href="#web-application">#</a></h2>
+<ul>
+<li>Web Server vs WAS(Web Application Server)
+<ul>
+<li>Web Server: 정적 콘텐츠 제공 (예: Nginx, Apache).</li>
+<li>WAS: 동적 콘텐츠 처리 (예: Tomcat, Spring Boot).</li>
+</ul>
+</li>
+<li>Web System 구성
+<ul>
+<li>프론트엔드(클라이언트) → 백엔드(WAS) → 데이터베이스(DB).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="servlet">Servlet<a hidden class="anchor" aria-hidden="true" href="#servlet">#</a></h3>
+<ul>
+<li>Servlet
+<ul>
+<li>Java 기반 웹 애플리케이션을 처리하는 기술.</li>
+</ul>
+</li>
+<li>Servlet 동작 순서
+<ol>
+<li>클라이언트가 요청 전송.</li>
+<li>Servlet Container가 요청을 분석하여 Servlet 실행.</li>
+<li>Servlet이 요청을 처리하고 응답 생성.</li>
+<li>응답이 클라이언트에게 전달됨.</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="thread">Thread<a hidden class="anchor" aria-hidden="true" href="#thread">#</a></h3>
+<ul>
+<li>Thread
+<ul>
+<li>하나의 프로세스 내에서 실행되는 작업 단위.</li>
+</ul>
+</li>
+<li>Multi-Thread
+<ul>
+<li>여러 작업을 동시에 실행하는 기술 (서버 성능 향상 가능).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="ssrserver-side-rendering-vs-csrclient-side-rendering">SSR(Server Side Rendering) vs CSR(Client Side Rendering)<a hidden class="anchor" aria-hidden="true" href="#ssrserver-side-rendering-vs-csrclient-side-rendering">#</a></h3>
+<ul>
+<li>SSR: 서버에서 HTML을 생성하여 클라이언트로 전송 (초기 로딩 속도 빠름).</li>
+<li>CSR: 클라이언트에서 JavaScript를 이용해 동적으로 렌더링 (SPA에서 주로 사용).</li>
+</ul>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✔';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

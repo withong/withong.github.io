@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>계산기 Lv 1-2 회고 | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+✅ [과제] Java 계산기 만들기 level 2 수정
+✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
+✅ [문제] 알고리즘 문제 풀기
+
+
+✅ 개인 과제 - 필수 구현
+
+[내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1
+[내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2
+
+
+🫠 level 1 vs level 2
+개선된 점
+
+계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리
+calculate()의 반환 타입 double에서 String으로 변경
+→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선
+CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선
+trimRecords() 추가하여 과도한 데이터 누적 방지
+0으로 나누기 처리 Error에서 정의되지 않음으로 개선
+int 범위 초과 처리 Error에서 연산 범위 초과로 개선
+최근 연산 기록 조회할 수 있도록 showRecords() 추가
+사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가.
+
+
+개선할 점
+
+int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
+오류 처리 방식 handleError → 커스텀 예외 처리
+">
+<meta name="author" content="">
+<link rel="canonical" href="https://withong.github.io/til/til-10/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/zep.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/til/til-10/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://withong.github.io/til/til-10/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="계산기 Lv 1-2 회고">
+  <meta property="og:description" content=" ✅ [과제] Java 계산기 만들기 level 2 수정
+✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
+✅ [문제] 알고리즘 문제 풀기
+✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경
+→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 ">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="til">
+    <meta property="article:published_time" content="2025-02-28T21:00:00+09:00">
+    <meta property="article:modified_time" content="2025-02-28T21:00:00+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="계산기 Lv 1-2 회고">
+<meta name="twitter:description" content="
+✅ [과제] Java 계산기 만들기 level 2 수정
+✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
+✅ [문제] 알고리즘 문제 풀기
+
+
+✅ 개인 과제 - 필수 구현
+
+[내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1
+[내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2
+
+
+🫠 level 1 vs level 2
+개선된 점
+
+계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리
+calculate()의 반환 타입 double에서 String으로 변경
+→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선
+CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선
+trimRecords() 추가하여 과도한 데이터 누적 방지
+0으로 나누기 처리 Error에서 정의되지 않음으로 개선
+int 범위 초과 처리 Error에서 연산 범위 초과로 개선
+최근 연산 기록 조회할 수 있도록 showRecords() 추가
+사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가.
+
+
+개선할 점
+
+int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
+오류 처리 방식 handleError → 커스텀 예외 처리
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Today I Learned",
+      "item": "https://withong.github.io/til/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "계산기 Lv 1-2 회고",
+      "item": "https://withong.github.io/til/til-10/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "계산기 Lv 1-2 회고",
+  "name": "계산기 Lv 1-2 회고",
+  "description": " ✅ [과제] Java 계산기 만들기 level 2 수정\n✅ [과제] 과제 TIL \u0026amp; 트러블 슈팅 작성\n✅ [문제] 알고리즘 문제 풀기\n✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경\n→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 ",
+  "keywords": [
+    
+  ],
+  "articleBody": " ✅ [과제] Java 계산기 만들기 level 2 수정\n✅ [과제] 과제 TIL \u0026 트러블 슈팅 작성\n✅ [문제] 알고리즘 문제 풀기\n✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경\n→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 ",
+  "wordCount" : "143",
+  "inLanguage": "ko",
+  "datePublished": "2025-02-28T21:00:00+09:00",
+  "dateModified": "2025-02-28T21:00:00+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/til/til-10/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/code.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/topic/" title="Topic">
+                    <span>Topic</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/til/">Today I Learned</a></div>
+    <h1 class="post-title entry-hint-parent">
+      계산기 Lv 1-2 회고
+    </h1>
+    <div class="post-meta"><span title='2025-02-28 21:00:00 +0900 KST'>2025년 2월 28일</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#-개인-과제---필수-구현">✅ 개인 과제 - 필수 구현</a></li>
+    <li><a href="#-level-1-vs-level-2">🫠 <code>level 1 vs level 2</code></a>
+      <ul>
+        <li><a href="#개선된-점">개선된 점</a></li>
+        <li><a href="#개선할-점">개선할 점</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>✅ [과제] Java 계산기 만들기 level 2 수정<br>
+✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성<br>
+✅ [문제] 알고리즘 문제 풀기</p></blockquote>
+<hr>
+<br>
+<h2 id="-개인-과제---필수-구현">✅ 개인 과제 - 필수 구현<a hidden class="anchor" aria-hidden="true" href="#-개인-과제---필수-구현">#</a></h2>
+<ul>
+<li><a href="https://velog.io/@ezro/camp-task-1">[내일배움캠프] 과제 - 계산기 1</a> <strong>/</strong> <a href="https://github.com/withong/nbc-chapter-02/tree/main/calculator/level1">[GitHub] nbc-chapter-02/calculator/level1</a></li>
+<li><a href="https://velog.io/@ezro/camp-task-2">[내일배움캠프] 과제 - 계산기 2</a> <strong>/</strong> <a href="https://github.com/withong/nbc-chapter-02/tree/main/calculator/level2">[GitHub] nbc-chapter-02/calculator/level2</a>
+<br></li>
+</ul>
+<h2 id="-level-1-vs-level-2">🫠 <code>level 1 vs level 2</code><a hidden class="anchor" aria-hidden="true" href="#-level-1-vs-level-2">#</a></h2>
+<h3 id="개선된-점">개선된 점<a hidden class="anchor" aria-hidden="true" href="#개선된-점">#</a></h3>
+<ul>
+<li>계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리</li>
+<li><code>calculate()</code>의 반환 타입 <code>double</code>에서 <code>String</code>으로 변경<br>
+→ 연산 오류 처리 반환값 <code>-9999</code>에서 <code>의미 있는 메시지</code>로 개선</li>
+<li><code>CalculationRecord</code> 클래스 추가하여 연산 기록 저장 방식 개선</li>
+<li><code>trimRecords()</code> 추가하여 과도한 데이터 누적 방지</li>
+<li>0으로 나누기 처리 <code>Error</code>에서 <code>정의되지 않음</code>으로 개선</li>
+<li>int 범위 초과 처리 <code>Error</code>에서 <code>연산 범위 초과</code>로 개선</li>
+<li>최근 연산 기록 조회할 수 있도록 <code>showRecords()</code> 추가</li>
+<li>사용자가 직접 삭제할 수 있도록 <code>removeRecords()</code> 메서드 추가.
+<br></li>
+</ul>
+<h3 id="개선할-점">개선할 점<a hidden class="anchor" aria-hidden="true" href="#개선할-점">#</a></h3>
+<ul>
+<li><code>int</code> 범위 초과하는 입력값, 연산 결과 오류 → <code>long</code>으로 확장</li>
+<li>오류 처리 방식 <code>handleError</code> → 커스텀 예외 처리</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✔';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
