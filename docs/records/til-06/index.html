@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Java 기초 | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+✅ Java 문법 강의 1주차
+
+Chapter 1. Java 기초 문법 다지기
+
+JDK (Java Development Kit)
+
+JDK → Java 프로그램을 개발할 때 필요한 개발 도구 모음
+
+Javac(Java Compiler) → 자바코드를 바이트코드(.class)로 변환
+JVM (Java Virtual Machine) → 바이트코드를 실행
+
+
+
+
+컴퓨터의 기억 방식
+
+RAM (메모리) → 휘발성, 프로그램 실행 시 사용됨
+보조기억장치 (HDD, SSD) → 영구 저장
+비트(Bit) → 0 또는 1의 값
+바이트(Byte) → 8비트로 구성
+
+
+자바 프로젝트 관리
+
+네이밍 규칙
+
+카멜케이스 (camelCase) → 변수, 메서드 (myVariableName)
+스네이크케이스 (snake_case) → (Java에서는 잘 사용하지 않음)
+클래스 이름 → PascalCase (MyClass)
+패키지 이름 → 소문자 (com.example.app)
+
+
+
+
+변수와 자료형
+
+변수 → 데이터를 저장하는 공간
+자료형
+
+기본형: int, double, char, boolean
+참조형: String, Array, Class
+
+
+
+int num = 10;  // 정수형 변수
+double pi = 3.14;  // 실수형 변수
+boolean isJavaFun = true;  // 논리형 변수
+
+형변환
+
+업캐스팅(작은 → 큰 자료형) → 자동 변환
+다운캐스팅(큰 → 작은 자료형) → 강제 변환
+
+
+
+double d = 10;  // 자동 형변환 (업캐스팅)
+int i = (int) d;  // 강제 형변환 (다운캐스팅)
+
+입출력 (I/O)
+
+입력 (Scanner 사용)
+
+import java.util.Scanner;
+Scanner scanner = new Scanner(System.in);
+int num = scanner.nextInt();  // 정수 입력
+
+출력 (System.out 사용)
+
+System.out.println(&#34;Hello Java!&#34;);  // 개행 포함 출력
+System.out.print(&#34;No new line&#34;);  // 개행 없이 출력
+System.out.println(&#34;\n줄 바꿈 포함&#34;);  // `\n` 사용
+
+연산자
+
+산술 연산자(&#43;, -, *, /, %)
+대입 연산자(=)
+
+복합 대입 연산자(&#43;=, -=, *=, /= , %=)
+
+
+증감 연산자(&#43;&#43;, --)
+
+전위 연산 - 사용 전 연산
+후위 연산 - 사용 후 연산
+
+
+비교 연산자(==, !=, &lt;, &gt;, &lt;=, &gt;=)
+논리 연산자(!, &amp;&amp;, ||)
+문자열 비교(equals())
+
+
+조건문
+import java.util.Scanner;
+Scanner scanner = new Scanner(System.in);
+
+System.out.print(&#34;신호등 색상을 입력하세요(초록불, 노란불, 빨간불): &#34;);
+String light = scanner.nextLine();
+if (light.equals(&#34;초록불&#34;)) {
+	System.out.println(&#34;건너세요!&#34;);
+    
+} else if (light.equals(&#34;노란불&#34;)) {
+	System.out.println(&#34;주의하세요!&#34;);
+    
+} else if (light.equals(&#34;빨간불&#34;)) {
+	System.out.println(&#34;멈추세요!&#34;);
+    
+} else {
+	System.out.println(&#34;잘못된 입력입니다!&#34;);
+}
+switch (light) {
+	case &#34;초록불&#34;:
+    	System.out.println(&#34;건너세요!&#34;);
+        break;
+	case &#34;노란불&#34;:
+    	System.out.println(&#34;주의하세요!&#34;);
+		break;
+	case &#34;빨간불&#34;:
+    	System.out.println(&#34;멈추세요!&#34;);
+        break;
+	default:
+    	System.out.println(&#34;잘못된 입력입니다!&#34;);
+}
+
+반복문
+for (int i = 0; i &lt; 5; i&#43;&#43;) {
+    System.out.print(i &#43; &#34; &#34;);  // 0 1 2 3 4
+}
+int i = 0;
+while (i &lt; 5) {
+    System.out.print(i &#43; &#34; &#34;);
+    i&#43;&#43;;
+}
+int i = 0;
+do {
+    System.out.print(i &#43; &#34; &#34;);
+    i&#43;&#43;;
+} while (i &lt; 5);
+
+배열
+// 1. 배열 선언
+int[] arr1;
+
+// 2. 배열 길이 할당
+arr1 = new int[5];
+
+// 3. 배열 선언과 길이 동시에 할당
+int[] arr2 = new int[5];
+
+// 4. 배열 선언과 동시에 배열의 요소 할당
+int[] arr3 = {10, 20, 30, 40, 50};
+
+// 배열의 길이
+int arrLength = arr3.length;
+System.out.println(&#34;arrLength = &#34; &#43; arrLength);
+
+// 배열 요소 접근
+System.out.println(&#34;배열의 1번째 요소 접근: &#34; &#43; arr3[0]);
+
+// 배열 요소 변경
+arr3[0] = 100;
+
+// 향상된 for 문
+for (int a : arr3) {
+	System.out.println(&#34;a = &#34; &#43; a);
+}
+
+// 2차원 배열
+int[][] arr4 = {
+    {1, 2},
+    {3, 4}
+};
+System.out.println(arr4[1][0]);  // 3
+
+메서드
+public class Calculator {
+	// 두 정수를 더하는 메서드 (반환값 있음: int)
+    int sum(int value1, int value2) {
+        int result = value1 &#43; value2; // 두 값 더하기
+        return result; // 결과 반환
+    }
+
+	// 반환값이 없는 메서드 (void)
+    void printSum(int value1, int value2) {
+        int result = value1 &#43; value2;
+        System.out.println(&#34;result = &#34; &#43; result);
+    }
+
+}
+public class Main {
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator(); // Calculator 객체 생성
+
+		// sum 메서드는 반환값이 있어서 변수에 저장
+        int result = calculator.sum(1, 2);
+        System.out.println(&#34;result = &#34; &#43; result);
+        
+        // printSum 메서드는 반환값이 없고 바로 출력됨
+        calculator.printSum(3, 4);
+    }
+}
+result = 3
+result = 7
+">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/records/til-06/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/code.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/zep.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/zep.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/records/til-06/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/topic/" title="Topic">
+                    <span>Topic</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/records/">Records</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Java 기초
+    </h1>
+    <div class="post-meta"><span title='2025-02-24 21:00:00 +0900 KST'>2025년 2월 24일</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter-1-java-기초-문법-다지기">Chapter 1. Java 기초 문법 다지기</a>
+      <ul>
+        <li><a href="#jdk-java-development-kit">JDK (Java Development Kit)</a></li>
+        <li><a href="#컴퓨터의-기억-방식">컴퓨터의 기억 방식</a></li>
+        <li><a href="#자바-프로젝트-관리">자바 프로젝트 관리</a></li>
+        <li><a href="#변수와-자료형">변수와 자료형</a></li>
+        <li><a href="#입출력-io">입출력 (I/O)</a></li>
+        <li><a href="#연산자">연산자</a></li>
+        <li><a href="#조건문">조건문</a></li>
+        <li><a href="#반복문">반복문</a></li>
+        <li><a href="#배열">배열</a></li>
+        <li><a href="#메서드">메서드</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>✅ Java 문법 강의 1주차</p></blockquote>
+<hr>
+<h2 id="chapter-1-java-기초-문법-다지기">Chapter 1. Java 기초 문법 다지기<a hidden class="anchor" aria-hidden="true" href="#chapter-1-java-기초-문법-다지기">#</a></h2>
+<br>
+<h3 id="jdk-java-development-kit">JDK (Java Development Kit)<a hidden class="anchor" aria-hidden="true" href="#jdk-java-development-kit">#</a></h3>
+<ul>
+<li>JDK → Java 프로그램을 개발할 때 필요한 개발 도구 모음
+<ul>
+<li>Javac(Java Compiler) → 자바코드를 바이트코드(.class)로 변환</li>
+<li>JVM (Java Virtual Machine) → 바이트코드를 실행</li>
+</ul>
+</li>
+</ul>
+<br>
+<h3 id="컴퓨터의-기억-방식">컴퓨터의 기억 방식<a hidden class="anchor" aria-hidden="true" href="#컴퓨터의-기억-방식">#</a></h3>
+<ul>
+<li>RAM (메모리) → 휘발성, 프로그램 실행 시 사용됨</li>
+<li>보조기억장치 (HDD, SSD) → 영구 저장</li>
+<li>비트(Bit) → 0 또는 1의 값</li>
+<li>바이트(Byte) → 8비트로 구성</li>
+</ul>
+<br>
+<h3 id="자바-프로젝트-관리">자바 프로젝트 관리<a hidden class="anchor" aria-hidden="true" href="#자바-프로젝트-관리">#</a></h3>
+<ul>
+<li>네이밍 규칙
+<ul>
+<li>카멜케이스 (camelCase) → 변수, 메서드 (myVariableName)</li>
+<li>스네이크케이스 (snake_case) → (Java에서는 잘 사용하지 않음)</li>
+<li>클래스 이름 → PascalCase (MyClass)</li>
+<li>패키지 이름 → 소문자 (com.example.app)</li>
+</ul>
+</li>
+</ul>
+<br>
+<h3 id="변수와-자료형">변수와 자료형<a hidden class="anchor" aria-hidden="true" href="#변수와-자료형">#</a></h3>
+<ul>
+<li>변수 → 데이터를 저장하는 공간</li>
+<li>자료형
+<ul>
+<li>기본형: <code>int</code>, <code>double</code>, <code>char</code>, <code>boolean</code></li>
+<li>참조형: <code>String</code>, <code>Array</code>, <code>Class</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">  </span><span class="c1">// 정수형 변수</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">3</span><span class="p">.</span><span class="na">14</span><span class="p">;</span><span class="w">  </span><span class="c1">// 실수형 변수</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">boolean</span><span class="w"> </span><span class="n">isJavaFun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// 논리형 변수</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>형변환
+<ul>
+<li>업캐스팅(작은 → 큰 자료형) → 자동 변환</li>
+<li>다운캐스팅(큰 → 작은 자료형) → 강제 변환</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">  </span><span class="c1">// 자동 형변환 (업캐스팅)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w">  </span><span class="c1">// 강제 형변환 (다운캐스팅)</span><span class="w">
+</span></span></span></code></pre></div><br>
+<h3 id="입출력-io">입출력 (I/O)<a hidden class="anchor" aria-hidden="true" href="#입출력-io">#</a></h3>
+<ul>
+<li>입력 (Scanner 사용)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Scanner</span><span class="w"> </span><span class="n">scanner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanner</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span><span class="w">  </span><span class="c1">// 정수 입력</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>출력 (System.out 사용)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Hello Java!&#34;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 개행 포함 출력</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&#34;No new line&#34;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 개행 없이 출력</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;\n줄 바꿈 포함&#34;</span><span class="p">);</span><span class="w">  </span><span class="c1">// `\n` 사용</span><span class="w">
+</span></span></span></code></pre></div><br>
+<h3 id="연산자">연산자<a hidden class="anchor" aria-hidden="true" href="#연산자">#</a></h3>
+<ul>
+<li>산술 연산자(<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>)</li>
+<li>대입 연산자(<code>=</code>)
+<ul>
+<li>복합 대입 연산자(<code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code> , <code>%=</code>)</li>
+</ul>
+</li>
+<li>증감 연산자(<code>++</code>, <code>--</code>)
+<ul>
+<li>전위 연산 - 사용 전 연산</li>
+<li>후위 연산 - 사용 후 연산</li>
+</ul>
+</li>
+<li>비교 연산자(<code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>)</li>
+<li>논리 연산자(<code>!</code>, <code>&amp;&amp;</code>, <code>||</code>)</li>
+<li>문자열 비교(<code>equals()</code>)</li>
+</ul>
+<br>
+<h3 id="조건문">조건문<a hidden class="anchor" aria-hidden="true" href="#조건문">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Scanner</span><span class="w"> </span><span class="n">scanner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&#34;신호등 색상을 입력하세요(초록불, 노란불, 빨간불): &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanner</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">light</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;초록불&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;건너세요!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">light</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;노란불&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;주의하세요!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">light</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;빨간불&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;멈추세요!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;잘못된 입력입니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">light</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">case</span><span class="w"> </span><span class="s">&#34;초록불&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;건너세요!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">case</span><span class="w"> </span><span class="s">&#34;노란불&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;주의하세요!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">case</span><span class="w"> </span><span class="s">&#34;빨간불&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;멈추세요!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">default</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;잘못된 입력입니다!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<h3 id="반복문">반복문<a hidden class="anchor" aria-hidden="true" href="#반복문">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 0 1 2 3 4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">5</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><br>
+<h3 id="배열">배열<a hidden class="anchor" aria-hidden="true" href="#배열">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 1. 배열 선언</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 2. 배열 길이 할당</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">arr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">5</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 3. 배열 선언과 길이 동시에 할당</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">5</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 4. 배열 선언과 동시에 배열의 요소 할당</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">10</span><span class="p">,</span><span class="w"> </span><span class="n">20</span><span class="p">,</span><span class="w"> </span><span class="n">30</span><span class="p">,</span><span class="w"> </span><span class="n">40</span><span class="p">,</span><span class="w"> </span><span class="n">50</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 배열의 길이</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">arrLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr3</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;arrLength = &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">arrLength</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 배열 요소 접근</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;배열의 1번째 요소 접근: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">arr3</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 배열 요소 변경</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">arr3</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">100</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 향상된 for 문</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">arr3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;a = &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 2차원 배열</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">arr4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">{</span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="n">2</span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">{</span><span class="n">3</span><span class="p">,</span><span class="w"> </span><span class="n">4</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">arr4</span><span class="o">[</span><span class="n">1</span><span class="o">][</span><span class="n">0</span><span class="o">]</span><span class="p">);</span><span class="w">  </span><span class="c1">// 3</span><span class="w">
+</span></span></span></code></pre></div><br>
+<h3 id="메서드">메서드<a hidden class="anchor" aria-hidden="true" href="#메서드">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Calculator</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 두 정수를 더하는 메서드 (반환값 있음: int)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">value2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 두 값 더하기</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"> </span><span class="c1">// 결과 반환</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 반환값이 없는 메서드 (void)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printSum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">value2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;result = &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Calculator</span><span class="w"> </span><span class="n">calculator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Calculator</span><span class="p">();</span><span class="w"> </span><span class="c1">// Calculator 객체 생성</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">// sum 메서드는 반환값이 있어서 변수에 저장</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">calculator</span><span class="p">.</span><span class="na">sum</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="n">2</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;result = &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// printSum 메서드는 반환값이 없고 바로 출력됨</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">calculator</span><span class="p">.</span><span class="na">printSum</span><span class="p">(</span><span class="n">3</span><span class="p">,</span><span class="w"> </span><span class="n">4</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><pre tabindex="0"><code>result = 3
+result = 7
+</code></pre>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✔';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

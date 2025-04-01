@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Topic on withong</title>
-    <link>https://withong.github.io/topic/</link>
+    <link>http://localhost:1313/topic/</link>
     <description>Recent content in Topic on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Tue, 01 Apr 2025 09:54:56 +0900</lastBuildDate>
-    <atom:link href="https://withong.github.io/topic/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/topic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Record</title>
-      <link>https://withong.github.io/topic/record/</link>
+      <link>http://localhost:1313/topic/record/</link>
       <pubDate>Tue, 01 Apr 2025 09:54:56 +0900</pubDate>
-      <guid>https://withong.github.io/topic/record/</guid>
+      <guid>http://localhost:1313/topic/record/</guid>
       <description></description>
     </item>
     <item>
       <title>Task</title>
-      <link>https://withong.github.io/topic/task/</link>
+      <link>http://localhost:1313/topic/task/</link>
       <pubDate>Tue, 25 Mar 2025 20:20:11 +0900</pubDate>
-      <guid>https://withong.github.io/topic/task/</guid>
+      <guid>http://localhost:1313/topic/task/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>팀 소개 페이지 on withong</title>
-    <link>https://withong.github.io/tag/%ED%8C%80-%EC%86%8C%EA%B0%9C-%ED%8E%98%EC%9D%B4%EC%A7%80/</link>
+    <link>http://localhost:1313/tag/%ED%8C%80-%EC%86%8C%EA%B0%9C-%ED%8E%98%EC%9D%B4%EC%A7%80/</link>
     <description>Recent content in 팀 소개 페이지 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Fri, 21 Feb 2025 21:00:00 +0900</lastBuildDate>
-    <atom:link href="https://withong.github.io/tag/%ED%8C%80-%EC%86%8C%EA%B0%9C-%ED%8E%98%EC%9D%B4%EC%A7%80/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tag/%ED%8C%80-%EC%86%8C%EA%B0%9C-%ED%8E%98%EC%9D%B4%EC%A7%80/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>미니 프로젝트 최종</title>
-      <link>https://withong.github.io/record/til-05/</link>
+      <link>http://localhost:1313/record/til-05/</link>
       <pubDate>Fri, 21 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/til-05/</guid>
+      <guid>http://localhost:1313/record/til-05/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 프로젝트 배포&lt;br&gt;
 ✅ 프로젝트 발표&lt;br&gt;
@@ -44,9 +44,9 @@
     </item>
     <item>
       <title>미니 프로젝트 3</title>
-      <link>https://withong.github.io/record/til-04/</link>
+      <link>http://localhost:1313/record/til-04/</link>
       <pubDate>Thu, 20 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/til-04/</guid>
+      <guid>http://localhost:1313/record/til-04/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 코드 병합&lt;br&gt;
 ✅ 기능 수정&lt;/p&gt;&lt;/blockquote&gt;
@@ -66,9 +66,9 @@
     </item>
     <item>
       <title>미니 프로젝트 2</title>
-      <link>https://withong.github.io/record/til-03/</link>
+      <link>http://localhost:1313/record/til-03/</link>
       <pubDate>Wed, 19 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/til-03/</guid>
+      <guid>http://localhost:1313/record/til-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;+&lt;/strong&gt;&lt;br&gt;
 ☑️ 팀원 상세 페이지 화면&lt;br&gt;
@@ -93,9 +93,9 @@
     </item>
     <item>
       <title>미니 프로젝트 1</title>
-      <link>https://withong.github.io/record/til-02/</link>
+      <link>http://localhost:1313/record/til-02/</link>
       <pubDate>Tue, 18 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/til-02/</guid>
+      <guid>http://localhost:1313/record/til-02/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [미니 프로젝트] 메인 페이지 (HTML/CSS)&lt;br&gt;

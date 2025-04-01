@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>[사전캠프] 4일차. | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -105,16 +105,16 @@ HTML/CSS
 HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기
 ">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/record/pre-til-02/">
-<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
-<link rel="apple-touch-icon" href="https://withong.github.io/icons/zep.png">
-<link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
+<link rel="canonical" href="http://localhost:1313/record/pre-til-02/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/code.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/zep.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/zep.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/record/pre-til-02/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/record/pre-til-02/">
 <noscript>
     <style>
         #theme-toggle,
@@ -151,169 +151,7 @@ HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/record/pre-til-02/">
-  <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="[사전캠프] 4일차.">
-  <meta property="og:description" content=" TASKS
-✅ SQL 강의 2주차
-✅ Web 강의 1주차
-🟩 Java Part01-04
-SQL 1. 집계 함수 SUM : 특정 열의 값들을 모두 더함. AVG : 특정 열의 값들의 평균을 계산함. COUNT : 레코드(행)의 개수를 셈. count(distinct 컬럼명) : 중복을 제외한 고유한 값들의 개수 반환 MIN : 특정 열에서 가장 작은 값을 반환함. MAX : 특정 열에서 가장 큰 값을 반환함. 1-1. 주문 금액이 30,000원 이상인 주문 건의 개수 구하기 1. 어떤 컬럼을 이용할 것인가 → select order_id, price2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 3. 어떤 조건을 지정해야 하는가 → where price &gt;= 30000 4. 어떤 함수 (수식) 을 이용해야 하는가 → count(order_id) 혹은 count(1)select count(order_id) count_of_orders from food_orders where price&gt;=30000; 1-2. 한국 음식의 주문당 평균 음식 가격 구하기 1. 어떤 컬럼을 이용할 것인가 → select cuisine_type, price2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders3. 어떤 조건을 지정해야 하는가 → where cuisint_type=’Korean’4. 어떤 함수 (수식)을 이용해야 하는가 → avg(price)select avg(price) as average_price from food_orders where cuisine_type=&#39;Korean&#39;; 2. GROUP BY절 데이터를 그룹화하여 집계 함수와 함께 사용. 2-1. 음식점별 주문 금액 최댓값 조회하기 1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders3. 어떤 조건을 지정해야 하는가 → X4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_nameselect restaurant_name, max(price) from food_orders group by restaurant_name; 2-2. 결제 타입별 가장 최근 결제일 조회하기 1. 어떤 컬럼을 이용할 것인가 → select pay_type, date2. 어떤 테이블에서 데이터를 뽑을 것인가 → from payments3. 어떤 조건을 지정해야 하는가 → X4. 어떤 함수 (수식) 을 이용해야 하는가 → max(date)5. 어떤 컬럼 기준으로 계산할 것인가 → group by pay_typeselect pay_type &#34;결제타입&#34;, max(date) &#34;최근 결제일&#34; from payments group by pay_type; 3. ORDER BY절 지정한 컬럼을 기준으로 오름차순(ASC) 또는 내림차순(DESC)으로 정렬 ORDER BY 컬럼명	-- 오름차순 ORDER BY 컬럼명 DESC	-- 내림차순 ORDER BY 컬럼명1, 컬럼명2	-- 컬럼1 기준으로 오름차순 정렬 후, -- 그 결과값 내에서 컬럼2 기준으로 오름차순 정렬 3-1. 음식점별 주문 금액 최댓값 조회하기 - 최댓값 기준 내림차순 정렬 1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders3. 어떤 조건을 지정해야 하는가 → X4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_name6. 어떤 컬럼 기준으로 정렬할 것인가 → order by descselect restaurant_name, max(price) from food_orders group by restaurant_name order by max(price) desc; 4. SQL 기본 구조 SELECT	-- (필수) 반환할 데이터를 선택 FROM	-- (필수) 데이터를 가져올 테이블 지정 WHERE	-- (선택) 특정 조건으로 데이터를 필터링 GROUP BY	-- (선택) 데이터를 그룹화 ORDER BY	-- (선택) 결과를 정렬 Web HTML/CSS HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기 ">
-  <meta property="og:locale" content="ko">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="record">
-    <meta property="article:published_time" content="2025-01-16T23:41:13+09:00">
-    <meta property="article:modified_time" content="2025-01-16T23:41:13+09:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[사전캠프] 4일차.">
-<meta name="twitter:description" content="
-TASKS
-✅ SQL 강의 2주차
-✅ Web 강의 1주차
-🟩 Java Part01-04
-
-SQL
-1. 집계 함수
-
-SUM : 특정 열의 값들을 모두 더함.
-AVG : 특정 열의 값들의 평균을 계산함.
-COUNT : 레코드(행)의 개수를 셈.
-
-count(distinct 컬럼명) : 중복을 제외한 고유한 값들의 개수 반환
-
-
-MIN : 특정 열에서 가장 작은 값을 반환함.
-MAX : 특정 열에서 가장 큰 값을 반환함.
-
-1-1. 주문 금액이 30,000원 이상인 주문 건의 개수 구하기
-1. 어떤 컬럼을 이용할 것인가 → select order_id, price
-2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 
-3. 어떤 조건을 지정해야 하는가 → where price &gt;= 30000 
-4. 어떤 함수 (수식) 을 이용해야 하는가 → count(order_id) 혹은 count(1)
-
-select count(order_id) count_of_orders
-from food_orders
-where price&gt;=30000;
-1-2. 한국 음식의 주문당 평균 음식 가격 구하기
-1. 어떤 컬럼을 이용할 것인가 → select cuisine_type, price
-2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders
-3. 어떤 조건을 지정해야 하는가 → where cuisint_type=’Korean’
-4. 어떤 함수 (수식)을 이용해야 하는가 → avg(price)
-
-select avg(price) as average_price
-from food_orders
-where cuisine_type=&#39;Korean&#39;;
-2. GROUP BY절
-
-데이터를 그룹화하여 집계 함수와 함께 사용.
-
-2-1. 음식점별 주문 금액 최댓값 조회하기
-1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price
-2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders
-3. 어떤 조건을 지정해야 하는가 → X
-4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)
-5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_name
-
-select restaurant_name,
-       max(price)
-from food_orders
-group by restaurant_name;
-2-2. 결제 타입별 가장 최근 결제일 조회하기
-1. 어떤 컬럼을 이용할 것인가 → select pay_type, date
-2. 어떤 테이블에서 데이터를 뽑을 것인가 → from payments
-3. 어떤 조건을 지정해야 하는가 → X
-4. 어떤 함수 (수식) 을 이용해야 하는가 → max(date)
-5. 어떤 컬럼 기준으로 계산할 것인가 → group by pay_type
-
-select pay_type &#34;결제타입&#34;,
-       max(date) &#34;최근 결제일&#34;
-from payments
-group by pay_type;
-3. ORDER BY절
-
-지정한 컬럼을 기준으로 오름차순(ASC) 또는 내림차순(DESC)으로 정렬
-
-ORDER BY 컬럼명				-- 오름차순
-ORDER BY 컬럼명 DESC		-- 내림차순
-ORDER BY 컬럼명1, 컬럼명2	-- 컬럼1 기준으로 오름차순 정렬 후, 
-							-- 그 결과값 내에서 컬럼2 기준으로 오름차순 정렬
-3-1. 음식점별 주문 금액 최댓값 조회하기 - 최댓값 기준 내림차순 정렬
-1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price
-2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders
-3. 어떤 조건을 지정해야 하는가 → X
-4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)
-5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_name
-6. 어떤 컬럼 기준으로 정렬할 것인가 → order by desc
-
-select restaurant_name,
-       max(price)
-from food_orders
-group by restaurant_name
-order by max(price) desc;
-4. SQL 기본 구조
-SELECT		-- (필수) 반환할 데이터를 선택
-FROM		-- (필수) 데이터를 가져올 테이블 지정
-WHERE		-- (선택) 특정 조건으로 데이터를 필터링
-GROUP BY	-- (선택) 데이터를 그룹화
-ORDER BY	-- (선택) 결과를 정렬
-
-Web
-HTML/CSS
-
-
-HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기
-">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Study Records",
-      "item": "https://withong.github.io/record/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "[사전캠프] 4일차.",
-      "item": "https://withong.github.io/record/pre-til-02/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "[사전캠프] 4일차.",
-  "name": "[사전캠프] 4일차.",
-  "description": " TASKS\n✅ SQL 강의 2주차\n✅ Web 강의 1주차\n🟩 Java Part01-04\nSQL 1. 집계 함수 SUM : 특정 열의 값들을 모두 더함. AVG : 특정 열의 값들의 평균을 계산함. COUNT : 레코드(행)의 개수를 셈. count(distinct 컬럼명) : 중복을 제외한 고유한 값들의 개수 반환 MIN : 특정 열에서 가장 작은 값을 반환함. MAX : 특정 열에서 가장 큰 값을 반환함. 1-1. 주문 금액이 30,000원 이상인 주문 건의 개수 구하기 1. 어떤 컬럼을 이용할 것인가 → select order_id, price\r2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 3. 어떤 조건을 지정해야 하는가 → where price \u0026gt;= 30000 4. 어떤 함수 (수식) 을 이용해야 하는가 → count(order_id) 혹은 count(1)\rselect count(order_id) count_of_orders from food_orders where price\u0026gt;=30000; 1-2. 한국 음식의 주문당 평균 음식 가격 구하기 1. 어떤 컬럼을 이용할 것인가 → select cuisine_type, price\r2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders\r3. 어떤 조건을 지정해야 하는가 → where cuisint_type=’Korean’\r4. 어떤 함수 (수식)을 이용해야 하는가 → avg(price)\rselect avg(price) as average_price from food_orders where cuisine_type=\u0026#39;Korean\u0026#39;; 2. GROUP BY절 데이터를 그룹화하여 집계 함수와 함께 사용. 2-1. 음식점별 주문 금액 최댓값 조회하기 1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price\r2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders\r3. 어떤 조건을 지정해야 하는가 → X\r4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)\r5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_name\rselect restaurant_name, max(price) from food_orders group by restaurant_name; 2-2. 결제 타입별 가장 최근 결제일 조회하기 1. 어떤 컬럼을 이용할 것인가 → select pay_type, date\r2. 어떤 테이블에서 데이터를 뽑을 것인가 → from payments\r3. 어떤 조건을 지정해야 하는가 → X\r4. 어떤 함수 (수식) 을 이용해야 하는가 → max(date)\r5. 어떤 컬럼 기준으로 계산할 것인가 → group by pay_type\rselect pay_type \u0026#34;결제타입\u0026#34;, max(date) \u0026#34;최근 결제일\u0026#34; from payments group by pay_type; 3. ORDER BY절 지정한 컬럼을 기준으로 오름차순(ASC) 또는 내림차순(DESC)으로 정렬 ORDER BY 컬럼명\t-- 오름차순 ORDER BY 컬럼명 DESC\t-- 내림차순 ORDER BY 컬럼명1, 컬럼명2\t-- 컬럼1 기준으로 오름차순 정렬 후, -- 그 결과값 내에서 컬럼2 기준으로 오름차순 정렬 3-1. 음식점별 주문 금액 최댓값 조회하기 - 최댓값 기준 내림차순 정렬 1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price\r2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders\r3. 어떤 조건을 지정해야 하는가 → X\r4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)\r5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_name\r6. 어떤 컬럼 기준으로 정렬할 것인가 → order by desc\rselect restaurant_name, max(price) from food_orders group by restaurant_name order by max(price) desc; 4. SQL 기본 구조 SELECT\t-- (필수) 반환할 데이터를 선택 FROM\t-- (필수) 데이터를 가져올 테이블 지정 WHERE\t-- (선택) 특정 조건으로 데이터를 필터링 GROUP BY\t-- (선택) 데이터를 그룹화 ORDER BY\t-- (선택) 결과를 정렬 Web HTML/CSS HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기 ",
-  "keywords": [
-    
-  ],
-  "articleBody": " TASKS\n✅ SQL 강의 2주차\n✅ Web 강의 1주차\n🟩 Java Part01-04\nSQL 1. 집계 함수 SUM : 특정 열의 값들을 모두 더함. AVG : 특정 열의 값들의 평균을 계산함. COUNT : 레코드(행)의 개수를 셈. count(distinct 컬럼명) : 중복을 제외한 고유한 값들의 개수 반환 MIN : 특정 열에서 가장 작은 값을 반환함. MAX : 특정 열에서 가장 큰 값을 반환함. 1-1. 주문 금액이 30,000원 이상인 주문 건의 개수 구하기 1. 어떤 컬럼을 이용할 것인가 → select order_id, price\r2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders 3. 어떤 조건을 지정해야 하는가 → where price \u003e= 30000 4. 어떤 함수 (수식) 을 이용해야 하는가 → count(order_id) 혹은 count(1)\rselect count(order_id) count_of_orders from food_orders where price\u003e=30000; 1-2. 한국 음식의 주문당 평균 음식 가격 구하기 1. 어떤 컬럼을 이용할 것인가 → select cuisine_type, price\r2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders\r3. 어떤 조건을 지정해야 하는가 → where cuisint_type=’Korean’\r4. 어떤 함수 (수식)을 이용해야 하는가 → avg(price)\rselect avg(price) as average_price from food_orders where cuisine_type='Korean'; 2. GROUP BY절 데이터를 그룹화하여 집계 함수와 함께 사용. 2-1. 음식점별 주문 금액 최댓값 조회하기 1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price\r2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders\r3. 어떤 조건을 지정해야 하는가 → X\r4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)\r5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_name\rselect restaurant_name, max(price) from food_orders group by restaurant_name; 2-2. 결제 타입별 가장 최근 결제일 조회하기 1. 어떤 컬럼을 이용할 것인가 → select pay_type, date\r2. 어떤 테이블에서 데이터를 뽑을 것인가 → from payments\r3. 어떤 조건을 지정해야 하는가 → X\r4. 어떤 함수 (수식) 을 이용해야 하는가 → max(date)\r5. 어떤 컬럼 기준으로 계산할 것인가 → group by pay_type\rselect pay_type \"결제타입\", max(date) \"최근 결제일\" from payments group by pay_type; 3. ORDER BY절 지정한 컬럼을 기준으로 오름차순(ASC) 또는 내림차순(DESC)으로 정렬 ORDER BY 컬럼명\t-- 오름차순 ORDER BY 컬럼명 DESC\t-- 내림차순 ORDER BY 컬럼명1, 컬럼명2\t-- 컬럼1 기준으로 오름차순 정렬 후, -- 그 결과값 내에서 컬럼2 기준으로 오름차순 정렬 3-1. 음식점별 주문 금액 최댓값 조회하기 - 최댓값 기준 내림차순 정렬 1. 어떤 컬럼을 이용할 것인가 → select restaurant_name, price\r2. 어떤 테이블에서 데이터를 뽑을 것인가 → from food_orders\r3. 어떤 조건을 지정해야 하는가 → X\r4. 어떤 함수 (수식) 을 이용해야 하는가 → max(price)\r5. 어떤 컬럼 기준으로 계산할 것인가 → group by restaurant_name\r6. 어떤 컬럼 기준으로 정렬할 것인가 → order by desc\rselect restaurant_name, max(price) from food_orders group by restaurant_name order by max(price) desc; 4. SQL 기본 구조 SELECT\t-- (필수) 반환할 데이터를 선택 FROM\t-- (필수) 데이터를 가져올 테이블 지정 WHERE\t-- (선택) 특정 조건으로 데이터를 필터링 GROUP BY\t-- (선택) 데이터를 그룹화 ORDER BY\t-- (선택) 결과를 정렬 Web HTML/CSS HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기 부트스트랩 활용해서 나만의 추억 앨범 만들기 한 세트로 자주 쓰이는 CSS // 이미지를 중앙에 위치시키고 비율 유지하며 가득차도록 설정 background-image: url(''); background-position: center; background-size: cover; // 플렉스 박스를 중심으로 컨테이너 안의 자식 요소들을 중앙에 정렬 display: flex; flex-direction: column; \u003c!-- 또는 row --\u003e align-items: center; justify-content: center; ",
-  "wordCount" : "504",
-  "inLanguage": "ko",
-  "datePublished": "2025-01-16T23:41:13+09:00",
-  "dateModified": "2025-01-16T23:41:13+09:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://withong.github.io/record/pre-til-02/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "withong",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://withong.github.io/icons/code.png"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -331,7 +169,7 @@ HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -357,22 +195,22 @@ HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="Log">
+                <a href="http://localhost:1313/log/" title="Log">
                     <span>Log</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/topic/" title="Topic">
+                <a href="http://localhost:1313/topic/" title="Topic">
                     <span>Topic</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
+                <a href="http://localhost:1313/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -383,7 +221,7 @@ HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/record/">Study Records</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/record/">Records</a></div>
     <h1 class="post-title entry-hint-parent">
       [사전캠프] 4일차.
     </h1>
@@ -541,12 +379,12 @@ HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://withong.github.io/record/pre-til-01/">
+  <a class="prev" href="http://localhost:1313/record/pre-til-01/">
     <span class="title">« Prev</span>
     <br>
     <span>[사전캠프] 3일차.</span>
   </a>
-  <a class="next" href="https://withong.github.io/record/pre-til-03/">
+  <a class="next" href="http://localhost:1313/record/pre-til-03/">
     <span class="title">Next »</span>
     <br>
     <span>[사전캠프] 5일차.</span>
@@ -558,7 +396,7 @@ HTML 기초 Tag과 CSS 활용해서 간단한 로그인 페이지 만들기
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
 
     <span>
         Powered by
