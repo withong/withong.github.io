@@ -1,4 +1,4 @@
 +++
-title = "Records"
+title = "Study Records"
 description = "Today I Learned"
 +++
