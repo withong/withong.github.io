@@ -68,7 +68,7 @@ Title = "rang's log"
 Content = "Today I Learned ✏️"
 
 [pagination]
-  pagerSize = 5
+  pagerSize = 10
 
 [menu]
 
