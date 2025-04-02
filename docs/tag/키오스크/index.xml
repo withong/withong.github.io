@@ -10,9 +10,9 @@
     <atom:link href="https://withong.github.io/tag/%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>키오스크 도전 Lv 2</title>
-      <link>https://withong.github.io/tasks/kiosk-04/</link>
+      <link>https://withong.github.io/project/kiosk-04/</link>
       <pubDate>Wed, 12 Mar 2025 21:01:14 +0900</pubDate>
-      <guid>https://withong.github.io/tasks/kiosk-04/</guid>
+      <guid>https://withong.github.io/project/kiosk-04/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-2-enum-람다--스트림을-활용한-주문-및-장바구니-관리&#34;&gt;Lv 2. Enum, 람다 &amp;amp; 스트림을 활용한 주문 및 장바구니 관리&lt;/h3&gt;
@@ -56,9 +56,9 @@
     </item>
     <item>
       <title>키오스크 도전 Lv 1</title>
-      <link>https://withong.github.io/tasks/kiosk-03/</link>
+      <link>https://withong.github.io/project/kiosk-03/</link>
       <pubDate>Wed, 12 Mar 2025 11:17:50 +0900</pubDate>
-      <guid>https://withong.github.io/tasks/kiosk-03/</guid>
+      <guid>https://withong.github.io/project/kiosk-03/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-1-장바구니-및-구매하기-기능을-추가하기&#34;&gt;Lv 1. 장바구니 및 구매하기 기능을 추가하기&lt;/h3&gt;
@@ -116,9 +116,9 @@
     </item>
     <item>
       <title>키오스크 필수 Lv 4-5</title>
-      <link>https://withong.github.io/tasks/kiosk-02/</link>
+      <link>https://withong.github.io/project/kiosk-02/</link>
       <pubDate>Mon, 10 Mar 2025 19:13:06 +0900</pubDate>
-      <guid>https://withong.github.io/tasks/kiosk-02/</guid>
+      <guid>https://withong.github.io/project/kiosk-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-4-객체-지향-설계를-적용해-음식-메뉴와-주문-내역을-클래스-기반으로-관리하기&#34;&gt;Lv 4. 객체 지향 설계를 적용해 음식 메뉴와 주문 내역을 클래스 기반으로 관리하기&lt;/h3&gt;
@@ -145,9 +145,9 @@
     </item>
     <item>
       <title>키오스크 필수 Lv 1-3</title>
-      <link>https://withong.github.io/tasks/kiosk-01/</link>
+      <link>https://withong.github.io/project/kiosk-01/</link>
       <pubDate>Fri, 07 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/tasks/kiosk-01/</guid>
+      <guid>https://withong.github.io/project/kiosk-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-1-기본적인-키오스크를-프로그래밍해보자&#34;&gt;Lv 1. 기본적인 키오스크를 프로그래밍해보자&lt;/h3&gt;

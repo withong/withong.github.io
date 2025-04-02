@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>키오스크 도전 Lv 2 | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+요구사항
+Lv 2. Enum, 람다 &amp; 스트림을 활용한 주문 및 장바구니 관리
+
+요구사항이 가지는 의도
+
+의도 : 고급 자바 기능을 활용해 프로그램의 효율성과 코드의 가독성을 개선하는 것을 목표로 합니다.
+목적
+
+Enum을 통해 상수를 안전하게 관리하고, 프로그램 구조를 간결하게
+제네릭을 활용하여 데이터 유연성을 높이고, 재사용 가능한 코드를 설계
+스트림 API를 사용하여 데이터를 필터링하고, 간결한 코드로 동작을 구현
+
+
+
+
+Enum을 활용한 사용자 유형별 할인율 관리하기
+
+사용자 유형의 Enum 정의 및 각 사용자 유형에 따른 할인율 적용
+
+예시 : 군인, 학생, 일반인
+
+
+주문 시, 사용자 유형에 맞는 할인율 적용해 총 금액 계산
+
+
+람다 &amp; 스트림을 활용한 장바구니 조회 기능
+
+기존에 생성한 Menu의 MenuItem을 조회 할 때 스트림을 사용하여 출력하도록 수정
+기존 장바구니에서 특정 메뉴 빼기 기능을 통한 스트림 활용
+
+예시 : 장바구니에 SmokeShack 가 들어 있다면, stream.filter를 활용하여 특정 메뉴 이름을 가진 메뉴 장바구니에서 제거
+
+
+
+
+
+
+구현 기능
+# 전체 코드">
+<meta name="author" content="">
+<link rel="canonical" href="https://withong.github.io/project/kiosk-04/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/zep.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/project/kiosk-04/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://withong.github.io/project/kiosk-04/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="키오스크 도전 Lv 2">
+  <meta property="og:description" content=" 요구사항 Lv 2. Enum, 람다 &amp; 스트림을 활용한 주문 및 장바구니 관리 요구사항이 가지는 의도 의도 : 고급 자바 기능을 활용해 프로그램의 효율성과 코드의 가독성을 개선하는 것을 목표로 합니다. 목적 Enum을 통해 상수를 안전하게 관리하고, 프로그램 구조를 간결하게 제네릭을 활용하여 데이터 유연성을 높이고, 재사용 가능한 코드를 설계 스트림 API를 사용하여 데이터를 필터링하고, 간결한 코드로 동작을 구현 Enum을 활용한 사용자 유형별 할인율 관리하기 사용자 유형의 Enum 정의 및 각 사용자 유형에 따른 할인율 적용 예시 : 군인, 학생, 일반인 주문 시, 사용자 유형에 맞는 할인율 적용해 총 금액 계산 람다 &amp; 스트림을 활용한 장바구니 조회 기능 기존에 생성한 Menu의 MenuItem을 조회 할 때 스트림을 사용하여 출력하도록 수정 기존 장바구니에서 특정 메뉴 빼기 기능을 통한 스트림 활용 예시 : 장바구니에 SmokeShack 가 들어 있다면, stream.filter를 활용하여 특정 메뉴 이름을 가진 메뉴 장바구니에서 제거 구현 기능 # 전체 코드">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="project">
+    <meta property="article:published_time" content="2025-03-12T21:01:14+09:00">
+    <meta property="article:modified_time" content="2025-03-12T21:01:14+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="키오스크 도전 Lv 2">
+<meta name="twitter:description" content="
+요구사항
+Lv 2. Enum, 람다 &amp; 스트림을 활용한 주문 및 장바구니 관리
+
+요구사항이 가지는 의도
+
+의도 : 고급 자바 기능을 활용해 프로그램의 효율성과 코드의 가독성을 개선하는 것을 목표로 합니다.
+목적
+
+Enum을 통해 상수를 안전하게 관리하고, 프로그램 구조를 간결하게
+제네릭을 활용하여 데이터 유연성을 높이고, 재사용 가능한 코드를 설계
+스트림 API를 사용하여 데이터를 필터링하고, 간결한 코드로 동작을 구현
+
+
+
+
+Enum을 활용한 사용자 유형별 할인율 관리하기
+
+사용자 유형의 Enum 정의 및 각 사용자 유형에 따른 할인율 적용
+
+예시 : 군인, 학생, 일반인
+
+
+주문 시, 사용자 유형에 맞는 할인율 적용해 총 금액 계산
+
+
+람다 &amp; 스트림을 활용한 장바구니 조회 기능
+
+기존에 생성한 Menu의 MenuItem을 조회 할 때 스트림을 사용하여 출력하도록 수정
+기존 장바구니에서 특정 메뉴 빼기 기능을 통한 스트림 활용
+
+예시 : 장바구니에 SmokeShack 가 들어 있다면, stream.filter를 활용하여 특정 메뉴 이름을 가진 메뉴 장바구니에서 제거
+
+
+
+
+
+
+구현 기능
+# 전체 코드">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "About Projects",
+      "item": "https://withong.github.io/project/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "키오스크 도전 Lv 2",
+      "item": "https://withong.github.io/project/kiosk-04/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "키오스크 도전 Lv 2",
+  "name": "키오스크 도전 Lv 2",
+  "description": " 요구사항 Lv 2. Enum, 람다 \u0026amp; 스트림을 활용한 주문 및 장바구니 관리 요구사항이 가지는 의도 의도 : 고급 자바 기능을 활용해 프로그램의 효율성과 코드의 가독성을 개선하는 것을 목표로 합니다. 목적 Enum을 통해 상수를 안전하게 관리하고, 프로그램 구조를 간결하게 제네릭을 활용하여 데이터 유연성을 높이고, 재사용 가능한 코드를 설계 스트림 API를 사용하여 데이터를 필터링하고, 간결한 코드로 동작을 구현 Enum을 활용한 사용자 유형별 할인율 관리하기 사용자 유형의 Enum 정의 및 각 사용자 유형에 따른 할인율 적용 예시 : 군인, 학생, 일반인 주문 시, 사용자 유형에 맞는 할인율 적용해 총 금액 계산 람다 \u0026amp; 스트림을 활용한 장바구니 조회 기능 기존에 생성한 Menu의 MenuItem을 조회 할 때 스트림을 사용하여 출력하도록 수정 기존 장바구니에서 특정 메뉴 빼기 기능을 통한 스트림 활용 예시 : 장바구니에 SmokeShack 가 들어 있다면, stream.filter를 활용하여 특정 메뉴 이름을 가진 메뉴 장바구니에서 제거 구현 기능 # 전체 코드\n",
+  "keywords": [
+    
+  ],
+  "articleBody": " 요구사항 Lv 2. Enum, 람다 \u0026 스트림을 활용한 주문 및 장바구니 관리 요구사항이 가지는 의도 의도 : 고급 자바 기능을 활용해 프로그램의 효율성과 코드의 가독성을 개선하는 것을 목표로 합니다. 목적 Enum을 통해 상수를 안전하게 관리하고, 프로그램 구조를 간결하게 제네릭을 활용하여 데이터 유연성을 높이고, 재사용 가능한 코드를 설계 스트림 API를 사용하여 데이터를 필터링하고, 간결한 코드로 동작을 구현 Enum을 활용한 사용자 유형별 할인율 관리하기 사용자 유형의 Enum 정의 및 각 사용자 유형에 따른 할인율 적용 예시 : 군인, 학생, 일반인 주문 시, 사용자 유형에 맞는 할인율 적용해 총 금액 계산 람다 \u0026 스트림을 활용한 장바구니 조회 기능 기존에 생성한 Menu의 MenuItem을 조회 할 때 스트림을 사용하여 출력하도록 수정 기존 장바구니에서 특정 메뉴 빼기 기능을 통한 스트림 활용 예시 : 장바구니에 SmokeShack 가 들어 있다면, stream.filter를 활용하여 특정 메뉴 이름을 가진 메뉴 장바구니에서 제거 구현 기능 # 전체 코드\n할인 기능 추가 enum Discount 추가 public enum Discount { BIRTHDAY(\"생일\",0.2), REVIEW(\"리뷰 작성\", 0.1), SNS(\"SNS 업로드\", 0.1), STUDENT(\"학생\", 0.05); private final String name; private final double rate; Discount(String name, double rate) { this.name = name; this.rate = rate; } public int getDiscounted(int price) { return price - (int) (price * rate); } public String getName() { return name; } public double getRate() { return rate; } } 할인 메뉴 리스트 포맷팅하여 반환하는 메서드 추가 private String getDisplayDiscount() { Discount[] discounts = Discount.values(); String discountList = IntStream.range(0, discounts.length) .mapToObj(i -\u003e String.format(\" [%d] %s\\t\\uD83D\\uDD25 %.0f%%\", i + 1, getDisplayName(discounts[i].getName()), discounts[i].getRate() * 100)) .collect(Collectors.joining(\"\\n\")); return \"\\n☰ 홈 \u003e 결제 \u003e 할인\\n\" + discountList + \"\\n [\" + (discounts.length + 1) + \"] 해당 없음\\n [0] 홈으로\"; } Kiosk 클래스에 discount() 메서드 추가 할인 대상인지 확인 후 할인율 적용된 가격 담아서 결제 메서드 호출 private int discount() { while (true) { int price = cart.getTotalPrice(); Discount[] discounts = Discount.values(); int lastNumber = Discount.values().length + 1; // 해당 없음 // 할인 메뉴 출력 System.out.println(getDisplayDiscount()); // 사용자 입력 값 검증 int input = getInteger(); // -1 반환 시 재입력 요청 if (input == -1) continue; if (input == 0) { System.out.println(\" 결제가 취소되었습니다.\"); return 0; } if (input \u003c 1 || input \u003e lastNumber) { System.out.println(\" 올바른 메뉴 번호를 입력하세요.\"); continue; } if (input == lastNumber) { pay(price); } int discountedPrice = discounts[input-1].getDiscounted(price); int result = pay(discountedPrice); if (result == 0) return 0; } } 람다 \u0026 스트림 활용 장바구니 목록 삭제 [변경 전]\nif (quantity - input \u003c 1 || cartItem.getQuantity() \u003c 1) { cart.getCartItems().remove(cartItem); } [변경 후]\ncart.setCartItems(cart.getCartItems().stream() .filter(item -\u003e item.getQuantity() \u003e 0) .collect(Collectors.toList())); [변경 전]\ncart.getCartItems().remove(cartItem); [변경 후]\n// 수량이 1개면 바로 삭제 cart.setCartItems(cart.getCartItems().stream() .filter(item -\u003e !item.equals(cartItem)) .collect(Collectors.toList())); 카테고리별 메뉴 출력 [변경 전]\nprivate String getDisplayMenu(Menu menu) { StringBuilder sb = new StringBuilder(); List\u003cMenuItem\u003e menuItems = menu.getMenuItems(); String category = menu.getCategory(); sb.append(\"\\n☰ 홈 \u003e \" + category + \"\\n\"); for (int i = 0; i \u003c menuItems.size(); i++) { MenuItem item = menuItems.get(i); String menuName = getDisplayName(item.getName()); String formatPrice = String.format(\"￦ %,d\", item.getPrice()); sb.append(\" [\" + (i + 1) + \"] \" + menuName + \"\\t| \" + formatPrice + \" | \" + item.getDesc() + \"\\n\"); } sb.append(\"\\n [0] 홈으로\"); int index = menus.indexOf(menu); // 메뉴 네비게이션 바 조건: 첫 번째 메뉴면 다음 메뉴만, 마지막 메뉴면 이전 메뉴만, 아니면 모두 출력 if (index == 0) { sb.append(\" [n] 다음 메뉴\"); } else if (index == (menus.size() - 1)) { sb.append(\" [p] 이전 메뉴\"); } else if (0 \u003c index || index \u003c (menus.size() - 1)) { sb.append(\" [p] 이전 메뉴 [n] 다음 메뉴\"); } // 장바구니가 비어 있지 않을 때만 네비게이션 바에 출력 if (!cart.isEmpty()) { sb.append(\" [c] 장바구니\"); } return sb.toString(); } [변경 후]\nprivate String getDisplayMenu(Menu menu) { List\u003cMenuItem\u003e menuItems = menu.getMenuItems(); String category = menu.getCategory(); String menuList = menuItems.stream() .map(item -\u003e String.format(\" [%d] %s\\t| ￦ %,d | %s\", menuItems.indexOf(item) + 1, getDisplayName(item.getName()), item.getPrice(), item.getDesc())) .collect(Collectors.joining(\"\\n\")); int index = menus.indexOf(menu); String navigation = \"\\n [0] 홈으로\"; // 메뉴 네비게이션 바 조건: 첫 번째 메뉴면 다음 메뉴만, 마지막 메뉴면 이전 메뉴만, 아니면 모두 출력 if (index == 0) { navigation += \" [n] 다음 메뉴\"; } else if (index == (menus.size() - 1)) { navigation += \" [p] 이전 메뉴\"; } else if (0 \u003c index || index \u003c (menus.size() - 1)) { navigation += \" [p] 이전 메뉴 [n] 다음 메뉴\"; } // 장바구니가 비어 있지 않을 때만 네비게이션 바에 출력 if (!cart.isEmpty()) { navigation += \" [c] 장바구니\"; } return \"\\n☰ 홈 \u003e \" + category + \"\\n\" + menuList + navigation; } 장바구니 목록 출력 [변경 전]\nprivate String getDisplayCartItems() { StringBuilder sb = new StringBuilder(); List\u003cCartItem\u003e cartItems = cart.getCartItems(); sb.append(\"\\n☰ 홈 \u003e 장바구니\\n\"); sb.append(\"--------------------------------------\\n\"); for (int i = 0; i \u003c cartItems.size(); i++) { CartItem item = cartItems.get(i); String itemName = getDisplayName(item.getMenuItem().getName()); String formatPrice = String.format(\"￦ %,d\", item.getTotalPrice()); sb.append(\" [\" + (i + 1) + \"] \" + itemName + \"\\t× \" + item.getQuantity() + \" = \" + formatPrice + \"\\n\"); } String formatTotalPrice = String.format(\"￦ %,d\", cart.getTotalPrice()); sb.append(\"--------------------------------------\\n\"); sb.append(\" 총 결제 금액\\t\\t\\t\\t\\t \" + formatTotalPrice); return sb.toString(); } [변경 후]\nprivate String getDisplayCartItems() { List\u003cCartItem\u003e cartItems = cart.getCartItems(); String line =\"--------------------------------------\\n\"; String cartList = cartItems.stream() .filter(item -\u003e item.getQuantity() \u003e 0) .map(item -\u003e String.format(\" [%d] %s\\t× %d = ￦ %,d\", cartItems.indexOf(item) + 1, getDisplayName(item.getMenuItem().getName()), item.getQuantity(), item.getTotalPrice())) .collect(Collectors.joining(\"\\n\")); String formatTotalPrice = String.format(\"￦ %,d\", cart.getTotalPrice()); return \"\\n☰ 홈 \u003e 장바구니\\n\" + line + cartList + \"\\n\" + line + \" 총 결제 금액 \\t = \" + formatTotalPrice; } 할인 대상 목록 [변경 전]\nprivate String getDisplayDiscount() { StringBuilder sb = new StringBuilder(); Discount[] discounts = Discount.values(); sb.append(\"\\n☰ 홈 \u003e 결제 \u003e 할인\\n\"); for (int i = 0; i \u003c discounts.length; i++) { String displayName = getDisplayName(discounts[i].getName()); String displayRate = String.format(\"%.0f%%\", discounts[i].getRate() * 100); sb.append(\" [\" + (i + 1) + \"] \" + displayName + \"\\t\\uD83D\\uDD25 \" + displayRate + \"\\n\"); } sb.append(\" [\" + (discounts.length + 1) + \"] 해당 없음\\n\"); sb.append(\" [0] 홈으로\"); return sb.toString(); } [변경 후]\nprivate String getDisplayDiscount() { Discount[] discounts = Discount.values(); String discountList = IntStream.range(0, discounts.length) .mapToObj(i -\u003e String.format(\" [%d] %s\\t\\uD83D\\uDD25 %.0f%%\", i + 1, getDisplayName(discounts[i].getName()), discounts[i].getRate() * 100)) .collect(Collectors.joining(\"\\n\")); return \"\\n☰ 홈 \u003e 결제 \u003e 할인\\n\" + discountList + \"\\n [\" + (discounts.length + 1) + \"] 해당 없음\\n [0] 홈으로\"; } 구현 과정 toList() vs collect(Collectors.toList()) 장바구니 목록 삭제 기능을 스트림으로 수정하면서 처음에는 toList()를 사용하여 장바구니 리스트를 세팅함. 장바구니 목록 삭제 후 새로운 메뉴 추가를 시도하면 UnsupportedOperationException 예외 발생. toList()는 불변 리스트를, collect(Collectors.toList())는 가변 리스트를 반환함. 계속해서 메뉴 추가되고 삭제될 가능성이 있는 장바구니에는 가변 리스트가 적합. 깔끔해서 쓰고 싶었는데…🥲\n실행 예시 ☰ 홈 [1] 햄버거 [2] 음료 [3] 사이드 [0] 종료하기 ⮞ 1 ☰ 홈 \u003e 햄버거 [1] 불고기 버거 | ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. [2] 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. [3] 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. [4] 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. [0] 홈으로 [n] 다음 메뉴 ⮞ 3 ☰ 홈 \u003e 햄버거 [1] 불고기 버거 | ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. [2] 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. [3] 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. [4] 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. [0] 홈으로 [n] 다음 메뉴 [c] 장바구니 ⮞ n ☰ 홈 \u003e 음료 [1] 코카콜라 | ￦ 2,600 | 갈증 해소뿐만이 아니라 기분까지 상쾌하게 [2] 스프라이트 | ￦ 2,600 | 청량함에 레몬, 라임향을 더한 시원함 [3] 아메리카노 | ￦ 3,300 | 바로 내린 100% 친환경 커피로 더 신선하게 [0] 홈으로 [p] 이전 메뉴 [n] 다음 메뉴 [c] 장바구니 ⮞ 1 ☰ 홈 \u003e 음료 [1] 코카콜라 | ￦ 2,600 | 갈증 해소뿐만이 아니라 기분까지 상쾌하게 [2] 스프라이트 | ￦ 2,600 | 청량함에 레몬, 라임향을 더한 시원함 [3] 아메리카노 | ￦ 3,300 | 바로 내린 100% 친환경 커피로 더 신선하게 [0] 홈으로 [p] 이전 메뉴 [n] 다음 메뉴 [c] 장바구니 ⮞ p ☰ 홈 \u003e 햄버거 [1] 불고기 버거 | ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. [2] 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. [3] 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. [4] 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. [0] 홈으로 [n] 다음 메뉴 [c] 장바구니 ⮞ 4 ☰ 홈 \u003e 햄버거 [1] 불고기 버거 | ￦ 4,200 | 불고기 소스에 패티와 마요네즈, 양상추의 맛있는 조합. [2] 치즈 버거 | ￦ 3,600 | 맛있는 치즈와 100% 순 쇠고기 패티, 클래식 치즈 버거. [3] 슈비 버거 | ￦ 6,600 | 탱글한 통새우살에 비프 패티를 더해 푸짐한 슈비 버거. [4] 슈슈 버거 | ￦ 5,500 | 탱글한 통새우살이 가득한 슈슈 버거. [0] 홈으로 [n] 다음 메뉴 [c] 장바구니 ⮞ n ☰ 홈 \u003e 음료 [1] 코카콜라 | ￦ 2,600 | 갈증 해소뿐만이 아니라 기분까지 상쾌하게 [2] 스프라이트 | ￦ 2,600 | 청량함에 레몬, 라임향을 더한 시원함 [3] 아메리카노 | ￦ 3,300 | 바로 내린 100% 친환경 커피로 더 신선하게 [0] 홈으로 [p] 이전 메뉴 [n] 다음 메뉴 [c] 장바구니 ⮞ n ☰ 홈 \u003e 사이드 [1] 후렌치 후라이\t| ￦ 3,000 | 남다른 맛과 바삭함 [2] 코울슬로 | ￦ 2,700 | 아삭하게 씹히는 샐러드 [3] 치즈스틱 | ￦ 3,600 | 속이 꽉 찬 황금빛 바삭함 [0] 홈으로 [p] 이전 메뉴 [c] 장바구니 ⮞ 1 ☰ 홈 \u003e 사이드 [1] 후렌치 후라이\t| ￦ 3,000 | 남다른 맛과 바삭함 [2] 코울슬로 | ￦ 2,700 | 아삭하게 씹히는 샐러드 [3] 치즈스틱 | ￦ 3,600 | 속이 꽉 찬 황금빛 바삭함 [0] 홈으로 [p] 이전 메뉴 [c] 장바구니 ⮞ 3 ☰ 홈 \u003e 사이드 [1] 후렌치 후라이\t| ￦ 3,000 | 남다른 맛과 바삭함 [2] 코울슬로 | ￦ 2,700 | 아삭하게 씹히는 샐러드 [3] 치즈스틱 | ￦ 3,600 | 속이 꽉 찬 황금빛 바삭함 [0] 홈으로 [p] 이전 메뉴 [c] 장바구니 ⮞ c ☰ 홈 \u003e 장바구니 -------------------------------------- [1] 슈비 버거 × 1 = ￦ 6,600 [2] 코카콜라 × 1 = ￦ 2,600 [3] 슈슈 버거 × 1 = ￦ 5,500 [4] 후렌치 후라이\t× 1 = ￦ 3,000 [5] 치즈스틱 × 1 = ￦ 3,600 -------------------------------------- 총 결제 금액 = ￦ 21,300 -------------------------------------- [1] 결제하기 [2] 메뉴 삭제하기 [3] 장바구니 비우기 [0] 홈으로 ⮞ 2 삭제할 메뉴의 번호를 입력하세요. ⮞ 3 ☰ 홈 \u003e 장바구니 -------------------------------------- [1] 슈비 버거 × 1 = ￦ 6,600 [2] 코카콜라 × 1 = ￦ 2,600 [3] 후렌치 후라이\t× 1 = ￦ 3,000 [4] 치즈스틱 × 1 = ￦ 3,600 -------------------------------------- 총 결제 금액 = ￦ 15,800 -------------------------------------- [1] 결제하기 [2] 메뉴 삭제하기 [3] 장바구니 비우기 [0] 홈으로 ⮞ 1 ☰ 홈 \u003e 결제 \u003e 할인 [1] 생일 🔥 20% [2] 리뷰 작성 🔥 10% [3] SNS 업로드 🔥 10% [4] 학생 🔥 5% [5] 해당 없음 [0] 홈으로 ⮞ 1 ☰ 홈 \u003e 결제 총 결제 금액 [ ￦ 12,640 ] 지불할 금액을 입력하세요. (취소: 0) ⮞ 15000 [잔액] ￦ 2,360 결제가 완료되었습니다. 감사합니다. ☰ 홈 [1] 햄버거 [2] 음료 [3] 사이드 [0] 종료하기 ⮞ 0 프로그램을 종료합니다. ",
+  "wordCount" : "1834",
+  "inLanguage": "ko",
+  "datePublished": "2025-03-12T21:01:14+09:00",
+  "dateModified": "2025-03-12T21:01:14+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/project/kiosk-04/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/code.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/record/" title="Record">
+                    <span>Record</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/project/" title="Project">
+                    <span>Project</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/project/">About Projects</a></div>
+    <h1 class="post-title entry-hint-parent">
+      키오스크 도전 Lv 2
+    </h1>
+    <div class="post-meta"><span title='2025-03-12 21:01:14 +0900 KST'>2025년 3월 12일</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#요구사항">요구사항</a>
+      <ul>
+        <li><a href="#lv-2-enum-람다--스트림을-활용한-주문-및-장바구니-관리">Lv 2. Enum, 람다 &amp; 스트림을 활용한 주문 및 장바구니 관리</a></li>
+      </ul>
+    </li>
+    <li><a href="#구현-기능">구현 기능</a>
+      <ul>
+        <li><a href="#할인-기능-추가">할인 기능 추가</a></li>
+        <li><a href="#람다--스트림-활용">람다 &amp; 스트림 활용</a></li>
+      </ul>
+    </li>
+    <li><a href="#구현-과정">구현 과정</a>
+      <ul>
+        <li><a href="#tolist-vs-collectcollectorstolist"><code>toList()</code> vs <code>collect(Collectors.toList())</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#실행-예시">실행 예시</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><hr>
+<h2 id="요구사항">요구사항<a hidden class="anchor" aria-hidden="true" href="#요구사항">#</a></h2>
+<h3 id="lv-2-enum-람다--스트림을-활용한-주문-및-장바구니-관리">Lv 2. Enum, 람다 &amp; 스트림을 활용한 주문 및 장바구니 관리<a hidden class="anchor" aria-hidden="true" href="#lv-2-enum-람다--스트림을-활용한-주문-및-장바구니-관리">#</a></h3>
+<ul>
+<li><strong>요구사항이 가지는 의도</strong>
+<ul>
+<li><strong>의도</strong> : 고급 자바 기능을 활용해 프로그램의 효율성과 코드의 가독성을 개선하는 것을 목표로 합니다.</li>
+<li><strong>목적</strong>
+<ul>
+<li>Enum을 통해 상수를 안전하게 관리하고, 프로그램 구조를 간결하게</li>
+<li>제네릭을 활용하여 데이터 유연성을 높이고, 재사용 가능한 코드를 설계</li>
+<li>스트림 API를 사용하여 데이터를 필터링하고, 간결한 코드로 동작을 구현</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Enum을 활용한 사용자 유형별 할인율 관리하기</strong>
+<ul>
+<li>사용자 유형의 Enum 정의 및 각 사용자 유형에 따른 할인율 적용
+<ul>
+<li>예시 : 군인, 학생, 일반인</li>
+</ul>
+</li>
+<li>주문 시, 사용자 유형에 맞는 할인율 적용해 총 금액 계산</li>
+</ul>
+</li>
+<li><strong>람다 &amp; 스트림을 활용한 장바구니 조회 기능</strong>
+<ul>
+<li>기존에 생성한 Menu의 MenuItem을 조회 할 때 스트림을 사용하여 출력하도록 수정</li>
+<li>기존 장바구니에서 특정 메뉴 빼기 기능을 통한 스트림 활용
+<ul>
+<li>예시 : 장바구니에 SmokeShack 가 들어 있다면, stream.filter를 활용하여 특정 메뉴 이름을 가진 메뉴 장바구니에서 제거</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="구현-기능">구현 기능<a hidden class="anchor" aria-hidden="true" href="#구현-기능">#</a></h2>
+<p><a href="https://github.com/withong/nbc-chapter-02/tree/main/kiosk/challenge/level2"># 전체 코드</a></p>
+<h3 id="할인-기능-추가">할인 기능 추가<a hidden class="anchor" aria-hidden="true" href="#할인-기능-추가">#</a></h3>
+<ul>
+<li><code>enum Discount</code> 추가</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Discount</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">BIRTHDAY</span><span class="p">(</span><span class="s">&#34;생일&#34;</span><span class="p">,</span><span class="n">0</span><span class="p">.</span><span class="na">2</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">REVIEW</span><span class="p">(</span><span class="s">&#34;리뷰 작성&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">.</span><span class="na">1</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">SNS</span><span class="p">(</span><span class="s">&#34;SNS 업로드&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">.</span><span class="na">1</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">STUDENT</span><span class="p">(</span><span class="s">&#34;학생&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">.</span><span class="na">05</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">rate</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Discount</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">rate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rate</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getDiscounted</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rate</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getRate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">rate</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<ul>
+<li>할인 메뉴 리스트 포맷팅하여 반환하는 메서드 추가</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDisplayDiscount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Discount</span><span class="o">[]</span><span class="w"> </span><span class="n">discounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Discount</span><span class="p">.</span><span class="na">values</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">discountList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">range</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">discounts</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="p">.</span><span class="na">mapToObj</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34; [%d] %s\t\uD83D\uDD25 %.0f%%&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                                    </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                                    </span><span class="n">getDisplayName</span><span class="p">(</span><span class="n">discounts</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getName</span><span class="p">()),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                                    </span><span class="n">discounts</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getRate</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">100</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">joining</span><span class="p">(</span><span class="s">&#34;\n&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;\n☰ 홈 &gt; 결제 &gt; 할인\n&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">discountList</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\n [&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">discounts</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;] 해당 없음\n [0] 홈으로&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<ul>
+<li>Kiosk 클래스에 discount() 메서드 추가
+<ul>
+<li>할인 대상인지 확인 후 할인율 적용된 가격 담아서 결제 메서드 호출</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">discount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cart</span><span class="p">.</span><span class="na">getTotalPrice</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Discount</span><span class="o">[]</span><span class="w"> </span><span class="n">discounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Discount</span><span class="p">.</span><span class="na">values</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">lastNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Discount</span><span class="p">.</span><span class="na">values</span><span class="p">().</span><span class="na">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 해당 없음</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 할인 메뉴 출력</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">getDisplayDiscount</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 사용자 입력 값 검증</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getInteger</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// -1 반환 시 재입력 요청</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34; 결제가 취소되었습니다.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">lastNumber</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34; 올바른 메뉴 번호를 입력하세요.&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">continue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">lastNumber</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">pay</span><span class="p">(</span><span class="n">price</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">discountedPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">discounts</span><span class="o">[</span><span class="n">input</span><span class="o">-</span><span class="n">1</span><span class="o">]</span><span class="p">.</span><span class="na">getDiscounted</span><span class="p">(</span><span class="n">price</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pay</span><span class="p">(</span><span class="n">discountedPrice</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<h3 id="람다--스트림-활용">람다 &amp; 스트림 활용<a hidden class="anchor" aria-hidden="true" href="#람다--스트림-활용">#</a></h3>
+<ul>
+<li>장바구니 목록 삭제</li>
+</ul>
+<p>[변경 전]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">quantity</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">cartItem</span><span class="p">.</span><span class="na">getQuantity</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cart</span><span class="p">.</span><span class="na">getCartItems</span><span class="p">().</span><span class="na">remove</span><span class="p">(</span><span class="n">cartItem</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<p>[변경 후]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">cart</span><span class="p">.</span><span class="na">setCartItems</span><span class="p">(</span><span class="n">cart</span><span class="p">.</span><span class="na">getCartItems</span><span class="p">().</span><span class="na">stream</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="na">getQuantity</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">()));</span><span class="w">
+</span></span></span></code></pre></div><br>
+<p>[변경 전]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">cart</span><span class="p">.</span><span class="na">getCartItems</span><span class="p">().</span><span class="na">remove</span><span class="p">(</span><span class="n">cartItem</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><br>
+<p>[변경 후]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 수량이 1개면 바로 삭제</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">cart</span><span class="p">.</span><span class="na">setCartItems</span><span class="p">(</span><span class="n">cart</span><span class="p">.</span><span class="na">getCartItems</span><span class="p">().</span><span class="na">stream</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">item</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">cartItem</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">()));</span><span class="w">
+</span></span></span></code></pre></div><br>
+<ul>
+<li>카테고리별 메뉴 출력</li>
+</ul>
+<p>[변경 전]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDisplayMenu</span><span class="p">(</span><span class="n">Menu</span><span class="w"> </span><span class="n">menu</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">MenuItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">menuItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menu</span><span class="p">.</span><span class="na">getMenuItems</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menu</span><span class="p">.</span><span class="na">getCategory</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34;\n☰ 홈 &gt; &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">category</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\n&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">menuItems</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">MenuItem</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menuItems</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">menuName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getDisplayName</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">formatPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34;￦ %,d&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="na">getPrice</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34; [&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;] &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">menuName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\t|  &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">formatPrice</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;   |   &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="na">getDesc</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\n&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34;\n [0] 홈으로&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menus</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="n">menu</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 메뉴 네비게이션 바 조건: 첫 번째 메뉴면 다음 메뉴만, 마지막 메뉴면 이전 메뉴만, 아니면 모두 출력</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34;    [n] 다음 메뉴&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="n">menus</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34;    [p] 이전 메뉴&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">0</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">menus</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34;    [p] 이전 메뉴    [n] 다음 메뉴&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 장바구니가 비어 있지 않을 때만 네비게이션 바에 출력</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">cart</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34;    [c] 장바구니&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<p>[변경 후]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDisplayMenu</span><span class="p">(</span><span class="n">Menu</span><span class="w"> </span><span class="n">menu</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">MenuItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">menuItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menu</span><span class="p">.</span><span class="na">getMenuItems</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menu</span><span class="p">.</span><span class="na">getCategory</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">menuList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menuItems</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34; [%d] %s\t|  ￦ %,d   |   %s&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">menuItems</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">getDisplayName</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="na">getName</span><span class="p">()),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">item</span><span class="p">.</span><span class="na">getPrice</span><span class="p">(),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">item</span><span class="p">.</span><span class="na">getDesc</span><span class="p">()))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">joining</span><span class="p">(</span><span class="s">&#34;\n&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menus</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="n">menu</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">navigation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;\n [0] 홈으로&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 메뉴 네비게이션 바 조건: 첫 번째 메뉴면 다음 메뉴만, 마지막 메뉴면 이전 메뉴만, 아니면 모두 출력</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">navigation</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&#34;    [n] 다음 메뉴&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="n">menus</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">navigation</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&#34;    [p] 이전 메뉴&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">0</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">menus</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">navigation</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&#34;    [p] 이전 메뉴    [n] 다음 메뉴&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 장바구니가 비어 있지 않을 때만 네비게이션 바에 출력</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">cart</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">navigation</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&#34;    [c] 장바구니&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;\n☰ 홈 &gt; &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">category</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\n&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">menuList</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">navigation</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<ul>
+<li>장바구니 목록 출력</li>
+</ul>
+<p>[변경 전]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDisplayCartItems</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">CartItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cartItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cart</span><span class="p">.</span><span class="na">getCartItems</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34;\n☰ 홈 &gt; 장바구니\n&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34;--------------------------------------\n&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cartItems</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">CartItem</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cartItems</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">itemName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getDisplayName</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="na">getMenuItem</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">formatPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34;￦ %,d&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="na">getTotalPrice</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34; [&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;] &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">itemName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\t×  &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="na">getQuantity</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;  =  &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">formatPrice</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\n&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">formatTotalPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34;￦ %,d&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">cart</span><span class="p">.</span><span class="na">getTotalPrice</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34;--------------------------------------\n&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34; 총 결제 금액\t\t\t\t\t &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">formatTotalPrice</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<p>[변경 후]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDisplayCartItems</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">CartItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cartItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cart</span><span class="p">.</span><span class="na">getCartItems</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="s">&#34;--------------------------------------\n&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">cartList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cartItems</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="na">getQuantity</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34; [%d] %s\t×  %d  =  ￦ %,d&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">cartItems</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">getDisplayName</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="na">getMenuItem</span><span class="p">().</span><span class="na">getName</span><span class="p">()),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">item</span><span class="p">.</span><span class="na">getQuantity</span><span class="p">(),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">item</span><span class="p">.</span><span class="na">getTotalPrice</span><span class="p">()))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">joining</span><span class="p">(</span><span class="s">&#34;\n&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">formatTotalPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34;￦ %,d&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">cart</span><span class="p">.</span><span class="na">getTotalPrice</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;\n☰ 홈 &gt; 장바구니\n&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cartList</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\n&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">line</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; 총 결제 금액     \t      =  &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">formatTotalPrice</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<ul>
+<li>할인 대상 목록</li>
+</ul>
+<p>[변경 전]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDisplayDiscount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Discount</span><span class="o">[]</span><span class="w"> </span><span class="n">discounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Discount</span><span class="p">.</span><span class="na">values</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34;\n☰ 홈 &gt; 결제 &gt; 할인\n&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">discounts</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">displayName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getDisplayName</span><span class="p">(</span><span class="n">discounts</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">displayRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34;%.0f%%&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">discounts</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getRate</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">100</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34; [&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;] &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">displayName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\t\uD83D\uDD25 &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">displayRate</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\n&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34; [&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">discounts</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;] 해당 없음\n&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34; [0] 홈으로&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><br>
+<p>[변경 후]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDisplayDiscount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Discount</span><span class="o">[]</span><span class="w"> </span><span class="n">discounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Discount</span><span class="p">.</span><span class="na">values</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">discountList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">range</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">discounts</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">mapToObj</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&#34; [%d] %s\t\uD83D\uDD25 %.0f%%&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="n">getDisplayName</span><span class="p">(</span><span class="n">discounts</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getName</span><span class="p">()),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="n">discounts</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getRate</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">100</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">joining</span><span class="p">(</span><span class="s">&#34;\n&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;\n☰ 홈 &gt; 결제 &gt; 할인\n&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">discountList</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\n [&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">discounts</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;] 해당 없음\n [0] 홈으로&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><hr>
+<h2 id="구현-과정">구현 과정<a hidden class="anchor" aria-hidden="true" href="#구현-과정">#</a></h2>
+<h3 id="tolist-vs-collectcollectorstolist"><code>toList()</code> vs <code>collect(Collectors.toList())</code><a hidden class="anchor" aria-hidden="true" href="#tolist-vs-collectcollectorstolist">#</a></h3>
+<ul>
+<li>장바구니 목록 삭제 기능을 스트림으로 수정하면서 처음에는 <code>toList()</code>를 사용하여 장바구니 리스트를 세팅함.</li>
+<li>장바구니 목록 삭제 후 새로운 메뉴 추가를 시도하면 <code>UnsupportedOperationException</code> 예외 발생.</li>
+<li><code>toList()</code>는 불변 리스트를, <code>collect(Collectors.toList())</code>는 가변 리스트를 반환함.</li>
+<li>계속해서 메뉴 추가되고 삭제될 가능성이 있는 장바구니에는 가변 리스트가 적합.</li>
+</ul>
+<p>깔끔해서 쓰고 싶었는데&hellip;🥲</p>
+<hr>
+<h2 id="실행-예시">실행 예시<a hidden class="anchor" aria-hidden="true" href="#실행-예시">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">햄버거</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">음료</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">사이드</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">종료하기</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">햄버거</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">불고기</span> <span class="n">버거</span>  	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span>   <span class="p">|</span>   <span class="n">불고기</span> <span class="n">소스에</span> <span class="n">패티와</span> <span class="n">마요네즈</span><span class="p">,</span> <span class="n">양상추의</span> <span class="n">맛있는</span> <span class="n">조합</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">치즈</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">맛있는</span> <span class="n">치즈와</span> <span class="mf">100</span><span class="p">%</span> <span class="n">순</span> <span class="n">쇠고기</span> <span class="n">패티</span><span class="p">,</span> <span class="n">클래식</span> <span class="n">치즈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">슈비</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">탱글한</span> <span class="n">통새우살에</span> <span class="n">비프</span> <span class="n">패티를</span> <span class="n">더해</span> <span class="n">푸짐한</span> <span class="n">슈비</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">4</span><span class="p">]</span> <span class="n">슈슈</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span>   <span class="p">|</span>   <span class="n">탱글한</span> <span class="n">통새우살이</span> <span class="n">가득한</span> <span class="n">슈슈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>    <span class="p">[</span><span class="no">n</span><span class="p">]</span> <span class="n">다음</span> <span class="n">메뉴</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">햄버거</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">불고기</span> <span class="n">버거</span>  	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span>   <span class="p">|</span>   <span class="n">불고기</span> <span class="n">소스에</span> <span class="n">패티와</span> <span class="n">마요네즈</span><span class="p">,</span> <span class="n">양상추의</span> <span class="n">맛있는</span> <span class="n">조합</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">치즈</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">맛있는</span> <span class="n">치즈와</span> <span class="mf">100</span><span class="p">%</span> <span class="n">순</span> <span class="n">쇠고기</span> <span class="n">패티</span><span class="p">,</span> <span class="n">클래식</span> <span class="n">치즈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">슈비</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">탱글한</span> <span class="n">통새우살에</span> <span class="n">비프</span> <span class="n">패티를</span> <span class="n">더해</span> <span class="n">푸짐한</span> <span class="n">슈비</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">4</span><span class="p">]</span> <span class="n">슈슈</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span>   <span class="p">|</span>   <span class="n">탱글한</span> <span class="n">통새우살이</span> <span class="n">가득한</span> <span class="n">슈슈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>    <span class="p">[</span><span class="no">n] 다음 메뉴    [c</span><span class="p">]</span> <span class="n">장바구니</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">음료</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">코카콜라</span>     	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">갈증</span> <span class="n">해소뿐만이</span> <span class="n">아니라</span> <span class="n">기분까지</span> <span class="n">상쾌하게</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">스프라이트</span>   	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">청량함에</span> <span class="n">레몬</span><span class="p">,</span> <span class="n">라임향을</span> <span class="n">더한</span> <span class="n">시원함</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">아메리카노</span>   	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">300</span>   <span class="p">|</span>   <span class="n">바로</span> <span class="n">내린</span> <span class="mf">100</span><span class="p">%</span> <span class="n">친환경</span> <span class="n">커피로</span> <span class="n">더</span> <span class="n">신선하게</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>    <span class="p">[</span><span class="no">p] 이전 메뉴    [n] 다음 메뉴    [c</span><span class="p">]</span> <span class="n">장바구니</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">음료</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">코카콜라</span>     	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">갈증</span> <span class="n">해소뿐만이</span> <span class="n">아니라</span> <span class="n">기분까지</span> <span class="n">상쾌하게</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">스프라이트</span>   	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">청량함에</span> <span class="n">레몬</span><span class="p">,</span> <span class="n">라임향을</span> <span class="n">더한</span> <span class="n">시원함</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">아메리카노</span>   	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">300</span>   <span class="p">|</span>   <span class="n">바로</span> <span class="n">내린</span> <span class="mf">100</span><span class="p">%</span> <span class="n">친환경</span> <span class="n">커피로</span> <span class="n">더</span> <span class="n">신선하게</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>    <span class="p">[</span><span class="no">p] 이전 메뉴    [n] 다음 메뉴    [c</span><span class="p">]</span> <span class="n">장바구니</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="n">p</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">햄버거</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">불고기</span> <span class="n">버거</span>  	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span>   <span class="p">|</span>   <span class="n">불고기</span> <span class="n">소스에</span> <span class="n">패티와</span> <span class="n">마요네즈</span><span class="p">,</span> <span class="n">양상추의</span> <span class="n">맛있는</span> <span class="n">조합</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">치즈</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">맛있는</span> <span class="n">치즈와</span> <span class="mf">100</span><span class="p">%</span> <span class="n">순</span> <span class="n">쇠고기</span> <span class="n">패티</span><span class="p">,</span> <span class="n">클래식</span> <span class="n">치즈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">슈비</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">탱글한</span> <span class="n">통새우살에</span> <span class="n">비프</span> <span class="n">패티를</span> <span class="n">더해</span> <span class="n">푸짐한</span> <span class="n">슈비</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">4</span><span class="p">]</span> <span class="n">슈슈</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span>   <span class="p">|</span>   <span class="n">탱글한</span> <span class="n">통새우살이</span> <span class="n">가득한</span> <span class="n">슈슈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>    <span class="p">[</span><span class="no">n] 다음 메뉴    [c</span><span class="p">]</span> <span class="n">장바구니</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">햄버거</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">불고기</span> <span class="n">버거</span>  	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">4</span><span class="p">,</span><span class="mf">200</span>   <span class="p">|</span>   <span class="n">불고기</span> <span class="n">소스에</span> <span class="n">패티와</span> <span class="n">마요네즈</span><span class="p">,</span> <span class="n">양상추의</span> <span class="n">맛있는</span> <span class="n">조합</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">치즈</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">맛있는</span> <span class="n">치즈와</span> <span class="mf">100</span><span class="p">%</span> <span class="n">순</span> <span class="n">쇠고기</span> <span class="n">패티</span><span class="p">,</span> <span class="n">클래식</span> <span class="n">치즈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">슈비</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">탱글한</span> <span class="n">통새우살에</span> <span class="n">비프</span> <span class="n">패티를</span> <span class="n">더해</span> <span class="n">푸짐한</span> <span class="n">슈비</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">4</span><span class="p">]</span> <span class="n">슈슈</span> <span class="n">버거</span>    	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span>   <span class="p">|</span>   <span class="n">탱글한</span> <span class="n">통새우살이</span> <span class="n">가득한</span> <span class="n">슈슈</span> <span class="n">버거</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>    <span class="p">[</span><span class="no">n] 다음 메뉴    [c</span><span class="p">]</span> <span class="n">장바구니</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">음료</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">코카콜라</span>     	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">갈증</span> <span class="n">해소뿐만이</span> <span class="n">아니라</span> <span class="n">기분까지</span> <span class="n">상쾌하게</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">스프라이트</span>   	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">청량함에</span> <span class="n">레몬</span><span class="p">,</span> <span class="n">라임향을</span> <span class="n">더한</span> <span class="n">시원함</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">아메리카노</span>   	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">300</span>   <span class="p">|</span>   <span class="n">바로</span> <span class="n">내린</span> <span class="mf">100</span><span class="p">%</span> <span class="n">친환경</span> <span class="n">커피로</span> <span class="n">더</span> <span class="n">신선하게</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>    <span class="p">[</span><span class="no">p] 이전 메뉴    [n] 다음 메뉴    [c</span><span class="p">]</span> <span class="n">장바구니</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">사이드</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">후렌치</span> <span class="n">후라이</span>	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">000</span>   <span class="p">|</span>   <span class="n">남다른</span> <span class="n">맛과</span> <span class="n">바삭함</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">코울슬로</span>     	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">700</span>   <span class="p">|</span>   <span class="n">아삭하게</span> <span class="n">씹히는</span> <span class="n">샐러드</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">치즈스틱</span>     	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">속이</span> <span class="n">꽉</span> <span class="n">찬</span> <span class="n">황금빛</span> <span class="n">바삭함</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>    <span class="p">[</span><span class="no">p] 이전 메뉴    [c</span><span class="p">]</span> <span class="n">장바구니</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">사이드</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">후렌치</span> <span class="n">후라이</span>	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">000</span>   <span class="p">|</span>   <span class="n">남다른</span> <span class="n">맛과</span> <span class="n">바삭함</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">코울슬로</span>     	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">700</span>   <span class="p">|</span>   <span class="n">아삭하게</span> <span class="n">씹히는</span> <span class="n">샐러드</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">치즈스틱</span>     	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">속이</span> <span class="n">꽉</span> <span class="n">찬</span> <span class="n">황금빛</span> <span class="n">바삭함</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>    <span class="p">[</span><span class="no">p] 이전 메뉴    [c</span><span class="p">]</span> <span class="n">장바구니</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">사이드</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">후렌치</span> <span class="n">후라이</span>	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">000</span>   <span class="p">|</span>   <span class="n">남다른</span> <span class="n">맛과</span> <span class="n">바삭함</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">코울슬로</span>     	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">700</span>   <span class="p">|</span>   <span class="n">아삭하게</span> <span class="n">씹히는</span> <span class="n">샐러드</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">치즈스틱</span>     	<span class="p">|</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span>   <span class="p">|</span>   <span class="n">속이</span> <span class="n">꽉</span> <span class="n">찬</span> <span class="n">황금빛</span> <span class="n">바삭함</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>    <span class="p">[</span><span class="no">p] 이전 메뉴    [c</span><span class="p">]</span> <span class="n">장바구니</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="n">c</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">장바구니</span>
+</span></span><span class="line"><span class="cl"><span class="p">--------------------------------------</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">슈비</span> <span class="n">버거</span>    	<span class="err">×</span>  <span class="mf">1</span>  <span class="p">=</span>  <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">코카콜라</span>     	<span class="err">×</span>  <span class="mf">1</span>  <span class="p">=</span>  <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">600</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">슈슈</span> <span class="n">버거</span>    	<span class="err">×</span>  <span class="mf">1</span>  <span class="p">=</span>  <span class="err">￦</span> <span class="mf">5</span><span class="p">,</span><span class="mf">500</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">4</span><span class="p">]</span> <span class="n">후렌치</span> <span class="n">후라이</span>	<span class="err">×</span>  <span class="mf">1</span>  <span class="p">=</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">000</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">5</span><span class="p">]</span> <span class="n">치즈스틱</span>     	<span class="err">×</span>  <span class="mf">1</span>  <span class="p">=</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span>
+</span></span><span class="line"><span class="cl"><span class="p">--------------------------------------</span>
+</span></span><span class="line"><span class="cl"> <span class="n">총</span> <span class="n">결제</span> <span class="n">금액</span>     	      <span class="p">=</span>  <span class="err">￦</span> <span class="mf">21</span><span class="p">,</span><span class="mf">300</span>
+</span></span><span class="line"><span class="cl"><span class="p">--------------------------------------</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">결제하기</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">메뉴</span> <span class="n">삭제하기</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">장바구니</span> <span class="n">비우기</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="n">삭제할</span> <span class="n">메뉴의</span> <span class="n">번호를</span> <span class="n">입력하세요</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">장바구니</span>
+</span></span><span class="line"><span class="cl"><span class="p">--------------------------------------</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">슈비</span> <span class="n">버거</span>    	<span class="err">×</span>  <span class="mf">1</span>  <span class="p">=</span>  <span class="err">￦</span> <span class="mf">6</span><span class="p">,</span><span class="mf">600</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">코카콜라</span>     	<span class="err">×</span>  <span class="mf">1</span>  <span class="p">=</span>  <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">600</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">후렌치</span> <span class="n">후라이</span>	<span class="err">×</span>  <span class="mf">1</span>  <span class="p">=</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">000</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">4</span><span class="p">]</span> <span class="n">치즈스틱</span>     	<span class="err">×</span>  <span class="mf">1</span>  <span class="p">=</span>  <span class="err">￦</span> <span class="mf">3</span><span class="p">,</span><span class="mf">600</span>
+</span></span><span class="line"><span class="cl"><span class="p">--------------------------------------</span>
+</span></span><span class="line"><span class="cl"> <span class="n">총</span> <span class="n">결제</span> <span class="n">금액</span>     	      <span class="p">=</span>  <span class="err">￦</span> <span class="mf">15</span><span class="p">,</span><span class="mf">800</span>
+</span></span><span class="line"><span class="cl"><span class="p">--------------------------------------</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">결제하기</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">메뉴</span> <span class="n">삭제하기</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">장바구니</span> <span class="n">비우기</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">결제</span> <span class="p">&gt;</span> <span class="n">할인</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">생일</span>         	<span class="err">🔥</span> <span class="mf">20</span><span class="p">%</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">리뷰</span> <span class="n">작성</span>    	<span class="err">🔥</span> <span class="mf">10</span><span class="p">%</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">SNS</span> <span class="n">업로드</span>   	<span class="err">🔥</span> <span class="mf">10</span><span class="p">%</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">4</span><span class="p">]</span> <span class="n">학생</span>         	<span class="err">🔥</span> <span class="mf">5</span><span class="p">%</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">5</span><span class="p">]</span> <span class="n">해당</span> <span class="n">없음</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">홈으로</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span> <span class="p">&gt;</span> <span class="n">결제</span>
+</span></span><span class="line"><span class="cl"> <span class="n">총</span> <span class="n">결제</span> <span class="n">금액</span> <span class="p">[</span> <span class="err">￦</span> <span class="mf">12</span><span class="p">,</span><span class="mf">640</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"> <span class="n">지불할</span> <span class="n">금액을</span> <span class="n">입력하세요</span><span class="p">.</span> <span class="p">(</span><span class="n">취소</span><span class="err">:</span> <span class="mf">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">15000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="n">잔액</span><span class="p">]</span> <span class="err">￦</span> <span class="mf">2</span><span class="p">,</span><span class="mf">360</span>
+</span></span><span class="line"><span class="cl"> <span class="n">결제가</span> <span class="n">완료되었습니다</span><span class="p">.</span> <span class="n">감사합니다</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">☰</span> <span class="n">홈</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="n">햄버거</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">2</span><span class="p">]</span> <span class="n">음료</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="n">사이드</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="n">종료하기</span>
+</span></span><span class="line"><span class="cl"> <span class="err">⮞</span> <span class="mf">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">프로그램을</span> <span class="n">종료합니다</span><span class="p">.</span>
+</span></span></code></pre></div><hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://withong.github.io/project/kiosk-03/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>키오스크 도전 Lv 1</span>
+  </a>
+  <a class="next" href="https://withong.github.io/record/2025-03-13/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Collection &amp; Stream</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✔';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

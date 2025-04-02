@@ -10,9 +10,9 @@
     <atom:link href="https://withong.github.io/tag/spring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Spring 심화 2</title>
-      <link>https://withong.github.io/records/til-23/</link>
+      <link>https://withong.github.io/record/2025-03-28/</link>
       <pubDate>Fri, 28 Mar 2025 20:28:44 +0900</pubDate>
-      <guid>https://withong.github.io/records/til-23/</guid>
+      <guid>https://withong.github.io/record/2025-03-28/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;인증authentication과-인가authorization&#34;&gt;인증(Authentication)과 인가(Authorization)&lt;/h2&gt;
 &lt;table&gt;
@@ -51,9 +51,9 @@
     </item>
     <item>
       <title>Spring 심화 1</title>
-      <link>https://withong.github.io/records/til-22/</link>
+      <link>https://withong.github.io/record/2025-03-27-02/</link>
       <pubDate>Thu, 27 Mar 2025 20:25:30 +0900</pubDate>
-      <guid>https://withong.github.io/records/til-22/</guid>
+      <guid>https://withong.github.io/record/2025-03-27-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;1-spring-container--bean&#34;&gt;1. Spring Container &amp;amp; Bean&lt;/h2&gt;
 &lt;h3 id=&#34;11-spring-container&#34;&gt;1.1. Spring Container&lt;/h3&gt;
@@ -78,9 +78,9 @@
     </item>
     <item>
       <title>Spring 기초 4</title>
-      <link>https://withong.github.io/records/til-18/</link>
+      <link>https://withong.github.io/record/2025-03-19/</link>
       <pubDate>Wed, 19 Mar 2025 21:54:12 +0900</pubDate>
-      <guid>https://withong.github.io/records/til-18/</guid>
+      <guid>https://withong.github.io/record/2025-03-19/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;slf4j&#34;&gt;Slf4j&lt;/h2&gt;
 &lt;ul&gt;
@@ -222,9 +222,9 @@
     </item>
     <item>
       <title>Spring 기초 3</title>
-      <link>https://withong.github.io/records/til-17/</link>
+      <link>https://withong.github.io/record/2025-03-18-02/</link>
       <pubDate>Tue, 18 Mar 2025 18:00:16 +0900</pubDate>
-      <guid>https://withong.github.io/records/til-17/</guid>
+      <guid>https://withong.github.io/record/2025-03-18-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;1-mvc-패턴&#34;&gt;1. MVC 패턴&lt;/h2&gt;
 &lt;h3 id=&#34;template-engine-템플릿-엔진&#34;&gt;Template Engine (템플릿 엔진)&lt;/h3&gt;
@@ -293,9 +293,9 @@
     </item>
     <item>
       <title>Spring 기초 2</title>
-      <link>https://withong.github.io/records/til-16/</link>
+      <link>https://withong.github.io/record/2025-03-18-01/</link>
       <pubDate>Tue, 18 Mar 2025 17:32:05 +0900</pubDate>
-      <guid>https://withong.github.io/records/til-16/</guid>
+      <guid>https://withong.github.io/record/2025-03-18-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;1-프레임워크와-라이브러리&#34;&gt;1. 프레임워크와 라이브러리&lt;/h2&gt;
 &lt;h3 id=&#34;프레임워크-framework&#34;&gt;프레임워크 (Framework)&lt;/h3&gt;
@@ -320,9 +320,9 @@
     </item>
     <item>
       <title>Spring 기초 1</title>
-      <link>https://withong.github.io/records/til-15/</link>
+      <link>https://withong.github.io/record/2025-03-17/</link>
       <pubDate>Mon, 17 Mar 2025 22:00:03 +0900</pubDate>
-      <guid>https://withong.github.io/records/til-15/</guid>
+      <guid>https://withong.github.io/record/2025-03-17/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;네트워크&#34;&gt;네트워크&lt;/h2&gt;
 &lt;ul&gt;

@@ -10,9 +10,9 @@
     <atom:link href="https://withong.github.io/tag/%EA%B3%84%EC%82%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>계산기 Lv 3</title>
-      <link>https://withong.github.io/tasks/calculator-03/</link>
+      <link>https://withong.github.io/project/calculator-03/</link>
       <pubDate>Wed, 05 Mar 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/tasks/calculator-03/</guid>
+      <guid>https://withong.github.io/project/calculator-03/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;Enum, 제네릭, 람다 &amp;amp; 스트림을 이해한 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -48,9 +48,9 @@
     </item>
     <item>
       <title>계산기 Lv 2</title>
-      <link>https://withong.github.io/tasks/calculator-02/</link>
+      <link>https://withong.github.io/project/calculator-02/</link>
       <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/tasks/calculator-02/</guid>
+      <guid>https://withong.github.io/project/calculator-02/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -71,9 +71,9 @@
     </item>
     <item>
       <title>계산기 Lv 1</title>
-      <link>https://withong.github.io/tasks/calculator-01/</link>
+      <link>https://withong.github.io/project/calculator-01/</link>
       <pubDate>Wed, 26 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/tasks/calculator-01/</guid>
+      <guid>https://withong.github.io/project/calculator-01/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
