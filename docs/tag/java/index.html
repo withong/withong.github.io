@@ -217,6 +217,81 @@ Enum의 특징 상수들의 집합으로 사용된다. 내부적으로 final cla
   <footer class="entry-footer"><span title='2025-03-11 10:44:41 +0900 KST'>2025년 3월 11일</span></footer>
   <a class="entry-link" aria-label="post link to Enum & 동일성/동등성" href="https://withong.github.io/record/2025-03-11/"></a>
 </article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java 심화 2
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ [강의] Java 문법 세션 2 - 객체 활용
+✅ [강의] Java 문법 Chapter 3 (5~7)
+✅ [과제] Java 계산기 만들기 level 2
+람다(Lambda) 함수형 인터페이스 람다식을 사용하기 위한 인터페이스 단 하나의 추상 메서드만 포함해야 함. @FunctionalInterface 애노테이션을 사용. @FunctionalInterface // 함수형 인터페이스 선언 public interface Calculator { int sum(int a, int b); // 오직 하나의 추상 메서드만 선언해야 함 } 익명 클래스 별도의 클래스 파일을 만들지 않고 코드 내에서 일회성으로 정의해 사용하는 클래스. 주로 인터페이스를 구현할 때나 클래스를 상속할 때 간단한 기능을 위해 사용됨. public static void main(String[] args) { // 인터페이스를 활용한 익명 클래스 만들기 Calculator calculator1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator1.sum(2, 2); System.out.println(&#34;ret1 = &#34; &#43; ret1); } 람다식 메서드를 하나의 식(Expression)으로 표현하는 방식 익명 함수(Anonymous Function)와 유사 함수형 인터페이스와 함께 사용됨 불필요한 코드 생략 가능 → 간결한 코드 작성 가능 public static void main(String[] args) { // 인터페이스를 활용한 람다식 만들기 Calculator calculator = (a, b) -&gt; a &#43; b; int ret = calculator.sum(3, 3); System.out.println(&#34;ret = &#34; &#43; ret); } 람다식 활용 public static void main(String[] args) { // 람다식을 매개변수로 전달하는 방법 // 1. 익명 클래스를 변수에 담아 매개변수로 전달 Calculator cal1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator(3, 3, cal1); System.out.println(&#34;ret1 = &#34; &#43; ret1); // 2. 람다식을 변수에 담아 매개변수로 전달 Calculator cal2 = (a, b) -&gt; a &#43; b; int ret2 = calculator(4, 4, cal2); System.out.println(&#34;ret2 = &#34; &#43; ret2); // 3. 람다식을 직접 매개변수로 전달 int ret3 = calculator(5, 5, (a, b) -&gt; a &#43; b); System.out.println(&#34;ret3 = &#34; &#43; ret3); } public static int calculator(int a, int b, Calculator calculator) { return calculator.sum(a, b); } 스트림(Stream) 데이터의 흐름을 표현하는 기능으로, 배열이나 컬렉션 등의 데이터를 함수형 스타일로 처리할 수 있도록 지원하는 API
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-27 21:00:00 +0900 KST'>2025년 2월 27일</span></footer>
+  <a class="entry-link" aria-label="post link to Java 심화 2" href="https://withong.github.io/record/2025-02-27/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java 심화 1
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ [강의] Java 문법 Chapter 3 (1~4)
+✅ [과제] Java 계산기 만들기 level 1
+예외와 예외 처리 예외 → 프로그램 실행 중 발생할 수 있는 예기치 못한 오류나 상황. 예외가 처리되지 않으면 프로그램 흐름이 중단됨.
+예외 구조와 종류
+UncheckedException → RuntimeException과 그 하위 클래스. 예외 처리 강제되지 않음. 예: NullPointerException, ArrayIndexOutOfBoundsException CheckedException → RuntimeException을 제외한 예외. 예외 처리 강제됨. 예: IOException, SQLException. 예외 전파
+UncheckedException → 예외 전파가 자동으로 이루어짐. → main() 메서드나 스레드에서 처리하지 않으면 프로그램이 종료됨. CheckedException → 예외가 발생했을 때 반드시 예외를 처리하거나 전파해야 함. → try-catch문 또는 메서드 선언에 throws 키워드 사용. Optional Optional&lt;T&gt; → Null을 안전하게 다루기 위한 클래스
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-26 21:00:00 +0900 KST'>2025년 2월 26일</span></footer>
+  <a class="entry-link" aria-label="post link to Java 심화 1" href="https://withong.github.io/record/2025-02-26/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">객체지향
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ 문법 세션 1 - 프로그래밍 기초
+✅ Java 문법 강의 2주차
+Chapter 2. 객체지향 이해하기 클래스와 객체 클래스(class) → 객체를 생성하기 위한 설계도. 속성과 기능을 정의하며, 동일한 구조를 가진 객체를 여러 개 생성할 수 있음. 객체(object) → 클래스를 기반으로 생성된 실체. 메모리에 할당되어 동작하며, 개별적으로 속성과 기능을 가짐. 인스턴스화(instantiate) → 클래스를 이용해 객체를 생성하는 과정. new 키워드를 사용해 객체를 메모리에 할당. 속성(property, field) → 객체가 가지는 데이터. 클래스 내부에서 변수 형태로 선언되며, 객체마다 서로 다른 값을 가질 수 있음. 생성자(constructor) → 객체가 생성될 때 호출되는 특수한 메서드. 속성을 초기화하고, 객체의 기본 상태를 설정하는 역할. 기능(method) → 객체가 수행하는 동작. 클래스 내부에서 정의되며, 특정 입력을 받아 처리한 후 결과를 반환하거나 상태를 변경함. JVM 메모리 영역 Method Area → 클래스 정보(클래스 이름, 메서드, 필드, static 변수 등)를 저장하는 공간. JVM이 시작될 때 로드되며, 모든 쓰레드가 공유. Stack Area → 메서드 호출 시 생성되는 스택 프레임을 저장하는 공간. 지역변수, 매개변수, 메서드 호출 정보가 포함되며, 호출이 끝나면 제거. 각 쓰레드마다 독립적인 스택을 가짐. Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워드로 생성된 객체가 저장되며, GC(Garbage Collector)가 관리. 모든 쓰레드가 공유. 래퍼클래스 래퍼클래스 → 기본형 데이터를 객체처럼 다룰 수 있도록 감싸는 클래스. Integer, Double, Boolean 등 기본형의 객체화된 버전.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-25 21:00:00 +0900 KST'>2025년 2월 25일</span></footer>
+  <a class="entry-link" aria-label="post link to 객체지향" href="https://withong.github.io/record/2025-02-25-02/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">final
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>final -지역변수 final이 붙은 지역변수는 한 번만 값을 할당할 수 있음. 값이 할당된 이후에는 변경 불가능. 메서드의 매개변수에도 final을 적용할 수 있으며, 이 경우 해당 매개변수 값 변경이 불가능. public class FinalLocalMain { public static void main(String[] args) { // final 지역변수1 - 선언 후 할당 (한 번만 가능) final int data1; data1 = 10; // 최초 할당 가능 // data1 = 20; // 오류! final 변수는 한 번만 할당 가능 // final 지역변수2 - 선언과 동시에 초기화 final int data2 = 10; // data2 = 20; // 오류! 이미 값이 설정됨 method(10); } // final 매개변수 (메서드 내부에서 변경 불가능) static void method(final int parameter) { // parameter = 20; // 오류! final 매개변수는 값 변경 불가 } } final 지역변수는 최초 한 번만 값을 할당 가능, 이후 변경 불가. final 매개변수는 메서드 내부에서 값 변경이 불가능. final - 필드(멤버변수) 클래스의 멤버 변수(필드)에 final을 사용하면, 해당 필드는 한 번만 초기화 가능함.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-25 09:00:00 +0900 KST'>2025년 2월 25일</span></footer>
+  <a class="entry-link" aria-label="post link to final" href="https://withong.github.io/record/2025-02-25-01/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java 기초
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ Java 문법 강의 1주차
+Chapter 1. Java 기초 문법 다지기 JDK (Java Development Kit) JDK → Java 프로그램을 개발할 때 필요한 개발 도구 모음 Javac(Java Compiler) → 자바코드를 바이트코드(.class)로 변환 JVM (Java Virtual Machine) → 바이트코드를 실행 컴퓨터의 기억 방식 RAM (메모리) → 휘발성, 프로그램 실행 시 사용됨 보조기억장치 (HDD, SSD) → 영구 저장 비트(Bit) → 0 또는 1의 값 바이트(Byte) → 8비트로 구성 자바 프로젝트 관리 네이밍 규칙 카멜케이스 (camelCase) → 변수, 메서드 (myVariableName) 스네이크케이스 (snake_case) → (Java에서는 잘 사용하지 않음) 클래스 이름 → PascalCase (MyClass) 패키지 이름 → 소문자 (com.example.app) 변수와 자료형 변수 → 데이터를 저장하는 공간 자료형 기본형: int, double, char, boolean 참조형: String, Array, Class int num = 10; // 정수형 변수 double pi = 3.14; // 실수형 변수 boolean isJavaFun = true; // 논리형 변수 형변환 업캐스팅(작은 → 큰 자료형) → 자동 변환 다운캐스팅(큰 → 작은 자료형) → 강제 변환 double d = 10; // 자동 형변환 (업캐스팅) int i = (int) d; // 강제 형변환 (다운캐스팅) 입출력 (I/O) 입력 (Scanner 사용) import java.util.Scanner; Scanner scanner = new Scanner(System.in); int num = scanner.nextInt(); // 정수 입력 출력 (System.out 사용) System.out.println(&#34;Hello Java!&#34;); // 개행 포함 출력 System.out.print(&#34;No new line&#34;); // 개행 없이 출력 System.out.println(&#34;\n줄 바꿈 포함&#34;); // `\n` 사용 연산자 산술 연산자(&#43;, -, *, /, %) 대입 연산자(=) 복합 대입 연산자(&#43;=, -=, *=, /= , %=) 증감 연산자(&#43;&#43;, --) 전위 연산 - 사용 전 연산 후위 연산 - 사용 후 연산 비교 연산자(==, !=, &lt;, &gt;, &lt;=, &gt;=) 논리 연산자(!, &amp;&amp;, ||) 문자열 비교(equals()) 조건문 import java.util.Scanner; Scanner scanner = new Scanner(System.in); System.out.print(&#34;신호등 색상을 입력하세요(초록불, 노란불, 빨간불): &#34;); String light = scanner.nextLine(); if (light.equals(&#34;초록불&#34;)) { System.out.println(&#34;건너세요!&#34;); } else if (light.equals(&#34;노란불&#34;)) { System.out.println(&#34;주의하세요!&#34;); } else if (light.equals(&#34;빨간불&#34;)) { System.out.println(&#34;멈추세요!&#34;); } else { System.out.println(&#34;잘못된 입력입니다!&#34;); } switch (light) { case &#34;초록불&#34;: System.out.println(&#34;건너세요!&#34;); break; case &#34;노란불&#34;: System.out.println(&#34;주의하세요!&#34;); break; case &#34;빨간불&#34;: System.out.println(&#34;멈추세요!&#34;); break; default: System.out.println(&#34;잘못된 입력입니다!&#34;); } 반복문 for (int i = 0; i &lt; 5; i&#43;&#43;) { System.out.print(i &#43; &#34; &#34;); // 0 1 2 3 4 } int i = 0; while (i &lt; 5) { System.out.print(i &#43; &#34; &#34;); i&#43;&#43;; } int i = 0; do { System.out.print(i &#43; &#34; &#34;); i&#43;&#43;; } while (i &lt; 5); 배열 // 1. 배열 선언 int[] arr1; // 2. 배열 길이 할당 arr1 = new int[5]; // 3. 배열 선언과 길이 동시에 할당 int[] arr2 = new int[5]; // 4. 배열 선언과 동시에 배열의 요소 할당 int[] arr3 = {10, 20, 30, 40, 50}; // 배열의 길이 int arrLength = arr3.length; System.out.println(&#34;arrLength = &#34; &#43; arrLength); // 배열 요소 접근 System.out.println(&#34;배열의 1번째 요소 접근: &#34; &#43; arr3[0]); // 배열 요소 변경 arr3[0] = 100; // 향상된 for 문 for (int a : arr3) { System.out.println(&#34;a = &#34; &#43; a); } // 2차원 배열 int[][] arr4 = { {1, 2}, {3, 4} }; System.out.println(arr4[1][0]); // 3 메서드 public class Calculator { // 두 정수를 더하는 메서드 (반환값 있음: int) int sum(int value1, int value2) { int result = value1 &#43; value2; // 두 값 더하기 return result; // 결과 반환 } // 반환값이 없는 메서드 (void) void printSum(int value1, int value2) { int result = value1 &#43; value2; System.out.println(&#34;result = &#34; &#43; result); } } public class Main { public static void main(String[] args) { Calculator calculator = new Calculator(); // Calculator 객체 생성 // sum 메서드는 반환값이 있어서 변수에 저장 int result = calculator.sum(1, 2); System.out.println(&#34;result = &#34; &#43; result); // printSum 메서드는 반환값이 없고 바로 출력됨 calculator.printSum(3, 4); } } result = 3result = 7 </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-24 21:00:00 +0900 KST'>2025년 2월 24일</span></footer>
+  <a class="entry-link" aria-label="post link to Java 기초" href="https://withong.github.io/record/2025-02-24/"></a>
+</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="next" href="https://withong.github.io/tag/java/page/2/">Next&nbsp;&nbsp;»

@@ -221,12 +221,51 @@ public class Book { String title; String author; int page; } Book book = new Boo
   <footer class="entry-footer"><span title='2025-02-10 21:00:00 +0900 KST'>2025년 2월 10일</span></footer>
   <a class="entry-link" aria-label="post link to 생성자" href="https://withong.github.io/record/2025-02-10/"></a>
 </article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="next" href="https://withong.github.io/tag/study/page/2/">Next&nbsp;&nbsp;»
-    </a>
-  </nav>
-</footer>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">객체 지향 프로그래밍
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>절차 지향 프로그래밍 프로그램의 흐름을 순차적으로 따르며 처리하는 방식. 즉, 어떻게 를 중심으로 프로그래밍 함.
+public class MusicPlayerData { int volume = 0; boolean isOn = false; } public static void main(String[] args) { MusicPlayerData data = new MusicPlayerData(); // 음악 플레이어 켜기 on(data); // 볼륨 증가 volumeUp(data); // 음악 플레이어 끄기 off(data); } static void on(MusicPlayerData data) { data.isOn = true; System.out.println(&#34;음악 플레이어를 시작합니다.&#34;); } static void off(MusicPlayerData data) { data.isOn = false; System.out.println(&#34;음악 플레이어를 종료합니다.&#34;); } static void volumeUp(MusicPlayerData data) { data.volume&#43;&#43;; System.out.println(&#34;음악 플레이어 볼륨: &#34; &#43; data.volume); } 데이터와 기능이 분리되어 있으며, 주로 함수로 작업을 처리함.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-07 21:00:00 +0900 KST'>2025년 2월 7일</span></footer>
+  <a class="entry-link" aria-label="post link to 객체 지향 프로그래밍" href="https://withong.github.io/record/2025-02-07/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">기본형과 참조형
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>변수 대입 기본형 변수 대입 기본형 변수는 값을 복사하여 저장함.
+int a = 10; int b = a; // a: 10, b: 10 a = 20; // a: 20, b: 10 b = 30; // a: 20, b: 30 b에 a의 값을 복사해서 저장하므로, b를 변경해도 a에 영향을 주지 않음.
+참조형 변수 대입 참조형 변수는 객체의 메모리 주소를 저장함 → 주소(참조)가 복사됨.
+public class Data { int value; } Data dataA = new Data(); dataA.value = 10; Data dataB = dataA; // dataA.value: 10, dataB.value: 10 dataA.value = 20; // dataA.value: 20, dataB.value: 20 dataB.value = 30; // dataA.value: 30, dataB.value: 30 같은 객체를 가리키므로 하나를 변경하면 다른 하나도 영향을 받음.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-06 21:00:00 +0900 KST'>2025년 2월 6일</span></footer>
+  <a class="entry-link" aria-label="post link to 기본형과 참조형" href="https://withong.github.io/record/2025-02-06/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">클래스와 객체
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>클래스 객체를 생성하기 위한 설계도 또는 틀, 사용자 정의 타입 역할을 함.
+public class Student { // 멤버 변수: 클래스 내에서 선언된 변수, 객체의 속성을 나타냄 String name; int age; int grade; } 객체와 인스턴스 객체: 클래스에서 정의한 속성과 기능을 가진 실체 인스턴스: 특정 클래스로부터 생성된 객체, 어떤 클래스에 속하는지 강조할 때 사용
+→ 객체와 특정 클래스의 관계를 명확히 할 때 “인스턴스&#34;라는 용어를 사용하지만, 본질적으로 같은 개념이므로 보통 구분 없이 사용됨
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-04 21:00:00 +0900 KST'>2025년 2월 4일</span></footer>
+  <a class="entry-link" aria-label="post link to 클래스와 객체" href="https://withong.github.io/record/2025-02-04/"></a>
+</article>
     </main>
     
 <footer class="footer">
