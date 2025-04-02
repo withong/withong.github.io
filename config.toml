@@ -12,14 +12,14 @@ pygmentsUseClasses = true
 publishDir = "docs"
 
 [taxonomies]
-  category = "topic"
   tag = "tag"
+# category = "topic"
 
 [params]
   title = "withong"
   description = "Today I Learned"
   dateFormat = "2006년 1월 2일"
-  mainsections = ["records", "tasks", "topic", "tag", "search"]
+  mainsections = ["record", "project", "tag", "search"]
   ShowPostNavLinks = true
   UseHugoToc = true
   showtoc = true
@@ -79,22 +79,28 @@ Content = "Today I Learned ✏️"
   weight = 5
 
 [[menu.main]]
-  identifier = "topic"
-  name = "Topic" # 메뉴바에 보이는 이름
-  url = "/topic/"
+  identifier = "record"
+  name = "Record" # 메뉴바에 보이는 이름
+  url = "/record/"
   weight = 10
+
+[[menu.main]]
+  identifier = "project"
+  name = "Project" # 메뉴바에 보이는 이름
+  url = "/project/"
+  weight = 15
 
 [[menu.main]]
   identifier = "tag"
   name = "Tag" # 메뉴바에 보이는 이름
   url = "/tag/"
-  weight = 15
+  weight = 20
 
 [[menu.main]]
   identifier = "search"
   name = "Search" # 메뉴바에 보이는 이름
   url = "/search/"
-  weight = 20
+  weight = 25
 
 [outputs]
   home = ["HTML", "JSON"]
