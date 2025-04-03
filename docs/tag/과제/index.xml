@@ -18,7 +18,7 @@
 &lt;h3 id=&#34;-nbc-chapter-03-develop&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-develop.git&#34;&gt;nbc-chapter-03-develop&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;br&gt;
-&lt;h2 id=&#34;1-email로-검증했는데-이상한-이메일도-통과되는-문제&#34;&gt;1. &lt;code&gt;@Email&lt;/code&gt;로 검증했는데 이상한 이메일도 통과되는 문제&lt;/h2&gt;
+&lt;h2 id=&#34;1-이메일-형식-검증&#34;&gt;1. 이메일 형식 검증&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;문제&lt;/strong&gt;:&lt;br&gt;
@@ -37,7 +37,11 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;해결&lt;/strong&gt;:&lt;br&gt;
-정규 표현식을 함께 사용해 @ 뒤에 마침표 포함 여부와 마침표 뒤의 문자열까지 추가로 검증&lt;/p&gt;</description>
+정규 표현식을 함께 사용해 @ 뒤에 마침표 포함 여부와 마침표 뒤의 문자열까지 추가로 검증&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;p&gt;▶ 공부 기록 &lt;a href=&#34;https://withong.github.io/record/2025-04-01-02/&#34;&gt;[정규 표현식을 활용한 사용자 등록 요청 데이터 검증]&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>QueryDSL을 활용한 조건 기반 일정 조회</title>
