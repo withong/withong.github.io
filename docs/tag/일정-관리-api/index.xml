@@ -31,13 +31,14 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;분석&lt;/strong&gt;:&lt;br&gt;
-&lt;code&gt;@Email&lt;/code&gt;만으로는 &lt;code&gt;&amp;quot;@뒤에 .이 있어야 함&amp;quot;&lt;/code&gt; 같은 현실적인 이메일 형식 검증은 부족함&lt;/p&gt;
+&lt;code&gt;@Email&lt;/code&gt;만으로는 &amp;ldquo;@뒤에 .이 있어야 함&amp;rdquo; 같은 현실적인 이메일 형식 검증은 부족함&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;해결&lt;/strong&gt;:&lt;br&gt;
 정규 표현식을 함께 사용해 &lt;code&gt;@&lt;/code&gt; 뒤에 &lt;code&gt;.&lt;/code&gt; 포함 여부와 &lt;code&gt;.&lt;/code&gt; 뒤의 문자열까지 추가로 검증&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;br&gt;
 &lt;p&gt;▶ 공부 기록 &lt;a href=&#34;https://withong.github.io/record/2025-04-01-02/&#34;&gt;[정규 표현식을 활용한 사용자 등록 요청 데이터 검증]&lt;/a&gt;&lt;/p&gt;
 &lt;br&gt;
 &lt;hr&gt;
