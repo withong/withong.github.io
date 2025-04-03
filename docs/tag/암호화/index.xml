@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>암호화 on withong</title>
+    <link>https://withong.github.io/tag/%EC%95%94%ED%98%B8%ED%99%94/</link>
+    <description>Recent content in 암호화 on withong</description>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Tue, 01 Apr 2025 16:50:00 +0900</lastBuildDate>
+    <atom:link href="https://withong.github.io/tag/%EC%95%94%ED%98%B8%ED%99%94/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bcrypt를 활용한 비밀번호 암호화</title>
+      <link>https://withong.github.io/record/2025-04-01-03/</link>
+      <pubDate>Tue, 01 Apr 2025 16:50:00 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-01-03/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;bcrypt를-활용한-비밀번호-암호화&#34;&gt;Bcrypt를 활용한 비밀번호 암호화&lt;/h2&gt;
+&lt;p&gt;회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 &lt;strong&gt;비밀번호 보안&lt;/strong&gt;이다.&lt;br&gt;
+비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 &lt;strong&gt;암호화 또는 해시화 처리&lt;/strong&gt;를 거쳐야 한다.&lt;br&gt;
+이때 널리 사용되는 방식 중 하나가 바로 &lt;strong&gt;Bcrypt 해시 함수&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;1-해시hash란&#34;&gt;1. 해시(Hash)란?&lt;/h3&gt;
+&lt;p&gt;**해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.&lt;br&gt;
+출력값은 일반적으로 &lt;strong&gt;해시 값(hash value)&lt;/strong&gt; 또는 **다이제스트(digest)**라고 부른다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;예를 들어, &amp;ldquo;password123&amp;quot;이라는 문자열을 해시 함수에 넣으면,&lt;br&gt;
+&lt;code&gt;ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f&lt;/code&gt; 같은 고정된 길이의 문자열로 바뀐다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

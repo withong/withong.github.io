@@ -160,7 +160,31 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">일정 관리 API 트러블 슈팅
+    <h2 class="entry-hint-parent">일정 관리 API (JPA) 트러블 슈팅
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> GitHub ▶ nbc-chapter-03-develop 1. @Email로 검증했는데 이상한 이메일도 통과되는 문제 문제:
+@Email을 써도 test@gmail 같은 이메일이 통과됨…
+원인:
+@Email은 기본적으로 @ 기호와 텍스트 구조만 확인하고,
+도메인에 .이 있어야 한다는 조건은 강제하지 않음
+분석:
+@Email만으로는 &#34;@뒤에 .이 있어야 함&#34; 같은 현실적인 이메일 형식 검증은 부족함
+해결:
+정규 표현식을 함께 사용해 @ 뒤에 . 포함 여부와 . 뒤의 문자열까지 추가로 검증
+▶ 공부 기록 [정규 표현식을 활용한 사용자 등록 요청 데이터 검증]
+2. 해시된 비밀번호가 매번 다른데, 어떻게 비교해서 로그인하는지? 문제:
+bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 어떻게 비밀번호를 비교함?
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-03 22:28:58 +0900 KST'>2025년 4월 3일</span></footer>
+  <a class="entry-link" aria-label="post link to 일정 관리 API (JPA) 트러블 슈팅" href="https://withong.github.io/project/schedule-02/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">일정 관리 API (JDBC) 트러블 슈팅
     </h2>
   </header>
   <div class="entry-content">
@@ -176,7 +200,7 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-25 20:20:11 +0900 KST'>2025년 3월 25일</span></footer>
-  <a class="entry-link" aria-label="post link to 일정 관리 API 트러블 슈팅" href="https://withong.github.io/project/schedule-01/"></a>
+  <a class="entry-link" aria-label="post link to 일정 관리 API (JDBC) 트러블 슈팅" href="https://withong.github.io/project/schedule-01/"></a>
 </article>
 
 <article class="post-entry"> 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>QueryDSL on withong</title>
+    <link>https://withong.github.io/tag/querydsl/</link>
+    <description>Recent content in QueryDSL on withong</description>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Thu, 03 Apr 2025 20:24:51 +0900</lastBuildDate>
+    <atom:link href="https://withong.github.io/tag/querydsl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>QueryDSL을 활용한 조건 기반 일정 조회</title>
+      <link>https://withong.github.io/record/2025-04-03/</link>
+      <pubDate>Thu, 03 Apr 2025 20:24:51 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-03/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;querydsl이란&#34;&gt;QueryDSL이란?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;QueryDSL&lt;/strong&gt;은 Java에서 **타입 안정성(type-safe)**을 보장하는 방식으로 SQL과 유사한 쿼리를 작성할 수 있게 해주는 **도메인 특화 언어(DSL: Domain Specific Language)**이다. 주로 &lt;strong&gt;JPA와 함께 사용&lt;/strong&gt;되며, 복잡한 동적 쿼리 작성이나 조건 조합이 많은 경우 유용하다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;기존 JPQL의 단점인 문자열 기반 쿼리 작성의 오류 위험성을 줄이고, IDE의 코드 자동완성 기능을 활용할 수 있도록 해준다.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;왜-querydsl을-사용하는가&#34;&gt;왜 QueryDSL을 사용하는가?&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;컴파일 타임에 문법 오류 확인 가능&lt;/strong&gt;&lt;br&gt;
+→ JPQL은 문자열이기 때문에 런타임에 오류가 나지만, QueryDSL은 Java 코드로 작성되기 때문에 컴파일 시점에 오류를 잡을 수 있다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

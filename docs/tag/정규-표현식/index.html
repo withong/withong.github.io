@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>일정 관리 API | withong</title>
+<title>정규 표현식 | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="Today I Learned">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/tag/%EC%9D%BC%EC%A0%95-%EA%B4%80%EB%A6%AC-api/">
+<link rel="canonical" href="https://withong.github.io/tag/%EC%A0%95%EA%B7%9C-%ED%91%9C%ED%98%84%EC%8B%9D/">
 <link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://withong.github.io/icons/code.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
@@ -18,8 +18,8 @@
 <link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://withong.github.io/tag/%EC%9D%BC%EC%A0%95-%EA%B4%80%EB%A6%AC-api/index.xml">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/tag/%EC%9D%BC%EC%A0%95-%EA%B4%80%EB%A6%AC-api/">
+<link rel="alternate" type="application/rss+xml" href="https://withong.github.io/tag/%EC%A0%95%EA%B7%9C-%ED%91%9C%ED%98%84%EC%8B%9D/index.xml">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/tag/%EC%A0%95%EA%B7%9C-%ED%91%9C%ED%98%84%EC%8B%9D/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,14 +56,14 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/tag/%EC%9D%BC%EC%A0%95-%EA%B4%80%EB%A6%AC-api/">
+</noscript><meta property="og:url" content="https://withong.github.io/tag/%EC%A0%95%EA%B7%9C-%ED%91%9C%ED%98%84%EC%8B%9D/">
   <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="일정 관리 API">
+  <meta property="og:title" content="정규 표현식">
   <meta property="og:description" content="Today I Learned">
   <meta property="og:locale" content="ko">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="일정 관리 API">
+<meta name="twitter:title" content="정규 표현식">
 <meta name="twitter:description" content="Today I Learned">
 
 </head>
@@ -139,49 +139,9 @@
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
   <h1>
-    일정 관리 API
+    정규 표현식
   </h1>
 </header>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">일정 관리 API (JPA) 트러블 슈팅
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> GitHub ▶ nbc-chapter-03-develop 1. @Email로 검증했는데 이상한 이메일도 통과되는 문제 문제:
-@Email을 써도 test@gmail 같은 이메일이 통과됨…
-원인:
-@Email은 기본적으로 @ 기호와 텍스트 구조만 확인하고,
-도메인에 .이 있어야 한다는 조건은 강제하지 않음
-분석:
-@Email만으로는 &#34;@뒤에 .이 있어야 함&#34; 같은 현실적인 이메일 형식 검증은 부족함
-해결:
-정규 표현식을 함께 사용해 @ 뒤에 . 포함 여부와 . 뒤의 문자열까지 추가로 검증
-▶ 공부 기록 [정규 표현식을 활용한 사용자 등록 요청 데이터 검증]
-2. 해시된 비밀번호가 매번 다른데, 어떻게 비교해서 로그인하는지? 문제:
-bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 어떻게 비밀번호를 비교함?
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-04-03 22:28:58 +0900 KST'>2025년 4월 3일</span></footer>
-  <a class="entry-link" aria-label="post link to 일정 관리 API (JPA) 트러블 슈팅" href="https://withong.github.io/project/schedule-02/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">QueryDSL을 활용한 조건 기반 일정 조회
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>QueryDSL이란? QueryDSL은 Java에서 **타입 안정성(type-safe)**을 보장하는 방식으로 SQL과 유사한 쿼리를 작성할 수 있게 해주는 **도메인 특화 언어(DSL: Domain Specific Language)**이다. 주로 JPA와 함께 사용되며, 복잡한 동적 쿼리 작성이나 조건 조합이 많은 경우 유용하다.
-기존 JPQL의 단점인 문자열 기반 쿼리 작성의 오류 위험성을 줄이고, IDE의 코드 자동완성 기능을 활용할 수 있도록 해준다.
-왜 QueryDSL을 사용하는가? 컴파일 타임에 문법 오류 확인 가능
-→ JPQL은 문자열이기 때문에 런타임에 오류가 나지만, QueryDSL은 Java 코드로 작성되기 때문에 컴파일 시점에 오류를 잡을 수 있다.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-04-03 20:24:51 +0900 KST'>2025년 4월 3일</span></footer>
-  <a class="entry-link" aria-label="post link to QueryDSL을 활용한 조건 기반 일정 조회" href="https://withong.github.io/record/2025-04-03/"></a>
-</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
@@ -196,46 +156,6 @@ bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 �
   </div>
   <footer class="entry-footer"><span title='2025-04-01 22:05:47 +0900 KST'>2025년 4월 1일</span></footer>
   <a class="entry-link" aria-label="post link to 정규 표현식을 활용한 사용자 등록 요청 데이터 검증" href="https://withong.github.io/record/2025-04-01-02/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Bcrypt를 활용한 비밀번호 암호화
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Bcrypt를 활용한 비밀번호 암호화 회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 비밀번호 보안이다.
-비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 암호화 또는 해시화 처리를 거쳐야 한다.
-이때 널리 사용되는 방식 중 하나가 바로 Bcrypt 해시 함수이다.
-1. 해시(Hash)란? **해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.
-출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.
-예를 들어, “password123&#34;이라는 문자열을 해시 함수에 넣으면,
-ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-04-01 16:50:00 +0900 KST'>2025년 4월 1일</span></footer>
-  <a class="entry-link" aria-label="post link to Bcrypt를 활용한 비밀번호 암호화" href="https://withong.github.io/record/2025-04-01-03/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">일정 관리 API (JDBC) 트러블 슈팅
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> GitHub ▶ nbc-chapter-03-basic 1. 등록 시 createdAt, updatedAt Null createdAt, updatedAt는 DB에서 자동 갱신됨
-1.1. 문제 일정/사용자 등록 후 반환된 createdAt, updatedAt 값이 Null
-1.2. 원인 당연함… 등록 요청 시 전달받은 정보를 응답 DTO에 넣어주고 그 값을 반환하는데
-DB에서 자동으로 업데이트 하는 값은 안 들어오니까 안 넣어줬고…
-DB 조회해서 가져오기 전까지 당연히 Null임.
-1.3. 해결 전달받은 식별자를 통해 재 조회한 결과 반환
-2. 변경 요청 시 변경된 내용이 없을 경우 2.1. 문제 클라이언트가 기존 정보와 동일한 정보로 변경 요청 시
-jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나
-예상 결과와 다르게 동일한 값도 update 후 1이 반환됨
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-25 20:20:11 +0900 KST'>2025년 3월 25일</span></footer>
-  <a class="entry-link" aria-label="post link to 일정 관리 API (JDBC) 트러블 슈팅" href="https://withong.github.io/project/schedule-01/"></a>
 </article>
     </main>
     

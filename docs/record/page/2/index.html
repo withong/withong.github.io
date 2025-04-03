@@ -163,6 +163,44 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Spring 기초 2
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 1. 프레임워크와 라이브러리 프레임워크 (Framework) 소프트웨어 개발을 간편하게 만들기 위한 개발 환경. 일정한 틀(Frame) 안에서 개발해야 하며, 개발의 일관성을 제공함. 장점: 코드의 일관성, 보안 강화, 테스트 환경 제공, 커뮤니티 지원. 단점: 학습 곡선이 높음, 새로운 버전과의 호환성 문제 발생 가능, 구조 변경 어려움. 라이브러리 (Library) 특정 기능을 수행하는 코드의 모음. 개발자가 필요할 때 가져다 사용 가능. 장점: 개발 생산성 증가, 안정성이 높은 코드 활용 가능. 단점: 업데이트 또는 지원 중단 시 문제 발생, 호환성 이슈. 2. Annotation 코드에 메타데이터를 추가하는 기능으로, 컴파일러나 런타임에서 특정 동작을 트리거함.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-18 17:32:05 +0900 KST'>2025년 3월 18일</span></footer>
+  <a class="entry-link" aria-label="post link to Spring 기초 2" href="https://withong.github.io/record/2025-03-18-01/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Spring 기초 1
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 네트워크 인터넷(Internet) TCP/IP 기반으로 동작하는 글로벌 네트워크. 데이터 전송을 위해 유선(해저 케이블) 및 무선(위성 통신) 활용. 인터넷 프로토콜(IP, Internet Protocol) 네트워크 내에서 기기를 식별하는 주소 체계. 예시: 192.168.0.1 IP 방식의 문제점 애플리케이션 구분 불가능. 비연결성: 수신 대상의 상태를 고려하지 않고 전송. 비신뢰성: 패킷 손실 및 순서 뒤섞임 가능. TCP와 UDP TCP(Transmission Control Protocol) 신뢰성 있는 데이터 전송 (3-Way Handshake 방식). 패킷 순서 보장 및 오류 검출 가능. UDP(User Datagram Protocol) 빠른 전송 속도를 우선시 (비신뢰성 전송). 실시간 스트리밍, 온라인 게임 등에 사용. PORT 같은 IP에서 여러 프로세스를 구분하는 번호. 주요 포트 번호: HTTP(80), HTTPS(443), FTP(21), SSH(22). Web DNS(Domain Name System) 도메인과 IP 주소를 매핑하는 시스템. 사람이 이해하기 쉬운 도메인(google.com)을 IP 주소로 변환. URI(Uniform Resource Identifier) 인터넷 자원의 고유 식별자. URL(Uniform Resource Locator) 리소스의 위치를 나타내는 형식 (https://spartacodingclub.kr/). 브라우저에 URL을 입력하면 사용자가 브라우저에 URL을 입력. DNS 조회를 통해 도메인에 해당하는 IP 주소 확인. 웹 브라우저가 HTTP 요청을 생성. 요청 패킷이 서버로 전송. 서버에서 HTTP 요청을 처리 후 응답 생성. 응답 패킷이 클라이언트로 전송. 브라우저가 응답 데이터를 렌더링하여 화면 표시. 용어 모음 프로그래밍 명명규칙(Casing) snake_case: Python, DB 테이블에서 사용 (user_name). camelCase: Java, JavaScript에서 변수 및 메서드 이름에 사용 (userName). PascalCase: 클래스 및 객체 이름에 사용 (UserName). kebab-case: URL 및 CSS에서 사용 (user-name). JSON(JavaScript Object Notation) 클라이언트-서버 간 데이터 교환을 위한 경량 데이터 포맷. XML 대비 가독성이 뛰어나고 용량이 작음. Scale Up, Scale Out Scale Up: 단일 서버의 성능 향상 (CPU, RAM 증가). Scale Out: 여러 대의 서버 확장 (부하 분산). Stateful vs Stateless Stateful: 클라이언트의 상태를 유지해야 하는 서비스. Stateless: 서버가 클라이언트 상태를 저장하지 않음 (확장성 우수). Connection vs Connectionless Connection: 지속적 연결 유지 (HTTP/1.0). Connectionless: 필요할 때만 연결 (HTTP/1.1, HTTP/2). HTTP HTTP(HyperText Transfer Protocol) 인터넷 상에서 클라이언트와 서버 간 데이터를 교환하는 프로토콜. HTTP 특징 Stateless(무상태): 클라이언트의 상태를 저장하지 않음. Connectionless(비연결): 요청-응답 후 연결을 끊음. HTTP Message 구조 Request (요청) Start Line: HTTP Method, URL, HTTP Version. Header: 추가적인 요청 정보 (예: Content-Type). Body: 요청 데이터 포함 (POST 요청 등). Response (응답) Status Code: 요청의 처리 결과 (200 OK, 404 Not Found 등). Header: 응답 메타데이터. Body: 응답 데이터. HTTP Method와 상태 코드 HTTP Method GET: 데이터 조회. POST: 데이터 생성. PUT: 데이터 전체 수정. PATCH: 데이터 일부 수정. DELETE: 데이터 삭제. HTTP 상태 코드 200 OK: 정상 응답. 201 Created: 리소스 생성 완료. 400 Bad Request: 잘못된 요청. 401 Unauthorized: 인증 필요. 404 Not Found: 리소스 없음. 500 Internal Server Error: 서버 내부 오류. HTTP Header HTTP Header의 역할 요청과 응답의 부가 정보 제공. 자주 사용하는 Header Content-Type: 데이터 형식 지정 (application/json). Authorization: 인증 정보 포함. Cache-Control: 캐시 정책 (max-age, no-cache 등). Set-Cookie: 쿠키 설정 (세션 관리). Restful API REST (Representational State Transfer) 리소스를 기반으로 한 API 설계 원칙. RESTful API 설계 예시 POST /boards → 게시글 생성. GET /boards → 게시글 목록 조회. GET /boards/{id} → 특정 게시글 조회. PUT /boards/{id} → 게시글 수정. DELETE /boards/{id} → 게시글 삭제. Web Application Web Server vs WAS(Web Application Server) Web Server: 정적 콘텐츠 제공 (예: Nginx, Apache). WAS: 동적 콘텐츠 처리 (예: Tomcat, Spring Boot). Web System 구성 프론트엔드(클라이언트) → 백엔드(WAS) → 데이터베이스(DB). Servlet Servlet Java 기반 웹 애플리케이션을 처리하는 기술. Servlet 동작 순서 클라이언트가 요청 전송. Servlet Container가 요청을 분석하여 Servlet 실행. Servlet이 요청을 처리하고 응답 생성. 응답이 클라이언트에게 전달됨. Thread Thread 하나의 프로세스 내에서 실행되는 작업 단위. Multi-Thread 여러 작업을 동시에 실행하는 기술 (서버 성능 향상 가능). SSR(Server Side Rendering) vs CSR(Client Side Rendering) SSR: 서버에서 HTML을 생성하여 클라이언트로 전송 (초기 로딩 속도 빠름). CSR: 클라이언트에서 JavaScript를 이용해 동적으로 렌더링 (SPA에서 주로 사용). </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-17 22:00:03 +0900 KST'>2025년 3월 17일</span></footer>
+  <a class="entry-link" aria-label="post link to Spring 기초 1" href="https://withong.github.io/record/2025-03-17/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">키오스크 회고
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 코드의 주요 기능 CartItem 클래스를 도입해 장바구니 아이템을 관리. Discount Enum을 사용해 다양한 할인 유형 적용 가능. Kiosk에서 직접 사용자 입력을 처리하고 메뉴 탐색, 장바구니 관리 등을 수행. Main에서 Kiosk를 실행해 전체 기능을 제어. 분석 Cart와 CartItem을 활용해 객체지향적으로 장바구니를 관리. Discount Enum을 통해 생일, 리뷰 작성 등 다양한 할인 적용 가능. 코드 구조 및 객체지향 설계 Kiosk 클래스가 너무 많은 기능을 포함하고 있어 SRP(단일 책임 원칙)를 지키지 못하는 부분이 있다. UI 출력과 비즈니스 로직이 혼재되어 있어 유지보수성이 낮다. 코드 스타일 및 가독성 Kiosk에서 너무 많은 로직을 처리하여 일부 메서드가 길어지고 복잡해질 가능성이 있음. 예외 처리가 부족하여, 예상치 못한 입력이 들어왔을 때 프로그램이 멈출 가능성이 있음. 코드 내 중복이 일부 존재하며, 이를 줄이면 가독성이 더 좋아질 수 있음. 실행 흐름 Main에서 Kiosk를 초기화하고 start() 실행. 사용자의 입력을 받아 메뉴 탐색, 장바구니 관리 진행. 주문 시 할인 정보를 입력받아 Discount Enum을 활용해 적용. 결제 후 장바구니를 비움. 분석 Kiosk에서 거의 모든 것을 관리하기 때문에 실행 흐름이 길어질수록 복잡해질 가능성이 있음. 기능별로 적절히 분리하면 코드의 유지보수성과 확장성이 더 좋아질 수 있음. 개선할 점 Kiosk 클래스의 역할을 분리해 KioskService 같은 클래스를 만들어야 함. UI 출력과 비즈니스 로직을 분리하여 코드의 가독성과 유지보수성을 높여야 함. 예외 처리가 부족하므로 IllegalArgumentException 등을 적극 활용해야 함. 중복된 코드가 일부 존재하므로 메서드로 분리하여 코드의 일관성을 높일 필요가 있음. 사용자의 입력을 검증하는 로직을 별도로 분리하여 입력 오류를 방지해야 함. 🗨️ by GPT
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-14 19:14:24 +0900 KST'>2025년 3월 14일</span></footer>
+  <a class="entry-link" aria-label="post link to 키오스크 회고" href="https://withong.github.io/record/2025-03-14/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Collection &amp; Stream
     </h2>
   </header>
@@ -267,49 +305,6 @@ Chapter 2. 객체지향 이해하기 클래스와 객체 클래스(class) → �
   </div>
   <footer class="entry-footer"><span title='2025-02-25 21:00:00 +0900 KST'>2025년 2월 25일</span></footer>
   <a class="entry-link" aria-label="post link to 객체지향" href="https://withong.github.io/record/2025-02-25-02/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">final
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>final -지역변수 final이 붙은 지역변수는 한 번만 값을 할당할 수 있음. 값이 할당된 이후에는 변경 불가능. 메서드의 매개변수에도 final을 적용할 수 있으며, 이 경우 해당 매개변수 값 변경이 불가능. public class FinalLocalMain { public static void main(String[] args) { // final 지역변수1 - 선언 후 할당 (한 번만 가능) final int data1; data1 = 10; // 최초 할당 가능 // data1 = 20; // 오류! final 변수는 한 번만 할당 가능 // final 지역변수2 - 선언과 동시에 초기화 final int data2 = 10; // data2 = 20; // 오류! 이미 값이 설정됨 method(10); } // final 매개변수 (메서드 내부에서 변경 불가능) static void method(final int parameter) { // parameter = 20; // 오류! final 매개변수는 값 변경 불가 } } final 지역변수는 최초 한 번만 값을 할당 가능, 이후 변경 불가. final 매개변수는 메서드 내부에서 값 변경이 불가능. final - 필드(멤버변수) 클래스의 멤버 변수(필드)에 final을 사용하면, 해당 필드는 한 번만 초기화 가능함.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-25 09:00:00 +0900 KST'>2025년 2월 25일</span></footer>
-  <a class="entry-link" aria-label="post link to final" href="https://withong.github.io/record/2025-02-25-01/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Java 기초
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ Java 문법 강의 1주차
-Chapter 1. Java 기초 문법 다지기 JDK (Java Development Kit) JDK → Java 프로그램을 개발할 때 필요한 개발 도구 모음 Javac(Java Compiler) → 자바코드를 바이트코드(.class)로 변환 JVM (Java Virtual Machine) → 바이트코드를 실행 컴퓨터의 기억 방식 RAM (메모리) → 휘발성, 프로그램 실행 시 사용됨 보조기억장치 (HDD, SSD) → 영구 저장 비트(Bit) → 0 또는 1의 값 바이트(Byte) → 8비트로 구성 자바 프로젝트 관리 네이밍 규칙 카멜케이스 (camelCase) → 변수, 메서드 (myVariableName) 스네이크케이스 (snake_case) → (Java에서는 잘 사용하지 않음) 클래스 이름 → PascalCase (MyClass) 패키지 이름 → 소문자 (com.example.app) 변수와 자료형 변수 → 데이터를 저장하는 공간 자료형 기본형: int, double, char, boolean 참조형: String, Array, Class int num = 10; // 정수형 변수 double pi = 3.14; // 실수형 변수 boolean isJavaFun = true; // 논리형 변수 형변환 업캐스팅(작은 → 큰 자료형) → 자동 변환 다운캐스팅(큰 → 작은 자료형) → 강제 변환 double d = 10; // 자동 형변환 (업캐스팅) int i = (int) d; // 강제 형변환 (다운캐스팅) 입출력 (I/O) 입력 (Scanner 사용) import java.util.Scanner; Scanner scanner = new Scanner(System.in); int num = scanner.nextInt(); // 정수 입력 출력 (System.out 사용) System.out.println(&#34;Hello Java!&#34;); // 개행 포함 출력 System.out.print(&#34;No new line&#34;); // 개행 없이 출력 System.out.println(&#34;\n줄 바꿈 포함&#34;); // `\n` 사용 연산자 산술 연산자(&#43;, -, *, /, %) 대입 연산자(=) 복합 대입 연산자(&#43;=, -=, *=, /= , %=) 증감 연산자(&#43;&#43;, --) 전위 연산 - 사용 전 연산 후위 연산 - 사용 후 연산 비교 연산자(==, !=, &lt;, &gt;, &lt;=, &gt;=) 논리 연산자(!, &amp;&amp;, ||) 문자열 비교(equals()) 조건문 import java.util.Scanner; Scanner scanner = new Scanner(System.in); System.out.print(&#34;신호등 색상을 입력하세요(초록불, 노란불, 빨간불): &#34;); String light = scanner.nextLine(); if (light.equals(&#34;초록불&#34;)) { System.out.println(&#34;건너세요!&#34;); } else if (light.equals(&#34;노란불&#34;)) { System.out.println(&#34;주의하세요!&#34;); } else if (light.equals(&#34;빨간불&#34;)) { System.out.println(&#34;멈추세요!&#34;); } else { System.out.println(&#34;잘못된 입력입니다!&#34;); } switch (light) { case &#34;초록불&#34;: System.out.println(&#34;건너세요!&#34;); break; case &#34;노란불&#34;: System.out.println(&#34;주의하세요!&#34;); break; case &#34;빨간불&#34;: System.out.println(&#34;멈추세요!&#34;); break; default: System.out.println(&#34;잘못된 입력입니다!&#34;); } 반복문 for (int i = 0; i &lt; 5; i&#43;&#43;) { System.out.print(i &#43; &#34; &#34;); // 0 1 2 3 4 } int i = 0; while (i &lt; 5) { System.out.print(i &#43; &#34; &#34;); i&#43;&#43;; } int i = 0; do { System.out.print(i &#43; &#34; &#34;); i&#43;&#43;; } while (i &lt; 5); 배열 // 1. 배열 선언 int[] arr1; // 2. 배열 길이 할당 arr1 = new int[5]; // 3. 배열 선언과 길이 동시에 할당 int[] arr2 = new int[5]; // 4. 배열 선언과 동시에 배열의 요소 할당 int[] arr3 = {10, 20, 30, 40, 50}; // 배열의 길이 int arrLength = arr3.length; System.out.println(&#34;arrLength = &#34; &#43; arrLength); // 배열 요소 접근 System.out.println(&#34;배열의 1번째 요소 접근: &#34; &#43; arr3[0]); // 배열 요소 변경 arr3[0] = 100; // 향상된 for 문 for (int a : arr3) { System.out.println(&#34;a = &#34; &#43; a); } // 2차원 배열 int[][] arr4 = { {1, 2}, {3, 4} }; System.out.println(arr4[1][0]); // 3 메서드 public class Calculator { // 두 정수를 더하는 메서드 (반환값 있음: int) int sum(int value1, int value2) { int result = value1 &#43; value2; // 두 값 더하기 return result; // 결과 반환 } // 반환값이 없는 메서드 (void) void printSum(int value1, int value2) { int result = value1 &#43; value2; System.out.println(&#34;result = &#34; &#43; result); } } public class Main { public static void main(String[] args) { Calculator calculator = new Calculator(); // Calculator 객체 생성 // sum 메서드는 반환값이 있어서 변수에 저장 int result = calculator.sum(1, 2); System.out.println(&#34;result = &#34; &#43; result); // printSum 메서드는 반환값이 없고 바로 출력됨 calculator.printSum(3, 4); } } result = 3result = 7 </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-24 21:00:00 +0900 KST'>2025년 2월 24일</span></footer>
-  <a class="entry-link" aria-label="post link to Java 기초" href="https://withong.github.io/record/2025-02-24/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">미니 프로젝트 최종
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ 프로젝트 배포
-✅ 프로젝트 발표
-✅ 프로젝트 피드백
-✅ 프로젝트 회고
-[13조] 이름 정하기 어렵조 메인 페이지 팀원 등록 등록하기 버튼 클릭 시 팀원 정보 입력창 오픈 팀원 정보 작성 후 저장하기 버튼 클릭 시 팀원 등록 팀원 수정 메인 페이지에서 해당 카드의 수정 아이콘 클릭 시 수정창 오픈 수정할 정보 입력 후 수정하기 버튼 클릭 시 팀원 정보 수정 팀원 삭제 메인 페이지에서 해당 카드의 삭제 아이콘 클릭 시 팀원 정보 삭제
-→ 해당 팀원의 방명록 정보도 함께 삭제 ...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-21 21:00:00 +0900 KST'>2025년 2월 21일</span></footer>
-  <a class="entry-link" aria-label="post link to 미니 프로젝트 최종" href="https://withong.github.io/record/2025-02-21/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

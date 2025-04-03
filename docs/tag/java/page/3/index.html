@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>트러블 슈팅 | withong</title>
+<title>Java | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="Today I Learned">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/">
+<link rel="canonical" href="https://withong.github.io/tag/java/">
 <link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://withong.github.io/icons/code.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
@@ -18,8 +18,8 @@
 <link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://withong.github.io/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/index.xml">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/">
+<link rel="alternate" type="application/rss+xml" href="https://withong.github.io/tag/java/index.xml">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/tag/java/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,14 +56,14 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/">
+</noscript><meta property="og:url" content="https://withong.github.io/tag/java/">
   <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="트러블 슈팅">
+  <meta property="og:title" content="Java">
   <meta property="og:description" content="Today I Learned">
   <meta property="og:locale" content="ko">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="트러블 슈팅">
+<meta name="twitter:title" content="Java">
 <meta name="twitter:description" content="Today I Learned">
 
 </head>
@@ -139,54 +139,38 @@
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
   <h1>
-    트러블 슈팅
+    Java
   </h1>
 </header>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">일정 관리 API (JPA) 트러블 슈팅
+    <h2 class="entry-hint-parent">[사전캠프] 7일차.
     </h2>
   </header>
   <div class="entry-content">
-    <p> GitHub ▶ nbc-chapter-03-develop 1. @Email로 검증했는데 이상한 이메일도 통과되는 문제 문제:
-@Email을 써도 test@gmail 같은 이메일이 통과됨…
-원인:
-@Email은 기본적으로 @ 기호와 텍스트 구조만 확인하고,
-도메인에 .이 있어야 한다는 조건은 강제하지 않음
-분석:
-@Email만으로는 &#34;@뒤에 .이 있어야 함&#34; 같은 현실적인 이메일 형식 검증은 부족함
-해결:
-정규 표현식을 함께 사용해 @ 뒤에 . 포함 여부와 . 뒤의 문자열까지 추가로 검증
-▶ 공부 기록 [정규 표현식을 활용한 사용자 등록 요청 데이터 검증]
-2. 해시된 비밀번호가 매번 다른데, 어떻게 비교해서 로그인하는지? 문제:
-bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 어떻게 비밀번호를 비교함?
+    <p> TASKS
+✅ SQL 강의 5주차
+✅ Web 강의 4주차
+✅ 달리기반 SQL 1-2
+✅ 달리기반 Java 1-2
+&#43;
+☑️ 달리기반 SQL 3
+SQL NULL 데이터가 존재하지 않거나 정의되지 않은 상태
+-- NULL 값인 데이터를 찾는 경우 SELECT * FROM table WHERE column IS NULL; -- NULL이 아닌 데이터를 찾는 경우 SELECT * FROM table WHERE column IS NOT NULL; -- NULL 값 대체하여 조회 SELECT COALESCE(column, &#39;default_value&#39;) AS alias FROM table; Pivot Table 데이터 집계 및 요약을 위해 특정 열의 값들을 열(Column)로 변환하고,
+관련 데이터를 행(Row)과 열 형태로 구조화한 테이블
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-04-03 22:28:58 +0900 KST'>2025년 4월 3일</span></footer>
-  <a class="entry-link" aria-label="post link to 일정 관리 API (JPA) 트러블 슈팅" href="https://withong.github.io/project/schedule-02/"></a>
+  <footer class="entry-footer"><span title='2025-01-21 23:41:13 +0900 KST'>2025년 1월 21일</span></footer>
+  <a class="entry-link" aria-label="post link to [사전캠프] 7일차." href="https://withong.github.io/record/2025-01-21/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">일정 관리 API (JDBC) 트러블 슈팅
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> GitHub ▶ nbc-chapter-03-basic 1. 등록 시 createdAt, updatedAt Null createdAt, updatedAt는 DB에서 자동 갱신됨
-1.1. 문제 일정/사용자 등록 후 반환된 createdAt, updatedAt 값이 Null
-1.2. 원인 당연함… 등록 요청 시 전달받은 정보를 응답 DTO에 넣어주고 그 값을 반환하는데
-DB에서 자동으로 업데이트 하는 값은 안 들어오니까 안 넣어줬고…
-DB 조회해서 가져오기 전까지 당연히 Null임.
-1.3. 해결 전달받은 식별자를 통해 재 조회한 결과 반환
-2. 변경 요청 시 변경된 내용이 없을 경우 2.1. 문제 클라이언트가 기존 정보와 동일한 정보로 변경 요청 시
-jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나
-예상 결과와 다르게 동일한 값도 update 후 1이 반환됨
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-25 20:20:11 +0900 KST'>2025년 3월 25일</span></footer>
-  <a class="entry-link" aria-label="post link to 일정 관리 API (JDBC) 트러블 슈팅" href="https://withong.github.io/project/schedule-01/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://withong.github.io/tag/java/page/2/">
+      «&nbsp;Prev&nbsp;
+    </a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

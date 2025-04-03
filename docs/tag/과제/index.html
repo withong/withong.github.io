@@ -145,6 +145,56 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">QueryDSL을 활용한 조건 기반 일정 조회
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>QueryDSL이란? QueryDSL은 Java에서 **타입 안정성(type-safe)**을 보장하는 방식으로 SQL과 유사한 쿼리를 작성할 수 있게 해주는 **도메인 특화 언어(DSL: Domain Specific Language)**이다. 주로 JPA와 함께 사용되며, 복잡한 동적 쿼리 작성이나 조건 조합이 많은 경우 유용하다.
+기존 JPQL의 단점인 문자열 기반 쿼리 작성의 오류 위험성을 줄이고, IDE의 코드 자동완성 기능을 활용할 수 있도록 해준다.
+왜 QueryDSL을 사용하는가? 컴파일 타임에 문법 오류 확인 가능
+→ JPQL은 문자열이기 때문에 런타임에 오류가 나지만, QueryDSL은 Java 코드로 작성되기 때문에 컴파일 시점에 오류를 잡을 수 있다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-03 20:24:51 +0900 KST'>2025년 4월 3일</span></footer>
+  <a class="entry-link" aria-label="post link to QueryDSL을 활용한 조건 기반 일정 조회" href="https://withong.github.io/record/2025-04-03/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">정규 표현식을 활용한 사용자 등록 요청 데이터 검증
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>정규 표현식(Regular Expression)이란? **정규 표현식(정규식, regex)**은 특정 문자열의 규칙을 표현하는 문법이다.
+일종의 패턴 언어로, 문자열이 특정한 조건을 만족하는지 검사하거나, 일부를 추출하거나, 변환할 때 사용된다.
+1. 정규 표현식은 언제, 왜 사용하는가? 입력값 검증 (Validation) 사용자가 입력한 값이 이메일 형식인지, 숫자인지, 비밀번호 조건에 맞는지 등을 검사할 때 사용한다. 프론트엔드/백엔드 양쪽에서 모두 널리 쓰인다. 문자열 추출 또는 치환 특정 문자나 단어가 포함된 부분을 찾아내거나, 그 값을 다른 값으로 바꾸는 작업도 가능하다. 패턴 기반 검색 로그 분석, 텍스트 필터링, 문서 내 키워드 찾기 등에서 활용된다. 2. 자주 사용하는 정규 표현식 기호 기호 의미 . 임의의 한 문자 (개행 제외) ^ 문자열의 시작 $ 문자열의 끝 * 앞 문자가 0개 이상 반복 &#43; 앞 문자가 1개 이상 반복 ? 앞 문자가 0개 또는 1개 [] 괄호 안의 문자 중 하나 () 그룹 (하나의 단위로 묶음) \\d 숫자 (0~9) \\w 알파벳 또는 숫자 또는 밑줄 \\s 공백 문자 (스페이스, 탭 등) {n} 정확히 n개 반복 {n,} n개 이상 반복 {n,m} n개 이상, m개 이하 반복 CreateUserRequest DTO에 사용된 정규 표현식 분석 1. 이름 필드 @Pattern(regexp = &#34;^[\\p{L}]&#43;$&#34;, message = &#34;이름은 문자만 입력 가능합니다.&#34;) 정규식: ^[\\p{L}]&#43;$ 패턴 의미 ^ 문자열 시작 \\p{L} 유니코드 문자 중 ‘Letter’(문자) 범주에 해당하는 모든 글자 (한글, 영어, 일본어 등 모두 포함) &#43; 1개 이상 반복 $ 문자열 끝 의미 요약: “문자만 1자 이상 포함된 문자열이며, 처음부터 끝까지 모두 문자인 경우만 허용”
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-01 22:05:47 +0900 KST'>2025년 4월 1일</span></footer>
+  <a class="entry-link" aria-label="post link to 정규 표현식을 활용한 사용자 등록 요청 데이터 검증" href="https://withong.github.io/record/2025-04-01-02/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bcrypt를 활용한 비밀번호 암호화
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Bcrypt를 활용한 비밀번호 암호화 회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 비밀번호 보안이다.
+비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 암호화 또는 해시화 처리를 거쳐야 한다.
+이때 널리 사용되는 방식 중 하나가 바로 Bcrypt 해시 함수이다.
+1. 해시(Hash)란? **해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.
+출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.
+예를 들어, “password123&#34;이라는 문자열을 해시 함수에 넣으면,
+ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-01 16:50:00 +0900 KST'>2025년 4월 1일</span></footer>
+  <a class="entry-link" aria-label="post link to Bcrypt를 활용한 비밀번호 암호화" href="https://withong.github.io/record/2025-04-01-03/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">키오스크 회고
     </h2>
   </header>

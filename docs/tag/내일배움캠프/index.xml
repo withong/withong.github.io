@@ -6,8 +6,212 @@
     <description>Recent content in 내일배움캠프 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 01 Apr 2025 09:54:56 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 03 Apr 2025 22:28:58 +0900</lastBuildDate>
     <atom:link href="https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>일정 관리 API (JPA) 트러블 슈팅</title>
+      <link>https://withong.github.io/project/schedule-02/</link>
+      <pubDate>Thu, 03 Apr 2025 22:28:58 +0900</pubDate>
+      <guid>https://withong.github.io/project/schedule-02/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
+&lt;h3 id=&#34;-nbc-chapter-03-develop&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-develop.git&#34;&gt;nbc-chapter-03-develop&lt;/a&gt;&lt;/h3&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;1-email로-검증했는데-이상한-이메일도-통과되는-문제&#34;&gt;1. &lt;code&gt;@Email&lt;/code&gt;로 검증했는데 이상한 이메일도 통과되는 문제&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;문제&lt;/strong&gt;:&lt;br&gt;
+&lt;code&gt;@Email&lt;/code&gt;을 써도 &lt;code&gt;test@gmail&lt;/code&gt; 같은 이메일이 통과됨&amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;원인&lt;/strong&gt;:&lt;br&gt;
+&lt;code&gt;@Email&lt;/code&gt;은 기본적으로 &lt;code&gt;@&lt;/code&gt; 기호와 텍스트 구조만 확인하고,&lt;br&gt;
+도메인에 &lt;code&gt;.&lt;/code&gt;이 있어야 한다는 조건은 강제하지 않음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;분석&lt;/strong&gt;:&lt;br&gt;
+&lt;code&gt;@Email&lt;/code&gt;만으로는 &lt;code&gt;&amp;quot;@뒤에 .이 있어야 함&amp;quot;&lt;/code&gt; 같은 현실적인 이메일 형식 검증은 부족함&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;해결&lt;/strong&gt;:&lt;br&gt;
+정규 표현식을 함께 사용해 &lt;code&gt;@&lt;/code&gt; 뒤에 &lt;code&gt;.&lt;/code&gt; 포함 여부와 &lt;code&gt;.&lt;/code&gt; 뒤의 문자열까지 추가로 검증&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;▶ 공부 기록 &lt;a href=&#34;https://withong.github.io/record/2025-04-01-02/&#34;&gt;[정규 표현식을 활용한 사용자 등록 요청 데이터 검증]&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;2-해시된-비밀번호가-매번-다른데-어떻게-비교해서-로그인하는지&#34;&gt;2. 해시된 비밀번호가 매번 다른데, 어떻게 비교해서 로그인하는지?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;문제&lt;/strong&gt;:&lt;br&gt;
+bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 어떻게 비밀번호를 비교함?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>QueryDSL을 활용한 조건 기반 일정 조회</title>
+      <link>https://withong.github.io/record/2025-04-03/</link>
+      <pubDate>Thu, 03 Apr 2025 20:24:51 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-03/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;querydsl이란&#34;&gt;QueryDSL이란?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;QueryDSL&lt;/strong&gt;은 Java에서 **타입 안정성(type-safe)**을 보장하는 방식으로 SQL과 유사한 쿼리를 작성할 수 있게 해주는 **도메인 특화 언어(DSL: Domain Specific Language)**이다. 주로 &lt;strong&gt;JPA와 함께 사용&lt;/strong&gt;되며, 복잡한 동적 쿼리 작성이나 조건 조합이 많은 경우 유용하다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;기존 JPQL의 단점인 문자열 기반 쿼리 작성의 오류 위험성을 줄이고, IDE의 코드 자동완성 기능을 활용할 수 있도록 해준다.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;왜-querydsl을-사용하는가&#34;&gt;왜 QueryDSL을 사용하는가?&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;컴파일 타임에 문법 오류 확인 가능&lt;/strong&gt;&lt;br&gt;
+→ JPQL은 문자열이기 때문에 런타임에 오류가 나지만, QueryDSL은 Java 코드로 작성되기 때문에 컴파일 시점에 오류를 잡을 수 있다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>정규 표현식을 활용한 사용자 등록 요청 데이터 검증</title>
+      <link>https://withong.github.io/record/2025-04-01-02/</link>
+      <pubDate>Tue, 01 Apr 2025 22:05:47 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-01-02/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;정규-표현식regular-expression이란&#34;&gt;정규 표현식(Regular Expression)이란?&lt;/h2&gt;
+&lt;p&gt;**정규 표현식(정규식, regex)**은 특정 &lt;strong&gt;문자열의 규칙을 표현하는 문법&lt;/strong&gt;이다.&lt;br&gt;
+일종의 &lt;strong&gt;패턴 언어&lt;/strong&gt;로, 문자열이 특정한 조건을 만족하는지 검사하거나, 일부를 추출하거나, 변환할 때 사용된다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;1-정규-표현식은-언제-왜-사용하는가&#34;&gt;1. 정규 표현식은 언제, 왜 사용하는가?&lt;/h3&gt;
+&lt;h4 id=&#34;입력값-검증-validation&#34;&gt;입력값 검증 (Validation)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;사용자가 입력한 값이 이메일 형식인지, 숫자인지, 비밀번호 조건에 맞는지 등을 검사할 때 사용한다.&lt;/li&gt;
+&lt;li&gt;프론트엔드/백엔드 양쪽에서 모두 널리 쓰인다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;문자열-추출-또는-치환&#34;&gt;문자열 추출 또는 치환&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;특정 문자나 단어가 포함된 부분을 찾아내거나, 그 값을 다른 값으로 바꾸는 작업도 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;패턴-기반-검색&#34;&gt;패턴 기반 검색&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;로그 분석, 텍스트 필터링, 문서 내 키워드 찾기 등에서 활용된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-자주-사용하는-정규-표현식-기호&#34;&gt;2. 자주 사용하는 정규 표현식 기호&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;기호&lt;/th&gt;
+          &lt;th&gt;의미&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;.&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;임의의 한 문자 (개행 제외)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;^&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;문자열의 시작&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;$&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;문자열의 끝&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;*&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;앞 문자가 0개 이상 반복&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;+&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;앞 문자가 1개 이상 반복&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;?&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;앞 문자가 0개 또는 1개&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;[]&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;괄호 안의 문자 중 하나&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;그룹 (하나의 단위로 묶음)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;\\d&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;숫자 (0~9)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;\\w&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;알파벳 또는 숫자 또는 밑줄&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;\\s&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;공백 문자 (스페이스, 탭 등)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;{n}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;정확히 n개 반복&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;{n,}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;n개 이상 반복&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;{n,m}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;n개 이상, m개 이하 반복&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;createuserrequest-dto에-사용된-정규-표현식-분석&#34;&gt;&lt;code&gt;CreateUserRequest&lt;/code&gt; DTO에 사용된 정규 표현식 분석&lt;/h2&gt;
+&lt;h3 id=&#34;1-이름-필드&#34;&gt;1. 이름 필드&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@Pattern&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;regexp&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;^[\\p{L}]+$&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;이름은 문자만 입력 가능합니다.&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;정규식-pl&#34;&gt;정규식: &lt;code&gt;^[\\p{L}]+$&lt;/code&gt;&lt;/h4&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;패턴&lt;/th&gt;
+          &lt;th&gt;의미&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;^&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;문자열 시작&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;\\p{L}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;유니코드 문자 중 &amp;lsquo;Letter&amp;rsquo;(문자) 범주에 해당하는 모든 글자 (한글, 영어, 일본어 등 모두 포함)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;+&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;1개 이상 반복&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;$&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;문자열 끝&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;의미 요약&lt;/strong&gt;: &amp;ldquo;문자만 1자 이상 포함된 문자열이며, 처음부터 끝까지 모두 문자인 경우만 허용&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bcrypt를 활용한 비밀번호 암호화</title>
+      <link>https://withong.github.io/record/2025-04-01-03/</link>
+      <pubDate>Tue, 01 Apr 2025 16:50:00 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-01-03/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;bcrypt를-활용한-비밀번호-암호화&#34;&gt;Bcrypt를 활용한 비밀번호 암호화&lt;/h2&gt;
+&lt;p&gt;회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 &lt;strong&gt;비밀번호 보안&lt;/strong&gt;이다.&lt;br&gt;
+비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 &lt;strong&gt;암호화 또는 해시화 처리&lt;/strong&gt;를 거쳐야 한다.&lt;br&gt;
+이때 널리 사용되는 방식 중 하나가 바로 &lt;strong&gt;Bcrypt 해시 함수&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;1-해시hash란&#34;&gt;1. 해시(Hash)란?&lt;/h3&gt;
+&lt;p&gt;**해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.&lt;br&gt;
+출력값은 일반적으로 &lt;strong&gt;해시 값(hash value)&lt;/strong&gt; 또는 **다이제스트(digest)**라고 부른다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;예를 들어, &amp;ldquo;password123&amp;quot;이라는 문자열을 해시 함수에 넣으면,&lt;br&gt;
+&lt;code&gt;ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f&lt;/code&gt; 같은 고정된 길이의 문자열로 바뀐다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>문자열 사전순 비교: compareTo()</title>
       <link>https://withong.github.io/record/2025-04-01-01/</link>
@@ -133,7 +337,7 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;해당 문자열을 k진법으로 해석한 후 10진법 정수로 반환&lt;/p&gt;</description>
     </item>
     <item>
-      <title>일정 관리 API 트러블 슈팅</title>
+      <title>일정 관리 API (JDBC) 트러블 슈팅</title>
       <link>https://withong.github.io/project/schedule-01/</link>
       <pubDate>Tue, 25 Mar 2025 20:20:11 +0900</pubDate>
       <guid>https://withong.github.io/project/schedule-01/</guid>

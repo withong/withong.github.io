@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Bcrypt를 활용한 비밀번호 암호화 | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+
+Bcrypt를 활용한 비밀번호 암호화
+회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 비밀번호 보안이다.
+비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 암호화 또는 해시화 처리를 거쳐야 한다.
+이때 널리 사용되는 방식 중 하나가 바로 Bcrypt 해시 함수이다.
+
+1. 해시(Hash)란?
+**해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.
+출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.
+
+예를 들어, &ldquo;password123&quot;이라는 문자열을 해시 함수에 넣으면,
+ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.">
+<meta name="author" content="">
+<link rel="canonical" href="https://withong.github.io/record/2025-04-01-03/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/code.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/zep.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/record/2025-04-01-03/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://withong.github.io/record/2025-04-01-03/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="Bcrypt를 활용한 비밀번호 암호화">
+  <meta property="og:description" content="Bcrypt를 활용한 비밀번호 암호화 회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 비밀번호 보안이다.
+비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 암호화 또는 해시화 처리를 거쳐야 한다.
+이때 널리 사용되는 방식 중 하나가 바로 Bcrypt 해시 함수이다.
+1. 해시(Hash)란? **해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.
+출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.
+예를 들어, “password123&#34;이라는 문자열을 해시 함수에 넣으면,
+ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="record">
+    <meta property="article:published_time" content="2025-04-01T16:50:00+09:00">
+    <meta property="article:modified_time" content="2025-04-01T16:50:00+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bcrypt를 활용한 비밀번호 암호화">
+<meta name="twitter:description" content="
+
+Bcrypt를 활용한 비밀번호 암호화
+회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 비밀번호 보안이다.
+비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 암호화 또는 해시화 처리를 거쳐야 한다.
+이때 널리 사용되는 방식 중 하나가 바로 Bcrypt 해시 함수이다.
+
+1. 해시(Hash)란?
+**해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.
+출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.
+
+예를 들어, &ldquo;password123&quot;이라는 문자열을 해시 함수에 넣으면,
+ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Study Records",
+      "item": "https://withong.github.io/record/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bcrypt를 활용한 비밀번호 암호화",
+      "item": "https://withong.github.io/record/2025-04-01-03/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bcrypt를 활용한 비밀번호 암호화",
+  "name": "Bcrypt를 활용한 비밀번호 암호화",
+  "description": "\rBcrypt를 활용한 비밀번호 암호화 회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 비밀번호 보안이다.\n비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 암호화 또는 해시화 처리를 거쳐야 한다.\n이때 널리 사용되는 방식 중 하나가 바로 Bcrypt 해시 함수이다.\n1. 해시(Hash)란? **해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.\n출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.\n예를 들어, \u0026ldquo;password123\u0026quot;이라는 문자열을 해시 함수에 넣으면,\nef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "\rBcrypt를 활용한 비밀번호 암호화 회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 비밀번호 보안이다.\n비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 암호화 또는 해시화 처리를 거쳐야 한다.\n이때 널리 사용되는 방식 중 하나가 바로 Bcrypt 해시 함수이다.\n1. 해시(Hash)란? **해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.\n출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.\n예를 들어, “password123\"이라는 문자열을 해시 함수에 넣으면,\nef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.\n해시 함수의 주요 특징:\n입력값이 조금이라도 다르면 결과가 완전히 달라짐 해시 값만 보고는 원래 값을 알 수 없음 (일방향성) 같은 입력에 대해서는 항상 같은 출력이 나옴 2. 일반적인 해시 함수의 문제점 SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다는 장점이 있지만,\n비밀번호 저장에는 오히려 그 점이 취약점이 된다.\n이유는 다음과 같다: 빠른 속도 때문에 공격자가 수백만 개의 비밀번호를 단시간에 대입해보는 Brute-force 공격이 가능하다. **Rainbow Table(무지개 테이블)**이라는 사전 해시값 DB를 활용해 평문 비밀번호를 유추할 수도 있다. 동일한 비밀번호는 항상 같은 해시 값을 가지기 때문에, 다른 사용자와의 중복 여부가 드러난다. 3. Bcrypt란? Bcrypt는 위와 같은 해시 함수의 한계를 극복하기 위해 고안된, 비밀번호 전용 해시 함수다.\n미국 Niels Provos와 David Mazières가 개발했으며, Blowfish 암호를 기반으로 설계되었다.\n4. Bcrypt의 주요 특징과 장점 ✔ 느리도록 설계된 해시 함수 Bcrypt는 고의적으로 계산 속도를 느리게 만들어, Brute-force 공격에 강한 구조를 갖고 있다.\n속도를 조절할 수 있는 “work factor” 또는 “cost” 값을 설정함으로써, 컴퓨팅 성능이 좋아져도 보안을 유지할 수 있다.\n✔ 솔트(salt) 자동 추가 Bcrypt는 내부적으로 매번 **랜덤한 솔트(salt)**를 자동으로 생성하여 함께 해시한다.\n이를 통해 동일한 비밀번호라도 매번 다른 해시 값이 생성된다.\n즉, 두 사용자가 같은 비밀번호를 설정하더라도 해시 값이 완전히 다르다.\n✔ 결과 문자열 자체에 메타 정보 포함 Bcrypt가 반환하는 문자열은 다음 정보를 포함하고 있다:\n알고리즘 버전 ($2a$, $2b$ 등) cost(반복 횟수) 솔트 값 실제 해시 값 예시:\n$2a$10$7qKU8/1nB2Mb0Jt1Gm7sRuMO.zKYuCN7K45PxEknMzQBRZGeC2IsK\n5. 언제, 왜 Bcrypt를 써야 하는가? 구분 이유 비밀번호 저장 시 평문 저장은 절대 금지되며, 일반 해시 함수도 위험함 보안 공격 방어 Brute-force, rainbow table, 사전 공격에 대한 내성 시간 기반 방어 cost 조절로 해싱 속도를 느리게 해 공격 부담 증가 보안 가이드라인 준수 OWASP, NIST 등에서도 Bcrypt나 PBKDF2, Argon2 등 사용을 권장함 6. Spring Security에서의 Bcrypt 사용 예시 Spring에서는 BCryptPasswordEncoder 클래스를 통해 손쉽게 Bcrypt를 사용할 수 있다.\nimport org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(); // 비밀번호 해시화 String hashedPassword = encoder.encode(\"password123\"); // 비밀번호 비교 boolean matches = encoder.matches(\"password123\", hashedPassword); // true 주요 특징 .encode() 메서드는 자동으로 솔트를 포함해 해시 값을 생성 .matches()는 내부적으로 솔트를 추출하여 비교 수행 matches()가 true를 반환하면 비밀번호가 일치한다는 뜻 ",
+  "wordCount" : "403",
+  "inLanguage": "ko",
+  "datePublished": "2025-04-01T16:50:00+09:00",
+  "dateModified": "2025-04-01T16:50:00+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/record/2025-04-01-03/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/code.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/record/" title="Record">
+                    <span>Record</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/project/" title="Project">
+                    <span>Project</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/record/">Study Records</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Bcrypt를 활용한 비밀번호 암호화
+    </h1>
+    <div class="post-meta"><span title='2025-04-01 16:50:00 +0900 KST'>2025년 4월 1일</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#bcrypt를-활용한-비밀번호-암호화">Bcrypt를 활용한 비밀번호 암호화</a>
+      <ul>
+        <li><a href="#1-해시hash란">1. 해시(Hash)란?</a></li>
+        <li><a href="#2-일반적인-해시-함수의-문제점">2. 일반적인 해시 함수의 문제점</a></li>
+        <li><a href="#3-bcrypt란">3. Bcrypt란?</a></li>
+        <li><a href="#4-bcrypt의-주요-특징과-장점">4. Bcrypt의 주요 특징과 장점</a></li>
+        <li><a href="#5-언제-왜-bcrypt를-써야-하는가">5. 언제, 왜 Bcrypt를 써야 하는가?</a></li>
+        <li><a href="#6-spring-security에서의-bcrypt-사용-예시">6. Spring Security에서의 Bcrypt 사용 예시</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><hr>
+<br>
+<h2 id="bcrypt를-활용한-비밀번호-암호화">Bcrypt를 활용한 비밀번호 암호화<a hidden class="anchor" aria-hidden="true" href="#bcrypt를-활용한-비밀번호-암호화">#</a></h2>
+<p>회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 <strong>비밀번호 보안</strong>이다.<br>
+비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 <strong>암호화 또는 해시화 처리</strong>를 거쳐야 한다.<br>
+이때 널리 사용되는 방식 중 하나가 바로 <strong>Bcrypt 해시 함수</strong>이다.</p>
+<hr>
+<h3 id="1-해시hash란">1. 해시(Hash)란?<a hidden class="anchor" aria-hidden="true" href="#1-해시hash란">#</a></h3>
+<p>**해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.<br>
+출력값은 일반적으로 <strong>해시 값(hash value)</strong> 또는 **다이제스트(digest)**라고 부른다.</p>
+<blockquote>
+<p>예를 들어, &ldquo;password123&quot;이라는 문자열을 해시 함수에 넣으면,<br>
+<code>ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f</code> 같은 고정된 길이의 문자열로 바뀐다.</p></blockquote>
+<p><strong>해시 함수의 주요 특징:</strong></p>
+<ul>
+<li>입력값이 조금이라도 다르면 결과가 완전히 달라짐</li>
+<li>해시 값만 보고는 원래 값을 알 수 없음 (일방향성)</li>
+<li>같은 입력에 대해서는 항상 같은 출력이 나옴</li>
+</ul>
+<hr>
+<h3 id="2-일반적인-해시-함수의-문제점">2. 일반적인 해시 함수의 문제점<a hidden class="anchor" aria-hidden="true" href="#2-일반적인-해시-함수의-문제점">#</a></h3>
+<p>SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다는 장점이 있지만,<br>
+<strong>비밀번호 저장</strong>에는 오히려 그 점이 <strong>취약점</strong>이 된다.</p>
+<h4 id="이유는-다음과-같다">이유는 다음과 같다:<a hidden class="anchor" aria-hidden="true" href="#이유는-다음과-같다">#</a></h4>
+<ol>
+<li><strong>빠른 속도</strong> 때문에 공격자가 수백만 개의 비밀번호를 단시간에 대입해보는 <strong>Brute-force 공격</strong>이 가능하다.</li>
+<li>**Rainbow Table(무지개 테이블)**이라는 사전 해시값 DB를 활용해 평문 비밀번호를 유추할 수도 있다.</li>
+<li>동일한 비밀번호는 항상 같은 해시 값을 가지기 때문에, 다른 사용자와의 중복 여부가 드러난다.</li>
+</ol>
+<hr>
+<h3 id="3-bcrypt란">3. Bcrypt란?<a hidden class="anchor" aria-hidden="true" href="#3-bcrypt란">#</a></h3>
+<p><strong>Bcrypt</strong>는 위와 같은 해시 함수의 한계를 극복하기 위해 고안된, <strong>비밀번호 전용 해시 함수</strong>다.<br>
+미국 Niels Provos와 David Mazières가 개발했으며, <strong>Blowfish 암호를 기반으로 설계</strong>되었다.</p>
+<hr>
+<h3 id="4-bcrypt의-주요-특징과-장점">4. Bcrypt의 주요 특징과 장점<a hidden class="anchor" aria-hidden="true" href="#4-bcrypt의-주요-특징과-장점">#</a></h3>
+<h4 id="-느리도록-설계된-해시-함수">✔ 느리도록 설계된 해시 함수<a hidden class="anchor" aria-hidden="true" href="#-느리도록-설계된-해시-함수">#</a></h4>
+<p>Bcrypt는 고의적으로 계산 속도를 느리게 만들어, Brute-force 공격에 강한 구조를 갖고 있다.<br>
+속도를 조절할 수 있는 <strong>&ldquo;work factor&rdquo; 또는 &ldquo;cost&rdquo; 값</strong>을 설정함으로써, 컴퓨팅 성능이 좋아져도 보안을 유지할 수 있다.</p>
+<h4 id="-솔트salt-자동-추가">✔ 솔트(salt) 자동 추가<a hidden class="anchor" aria-hidden="true" href="#-솔트salt-자동-추가">#</a></h4>
+<p>Bcrypt는 내부적으로 매번 **랜덤한 솔트(salt)**를 자동으로 생성하여 함께 해시한다.<br>
+이를 통해 동일한 비밀번호라도 <strong>매번 다른 해시 값이 생성</strong>된다.<br>
+즉, 두 사용자가 같은 비밀번호를 설정하더라도 해시 값이 완전히 다르다.</p>
+<h4 id="-결과-문자열-자체에-메타-정보-포함">✔ 결과 문자열 자체에 메타 정보 포함<a hidden class="anchor" aria-hidden="true" href="#-결과-문자열-자체에-메타-정보-포함">#</a></h4>
+<p>Bcrypt가 반환하는 문자열은 다음 정보를 포함하고 있다:</p>
+<ul>
+<li>알고리즘 버전 (<code>$2a$</code>, <code>$2b$</code> 등)</li>
+<li>cost(반복 횟수)</li>
+<li>솔트 값</li>
+<li>실제 해시 값</li>
+</ul>
+<p>예시:<br>
+<code>$2a$10$7qKU8/1nB2Mb0Jt1Gm7sRuMO.zKYuCN7K45PxEknMzQBRZGeC2IsK</code></p>
+<hr>
+<h3 id="5-언제-왜-bcrypt를-써야-하는가">5. 언제, 왜 Bcrypt를 써야 하는가?<a hidden class="anchor" aria-hidden="true" href="#5-언제-왜-bcrypt를-써야-하는가">#</a></h3>
+<table>
+  <thead>
+      <tr>
+          <th>구분</th>
+          <th>이유</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>비밀번호 저장 시</td>
+          <td>평문 저장은 절대 금지되며, 일반 해시 함수도 위험함</td>
+      </tr>
+      <tr>
+          <td>보안 공격 방어</td>
+          <td>Brute-force, rainbow table, 사전 공격에 대한 내성</td>
+      </tr>
+      <tr>
+          <td>시간 기반 방어</td>
+          <td>cost 조절로 해싱 속도를 느리게 해 공격 부담 증가</td>
+      </tr>
+      <tr>
+          <td>보안 가이드라인 준수</td>
+          <td>OWASP, NIST 등에서도 Bcrypt나 PBKDF2, Argon2 등 사용을 권장함</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="6-spring-security에서의-bcrypt-사용-예시">6. Spring Security에서의 Bcrypt 사용 예시<a hidden class="anchor" aria-hidden="true" href="#6-spring-security에서의-bcrypt-사용-예시">#</a></h3>
+<p>Spring에서는 <code>BCryptPasswordEncoder</code> 클래스를 통해 손쉽게 Bcrypt를 사용할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">BCryptPasswordEncoder</span><span class="w"> </span><span class="n">encoder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BCryptPasswordEncoder</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 비밀번호 해시화</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">hashedPassword</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">encoder</span><span class="p">.</span><span class="na">encode</span><span class="p">(</span><span class="s">&#34;password123&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 비밀번호 비교</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">boolean</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">encoder</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">&#34;password123&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">hashedPassword</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span><span class="w">
+</span></span></span></code></pre></div><h4 id="주요-특징">주요 특징<a hidden class="anchor" aria-hidden="true" href="#주요-특징">#</a></h4>
+<ul>
+<li><code>.encode()</code> 메서드는 자동으로 솔트를 포함해 해시 값을 생성</li>
+<li><code>.matches()</code>는 내부적으로 솔트를 추출하여 비교 수행</li>
+<li><code>matches()</code>가 <code>true</code>를 반환하면 비밀번호가 일치한다는 뜻</li>
+</ul>
+<br>
+<hr>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://withong.github.io/record/2025-04-01-01/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>문자열 사전순 비교: compareTo()</span>
+  </a>
+  <a class="next" href="https://withong.github.io/record/2025-04-01-02/">
+    <span class="title">Next »</span>
+    <br>
+    <span>정규 표현식을 활용한 사용자 등록 요청 데이터 검증</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✔';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
