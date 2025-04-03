@@ -6,8 +6,49 @@
     <description>Recent content in 과제 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Thu, 03 Apr 2025 20:24:51 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 03 Apr 2025 22:28:58 +0900</lastBuildDate>
     <atom:link href="https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>일정 관리 API (JPA) 트러블 슈팅</title>
+      <link>https://withong.github.io/project/schedule-02/</link>
+      <pubDate>Thu, 03 Apr 2025 22:28:58 +0900</pubDate>
+      <guid>https://withong.github.io/project/schedule-02/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
+&lt;h3 id=&#34;-nbc-chapter-03-develop&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-develop.git&#34;&gt;nbc-chapter-03-develop&lt;/a&gt;&lt;/h3&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;1-email로-검증했는데-이상한-이메일도-통과되는-문제&#34;&gt;1. &lt;code&gt;@Email&lt;/code&gt;로 검증했는데 이상한 이메일도 통과되는 문제&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;문제&lt;/strong&gt;:&lt;br&gt;
+&lt;code&gt;@Email&lt;/code&gt;을 써도 &lt;code&gt;test@gmail&lt;/code&gt; 같은 이메일이 통과됨&amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;원인&lt;/strong&gt;:&lt;br&gt;
+&lt;code&gt;@Email&lt;/code&gt;은 기본적으로 &lt;code&gt;@&lt;/code&gt; 기호와 텍스트 구조만 확인하고,&lt;br&gt;
+도메인에 &lt;code&gt;.&lt;/code&gt;이 있어야 한다는 조건은 강제하지 않음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;분석&lt;/strong&gt;:&lt;br&gt;
+&lt;code&gt;@Email&lt;/code&gt;만으로는 &amp;ldquo;@뒤에 .이 있어야 함&amp;rdquo; 같은 현실적인 이메일 형식 검증은 부족함&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;해결&lt;/strong&gt;:&lt;br&gt;
+정규 표현식을 함께 사용해 &lt;code&gt;@&lt;/code&gt; 뒤에 &lt;code&gt;.&lt;/code&gt; 포함 여부와 &lt;code&gt;.&lt;/code&gt; 뒤의 문자열까지 추가로 검증&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;p&gt;▶ 공부 기록 &lt;a href=&#34;https://withong.github.io/record/2025-04-01-02/&#34;&gt;[정규 표현식을 활용한 사용자 등록 요청 데이터 검증]&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;2-해시된-비밀번호가-매번-다른데-어떻게-비교해서-로그인하는지&#34;&gt;2. 해시된 비밀번호가 매번 다른데, 어떻게 비교해서 로그인하는지?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;문제&lt;/strong&gt;:&lt;br&gt;
+bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 어떻게 비밀번호를 비교함?&lt;/p&gt;</description>
+    </item>
     <item>
       <title>QueryDSL을 활용한 조건 기반 일정 조회</title>
       <link>https://withong.github.io/record/2025-04-03/</link>
@@ -188,6 +229,35 @@
 &lt;strong&gt;비밀번호 저장&lt;/strong&gt;에는 오히려 그 점이 &lt;strong&gt;취약점&lt;/strong&gt;이 된다.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>일정 관리 API (JDBC) 트러블 슈팅</title>
+      <link>https://withong.github.io/project/schedule-01/</link>
+      <pubDate>Tue, 25 Mar 2025 20:20:11 +0900</pubDate>
+      <guid>https://withong.github.io/project/schedule-01/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
+&lt;h3 id=&#34;-nbc-chapter-03-basic&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-basic.git&#34;&gt;nbc-chapter-03-basic&lt;/a&gt;&lt;/h3&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;1-등록-시-createdat-updatedat-null&#34;&gt;1. 등록 시 createdAt, updatedAt Null&lt;/h2&gt;
+&lt;p&gt;createdAt, updatedAt는 DB에서 자동 갱신됨&lt;/p&gt;
+&lt;h3 id=&#34;11-문제&#34;&gt;1.1. 문제&lt;/h3&gt;
+&lt;p&gt;일정/사용자 등록 후 반환된 createdAt, updatedAt 값이 Null&lt;/p&gt;
+&lt;h3 id=&#34;12-원인&#34;&gt;1.2. 원인&lt;/h3&gt;
+&lt;p&gt;당연함&amp;hellip; 등록 요청 시 전달받은 정보를 응답 DTO에 넣어주고 그 값을 반환하는데&lt;br&gt;
+DB에서 자동으로 업데이트 하는 값은 안 들어오니까 안 넣어줬고&amp;hellip;&lt;br&gt;
+DB 조회해서 가져오기 전까지 당연히 Null임.&lt;/p&gt;
+&lt;h3 id=&#34;13-해결&#34;&gt;1.3. 해결&lt;/h3&gt;
+&lt;p&gt;전달받은 식별자를 통해 재 조회한 결과 반환&lt;/p&gt;
+&lt;br&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;2-변경-요청-시-변경된-내용이-없을-경우&#34;&gt;2. 변경 요청 시 변경된 내용이 없을 경우&lt;/h2&gt;
+&lt;h3 id=&#34;21-문제&#34;&gt;2.1. 문제&lt;/h3&gt;
+&lt;p&gt;클라이언트가 기존 정보와 동일한 정보로 변경 요청 시&lt;br&gt;
+jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt;
+예상 결과와 다르게 동일한 값도 update 후 1이 반환됨&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>키오스크 회고</title>
       <link>https://withong.github.io/project/kiosk-05/</link>
       <pubDate>Fri, 14 Mar 2025 19:14:24 +0900</pubDate>
@@ -244,6 +314,172 @@
 &lt;p&gt;&lt;em&gt;🗨️ by GPT&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>키오스크 도전 Lv 2</title>
+      <link>https://withong.github.io/project/kiosk-04/</link>
+      <pubDate>Wed, 12 Mar 2025 21:01:14 +0900</pubDate>
+      <guid>https://withong.github.io/project/kiosk-04/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+&lt;h3 id=&#34;lv-2-enum-람다--스트림을-활용한-주문-및-장바구니-관리&#34;&gt;Lv 2. Enum, 람다 &amp;amp; 스트림을 활용한 주문 및 장바구니 관리&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;요구사항이 가지는 의도&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;의도&lt;/strong&gt; : 고급 자바 기능을 활용해 프로그램의 효율성과 코드의 가독성을 개선하는 것을 목표로 합니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;목적&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Enum을 통해 상수를 안전하게 관리하고, 프로그램 구조를 간결하게&lt;/li&gt;
+&lt;li&gt;제네릭을 활용하여 데이터 유연성을 높이고, 재사용 가능한 코드를 설계&lt;/li&gt;
+&lt;li&gt;스트림 API를 사용하여 데이터를 필터링하고, 간결한 코드로 동작을 구현&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enum을 활용한 사용자 유형별 할인율 관리하기&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;사용자 유형의 Enum 정의 및 각 사용자 유형에 따른 할인율 적용
+&lt;ul&gt;
+&lt;li&gt;예시 : 군인, 학생, 일반인&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;주문 시, 사용자 유형에 맞는 할인율 적용해 총 금액 계산&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;람다 &amp;amp; 스트림을 활용한 장바구니 조회 기능&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;기존에 생성한 Menu의 MenuItem을 조회 할 때 스트림을 사용하여 출력하도록 수정&lt;/li&gt;
+&lt;li&gt;기존 장바구니에서 특정 메뉴 빼기 기능을 통한 스트림 활용
+&lt;ul&gt;
+&lt;li&gt;예시 : 장바구니에 SmokeShack 가 들어 있다면, stream.filter를 활용하여 특정 메뉴 이름을 가진 메뉴 장바구니에서 제거&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;구현-기능&#34;&gt;구현 기능&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/withong/nbc-chapter-02/tree/main/kiosk/challenge/level2&#34;&gt;# 전체 코드&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>키오스크 도전 Lv 1</title>
+      <link>https://withong.github.io/project/kiosk-03/</link>
+      <pubDate>Wed, 12 Mar 2025 11:17:50 +0900</pubDate>
+      <guid>https://withong.github.io/project/kiosk-03/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+&lt;h3 id=&#34;lv-1-장바구니-및-구매하기-기능을-추가하기&#34;&gt;Lv 1. 장바구니 및 구매하기 기능을 추가하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;요구사항이 가지는 의도&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;의도&lt;/strong&gt;: 클래스 간 연계를 통해 객체 지향 프로그래밍의 기본적인 설계를 익히고, 사용자 입력에 따른 프로그램 흐름 제어와 상태 관리를 학습&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;목표&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;클래스 간 역할 분리를 이해하고, 적절히 협력하는 객체를 설계&lt;/li&gt;
+&lt;li&gt;프로그램 상태 변경 및 데이터 저장을 연습&lt;/li&gt;
+&lt;li&gt;사용자 입력에 따른 예외 처리와 조건 분기를 연습&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;장바구니 생성 및 관리 기능&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;사용자가 선택한 메뉴를 장바구니에 추가할 수 있는 기능을 제공합니다.&lt;/li&gt;
+&lt;li&gt;장바구니는 메뉴명, 수량, 가격 정보를 저장하며, 항목을 동적으로 추가 및 조회할 수 있어야 합니다.&lt;/li&gt;
+&lt;li&gt;사용자가 잘못된 선택을 했을 경우 예외를 처리합니다(예: 유효하지 않은 메뉴 번호 입력)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;장바구니 출력 및 금액 계산&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;사용자가 결제를 시도하기 전에, 장바구니에 담긴 모든 메뉴와 총 금액을 출력합니다.&lt;/li&gt;
+&lt;li&gt;출력 예시
+&lt;ul&gt;
+&lt;li&gt;각 메뉴의 이름, 가격, 수량&lt;/li&gt;
+&lt;li&gt;총 금액 합계&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;장바구니 담기 기능&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;메뉴를 클릭하면 장바구니에 추가할 지 물어보고, 입력값에 따라 “추가”, “취소” 처리합니다.
+&lt;ul&gt;
+&lt;li&gt;메뉴는 한 번에 1개만 담을 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;장바구니에 담은 목록을 출력합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;주문 기능&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;장바구니에 담긴 모든 항목을 출력합니다.&lt;/li&gt;
+&lt;li&gt;합산하여 총 금액을 계산하고, “주문하기”를 누르면 장바구니를 초기화합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;구현-기능&#34;&gt;구현 기능&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/withong/nbc-chapter-02/tree/main/kiosk/challenge/level1&#34;&gt;# 전체 코드&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>키오스크 필수 Lv 4-5</title>
+      <link>https://withong.github.io/project/kiosk-02/</link>
+      <pubDate>Mon, 10 Mar 2025 19:13:06 +0900</pubDate>
+      <guid>https://withong.github.io/project/kiosk-02/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+&lt;h3 id=&#34;lv-4-객체-지향-설계를-적용해-음식-메뉴와-주문-내역을-클래스-기반으로-관리하기&#34;&gt;Lv 4. 객체 지향 설계를 적용해 음식 메뉴와 주문 내역을 클래스 기반으로 관리하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Menu&lt;/code&gt; 클래스 생성하기&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;설명 : MenuItem 클래스를 관리하는 클래스입니다.
+예를 들어, 버거 메뉴, 음료 메뉴 등 각 카테고리 내에 여러 &lt;code&gt;MenuItem&lt;/code&gt;을 포함합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;List&amp;lt;MenuItem&amp;gt;&lt;/code&gt; 은 &lt;code&gt;Kiosk&lt;/code&gt; 클래스가 관리하기에 적절하지 않으므로 Menu 클래스가 관리하도록 변경합니다.&lt;/li&gt;
+&lt;li&gt;여러 버거들을 포함하는 상위 개념 ‘버거’ 같은 &lt;code&gt;카테고리 이름&lt;/code&gt; 필드를 갖습니다.&lt;/li&gt;
+&lt;li&gt;메뉴 카테고리 이름을 반환하는 메서드가 구현되어야 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;lv-5-캡슐화-적용하기&#34;&gt;Lv 5. 캡슐화 적용하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;MenuItem&lt;/code&gt;, &lt;code&gt;Menu&lt;/code&gt; 그리고 &lt;code&gt;Kiosk&lt;/code&gt; 클래스의 필드에 직접 접근하지 못하도록 설정합니다.&lt;/li&gt;
+&lt;li&gt;Getter와 Setter 메서드를 사용해 데이터를 관리합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;구현-기능&#34;&gt;구현 기능&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/withong/nbc-chapter-02/tree/main/kiosk/basic/level4&#34;&gt;#전체 코드&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>키오스크 필수 Lv 1-3</title>
+      <link>https://withong.github.io/project/kiosk-01/</link>
+      <pubDate>Fri, 07 Mar 2025 21:00:00 +0900</pubDate>
+      <guid>https://withong.github.io/project/kiosk-01/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+&lt;h3 id=&#34;lv-1-기본적인-키오스크를-프로그래밍해보자&#34;&gt;Lv 1. 기본적인 키오스크를 프로그래밍해보자&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;요구사항이 가지는 의도&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;입력 처리와 간단한 흐름 제어를 복습합니다. (프로그래밍 검증)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Scanner&lt;/code&gt; 활용법, 조건문, 반복문을 재확인하며 입력 데이터를 처리하는 방법 강화&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;햄버거 메뉴 출력 및 선택하기&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;실행시 햄버거 메뉴가 표시되고, 이후 Scanner로 숫자를 입력받아서 메뉴를 선택할 수 있다.&lt;/li&gt;
+&lt;li&gt;제시된 메뉴 중 입력받은 숫자에 따라 다른 로직을 실행하는 코드를 작성합니다.&lt;/li&gt;
+&lt;li&gt;반복문을 이용해서 특정 번호가 입력되면 프로그램을 종료합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;lv-2-객체-지향-설계를-적용해-햄버거-메뉴를-클래스로-관리하기&#34;&gt;Lv 2. 객체 지향 설계를 적용해 햄버거 메뉴를 클래스로 관리하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;요구사항이 가지는 의도&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>계산기 Lv 3 회고</title>
       <link>https://withong.github.io/project/calculator-05/</link>
       <pubDate>Wed, 05 Mar 2025 23:00:00 +0900</pubDate>
@@ -273,6 +509,44 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Operand&amp;lt;T&amp;gt;&lt;/code&gt;가 BigDecimal로만 사용되는 점&lt;/li&gt;
 &lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>계산기 Lv 3</title>
+      <link>https://withong.github.io/project/calculator-04/</link>
+      <pubDate>Wed, 05 Mar 2025 22:00:00 +0900</pubDate>
+      <guid>https://withong.github.io/project/calculator-04/</guid>
+      <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+&lt;p&gt;Enum, 제네릭, 람다 &amp;amp; 스트림을 이해한 계산기 만들기&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;현재 사칙연산 계산기는 (➕,➖,✖️,➗) 이렇게 총 4가지 연산 타입으로 구성되어 있습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enum 타입을 활용하여 연산자 타입에 대한 정보를 관리하고 이를 사칙연산 계산기 ArithmeticCalculator 클래스에 활용 해봅니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;실수, 즉 double 타입의 값을 전달 받아도 연산이 수행하도록 만들기&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;키워드 : &lt;code&gt;제네릭&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;단순히, 기존의 Int 타입을 double 타입으로 바꾸는 게 아닌 점에 주의하세요!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;지금까지는 ArithmeticCalculator, 즉 사칙연산 계산기는 양의 정수(0 포함)를 매개변수로 전달받아 연산을 수행&lt;/li&gt;
+&lt;li&gt;피연산자를 여러 타입으로 받을 수 있도록 기능을 확장
+&lt;ul&gt;
+&lt;li&gt;ArithmeticCalculator 클래스의 연산 메서드(&lt;code&gt;calculate&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;위 요구사항을 만족할 수 있도록 ArithmeticCalculator 클래스를 수정합니다. (제네릭)
+&lt;ul&gt;
+&lt;li&gt;추가적으로 수정이 필요한 다른 클래스나 메서드가 있다면 같이 수정 해주세요.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>계산기 Lv 1-2 회고</title>
@@ -310,6 +584,68 @@
 &lt;li&gt;&lt;code&gt;int&lt;/code&gt; 범위 초과하는 입력값, 연산 결과 오류 → &lt;code&gt;long&lt;/code&gt;으로 확장&lt;/li&gt;
 &lt;li&gt;오류 처리 방식 &lt;code&gt;handleError&lt;/code&gt; → 커스텀 예외 처리&lt;/li&gt;
 &lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>계산기 Lv 2</title>
+      <link>https://withong.github.io/project/calculator-02/</link>
+      <pubDate>Fri, 28 Feb 2025 21:00:00 +0900</pubDate>
+      <guid>https://withong.github.io/project/calculator-02/</guid>
+      <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+&lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;사칙연산을 수행 후, 결과값 반환 메서드 구현 &amp;amp; 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;사칙연산을 수행한 후, 결과값을 반환하는 메서드 구현&lt;/li&gt;
+&lt;li&gt;연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성&lt;/li&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;양의 정수 2개(0 포함)와 연산 기호를 매개변수로 받아 사칙연산(➕,➖,✖️,➗) 기능을 수행한 후 2) 결과 값을 반환하는 메서드와 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Lv 1에서 구현한 App 클래스의 main 메서드에 Calculator 클래스가 활용될 수 있도록 수정&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>계산기 Lv 1</title>
+      <link>https://withong.github.io/project/calculator-01/</link>
+      <pubDate>Wed, 26 Feb 2025 22:00:00 +0900</pubDate>
+      <guid>https://withong.github.io/project/calculator-01/</guid>
+      <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+&lt;p&gt;클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;양의 정수(0 포함)를 입력받기&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.&lt;/li&gt;
+&lt;li&gt;양의 정수는 각각 하나씩 전달 받습니다.&lt;/li&gt;
+&lt;li&gt;양의 정수는 적합한 타입으로 선언한 변수에 저장합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;사칙연산 기호(➕,➖,✖️,➗)를 입력받기&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scanner를 사용하여 사칙연산 기호를 전달 받을 수 있습니다.&lt;/li&gt;
+&lt;li&gt;사칙연산 기호를 적합한 타입으로 선언한 변수에 저장합니다. (&lt;code&gt;charAt(0)&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;위에서 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산을 진행한 후 결과값을 출력하기&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;키워드 : &lt;code&gt;if&lt;/code&gt; &lt;code&gt;switch&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;사칙연산 기호에 맞는 연산자를 사용하여 연산을 진행합니다.&lt;/li&gt;
+&lt;li&gt;입력받은 연산 기호를 구분하기 위해 제어문을 사용합니다. (예를 들면 if, switch)&lt;/li&gt;
+&lt;li&gt;연산 오류가 발생할 경우 해당 오류에 대한 내용을 정제하여 출력합니다.
+&lt;ul&gt;
+&lt;li&gt;ex) “나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.“&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;반복문을 사용하되, 반복의 종료를 알려주는 “exit” 문자열을 입력하기 전까지 무한으로 계산을 진행할 수 있도록 소스 코드를 수정하기&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>미니 프로젝트 최종</title>

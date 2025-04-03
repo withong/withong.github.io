@@ -6,8 +6,64 @@
     <description>Recent content in 키오스크 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 12 Mar 2025 21:01:14 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 14 Mar 2025 19:14:24 +0900</lastBuildDate>
     <atom:link href="https://withong.github.io/tag/%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>키오스크 회고</title>
+      <link>https://withong.github.io/project/kiosk-05/</link>
+      <pubDate>Fri, 14 Mar 2025 19:14:24 +0900</pubDate>
+      <guid>https://withong.github.io/project/kiosk-05/</guid>
+      <description>&lt;hr&gt;
+&lt;h3 id=&#34;코드의-주요-기능&#34;&gt;코드의 주요 기능&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;CartItem&lt;/code&gt; 클래스를 도입해 장바구니 아이템을 관리.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Discount&lt;/code&gt; Enum을 사용해 다양한 할인 유형 적용 가능.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Kiosk&lt;/code&gt;에서 직접 사용자 입력을 처리하고 메뉴 탐색, 장바구니 관리 등을 수행.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Main&lt;/code&gt;에서 &lt;code&gt;Kiosk&lt;/code&gt;를 실행해 전체 기능을 제어.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;분석&#34;&gt;분석&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Cart&lt;/code&gt;와 &lt;code&gt;CartItem&lt;/code&gt;을 활용해 객체지향적으로 장바구니를 관리.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Discount&lt;/code&gt; Enum을 통해 생일, 리뷰 작성 등 다양한 할인 적용 가능.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;코드-구조-및-객체지향-설계&#34;&gt;코드 구조 및 객체지향 설계&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Kiosk&lt;/code&gt; 클래스가 너무 많은 기능을 포함하고 있어 SRP(단일 책임 원칙)를 지키지 못하는 부분이 있다.&lt;/li&gt;
+&lt;li&gt;UI 출력과 비즈니스 로직이 혼재되어 있어 유지보수성이 낮다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;코드-스타일-및-가독성&#34;&gt;코드 스타일 및 가독성&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Kiosk&lt;/code&gt;에서 너무 많은 로직을 처리하여 일부 메서드가 길어지고 복잡해질 가능성이 있음.&lt;/li&gt;
+&lt;li&gt;예외 처리가 부족하여, 예상치 못한 입력이 들어왔을 때 프로그램이 멈출 가능성이 있음.&lt;/li&gt;
+&lt;li&gt;코드 내 중복이 일부 존재하며, 이를 줄이면 가독성이 더 좋아질 수 있음.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;실행-흐름&#34;&gt;실행 흐름&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;Main&lt;/code&gt;에서 &lt;code&gt;Kiosk&lt;/code&gt;를 초기화하고 &lt;code&gt;start()&lt;/code&gt; 실행.&lt;/li&gt;
+&lt;li&gt;사용자의 입력을 받아 메뉴 탐색, 장바구니 관리 진행.&lt;/li&gt;
+&lt;li&gt;주문 시 할인 정보를 입력받아 &lt;code&gt;Discount&lt;/code&gt; Enum을 활용해 적용.&lt;/li&gt;
+&lt;li&gt;결제 후 장바구니를 비움.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;분석-1&#34;&gt;분석&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Kiosk&lt;/code&gt;에서 거의 모든 것을 관리하기 때문에 실행 흐름이 길어질수록 복잡해질 가능성이 있음.&lt;/li&gt;
+&lt;li&gt;기능별로 적절히 분리하면 코드의 유지보수성과 확장성이 더 좋아질 수 있음.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;개선할-점&#34;&gt;개선할 점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Kiosk&lt;/code&gt; 클래스의 역할을 분리해 &lt;code&gt;KioskService&lt;/code&gt; 같은 클래스를 만들어야 함.&lt;/li&gt;
+&lt;li&gt;UI 출력과 비즈니스 로직을 분리하여 코드의 가독성과 유지보수성을 높여야 함.&lt;/li&gt;
+&lt;li&gt;예외 처리가 부족하므로 &lt;code&gt;IllegalArgumentException&lt;/code&gt; 등을 적극 활용해야 함.&lt;/li&gt;
+&lt;li&gt;중복된 코드가 일부 존재하므로 메서드로 분리하여 코드의 일관성을 높일 필요가 있음.&lt;/li&gt;
+&lt;li&gt;사용자의 입력을 검증하는 로직을 별도로 분리하여 입력 오류를 방지해야 함.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;em&gt;🗨️ by GPT&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>키오스크 도전 Lv 2</title>
       <link>https://withong.github.io/project/kiosk-04/</link>
