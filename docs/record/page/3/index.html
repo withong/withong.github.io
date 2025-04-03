@@ -163,122 +163,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">final
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>final -지역변수 final이 붙은 지역변수는 한 번만 값을 할당할 수 있음. 값이 할당된 이후에는 변경 불가능. 메서드의 매개변수에도 final을 적용할 수 있으며, 이 경우 해당 매개변수 값 변경이 불가능. public class FinalLocalMain { public static void main(String[] args) { // final 지역변수1 - 선언 후 할당 (한 번만 가능) final int data1; data1 = 10; // 최초 할당 가능 // data1 = 20; // 오류! final 변수는 한 번만 할당 가능 // final 지역변수2 - 선언과 동시에 초기화 final int data2 = 10; // data2 = 20; // 오류! 이미 값이 설정됨 method(10); } // final 매개변수 (메서드 내부에서 변경 불가능) static void method(final int parameter) { // parameter = 20; // 오류! final 매개변수는 값 변경 불가 } } final 지역변수는 최초 한 번만 값을 할당 가능, 이후 변경 불가. final 매개변수는 메서드 내부에서 값 변경이 불가능. final - 필드(멤버변수) 클래스의 멤버 변수(필드)에 final을 사용하면, 해당 필드는 한 번만 초기화 가능함.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-25 09:00:00 +0900 KST'>2025년 2월 25일</span></footer>
-  <a class="entry-link" aria-label="post link to final" href="https://withong.github.io/record/2025-02-25-01/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Java 기초
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ Java 문법 강의 1주차
-Chapter 1. Java 기초 문법 다지기 JDK (Java Development Kit) JDK → Java 프로그램을 개발할 때 필요한 개발 도구 모음 Javac(Java Compiler) → 자바코드를 바이트코드(.class)로 변환 JVM (Java Virtual Machine) → 바이트코드를 실행 컴퓨터의 기억 방식 RAM (메모리) → 휘발성, 프로그램 실행 시 사용됨 보조기억장치 (HDD, SSD) → 영구 저장 비트(Bit) → 0 또는 1의 값 바이트(Byte) → 8비트로 구성 자바 프로젝트 관리 네이밍 규칙 카멜케이스 (camelCase) → 변수, 메서드 (myVariableName) 스네이크케이스 (snake_case) → (Java에서는 잘 사용하지 않음) 클래스 이름 → PascalCase (MyClass) 패키지 이름 → 소문자 (com.example.app) 변수와 자료형 변수 → 데이터를 저장하는 공간 자료형 기본형: int, double, char, boolean 참조형: String, Array, Class int num = 10; // 정수형 변수 double pi = 3.14; // 실수형 변수 boolean isJavaFun = true; // 논리형 변수 형변환 업캐스팅(작은 → 큰 자료형) → 자동 변환 다운캐스팅(큰 → 작은 자료형) → 강제 변환 double d = 10; // 자동 형변환 (업캐스팅) int i = (int) d; // 강제 형변환 (다운캐스팅) 입출력 (I/O) 입력 (Scanner 사용) import java.util.Scanner; Scanner scanner = new Scanner(System.in); int num = scanner.nextInt(); // 정수 입력 출력 (System.out 사용) System.out.println(&#34;Hello Java!&#34;); // 개행 포함 출력 System.out.print(&#34;No new line&#34;); // 개행 없이 출력 System.out.println(&#34;\n줄 바꿈 포함&#34;); // `\n` 사용 연산자 산술 연산자(&#43;, -, *, /, %) 대입 연산자(=) 복합 대입 연산자(&#43;=, -=, *=, /= , %=) 증감 연산자(&#43;&#43;, --) 전위 연산 - 사용 전 연산 후위 연산 - 사용 후 연산 비교 연산자(==, !=, &lt;, &gt;, &lt;=, &gt;=) 논리 연산자(!, &amp;&amp;, ||) 문자열 비교(equals()) 조건문 import java.util.Scanner; Scanner scanner = new Scanner(System.in); System.out.print(&#34;신호등 색상을 입력하세요(초록불, 노란불, 빨간불): &#34;); String light = scanner.nextLine(); if (light.equals(&#34;초록불&#34;)) { System.out.println(&#34;건너세요!&#34;); } else if (light.equals(&#34;노란불&#34;)) { System.out.println(&#34;주의하세요!&#34;); } else if (light.equals(&#34;빨간불&#34;)) { System.out.println(&#34;멈추세요!&#34;); } else { System.out.println(&#34;잘못된 입력입니다!&#34;); } switch (light) { case &#34;초록불&#34;: System.out.println(&#34;건너세요!&#34;); break; case &#34;노란불&#34;: System.out.println(&#34;주의하세요!&#34;); break; case &#34;빨간불&#34;: System.out.println(&#34;멈추세요!&#34;); break; default: System.out.println(&#34;잘못된 입력입니다!&#34;); } 반복문 for (int i = 0; i &lt; 5; i&#43;&#43;) { System.out.print(i &#43; &#34; &#34;); // 0 1 2 3 4 } int i = 0; while (i &lt; 5) { System.out.print(i &#43; &#34; &#34;); i&#43;&#43;; } int i = 0; do { System.out.print(i &#43; &#34; &#34;); i&#43;&#43;; } while (i &lt; 5); 배열 // 1. 배열 선언 int[] arr1; // 2. 배열 길이 할당 arr1 = new int[5]; // 3. 배열 선언과 길이 동시에 할당 int[] arr2 = new int[5]; // 4. 배열 선언과 동시에 배열의 요소 할당 int[] arr3 = {10, 20, 30, 40, 50}; // 배열의 길이 int arrLength = arr3.length; System.out.println(&#34;arrLength = &#34; &#43; arrLength); // 배열 요소 접근 System.out.println(&#34;배열의 1번째 요소 접근: &#34; &#43; arr3[0]); // 배열 요소 변경 arr3[0] = 100; // 향상된 for 문 for (int a : arr3) { System.out.println(&#34;a = &#34; &#43; a); } // 2차원 배열 int[][] arr4 = { {1, 2}, {3, 4} }; System.out.println(arr4[1][0]); // 3 메서드 public class Calculator { // 두 정수를 더하는 메서드 (반환값 있음: int) int sum(int value1, int value2) { int result = value1 &#43; value2; // 두 값 더하기 return result; // 결과 반환 } // 반환값이 없는 메서드 (void) void printSum(int value1, int value2) { int result = value1 &#43; value2; System.out.println(&#34;result = &#34; &#43; result); } } public class Main { public static void main(String[] args) { Calculator calculator = new Calculator(); // Calculator 객체 생성 // sum 메서드는 반환값이 있어서 변수에 저장 int result = calculator.sum(1, 2); System.out.println(&#34;result = &#34; &#43; result); // printSum 메서드는 반환값이 없고 바로 출력됨 calculator.printSum(3, 4); } } result = 3result = 7 </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-24 21:00:00 +0900 KST'>2025년 2월 24일</span></footer>
-  <a class="entry-link" aria-label="post link to Java 기초" href="https://withong.github.io/record/2025-02-24/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">미니 프로젝트 최종
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ 프로젝트 배포
-✅ 프로젝트 발표
-✅ 프로젝트 피드백
-✅ 프로젝트 회고
-[13조] 이름 정하기 어렵조 메인 페이지 팀원 등록 등록하기 버튼 클릭 시 팀원 정보 입력창 오픈 팀원 정보 작성 후 저장하기 버튼 클릭 시 팀원 등록 팀원 수정 메인 페이지에서 해당 카드의 수정 아이콘 클릭 시 수정창 오픈 수정할 정보 입력 후 수정하기 버튼 클릭 시 팀원 정보 수정 팀원 삭제 메인 페이지에서 해당 카드의 삭제 아이콘 클릭 시 팀원 정보 삭제
-→ 해당 팀원의 방명록 정보도 함께 삭제 ...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-21 21:00:00 +0900 KST'>2025년 2월 21일</span></footer>
-  <a class="entry-link" aria-label="post link to 미니 프로젝트 최종" href="https://withong.github.io/record/2025-02-21/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">미니 프로젝트 3
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ 코드 병합
-✅ 기능 수정
-미니 프로젝트 기능 수정 기존 기능 문제: 수정 박스 생성 후 수정 아이콘 클릭 시 수정 박스 중복 생성 문제 해결: 수정 아이콘 클릭 시 수정 박스가 존재하는지 체크 후 있으면 수정 취소, 없으면 수정 박스 생성으로 변경 let list = $(this).closest(&#34;li&#34;); 현재 이벤트가 발생한 요소에서 가장 가까운 li 찾기 == 수정하려는 방명록
-let updateLi = list.next(&#39;li&#39;); list의 다음 li 요소를 찾아 변수에 저장 == 수정 박스
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-20 21:00:00 +0900 KST'>2025년 2월 20일</span></footer>
-  <a class="entry-link" aria-label="post link to 미니 프로젝트 3" href="https://withong.github.io/record/2025-02-20/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">미니 프로젝트 2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> &#43;
-☑️ 팀원 상세 페이지 화면
-☑️ 팀원 상세 정보 조회
-☑️ 팀원 방명록 목록 조회
-☑️ 팀원 방명록 등록
-☑️ 팀원 방명록 삭제
-☑️ 팀원 방명록 수정
-미니 프로젝트 팀원 상세 페이지 화면 팀원 상세 정보 조회 메인 페이지 loadMembers() 수정 - data 세팅 코드 추가 팀원 카드 클릭 시 데이터 매칭 팀원 방명록 목록 조회 오류남… firebase에서 복합 쿼리(where &#43; orderBy)를 사용하려면 색인(index)을 생성해야 한다고 한다
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-19 21:00:00 +0900 KST'>2025년 2월 19일</span></footer>
-  <a class="entry-link" aria-label="post link to 미니 프로젝트 2" href="https://withong.github.io/record/2025-02-19/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">미니 프로젝트 1
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> Chapter 1. 온보딩 주차
-✅ [미니 프로젝트] 메인 페이지 (HTML/CSS)
-✅ [미니 프로젝트] 팀원 정보 입력창 (HTML/CSS)
-&#43;
-☑️ 팀원 등록
-☑️ 팀원 목록 불러오기
-☑️ 팀원 삭제
-미니 프로젝트 부트스트랩 CSS/JS 활용 &lt;!doctype html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt; &lt;title&gt;title&lt;/title&gt; &lt;!-- 부트스트랩 CSS --&gt; &lt;link href=&#34;https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css&#34; rel=&#34;stylesheet&#34; integrity=&#34;sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC&#34; crossorigin=&#34;anonymous&#34;&gt; &lt;!-- 제이쿼리 --&gt; &lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&#34;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;!-- 부트스트랩 JS --&gt; &lt;script src=&#34;https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js&#34; integrity=&#34;sha384-MrcW6ZMFYlzcLA8Nl&#43;NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP&#43;JcXn/tWtIaxVXM&#34; crossorigin=&#34;anonymous&#34;&gt; &lt;/script&gt; &lt;/body&gt; &lt;/html&gt; 메인 페이지 &lt;!-- main title --&gt; &lt;div id=&#34;title&#34; class=&#34;container col-xxl-8 px-4 py-5&#34;&gt; &lt;div class=&#34;row flex-lg-row-reverse align-items-center g-5 py-3&#34;&gt; &lt;div class=&#34;col-10 col-sm-8 col-lg-6&#34;&gt; &lt;img id=&#34;titleImg&#34; src=&#34;https://raw.githubusercontent.com/hyun5085/sparta/main/13%EC%A1%B0.jpeg&#34; class=&#34;d-block mx-lg-auto img-fluid&#34; alt=&#34;Bootstrap Themes&#34; width=&#34;700&#34; height=&#34;500&#34; loading=&#34;lazy&#34;&gt; &lt;/div&gt; &lt;div id=&#34;team&#34; class=&#34;col-lg-6&#34;&gt; &lt;h1 class=&#34;display-5 fw-bold text-body-emphasis lh-1 mb-3&#34;&gt;이름 정하기 어렵조&lt;/h1&gt; &lt;p class=&#34;lead&#34;&gt;이름 정하기는 어렵조, 하지만 열심히 하조&lt;/p&gt; &lt;!-- 클릭 시 팀원 정보 입력 모달창 open --&gt; &lt;button id=&#34;addBtn&#34; type=&#34;button&#34; class=&#34;btn btn-secondary&#34; data-bs-toggle=&#34;modal&#34; data-bs-target=&#34;#createMember&#34;&gt;등록하기&lt;/button&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;!-- main member cards --&gt; &lt;div id=&#34;cards&#34; class=&#34;row row-cols-1 row-cols-md-5 g-4&#34;&gt; &lt;div class=&#34;col&#34;&gt; &lt;div class=&#34;card h-100&#34;&gt; &lt;img src=&#34;https://www.pngarts.com/files/10/Default-Profile-Picture-Download-PNG-Image.png&#34; class=&#34;card-img-top&#34;&gt; &lt;div class=&#34;card-body&#34;&gt; &lt;h5 class=&#34;card-title&#34;&gt;홍길동&lt;/h5&gt; &lt;p class=&#34;card-text&#34;&gt;23&lt;/p&gt; &lt;p class=&#34;card-text&#34;&gt;남&lt;/p&gt; &lt;p class=&#34;card-text&#34;&gt;ESFP&lt;/p&gt; &lt;/div&gt; &lt;div class=&#34;card-footer&#34;&gt; &lt;small class=&#34;text-body-secondary&#34;&gt;2025-02-18&lt;/small&gt; &lt;!-- 삭제 아이콘 --&gt; &lt;span class=&#34;delete&#34;&gt; &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;16&#34; height=&#34;16&#34; fill=&#34;currentColor&#34; class=&#34;bi bi-trash3-fill&#34; viewBox=&#34;0 0 16 16&#34;&gt; &lt;path d=&#34;M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5&#34; /&gt; &lt;/svg&gt; &lt;/span&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; 팀원 정보 입력창 ...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-18 21:00:00 +0900 KST'>2025년 2월 18일</span></footer>
-  <a class="entry-link" aria-label="post link to 미니 프로젝트 1" href="https://withong.github.io/record/2025-02-18/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Git
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> Chapter 1. 온보딩 주차
-✅ [특강] Git
-✅ 미니 프로젝트 S.A
-Git 1. 기본 명령어 명령어 기능 git init 현재 폴더를 Git 저장소로 초기화 git status 현재 저장소의 상태 확인 (추적되지 않은 파일, 변경 사항 등) git add &lt;파일명&gt; 특정 파일을 스테이징 영역에 추가 git add . 변경된 모든 파일을 스테이징 영역에 추가 git commit -m &#34;메시지&#34; 스테이징된 파일을 저장소에 커밋 git log 커밋 내역 확인 git log --oneline 한 줄 요약된 커밋 내역 확인 git config --global user.name &#34;이름&#34; Git 전역 사용자 이름 설정 git config --global user.email &#34;이메일&#34; Git 전역 이메일 설정 git config --list 설정된 Git 사용자 정보 확인 2. 브랜치 관련 명령어 명령어 기능 git branch 현재 존재하는 브랜치 목록 확인 git branch &lt;브랜치명&gt; 새로운 브랜치 생성 git checkout &lt;브랜치명&gt; 해당 브랜치로 이동 git checkout -b &lt;브랜치명&gt; 브랜치 생성 후 바로 이동 git merge &lt;브랜치명&gt; 현재 브랜치에 다른 브랜치를 병합 git branch -d &lt;브랜치명&gt; 특정 브랜치 삭제 git branch -D &lt;브랜치명&gt; 브랜치 강제 삭제 git branch -M main 브랜치 이름 변경 (기본 브랜치를 main으로 변경) 3. 원격 저장소(GitHub) 관련 명령어 명령어 기능 git remote add origin &lt;저장소 URL&gt; 원격 저장소 추가 (GitHub와 연결) git remote -v 원격 저장소 목록 확인 git push origin main 현재 브랜치를 원격 저장소의 main 브랜치에 업로드 git push -u origin main 기본 업스트림 브랜치 설정 후 푸시 git push --force 강제 푸시 (주의 필요) git pull origin main 원격 저장소의 최신 변경 사항 가져오기 git remote remove origin 원격 저장소 연결 해제 git clone &lt;저장소 URL&gt; 원격 저장소를 로컬로 복제 4. 파일 관리 및 변경 사항 되돌리기 명령어 기능 git reset --soft HEAD~1 마지막 커밋 취소 (파일 변경 사항 유지) git reset --hard HEAD~1 마지막 커밋 취소 (변경 사항도 삭제) git checkout -- &lt;파일명&gt; 특정 파일의 변경 사항 취소 git stash 변경 사항을 임시 저장 git stash pop 임시 저장한 변경 사항 적용 git revert &lt;커밋ID&gt; 특정 커밋을 취소하는 새로운 커밋 생성 5. 협업 및 충돌 해결 명령어 기능 git fetch origin 원격 저장소의 변경 사항 가져오기 (병합 X) git pull origin main 원격 저장소에서 최신 코드 가져오기 (병합 O) git merge &lt;브랜치명&gt; 브랜치를 병합 git mergetool 충돌 해결 도구 실행 git rebase &lt;브랜치명&gt; 다른 브랜치 위에 현재 브랜치를 재배치 git reset --hard origin/main 원격 저장소 기준으로 강제 리셋 git cherry-pick &lt;커밋ID&gt; 특정 커밋만 현재 브랜치에 적용 git diff 변경 사항 비교 git diff --staged 스테이징된 변경 사항 비교 git log --graph --all --decorate --oneline 브랜치와 커밋 히스토리를 그래프로 확인 6. 설정 및 기타 유용한 명령어 명령어 기능 git config --global core.editor &#34;vim&#34; 기본 텍스트 편집기 설정 git config --global core.autocrlf true 자동 줄바꿈 설정 (Windows) git gc Git 저장소 정리 및 최적화 git fsck 저장소의 무결성 검사 git blame &lt;파일명&gt; 특정 파일에서 누가 어떤 줄을 변경했는지 확인 7. 협업을 위한 기본 Workflow 1) GitHub에서 프로젝트 생성 후 클론 git clone &lt;저장소 URL&gt; cd 프로젝트 폴더 2) 새로운 브랜치에서 개발 진행 git checkout -b feature-branch 3) 변경 사항 저장 git add . git commit -m &#34;기능 추가&#34; 4) GitHub에 업로드 git push origin feature-branch 5) 메인 브랜치와 병합 git checkout main git merge feature-branch 6) 최신 코드 유지 git pull origin main 미니 프로젝트 S.A 📅 기간: 2025.02.17 - 2025.02.21
-📝 프로젝트: 팀 &amp; 팀원 소개 웹 페이지
-🎨 역할: 메인 페이지 및 팀원 정보 입력창 (HTML/CSS)
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-17 21:00:00 +0900 KST'>2025년 2월 17일</span></footer>
-  <a class="entry-link" aria-label="post link to Git" href="https://withong.github.io/record/2025-02-17/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">메모리 구조와 static
     </h2>
   </header>
@@ -326,6 +210,121 @@ package pack; public class PackageMain1 { public static void main(String[] args)
   </div>
   <footer class="entry-footer"><span title='2025-02-11 21:00:00 +0900 KST'>2025년 2월 11일</span></footer>
   <a class="entry-link" aria-label="post link to 패키지" href="https://withong.github.io/record/2025-02-11/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">생성자
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>생성자 객체가 생성될 때 자동으로 호출되는 메서드로, 객체를 초기화하는 데 사용됨. 생성자는 클래스와 동일한 이름을 가지며, 반환 타입이 없음.
+기본 생성자 (Default Constructor) 클래스에 명시적으로 생성자가 없으면, Java가 자동으로 기본 생성자를 제공함. 기본 생성자는 매개변수가 없으며, 객체의 필드를 기본값으로 초기화 됨.
+public class Book { String title; String author; int page; } Book book = new Book(); 매개변수화된 생성자 (Parameterized Constructor) 생성자를 통해 객체 생성 시 값을 전달받아 초기화할 수 있음. 클래스에 명시적으로 생성자가 하나라도 있으면, 기본 생성자는 제공되지 않음.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-10 21:00:00 +0900 KST'>2025년 2월 10일</span></footer>
+  <a class="entry-link" aria-label="post link to 생성자" href="https://withong.github.io/record/2025-02-10/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">객체 지향 프로그래밍
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>절차 지향 프로그래밍 프로그램의 흐름을 순차적으로 따르며 처리하는 방식. 즉, 어떻게 를 중심으로 프로그래밍 함.
+public class MusicPlayerData { int volume = 0; boolean isOn = false; } public static void main(String[] args) { MusicPlayerData data = new MusicPlayerData(); // 음악 플레이어 켜기 on(data); // 볼륨 증가 volumeUp(data); // 음악 플레이어 끄기 off(data); } static void on(MusicPlayerData data) { data.isOn = true; System.out.println(&#34;음악 플레이어를 시작합니다.&#34;); } static void off(MusicPlayerData data) { data.isOn = false; System.out.println(&#34;음악 플레이어를 종료합니다.&#34;); } static void volumeUp(MusicPlayerData data) { data.volume&#43;&#43;; System.out.println(&#34;음악 플레이어 볼륨: &#34; &#43; data.volume); } 데이터와 기능이 분리되어 있으며, 주로 함수로 작업을 처리함.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-07 21:00:00 +0900 KST'>2025년 2월 7일</span></footer>
+  <a class="entry-link" aria-label="post link to 객체 지향 프로그래밍" href="https://withong.github.io/record/2025-02-07/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">기본형과 참조형
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>변수 대입 기본형 변수 대입 기본형 변수는 값을 복사하여 저장함.
+int a = 10; int b = a; // a: 10, b: 10 a = 20; // a: 20, b: 10 b = 30; // a: 20, b: 30 b에 a의 값을 복사해서 저장하므로, b를 변경해도 a에 영향을 주지 않음.
+참조형 변수 대입 참조형 변수는 객체의 메모리 주소를 저장함 → 주소(참조)가 복사됨.
+public class Data { int value; } Data dataA = new Data(); dataA.value = 10; Data dataB = dataA; // dataA.value: 10, dataB.value: 10 dataA.value = 20; // dataA.value: 20, dataB.value: 20 dataB.value = 30; // dataA.value: 30, dataB.value: 30 같은 객체를 가리키므로 하나를 변경하면 다른 하나도 영향을 받음.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-06 21:00:00 +0900 KST'>2025년 2월 6일</span></footer>
+  <a class="entry-link" aria-label="post link to 기본형과 참조형" href="https://withong.github.io/record/2025-02-06/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">클래스와 객체
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>클래스 객체를 생성하기 위한 설계도 또는 틀, 사용자 정의 타입 역할을 함.
+public class Student { // 멤버 변수: 클래스 내에서 선언된 변수, 객체의 속성을 나타냄 String name; int age; int grade; } 객체와 인스턴스 객체: 클래스에서 정의한 속성과 기능을 가진 실체 인스턴스: 특정 클래스로부터 생성된 객체, 어떤 클래스에 속하는지 강조할 때 사용
+→ 객체와 특정 클래스의 관계를 명확히 할 때 “인스턴스&#34;라는 용어를 사용하지만, 본질적으로 같은 개념이므로 보통 구분 없이 사용됨
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-04 21:00:00 +0900 KST'>2025년 2월 4일</span></footer>
+  <a class="entry-link" aria-label="post link to 클래스와 객체" href="https://withong.github.io/record/2025-02-04/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[사전캠프] 9일차.
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> TASKS
+✅ 달리기반 Java 보너스 문제
+&#43;
+☑️ 자바의 정석 강의
+Java 보너스 문제: 가위 바위 보 첫 번째 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RockPaperScissors { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;(); prize.put(1, &#34;10,000원&#34;); prize.put(2, &#34;20,000원&#34;); prize.put(3, &#34;30,000원&#34;); prize.put(4, &#34;50,000원&#34;); prize.put(5, &#34;100,000원&#34;); String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;}; int gameCount = 0; int winCount = 0; boolean playing = true; System.out.println(&#34;*********** GAME START ***********&#34;); while (playing) { System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;); System.out.print(&#34;가위 바위 보! &#34;); String user = scanner.nextLine(); String pc = rps[random.nextInt(rps.length)]; System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;); switch (user) { case &#34;가위&#34;: if (pc.equals(&#34;바위&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;보&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } case &#34;바위&#34;: if (pc.equals(&#34;보&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;가위&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } case &#34;보&#34;: if (pc.equals(&#34;바위&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;가위&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } default: System.out.println(&#34;잘못된 입력입니다!&#34;); break; } if (gameCount == 5) { System.out.println(&#34;----------------------------------&#34;); if (winCount &gt; 0) { System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount)); } else { System.out.println(&#34;상품을 획득하지 못했습니다.&#34;); } System.out.println(&#34;************ GAME END ************&#34;); playing = false; break; } } } } 개선 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RpsRef { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;(); prize.put(1, &#34;10,000원&#34;); prize.put(2, &#34;20,000원&#34;); prize.put(3, &#34;30,000원&#34;); prize.put(4, &#34;50,000원&#34;); prize.put(5, &#34;100,000원&#34;); String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;}; int gameCount = 0; int winCount = 0; System.out.println(&#34;*********** GAME START ***********&#34;); // 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경 while (gameCount &lt; 5) { System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;); System.out.print(&#34;가위 바위 보! &#34;); String user = scanner.nextLine(); // 사용자 입력 값 검사 if (!checkInput(user, rps)) { System.out.println(&#34;잘못된 입력입니다!&#34;); continue; } String pc = rps[random.nextInt(rps.length)]; System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;); // 승패 판정: 중복 코드 제거 int result = getResult(user, pc); switch (result) { case 1: System.out.println(&#34;당신이 이겼습니다!&#34;); winCount&#43;&#43;; break; case -1: System.out.println(&#34;당신이 졌습니다!&#34;); break; case 0: System.out.println(&#34;무승부입니다!&#34;); break; } gameCount&#43;&#43;; if (gameCount == 5) { System.out.println(&#34;----------------------------------&#34;); if (winCount &gt; 0) { System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount)); } else { System.out.println(&#34;꽝! 상품을 획득하지 못했습니다.&#34;); } System.out.println(&#34;************ GAME END ************&#34;); break; } } } // 사용자 입력 값 검사: 가위 바위 보가 아니면 false public static boolean checkInput(String input, String[] rps) { for (String check : rps) { if (check.equals(input)) { return true; } } return false; } // 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부 public static int getResult(String user, String pc) { if (user.equals(pc)) { return 0; // 무승부 } if ((user.equals(&#34;가위&#34;) &amp;&amp; pc.equals(&#34;보&#34;)) || (user.equals(&#34;바위&#34;) &amp;&amp; pc.equals(&#34;가위&#34;)) || (user.equals(&#34;보&#34;) &amp;&amp; pc.equals(&#34;바위&#34;))) { return 1; // 승리 } return -1; // 패배 } } ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-23 23:41:13 +0900 KST'>2025년 1월 23일</span></footer>
+  <a class="entry-link" aria-label="post link to [사전캠프] 9일차." href="https://withong.github.io/record/2025-01-23/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[사전캠프] 8일차.
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> TASKS
+✅ Web 강의 5주차
+✅ 달리기반 SQL 4-5
+✅ 달리기반 Java 3
+SQL HAVING GROUP BY로 그룹화된 데이터에 조건을 적용할 때 사용
+SELECT 컬럼명, 집계함수(컬럼명) FROM 테이블명 WHERE 조건 (옵션) GROUP BY 그룹화할_컬럼명 HAVING 조건; WHERE과 HAVING의 차이점 WHERE : 그룹화 이전에 조건을 적용, 집계 함수를 사용할 수 없음. HAVING : 그룹화 이후에 조건을 적용, 집계 함수를 사용할 수 있음. Lv4. 단골 고객님 찾기 고객별로 주문 건수와 총 주문 금액을 조회 (주문을 한 적이 없는 고객도 결과에 포함) select c.customername &#34;고객명&#34;, count(o.customerid) &#34;주문 건수&#34;, coalesce(sum(o.TotalAmount), 0) &#34;총 주문 금액&#34; from customers c left join orders o on c.customerid = o.customerid group by c.customername ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-22 23:41:13 +0900 KST'>2025년 1월 22일</span></footer>
+  <a class="entry-link" aria-label="post link to [사전캠프] 8일차." href="https://withong.github.io/record/2025-01-22/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[사전캠프] 7일차.
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> TASKS
+✅ SQL 강의 5주차
+✅ Web 강의 4주차
+✅ 달리기반 SQL 1-2
+✅ 달리기반 Java 1-2
+&#43;
+☑️ 달리기반 SQL 3
+SQL NULL 데이터가 존재하지 않거나 정의되지 않은 상태
+-- NULL 값인 데이터를 찾는 경우 SELECT * FROM table WHERE column IS NULL; -- NULL이 아닌 데이터를 찾는 경우 SELECT * FROM table WHERE column IS NOT NULL; -- NULL 값 대체하여 조회 SELECT COALESCE(column, &#39;default_value&#39;) AS alias FROM table; Pivot Table 데이터 집계 및 요약을 위해 특정 열의 값들을 열(Column)로 변환하고,
+관련 데이터를 행(Row)과 열 형태로 구조화한 테이블
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-21 23:41:13 +0900 KST'>2025년 1월 21일</span></footer>
+  <a class="entry-link" aria-label="post link to [사전캠프] 7일차." href="https://withong.github.io/record/2025-01-21/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

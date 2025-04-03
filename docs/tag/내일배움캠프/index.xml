@@ -904,9 +904,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>키오스크 회고</title>
-      <link>https://withong.github.io/record/2025-03-14/</link>
+      <link>https://withong.github.io/project/kiosk-05/</link>
       <pubDate>Fri, 14 Mar 2025 19:14:24 +0900</pubDate>
-      <guid>https://withong.github.io/record/2025-03-14/</guid>
+      <guid>https://withong.github.io/project/kiosk-05/</guid>
       <description>&lt;hr&gt;
 &lt;h3 id=&#34;코드의-주요-기능&#34;&gt;코드의 주요 기능&lt;/h3&gt;
 &lt;ul&gt;
@@ -1187,9 +1187,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 3 회고</title>
-      <link>https://withong.github.io/record/2025-03-05/</link>
+      <link>https://withong.github.io/project/calculator-05/</link>
       <pubDate>Wed, 05 Mar 2025 23:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/2025-03-05/</guid>
+      <guid>https://withong.github.io/project/calculator-05/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [문제] 알고리즘 &amp;amp; SQL 문제 풀기&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 3 마무리&lt;br&gt;
@@ -1218,9 +1218,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 3</title>
-      <link>https://withong.github.io/project/calculator-03/</link>
+      <link>https://withong.github.io/project/calculator-04/</link>
       <pubDate>Wed, 05 Mar 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/project/calculator-03/</guid>
+      <guid>https://withong.github.io/project/calculator-04/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;Enum, 제네릭, 람다 &amp;amp; 스트림을 이해한 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -1255,33 +1255,10 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
 &lt;p&gt;&lt;strong&gt;저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>계산기 Lv 2</title>
-      <link>https://withong.github.io/project/calculator-02/</link>
-      <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/project/calculator-02/</guid>
-      <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
-&lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;사칙연산을 수행 후, 결과값 반환 메서드 구현 &amp;amp; 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;사칙연산을 수행한 후, 결과값을 반환하는 메서드 구현&lt;/li&gt;
-&lt;li&gt;연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성&lt;/li&gt;
-&lt;li&gt;
-&lt;ol&gt;
-&lt;li&gt;양의 정수 2개(0 포함)와 연산 기호를 매개변수로 받아 사칙연산(➕,➖,✖️,➗) 기능을 수행한 후 2) 결과 값을 반환하는 메서드와 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성합니다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Lv 1에서 구현한 App 클래스의 main 메서드에 Calculator 클래스가 활용될 수 있도록 수정&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>계산기 Lv 1-2 회고</title>
-      <link>https://withong.github.io/record/2025-02-28/</link>
-      <pubDate>Fri, 28 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/2025-02-28/</guid>
+      <link>https://withong.github.io/project/calculator-03/</link>
+      <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
+      <guid>https://withong.github.io/project/calculator-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [과제] Java 계산기 만들기 level 2 수정&lt;br&gt;
 ✅ [과제] 과제 TIL &amp;amp; 트러블 슈팅 작성&lt;br&gt;
@@ -1313,6 +1290,29 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
 &lt;li&gt;&lt;code&gt;int&lt;/code&gt; 범위 초과하는 입력값, 연산 결과 오류 → &lt;code&gt;long&lt;/code&gt;으로 확장&lt;/li&gt;
 &lt;li&gt;오류 처리 방식 &lt;code&gt;handleError&lt;/code&gt; → 커스텀 예외 처리&lt;/li&gt;
 &lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>계산기 Lv 2</title>
+      <link>https://withong.github.io/project/calculator-02/</link>
+      <pubDate>Fri, 28 Feb 2025 21:00:00 +0900</pubDate>
+      <guid>https://withong.github.io/project/calculator-02/</guid>
+      <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
+&lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;사칙연산을 수행 후, 결과값 반환 메서드 구현 &amp;amp; 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;사칙연산을 수행한 후, 결과값을 반환하는 메서드 구현&lt;/li&gt;
+&lt;li&gt;연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성&lt;/li&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;양의 정수 2개(0 포함)와 연산 기호를 매개변수로 받아 사칙연산(➕,➖,✖️,➗) 기능을 수행한 후 2) 결과 값을 반환하는 메서드와 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Lv 1에서 구현한 App 클래스의 main 메서드에 Calculator 클래스가 활용될 수 있도록 수정&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java 심화 2</title>
@@ -1731,9 +1731,9 @@ result = 7
     </item>
     <item>
       <title>미니 프로젝트 최종</title>
-      <link>https://withong.github.io/record/2025-02-21/</link>
+      <link>https://withong.github.io/project/about-team-04/</link>
       <pubDate>Fri, 21 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/2025-02-21/</guid>
+      <guid>https://withong.github.io/project/about-team-04/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 프로젝트 배포&lt;br&gt;
 ✅ 프로젝트 발표&lt;br&gt;
@@ -1765,9 +1765,9 @@ result = 7
     </item>
     <item>
       <title>미니 프로젝트 3</title>
-      <link>https://withong.github.io/record/2025-02-20/</link>
+      <link>https://withong.github.io/project/about-team-03/</link>
       <pubDate>Thu, 20 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/2025-02-20/</guid>
+      <guid>https://withong.github.io/project/about-team-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 코드 병합&lt;br&gt;
 ✅ 기능 수정&lt;/p&gt;&lt;/blockquote&gt;
@@ -1787,9 +1787,9 @@ result = 7
     </item>
     <item>
       <title>미니 프로젝트 2</title>
-      <link>https://withong.github.io/record/2025-02-19/</link>
+      <link>https://withong.github.io/project/about-team-02/</link>
       <pubDate>Wed, 19 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/2025-02-19/</guid>
+      <guid>https://withong.github.io/project/about-team-02/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;+&lt;/strong&gt;&lt;br&gt;
 ☑️ 팀원 상세 페이지 화면&lt;br&gt;
@@ -1814,9 +1814,9 @@ result = 7
     </item>
     <item>
       <title>미니 프로젝트 1</title>
-      <link>https://withong.github.io/record/2025-02-18/</link>
+      <link>https://withong.github.io/project/about-team-01/</link>
       <pubDate>Tue, 18 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/2025-02-18/</guid>
+      <guid>https://withong.github.io/project/about-team-01/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [미니 프로젝트] 메인 페이지 (HTML/CSS)&lt;br&gt;

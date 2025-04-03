@@ -5,41 +5,26 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>계산기 Lv 1-2 회고 | withong</title>
+<title>미니 프로젝트 3 | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="
-✅ [과제] Java 계산기 만들기 level 2 수정
-✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
-✅ [문제] 알고리즘 문제 풀기
+✅ 코드 병합
+✅ 기능 수정
+
+미니 프로젝트
+기능 수정
+
+기존 기능 문제: 수정 박스 생성 후 수정 아이콘 클릭 시 수정 박스 중복 생성
+문제 해결: 수정 아이콘 클릭 시 수정 박스가 존재하는지 체크 후 있으면 수정 취소, 없으면 수정 박스 생성으로 변경
 
 
-✅ 개인 과제 - 필수 구현
 
-[내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1
-[내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2
-
-
-🫠 level 1 vs level 2
-개선된 점
-
-계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리
-calculate()의 반환 타입 double에서 String으로 변경
-→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선
-CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선
-trimRecords() 추가하여 과도한 데이터 누적 방지
-0으로 나누기 처리 Error에서 정의되지 않음으로 개선
-int 범위 초과 처리 Error에서 연산 범위 초과로 개선
-최근 연산 기록 조회할 수 있도록 showRecords() 추가
-사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가.
-
-
-개선할 점
-
-int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
-오류 처리 방식 handleError → 커스텀 예외 처리
-">
+let list = $(this).closest(&#34;li&#34;);
+현재 이벤트가 발생한 요소에서 가장 가까운 li 찾기 == 수정하려는 방명록
+let updateLi = list.next(&#39;li&#39;);
+list의 다음 li 요소를 찾아 변수에 저장 == 수정 박스">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/record/2025-02-28/">
+<link rel="canonical" href="https://withong.github.io/project/about-team-03/">
 <link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://withong.github.io/icons/code.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/code.png">
@@ -48,7 +33,7 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
 <link rel="mask-icon" href="https://withong.github.io/icons/zep.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/record/2025-02-28/">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/project/about-team-03/">
 <noscript>
     <style>
         #theme-toggle,
@@ -85,52 +70,36 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/record/2025-02-28/">
+</noscript><meta property="og:url" content="https://withong.github.io/project/about-team-03/">
   <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="계산기 Lv 1-2 회고">
-  <meta property="og:description" content=" ✅ [과제] Java 계산기 만들기 level 2 수정
-✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
-✅ [문제] 알고리즘 문제 풀기
-✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경
-→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 ">
+  <meta property="og:title" content="미니 프로젝트 3">
+  <meta property="og:description" content=" ✅ 코드 병합
+✅ 기능 수정
+미니 프로젝트 기능 수정 기존 기능 문제: 수정 박스 생성 후 수정 아이콘 클릭 시 수정 박스 중복 생성 문제 해결: 수정 아이콘 클릭 시 수정 박스가 존재하는지 체크 후 있으면 수정 취소, 없으면 수정 박스 생성으로 변경 let list = $(this).closest(&#34;li&#34;); 현재 이벤트가 발생한 요소에서 가장 가까운 li 찾기 == 수정하려는 방명록
+let updateLi = list.next(&#39;li&#39;); list의 다음 li 요소를 찾아 변수에 저장 == 수정 박스">
   <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
-    <meta property="article:section" content="record">
-    <meta property="article:published_time" content="2025-02-28T21:00:00+09:00">
-    <meta property="article:modified_time" content="2025-02-28T21:00:00+09:00">
+    <meta property="article:section" content="project">
+    <meta property="article:published_time" content="2025-02-20T21:00:00+09:00">
+    <meta property="article:modified_time" content="2025-02-20T21:00:00+09:00">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="계산기 Lv 1-2 회고">
+<meta name="twitter:title" content="미니 프로젝트 3">
 <meta name="twitter:description" content="
-✅ [과제] Java 계산기 만들기 level 2 수정
-✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
-✅ [문제] 알고리즘 문제 풀기
+✅ 코드 병합
+✅ 기능 수정
+
+미니 프로젝트
+기능 수정
+
+기존 기능 문제: 수정 박스 생성 후 수정 아이콘 클릭 시 수정 박스 중복 생성
+문제 해결: 수정 아이콘 클릭 시 수정 박스가 존재하는지 체크 후 있으면 수정 취소, 없으면 수정 박스 생성으로 변경
 
 
-✅ 개인 과제 - 필수 구현
 
-[내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1
-[내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2
-
-
-🫠 level 1 vs level 2
-개선된 점
-
-계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리
-calculate()의 반환 타입 double에서 String으로 변경
-→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선
-CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선
-trimRecords() 추가하여 과도한 데이터 누적 방지
-0으로 나누기 처리 Error에서 정의되지 않음으로 개선
-int 범위 초과 처리 Error에서 연산 범위 초과로 개선
-최근 연산 기록 조회할 수 있도록 showRecords() 추가
-사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가.
-
-
-개선할 점
-
-int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
-오류 처리 방식 handleError → 커스텀 예외 처리
-">
+let list = $(this).closest(&#34;li&#34;);
+현재 이벤트가 발생한 요소에서 가장 가까운 li 찾기 == 수정하려는 방명록
+let updateLi = list.next(&#39;li&#39;);
+list의 다음 li 요소를 찾아 변수에 저장 == 수정 박스">
 
 
 <script type="application/ld+json">
@@ -141,14 +110,14 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Study Records",
-      "item": "https://withong.github.io/record/"
+      "name": "About Projects",
+      "item": "https://withong.github.io/project/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "계산기 Lv 1-2 회고",
-      "item": "https://withong.github.io/record/2025-02-28/"
+      "name": "미니 프로젝트 3",
+      "item": "https://withong.github.io/project/about-team-03/"
     }
   ]
 }
@@ -157,20 +126,20 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "계산기 Lv 1-2 회고",
-  "name": "계산기 Lv 1-2 회고",
-  "description": " ✅ [과제] Java 계산기 만들기 level 2 수정\n✅ [과제] 과제 TIL \u0026amp; 트러블 슈팅 작성\n✅ [문제] 알고리즘 문제 풀기\n✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경\n→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 ",
+  "headline": "미니 프로젝트 3",
+  "name": "미니 프로젝트 3",
+  "description": " ✅ 코드 병합\n✅ 기능 수정\n미니 프로젝트 기능 수정 기존 기능 문제: 수정 박스 생성 후 수정 아이콘 클릭 시 수정 박스 중복 생성 문제 해결: 수정 아이콘 클릭 시 수정 박스가 존재하는지 체크 후 있으면 수정 취소, 없으면 수정 박스 생성으로 변경 let list = $(this).closest(\u0026#34;li\u0026#34;); 현재 이벤트가 발생한 요소에서 가장 가까운 li 찾기 == 수정하려는 방명록\nlet updateLi = list.next(\u0026#39;li\u0026#39;); list의 다음 li 요소를 찾아 변수에 저장 == 수정 박스\n",
   "keywords": [
     
   ],
-  "articleBody": " ✅ [과제] Java 계산기 만들기 level 2 수정\n✅ [과제] 과제 TIL \u0026 트러블 슈팅 작성\n✅ [문제] 알고리즘 문제 풀기\n✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경\n→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 ",
-  "wordCount" : "143",
+  "articleBody": " ✅ 코드 병합\n✅ 기능 수정\n미니 프로젝트 기능 수정 기존 기능 문제: 수정 박스 생성 후 수정 아이콘 클릭 시 수정 박스 중복 생성 문제 해결: 수정 아이콘 클릭 시 수정 박스가 존재하는지 체크 후 있으면 수정 취소, 없으면 수정 박스 생성으로 변경 let list = $(this).closest(\"li\"); 현재 이벤트가 발생한 요소에서 가장 가까운 li 찾기 == 수정하려는 방명록\nlet updateLi = list.next('li'); list의 다음 li 요소를 찾아 변수에 저장 == 수정 박스\nlet checkUpdateBox = list.next('li').find('#guestbook-update-div').length; id=\"guestbook-update-div\" 개수 찾기 == 수정 박스 존재 여부 확인\n",
+  "wordCount" : "86",
   "inLanguage": "ko",
-  "datePublished": "2025-02-28T21:00:00+09:00",
-  "dateModified": "2025-02-28T21:00:00+09:00",
+  "datePublished": "2025-02-20T21:00:00+09:00",
+  "dateModified": "2025-02-20T21:00:00+09:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://withong.github.io/record/2025-02-28/"
+    "@id": "https://withong.github.io/project/about-team-03/"
   },
   "publisher": {
     "@type": "Organization",
@@ -256,11 +225,11 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/record/">Study Records</a></div>
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/project/">About Projects</a></div>
     <h1 class="post-title entry-hint-parent">
-      계산기 Lv 1-2 회고
+      미니 프로젝트 3
     </h1>
-    <div class="post-meta"><span title='2025-02-28 21:00:00 +0900 KST'>2025년 2월 28일</span>
+    <div class="post-meta"><span title='2025-02-20 21:00:00 +0900 KST'>2025년 2월 20일</span>
 
 </div>
   </header> <div class="toc">
@@ -271,11 +240,9 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
 
         <div class="inner"><nav id="TableOfContents">
   <ul>
-    <li><a href="#-개인-과제---필수-구현">✅ 개인 과제 - 필수 구현</a></li>
-    <li><a href="#-level-1-vs-level-2">🫠 <code>level 1 vs level 2</code></a>
+    <li><a href="#미니-프로젝트">미니 프로젝트</a>
       <ul>
-        <li><a href="#개선된-점">개선된 점</a></li>
-        <li><a href="#개선할-점">개선할 점</a></li>
+        <li><a href="#기능-수정">기능 수정</a></li>
       </ul>
     </li>
   </ul>
@@ -285,36 +252,23 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
 </div>
 
   <div class="post-content"><blockquote>
-<p>✅ [과제] Java 계산기 만들기 level 2 수정<br>
-✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성<br>
-✅ [문제] 알고리즘 문제 풀기</p></blockquote>
+<p>✅ 코드 병합<br>
+✅ 기능 수정</p></blockquote>
 <hr>
-<br>
-<h2 id="-개인-과제---필수-구현">✅ 개인 과제 - 필수 구현<a hidden class="anchor" aria-hidden="true" href="#-개인-과제---필수-구현">#</a></h2>
+<h2 id="미니-프로젝트">미니 프로젝트<a hidden class="anchor" aria-hidden="true" href="#미니-프로젝트">#</a></h2>
+<h3 id="기능-수정">기능 수정<a hidden class="anchor" aria-hidden="true" href="#기능-수정">#</a></h3>
 <ul>
-<li><a href="https://velog.io/@ezro/camp-task-1">[내일배움캠프] 과제 - 계산기 1</a> <strong>/</strong> <a href="https://github.com/withong/nbc-chapter-02/tree/main/calculator/level1">[GitHub] nbc-chapter-02/calculator/level1</a></li>
-<li><a href="https://velog.io/@ezro/camp-task-2">[내일배움캠프] 과제 - 계산기 2</a> <strong>/</strong> <a href="https://github.com/withong/nbc-chapter-02/tree/main/calculator/level2">[GitHub] nbc-chapter-02/calculator/level2</a>
-<br></li>
+<li><strong>기존 기능 문제</strong>: 수정 박스 생성 후 수정 아이콘 클릭 시 수정 박스 중복 생성</li>
+<li><strong>문제 해결</strong>: 수정 아이콘 클릭 시 수정 박스가 존재하는지 체크 후 있으면 수정 취소, 없으면 수정 박스 생성으로 변경</li>
 </ul>
-<h2 id="-level-1-vs-level-2">🫠 <code>level 1 vs level 2</code><a hidden class="anchor" aria-hidden="true" href="#-level-1-vs-level-2">#</a></h2>
-<h3 id="개선된-점">개선된 점<a hidden class="anchor" aria-hidden="true" href="#개선된-점">#</a></h3>
-<ul>
-<li>계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리</li>
-<li><code>calculate()</code>의 반환 타입 <code>double</code>에서 <code>String</code>으로 변경<br>
-→ 연산 오류 처리 반환값 <code>-9999</code>에서 <code>의미 있는 메시지</code>로 개선</li>
-<li><code>CalculationRecord</code> 클래스 추가하여 연산 기록 저장 방식 개선</li>
-<li><code>trimRecords()</code> 추가하여 과도한 데이터 누적 방지</li>
-<li>0으로 나누기 처리 <code>Error</code>에서 <code>정의되지 않음</code>으로 개선</li>
-<li>int 범위 초과 처리 <code>Error</code>에서 <code>연산 범위 초과</code>로 개선</li>
-<li>최근 연산 기록 조회할 수 있도록 <code>showRecords()</code> 추가</li>
-<li>사용자가 직접 삭제할 수 있도록 <code>removeRecords()</code> 메서드 추가.
-<br></li>
-</ul>
-<h3 id="개선할-점">개선할 점<a hidden class="anchor" aria-hidden="true" href="#개선할-점">#</a></h3>
-<ul>
-<li><code>int</code> 범위 초과하는 입력값, 연산 결과 오류 → <code>long</code>으로 확장</li>
-<li>오류 처리 방식 <code>handleError</code> → 커스텀 예외 처리</li>
-</ul>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/481f5dcb-a15a-43b4-8d65-f6fc6f2247c1/image.gif"></p>
+<p><img loading="lazy" src="https://velog.velcdn.com/images/ezro/post/d456bd35-4c03-4d82-aebd-05ac3f3858cb/image.png"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">list</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">closest</span><span class="p">(</span><span class="s2">&#34;li&#34;</span><span class="p">);</span>
+</span></span></code></pre></div><p>현재 이벤트가 발생한 요소에서 가장 가까운 <code>li</code> 찾기 == <strong>수정하려는 방명록</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">updateLi</span> <span class="o">=</span> <span class="nx">list</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">);</span>
+</span></span></code></pre></div><p><code>list</code>의 다음 <code>li</code> 요소를 찾아 변수에 저장 == <strong>수정 박스</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">checkUpdateBox</span> <span class="o">=</span> <span class="nx">list</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;#guestbook-update-div&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+</span></span></code></pre></div><p><code>id=&quot;guestbook-update-div&quot;</code> 개수 찾기 == <strong>수정 박스 존재 여부 확인</strong></p>
 
 
   </div>
@@ -323,15 +277,15 @@ int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://withong.github.io/record/2025-02-27/">
+  <a class="prev" href="https://withong.github.io/project/about-team-02/">
     <span class="title">« Prev</span>
     <br>
-    <span>Java 심화 2</span>
+    <span>미니 프로젝트 2</span>
   </a>
-  <a class="next" href="https://withong.github.io/project/calculator-02/">
+  <a class="next" href="https://withong.github.io/project/about-team-04/">
     <span class="title">Next »</span>
     <br>
-    <span>계산기 Lv 2</span>
+    <span>미니 프로젝트 최종</span>
   </a>
 </nav>
 

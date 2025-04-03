@@ -170,7 +170,7 @@
 ✅ 개인 과제 - 도전 구현 [내일배움캠프] 과제 - 계산기 3 / [GitHub] nbc-chapter-02/calculator/level3 🫠 level 2 vs level 3 개선된 점 단일 클래스 구조 → 다층 구조 (패키지 분리) Enum을 통한 연산자(Operator) 관리 제네릭(Operand) &#43; BigDecimal 도입 람다와 스트림을 이용한 결과 필터링 기능 추가 커스텀 예외 클래스(CalculatorException) 활용 개선할 점 Operand&lt;T&gt;가 BigDecimal로만 사용되는 점 </p>
   </div>
   <footer class="entry-footer"><span title='2025-03-05 23:00:00 +0900 KST'>2025년 3월 5일</span></footer>
-  <a class="entry-link" aria-label="post link to 계산기 Lv 3 회고" href="https://withong.github.io/record/2025-03-05/"></a>
+  <a class="entry-link" aria-label="post link to 계산기 Lv 3 회고" href="https://withong.github.io/project/calculator-05/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -186,22 +186,7 @@ Enum 타입을 활용하여 연산자 타입에 대한 정보를 관리하고 �
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-05 22:00:00 +0900 KST'>2025년 3월 5일</span></footer>
-  <a class="entry-link" aria-label="post link to 계산기 Lv 3" href="https://withong.github.io/project/calculator-03/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">계산기 Lv 2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>요구사항 클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기
-사칙연산을 수행 후, 결과값 반환 메서드 구현 &amp; 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성
-사칙연산을 수행한 후, 결과값을 반환하는 메서드 구현 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성 양의 정수 2개(0 포함)와 연산 기호를 매개변수로 받아 사칙연산(➕,➖,✖️,➗) 기능을 수행한 후 2) 결과 값을 반환하는 메서드와 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성합니다. Lv 1에서 구현한 App 클래스의 main 메서드에 Calculator 클래스가 활용될 수 있도록 수정
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-28 22:00:00 +0900 KST'>2025년 2월 28일</span></footer>
-  <a class="entry-link" aria-label="post link to 계산기 Lv 2" href="https://withong.github.io/project/calculator-02/"></a>
+  <a class="entry-link" aria-label="post link to 계산기 Lv 3" href="https://withong.github.io/project/calculator-04/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -216,8 +201,23 @@ Enum 타입을 활용하여 연산자 타입에 대한 정보를 관리하고 �
 ✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경
 → 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 </p>
   </div>
+  <footer class="entry-footer"><span title='2025-02-28 22:00:00 +0900 KST'>2025년 2월 28일</span></footer>
+  <a class="entry-link" aria-label="post link to 계산기 Lv 1-2 회고" href="https://withong.github.io/project/calculator-03/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">계산기 Lv 2
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>요구사항 클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기
+사칙연산을 수행 후, 결과값 반환 메서드 구현 &amp; 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성
+사칙연산을 수행한 후, 결과값을 반환하는 메서드 구현 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성 양의 정수 2개(0 포함)와 연산 기호를 매개변수로 받아 사칙연산(➕,➖,✖️,➗) 기능을 수행한 후 2) 결과 값을 반환하는 메서드와 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성합니다. Lv 1에서 구현한 App 클래스의 main 메서드에 Calculator 클래스가 활용될 수 있도록 수정
+...</p>
+  </div>
   <footer class="entry-footer"><span title='2025-02-28 21:00:00 +0900 KST'>2025년 2월 28일</span></footer>
-  <a class="entry-link" aria-label="post link to 계산기 Lv 1-2 회고" href="https://withong.github.io/record/2025-02-28/"></a>
+  <a class="entry-link" aria-label="post link to 계산기 Lv 2" href="https://withong.github.io/project/calculator-02/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 

@@ -10,9 +10,9 @@
     <atom:link href="https://withong.github.io/tag/%ED%9A%8C%EA%B3%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>키오스크 회고</title>
-      <link>https://withong.github.io/record/2025-03-14/</link>
+      <link>https://withong.github.io/project/kiosk-05/</link>
       <pubDate>Fri, 14 Mar 2025 19:14:24 +0900</pubDate>
-      <guid>https://withong.github.io/record/2025-03-14/</guid>
+      <guid>https://withong.github.io/project/kiosk-05/</guid>
       <description>&lt;hr&gt;
 &lt;h3 id=&#34;코드의-주요-기능&#34;&gt;코드의 주요 기능&lt;/h3&gt;
 &lt;ul&gt;
@@ -66,9 +66,9 @@
     </item>
     <item>
       <title>계산기 Lv 3 회고</title>
-      <link>https://withong.github.io/record/2025-03-05/</link>
+      <link>https://withong.github.io/project/calculator-05/</link>
       <pubDate>Wed, 05 Mar 2025 23:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/2025-03-05/</guid>
+      <guid>https://withong.github.io/project/calculator-05/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [문제] 알고리즘 &amp;amp; SQL 문제 풀기&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 3 마무리&lt;br&gt;
@@ -97,9 +97,9 @@
     </item>
     <item>
       <title>계산기 Lv 1-2 회고</title>
-      <link>https://withong.github.io/record/2025-02-28/</link>
-      <pubDate>Fri, 28 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/record/2025-02-28/</guid>
+      <link>https://withong.github.io/project/calculator-03/</link>
+      <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
+      <guid>https://withong.github.io/project/calculator-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [과제] Java 계산기 만들기 level 2 수정&lt;br&gt;
 ✅ [과제] 과제 TIL &amp;amp; 트러블 슈팅 작성&lt;br&gt;
