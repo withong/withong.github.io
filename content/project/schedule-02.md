@@ -22,10 +22,12 @@ tag = ["내일배움캠프", "일정 관리 API", "트러블 슈팅"]
   도메인에 `.`이 있어야 한다는 조건은 강제하지 않음  
 
 - **분석**:  
-  `@Email`만으로는 `"@뒤에 .이 있어야 함"` 같은 현실적인 이메일 형식 검증은 부족함  
+  `@Email`만으로는 "@뒤에 .이 있어야 함" 같은 현실적인 이메일 형식 검증은 부족함  
 
 - **해결**:  
   정규 표현식을 함께 사용해 `@` 뒤에 `.` 포함 여부와 `.` 뒤의 문자열까지 추가로 검증  
+
+<br>
 
 ▶ 공부 기록 [[정규 표현식을 활용한 사용자 등록 요청 데이터 검증]](https://withong.github.io/record/2025-04-01-02/)
 
@@ -46,6 +48,8 @@ tag = ["내일배움캠프", "일정 관리 API", "트러블 슈팅"]
 
 - **해결**:  
   `BCrypt.verifyer().verify()`를 사용하면 입력된 비밀번호와 기존 해시값을 내부적으로 비교 가능함  
+
+<br>
 
 ▶ 공부 기록 [[Bcrypt를 활용한 비밀번호 암호화]](https://withong.github.io/record/2025-04-01-03/)
 
@@ -69,6 +73,8 @@ tag = ["내일배움캠프", "일정 관리 API", "트러블 슈팅"]
 - **해결**:  
   `sendError()` 대신, `ObjectMapper`로 JSON 응답을 직접 작성해서  
   `response.getWriter().write(json)` 방식으로 내려줌  
+
+<br>
 
 ```java
 if (session == null || session.getAttribute(Const.LOGIN_USER) == null) {
@@ -116,7 +122,9 @@ if (session == null || session.getAttribute(Const.LOGIN_USER) == null) {
   일정 조회 API를 **타인도 접근 가능하게 수정**,  
   전체 사용자 조회 → 특정 사용자 일정 조회 흐름으로 확장 설계  
 
----
+<br>
+<hr>
+<br>
 
 ## 5. 로그인 상태에서 다른 계정으로 중복 로그인 시도하면?
 
@@ -134,7 +142,9 @@ if (session == null || session.getAttribute(Const.LOGIN_USER) == null) {
   A 탭에서 B의 본인 정보 조회 및 정보 수정 접근 가능해짐
 
 - **해결**  
-  로그인 전 기존 세션 무효화 처리 추가:  
+  로그인 전 기존 세션 무효화 처리 추가  
+
+<br>
 
   ```java
   HttpSession existingSession = httpRequest.getSession(false);
@@ -143,7 +153,9 @@ if (session == null || session.getAttribute(Const.LOGIN_USER) == null) {
   }
   ```
 
----
+<br>
+<hr>
+<br>
 
 ## 6. QueryDSL 페이징 시 count 쿼리가 왜 따로 필요한지?
 
@@ -162,9 +174,11 @@ if (session == null || session.getAttribute(Const.LOGIN_USER) == null) {
   `PageImpl<>(content, pageable, totalCount)` 형태로  
   `content` + `pageable` + `count 쿼리`까지 포함해서 `Page` 객체 반환
 
----
+<br>
+<hr>
+<br>
 
-### 5. 일정 목록/단건 조회의 댓글 개수 처리 로직 분리
+## 7. 일정 목록/단건 조회의 댓글 개수 처리 로직 분리
 
 - **문제**  
   일정 목록 조회에도 일정 단건 조회에도 일정별 댓글 개수를 보여주고 싶은데,  
@@ -181,6 +195,8 @@ if (session == null || session.getAttribute(Const.LOGIN_USER) == null) {
 - **해결**  
   - **일정 목록 조회 시**: `Querydsl`을 사용해 일정 목록을 조회할 때 `comment.count()`를 `groupBy(schedule.id)`와 함께 조회함으로써 댓글 개수를 포함한 결과를 한 번의 쿼리로 가져오도록 처리함.
   - **일정 단건 조회 시**: `CommentRepository.countCommentsBySchedule(schedule)` 메서드를 그대로 활용해서, 단일 일정에 대한 댓글 개수만 별도로 조회.
+
+<br>
 
 ▶ 공부 기록 [[QueryDSL을 활용한 조건 기반 일정 조회]](https://withong.github.io/record/2025-04-03/)
 
