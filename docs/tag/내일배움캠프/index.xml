@@ -60,7 +60,9 @@ bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 �
 &lt;p&gt;&lt;strong&gt;QueryDSL&lt;/strong&gt;은 Java에서 **타입 안정성(type-safe)**을 보장하는 방식으로 SQL과 유사한 쿼리를 작성할 수 있게 해주는 **도메인 특화 언어(DSL: Domain Specific Language)**이다. 주로 &lt;strong&gt;JPA와 함께 사용&lt;/strong&gt;되며, 복잡한 동적 쿼리 작성이나 조건 조합이 많은 경우 유용하다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;기존 JPQL의 단점인 문자열 기반 쿼리 작성의 오류 위험성을 줄이고, IDE의 코드 자동완성 기능을 활용할 수 있도록 해준다.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;br&gt;
 &lt;hr&gt;
+&lt;br&gt;
 &lt;h2 id=&#34;왜-querydsl을-사용하는가&#34;&gt;왜 QueryDSL을 사용하는가?&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -77,7 +79,9 @@ bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 �
 &lt;h2 id=&#34;정규-표현식regular-expression이란&#34;&gt;정규 표현식(Regular Expression)이란?&lt;/h2&gt;
 &lt;p&gt;**정규 표현식(정규식, regex)**은 특정 &lt;strong&gt;문자열의 규칙을 표현하는 문법&lt;/strong&gt;이다.&lt;br&gt;
 일종의 &lt;strong&gt;패턴 언어&lt;/strong&gt;로, 문자열이 특정한 조건을 만족하는지 검사하거나, 일부를 추출하거나, 변환할 때 사용된다.&lt;/p&gt;
+&lt;br&gt;
 &lt;hr&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;1-정규-표현식은-언제-왜-사용하는가&#34;&gt;1. 정규 표현식은 언제, 왜 사용하는가?&lt;/h3&gt;
 &lt;h4 id=&#34;입력값-검증-validation&#34;&gt;입력값 검증 (Validation)&lt;/h4&gt;
 &lt;ul&gt;
@@ -92,7 +96,9 @@ bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 �
 &lt;ul&gt;
 &lt;li&gt;로그 분석, 텍스트 필터링, 문서 내 키워드 찾기 등에서 활용된다.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;br&gt;
 &lt;hr&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;2-자주-사용하는-정규-표현식-기호&#34;&gt;2. 자주 사용하는 정규 표현식 기호&lt;/h3&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -160,7 +166,9 @@ bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 �
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;br&gt;
 &lt;hr&gt;
+&lt;br&gt;
 &lt;h2 id=&#34;createuserrequest-dto에-사용된-정규-표현식-분석&#34;&gt;&lt;code&gt;CreateUserRequest&lt;/code&gt; DTO에 사용된 정규 표현식 분석&lt;/h2&gt;
 &lt;h3 id=&#34;1-이름-필드&#34;&gt;1. 이름 필드&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@Pattern&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;regexp&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;^[\\p{L}]+$&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;이름은 문자만 입력 가능합니다.&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -205,7 +213,9 @@ bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 �
 &lt;p&gt;회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 &lt;strong&gt;비밀번호 보안&lt;/strong&gt;이다.&lt;br&gt;
 비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 &lt;strong&gt;암호화 또는 해시화 처리&lt;/strong&gt;를 거쳐야 한다.&lt;br&gt;
 이때 널리 사용되는 방식 중 하나가 바로 &lt;strong&gt;Bcrypt 해시 함수&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;br&gt;
 &lt;hr&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;1-해시hash란&#34;&gt;1. 해시(Hash)란?&lt;/h3&gt;
 &lt;p&gt;**해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.&lt;br&gt;
 출력값은 일반적으로 &lt;strong&gt;해시 값(hash value)&lt;/strong&gt; 또는 **다이제스트(digest)**라고 부른다.&lt;/p&gt;

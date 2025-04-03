@@ -19,7 +19,9 @@
 &lt;p&gt;회원가입이나 로그인 기능을 구현할 때 가장 중요한 것 중 하나는 &lt;strong&gt;비밀번호 보안&lt;/strong&gt;이다.&lt;br&gt;
 비밀번호는 절대로 평문(Plain text) 상태로 저장되어서는 안 되며, 반드시 &lt;strong&gt;암호화 또는 해시화 처리&lt;/strong&gt;를 거쳐야 한다.&lt;br&gt;
 이때 널리 사용되는 방식 중 하나가 바로 &lt;strong&gt;Bcrypt 해시 함수&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;br&gt;
 &lt;hr&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;1-해시hash란&#34;&gt;1. 해시(Hash)란?&lt;/h3&gt;
 &lt;p&gt;**해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.&lt;br&gt;
 출력값은 일반적으로 &lt;strong&gt;해시 값(hash value)&lt;/strong&gt; 또는 **다이제스트(digest)**라고 부른다.&lt;/p&gt;

@@ -18,7 +18,9 @@
 &lt;h2 id=&#34;정규-표현식regular-expression이란&#34;&gt;정규 표현식(Regular Expression)이란?&lt;/h2&gt;
 &lt;p&gt;**정규 표현식(정규식, regex)**은 특정 &lt;strong&gt;문자열의 규칙을 표현하는 문법&lt;/strong&gt;이다.&lt;br&gt;
 일종의 &lt;strong&gt;패턴 언어&lt;/strong&gt;로, 문자열이 특정한 조건을 만족하는지 검사하거나, 일부를 추출하거나, 변환할 때 사용된다.&lt;/p&gt;
+&lt;br&gt;
 &lt;hr&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;1-정규-표현식은-언제-왜-사용하는가&#34;&gt;1. 정규 표현식은 언제, 왜 사용하는가?&lt;/h3&gt;
 &lt;h4 id=&#34;입력값-검증-validation&#34;&gt;입력값 검증 (Validation)&lt;/h4&gt;
 &lt;ul&gt;
@@ -33,7 +35,9 @@
 &lt;ul&gt;
 &lt;li&gt;로그 분석, 텍스트 필터링, 문서 내 키워드 찾기 등에서 활용된다.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;br&gt;
 &lt;hr&gt;
+&lt;br&gt;
 &lt;h3 id=&#34;2-자주-사용하는-정규-표현식-기호&#34;&gt;2. 자주 사용하는 정규 표현식 기호&lt;/h3&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -101,7 +105,9 @@
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;br&gt;
 &lt;hr&gt;
+&lt;br&gt;
 &lt;h2 id=&#34;createuserrequest-dto에-사용된-정규-표현식-분석&#34;&gt;&lt;code&gt;CreateUserRequest&lt;/code&gt; DTO에 사용된 정규 표현식 분석&lt;/h2&gt;
 &lt;h3 id=&#34;1-이름-필드&#34;&gt;1. 이름 필드&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@Pattern&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;regexp&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;^[\\p{L}]+$&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;이름은 문자만 입력 가능합니다.&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
