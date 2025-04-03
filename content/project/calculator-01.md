@@ -2,7 +2,6 @@
 title = "계산기 Lv 1"
 date = "2025-02-26T22:00:00+09:00"
 draft = false
-topic = ["tasks"]
 tag = ["내일배움캠프", "계산기"]
 +++
 

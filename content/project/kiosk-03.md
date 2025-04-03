@@ -2,7 +2,6 @@
 title = "키오스크 도전 Lv 1"
 date = "2025-03-12T11:17:50+09:00"
 draft = false
-topic = ["tasks"]
 tag = ["내일배움캠프", "키오스크"]
 +++
 

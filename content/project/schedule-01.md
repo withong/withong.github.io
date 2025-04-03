@@ -1,8 +1,7 @@
 +++
-title = "일정 관리 API 트러블 슈팅"
+title = "일정 관리 API (JDBC) 트러블 슈팅"
 date = "2025-03-25T20:20:11+09:00"
 draft = false
-topic = ["tasks"]
 tag = ["내일배움캠프", "일정 관리 API", "트러블 슈팅"]
 +++
 
