@@ -22,32 +22,22 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;문제&lt;/strong&gt;:&lt;br&gt;
-&lt;code&gt;@Email&lt;/code&gt;을 써도 &lt;code&gt;test@gmail&lt;/code&gt; 같은 이메일이 통과됨&amp;hellip;&lt;/p&gt;
+&lt;code&gt;@Email&lt;/code&gt;을 어노테이션으로 이메일 형식을 검증해도&lt;br&gt;
+&lt;code&gt;test@gmail&lt;/code&gt; 같은 @ 뒤에 마침표(.)가 존재하지 않는 이메일이 통과됨&amp;hellip;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;원인&lt;/strong&gt;:&lt;br&gt;
-&lt;code&gt;@Email&lt;/code&gt;은 기본적으로 &lt;code&gt;@&lt;/code&gt; 기호와 텍스트 구조만 확인하고,&lt;br&gt;
-도메인에 &lt;code&gt;.&lt;/code&gt;이 있어야 한다는 조건은 강제하지 않음&lt;/p&gt;
+&lt;code&gt;@Email&lt;/code&gt;은 기본적으로 @ 기호와 텍스트 구조만 확인하고,&lt;br&gt;
+도메인에 마침표가 포함되어야 한다는 조건은 강제하지 않음&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;분석&lt;/strong&gt;:&lt;br&gt;
-&lt;code&gt;@Email&lt;/code&gt;만으로는 &amp;ldquo;@뒤에 .이 있어야 함&amp;rdquo; 같은 현실적인 이메일 형식 검증은 부족함&lt;/p&gt;
+&lt;code&gt;@Email&lt;/code&gt;만으로는 @뒤에 마침표가 1개 이상 존재하고,&lt;br&gt;
+마지막 마침표 뒤에 문자열이 있다는 현실적인 이메일 형식 검증은 부족함&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;해결&lt;/strong&gt;:&lt;br&gt;
-정규 표현식을 함께 사용해 &lt;code&gt;@&lt;/code&gt; 뒤에 &lt;code&gt;.&lt;/code&gt; 포함 여부와 &lt;code&gt;.&lt;/code&gt; 뒤의 문자열까지 추가로 검증&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br&gt;
-&lt;p&gt;▶ 공부 기록 &lt;a href=&#34;https://withong.github.io/record/2025-04-01-02/&#34;&gt;[정규 표현식을 활용한 사용자 등록 요청 데이터 검증]&lt;/a&gt;&lt;/p&gt;
-&lt;br&gt;
-&lt;hr&gt;
-&lt;br&gt;
-&lt;h2 id=&#34;2-해시된-비밀번호가-매번-다른데-어떻게-비교해서-로그인하는지&#34;&gt;2. 해시된 비밀번호가 매번 다른데, 어떻게 비교해서 로그인하는지?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;문제&lt;/strong&gt;:&lt;br&gt;
-bcrypt는 매번 다른 해시값을 생성하는데, 그러면 로그인 시 어떻게 비밀번호를 비교함?&lt;/p&gt;</description>
+정규 표현식을 함께 사용해 @ 뒤에 마침표 포함 여부와 마침표 뒤의 문자열까지 추가로 검증&lt;/p&gt;</description>
     </item>
     <item>
       <title>일정 관리 API (JDBC) 트러블 슈팅</title>
