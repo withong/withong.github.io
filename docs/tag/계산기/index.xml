@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>계산기 on withong</title>
-    <link>https://withong.github.io/tag/%EA%B3%84%EC%82%B0%EA%B8%B0/</link>
+    <link>http://localhost:1313/tag/%EA%B3%84%EC%82%B0%EA%B8%B0/</link>
     <description>Recent content in 계산기 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Wed, 05 Mar 2025 23:00:00 +0900</lastBuildDate>
-    <atom:link href="https://withong.github.io/tag/%EA%B3%84%EC%82%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tag/%EA%B3%84%EC%82%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>계산기 Lv 3 회고</title>
-      <link>https://withong.github.io/project/calculator-05/</link>
+      <link>http://localhost:1313/project/calculator-05/</link>
       <pubDate>Wed, 05 Mar 2025 23:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/project/calculator-05/</guid>
+      <guid>http://localhost:1313/project/calculator-05/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [문제] 알고리즘 &amp;amp; SQL 문제 풀기&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 3 마무리&lt;br&gt;
@@ -41,9 +41,9 @@
     </item>
     <item>
       <title>계산기 Lv 3</title>
-      <link>https://withong.github.io/project/calculator-04/</link>
+      <link>http://localhost:1313/project/calculator-04/</link>
       <pubDate>Wed, 05 Mar 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/project/calculator-04/</guid>
+      <guid>http://localhost:1313/project/calculator-04/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;Enum, 제네릭, 람다 &amp;amp; 스트림을 이해한 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -79,9 +79,9 @@
     </item>
     <item>
       <title>계산기 Lv 1-2 회고</title>
-      <link>https://withong.github.io/project/calculator-03/</link>
+      <link>http://localhost:1313/project/calculator-03/</link>
       <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/project/calculator-03/</guid>
+      <guid>http://localhost:1313/project/calculator-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [과제] Java 계산기 만들기 level 2 수정&lt;br&gt;
 ✅ [과제] 과제 TIL &amp;amp; 트러블 슈팅 작성&lt;br&gt;
@@ -116,9 +116,9 @@
     </item>
     <item>
       <title>계산기 Lv 2</title>
-      <link>https://withong.github.io/project/calculator-02/</link>
+      <link>http://localhost:1313/project/calculator-02/</link>
       <pubDate>Fri, 28 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/project/calculator-02/</guid>
+      <guid>http://localhost:1313/project/calculator-02/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -139,9 +139,9 @@
     </item>
     <item>
       <title>계산기 Lv 1</title>
-      <link>https://withong.github.io/project/calculator-01/</link>
+      <link>http://localhost:1313/project/calculator-01/</link>
       <pubDate>Wed, 26 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>https://withong.github.io/project/calculator-01/</guid>
+      <guid>http://localhost:1313/project/calculator-01/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;

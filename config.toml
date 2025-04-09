@@ -30,11 +30,11 @@ publishDir = "docs"
 
 [params.assets]
   disableFingerprinting = true
-  favicon = "/icons/code.png"
-  favicon16x16 = "/icons/code.png"
-  favicon32x32 = "/icons/code.png"
-  apple_touch_icon = "/icons/zep.png"
-  safari_pinned_tab = "/icons/zep.png"
+  favicon = "/icons/rec.png"
+  favicon16x16 = "/icons/rec.png"
+  favicon32x32 = "/icons/rec.png"
+  apple_touch_icon = "/icons/rec.png"
+  safari_pinned_tab = "/icons/rec.png"
 
 [params.fuseOpts]
   isCaseSensitive = false
@@ -74,7 +74,7 @@ Content = "Today I Learned ✏️"
 
 [[menu.main]]
   identifier = "Log"
-  name = "Log" # 메뉴바에 보이는 이름
+  name = "☰" # 메뉴바에 보이는 이름
   url = "/log/"
   weight = 5
 
