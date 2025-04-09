@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>[사전캠프] 9일차. | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -215,16 +215,16 @@ public class RpsRef {
 }
 ">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/record/2025-01-23/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/icons/rec.png">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/rec.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/rec.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/icons/rec.png">
-<link rel="mask-icon" href="http://localhost:1313/icons/rec.png">
+<link rel="canonical" href="https://withong.github.io/record/2025-01-23/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/rec.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/rec.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/rec.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/rec.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/rec.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="ko" href="http://localhost:1313/record/2025-01-23/">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/record/2025-01-23/">
 <noscript>
     <style>
         #theme-toggle,
@@ -261,7 +261,279 @@ public class RpsRef {
         }
 
     </style>
-</noscript>
+</noscript><meta property="og:url" content="https://withong.github.io/record/2025-01-23/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="[사전캠프] 9일차.">
+  <meta property="og:description" content=" TASKS
+✅ 달리기반 Java 보너스 문제
+&#43;
+☑️ 자바의 정석 강의
+Java 보너스 문제: 가위 바위 보 첫 번째 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RockPaperScissors { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;(); prize.put(1, &#34;10,000원&#34;); prize.put(2, &#34;20,000원&#34;); prize.put(3, &#34;30,000원&#34;); prize.put(4, &#34;50,000원&#34;); prize.put(5, &#34;100,000원&#34;); String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;}; int gameCount = 0; int winCount = 0; boolean playing = true; System.out.println(&#34;*********** GAME START ***********&#34;); while (playing) { System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;); System.out.print(&#34;가위 바위 보! &#34;); String user = scanner.nextLine(); String pc = rps[random.nextInt(rps.length)]; System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;); switch (user) { case &#34;가위&#34;: if (pc.equals(&#34;바위&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;보&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } case &#34;바위&#34;: if (pc.equals(&#34;보&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;가위&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } case &#34;보&#34;: if (pc.equals(&#34;바위&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;가위&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } default: System.out.println(&#34;잘못된 입력입니다!&#34;); break; } if (gameCount == 5) { System.out.println(&#34;----------------------------------&#34;); if (winCount &gt; 0) { System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount)); } else { System.out.println(&#34;상품을 획득하지 못했습니다.&#34;); } System.out.println(&#34;************ GAME END ************&#34;); playing = false; break; } } } } 개선 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RpsRef { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;(); prize.put(1, &#34;10,000원&#34;); prize.put(2, &#34;20,000원&#34;); prize.put(3, &#34;30,000원&#34;); prize.put(4, &#34;50,000원&#34;); prize.put(5, &#34;100,000원&#34;); String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;}; int gameCount = 0; int winCount = 0; System.out.println(&#34;*********** GAME START ***********&#34;); // 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경 while (gameCount &lt; 5) { System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;); System.out.print(&#34;가위 바위 보! &#34;); String user = scanner.nextLine(); // 사용자 입력 값 검사 if (!checkInput(user, rps)) { System.out.println(&#34;잘못된 입력입니다!&#34;); continue; } String pc = rps[random.nextInt(rps.length)]; System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;); // 승패 판정: 중복 코드 제거 int result = getResult(user, pc); switch (result) { case 1: System.out.println(&#34;당신이 이겼습니다!&#34;); winCount&#43;&#43;; break; case -1: System.out.println(&#34;당신이 졌습니다!&#34;); break; case 0: System.out.println(&#34;무승부입니다!&#34;); break; } gameCount&#43;&#43;; if (gameCount == 5) { System.out.println(&#34;----------------------------------&#34;); if (winCount &gt; 0) { System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount)); } else { System.out.println(&#34;꽝! 상품을 획득하지 못했습니다.&#34;); } System.out.println(&#34;************ GAME END ************&#34;); break; } } } // 사용자 입력 값 검사: 가위 바위 보가 아니면 false public static boolean checkInput(String input, String[] rps) { for (String check : rps) { if (check.equals(input)) { return true; } } return false; } // 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부 public static int getResult(String user, String pc) { if (user.equals(pc)) { return 0; // 무승부 } if ((user.equals(&#34;가위&#34;) &amp;&amp; pc.equals(&#34;보&#34;)) || (user.equals(&#34;바위&#34;) &amp;&amp; pc.equals(&#34;가위&#34;)) || (user.equals(&#34;보&#34;) &amp;&amp; pc.equals(&#34;바위&#34;))) { return 1; // 승리 } return -1; // 패배 } } ">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="record">
+    <meta property="article:published_time" content="2025-01-23T23:41:13+09:00">
+    <meta property="article:modified_time" content="2025-01-23T23:41:13+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[사전캠프] 9일차.">
+<meta name="twitter:description" content="
+TASKS
+✅ 달리기반 Java 보너스 문제
+&#43;
+☑️ 자바의 정석 강의
+
+Java
+보너스 문제: 가위 바위 보
+
+첫 번째 코드
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.Scanner;
+
+public class RockPaperScissors {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;();
+        prize.put(1, &#34;10,000원&#34;);
+        prize.put(2, &#34;20,000원&#34;);
+        prize.put(3, &#34;30,000원&#34;);
+        prize.put(4, &#34;50,000원&#34;);
+        prize.put(5, &#34;100,000원&#34;);
+
+        String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;};
+
+        int gameCount = 0;
+        int winCount = 0;
+        boolean playing = true;
+
+        System.out.println(&#34;*********** GAME START ***********&#34;);
+
+        while (playing) {
+
+            System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;);
+            System.out.print(&#34;가위 바위 보! &#34;);
+            String user = scanner.nextLine();
+            String pc = rps[random.nextInt(rps.length)];
+
+            System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;);
+
+            switch (user) {
+                case &#34;가위&#34;:
+                    if (pc.equals(&#34;바위&#34;)) {
+                        System.out.println(&#34;당신이 졌습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    } else if (pc.equals(&#34;보&#34;)) {
+                        System.out.println(&#34;당신이 이겼습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        winCount&#43;&#43;;
+                        break;
+                    } else {
+                        System.out.println(&#34;무승부입니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    }
+                case &#34;바위&#34;:
+                    if (pc.equals(&#34;보&#34;)) {
+                        System.out.println(&#34;당신이 졌습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    } else if (pc.equals(&#34;가위&#34;)) {
+                        System.out.println(&#34;당신이 이겼습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        winCount&#43;&#43;;
+                        break;
+                    } else {
+                        System.out.println(&#34;무승부입니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    }
+                case &#34;보&#34;:
+                    if (pc.equals(&#34;바위&#34;)) {
+                        System.out.println(&#34;당신이 이겼습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    } else if (pc.equals(&#34;가위&#34;)) {
+                        System.out.println(&#34;당신이 졌습니다!&#34;);
+                        gameCount&#43;&#43;;
+                        winCount&#43;&#43;;
+                        break;
+                    } else {
+                        System.out.println(&#34;무승부입니다!&#34;);
+                        gameCount&#43;&#43;;
+                        break;
+                    }
+                default:
+                    System.out.println(&#34;잘못된 입력입니다!&#34;);
+                    break;
+            }
+
+            if (gameCount == 5) {
+                System.out.println(&#34;----------------------------------&#34;);
+                if (winCount &gt; 0) {
+                    System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount));
+                } else {
+                    System.out.println(&#34;상품을 획득하지 못했습니다.&#34;);
+                }
+                System.out.println(&#34;************ GAME END ************&#34;);
+                playing = false;
+                break;
+            }
+        }
+    }
+}
+개선 코드
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.Scanner;
+
+public class RpsRef {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;();
+        prize.put(1, &#34;10,000원&#34;);
+        prize.put(2, &#34;20,000원&#34;);
+        prize.put(3, &#34;30,000원&#34;);
+        prize.put(4, &#34;50,000원&#34;);
+        prize.put(5, &#34;100,000원&#34;);
+
+        String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;};
+
+        int gameCount = 0;
+        int winCount = 0;
+
+        System.out.println(&#34;*********** GAME START ***********&#34;);
+
+        // 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경
+        while (gameCount &lt; 5) {
+
+            System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;);
+            System.out.print(&#34;가위 바위 보! &#34;);
+            String user = scanner.nextLine();
+
+            // 사용자 입력 값 검사
+            if (!checkInput(user, rps)) {
+                System.out.println(&#34;잘못된 입력입니다!&#34;);
+                continue;
+            }
+
+            String pc = rps[random.nextInt(rps.length)];
+            System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;);
+
+            // 승패 판정: 중복 코드 제거
+            int result = getResult(user, pc);
+            
+            switch (result) {
+                case 1:
+                    System.out.println(&#34;당신이 이겼습니다!&#34;);
+                    winCount&#43;&#43;;
+                    break;
+                case -1:
+                    System.out.println(&#34;당신이 졌습니다!&#34;);
+                    break;
+                case 0:
+                    System.out.println(&#34;무승부입니다!&#34;);
+                    break;
+            }
+            
+            gameCount&#43;&#43;;
+
+            if (gameCount == 5) {
+                System.out.println(&#34;----------------------------------&#34;);
+                if (winCount &gt; 0) {
+                    System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount));
+                } else {
+                    System.out.println(&#34;꽝! 상품을 획득하지 못했습니다.&#34;);
+                }
+                System.out.println(&#34;************ GAME END ************&#34;);
+                break;
+            }
+        }
+    }
+
+    // 사용자 입력 값 검사: 가위 바위 보가 아니면 false
+    public static boolean checkInput(String input, String[] rps) {
+        for (String check : rps) {
+            if (check.equals(input)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부
+    public static int getResult(String user, String pc) {
+        if (user.equals(pc)) {
+            return 0; // 무승부
+        }
+        if ((user.equals(&#34;가위&#34;) &amp;&amp; pc.equals(&#34;보&#34;)) ||
+                (user.equals(&#34;바위&#34;) &amp;&amp; pc.equals(&#34;가위&#34;)) ||
+                (user.equals(&#34;보&#34;) &amp;&amp; pc.equals(&#34;바위&#34;))) {
+            return 1; // 승리
+        }
+        return -1; // 패배
+    }
+}
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Study Records",
+      "item": "https://withong.github.io/record/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[사전캠프] 9일차.",
+      "item": "https://withong.github.io/record/2025-01-23/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[사전캠프] 9일차.",
+  "name": "[사전캠프] 9일차.",
+  "description": " TASKS\n✅ 달리기반 Java 보너스 문제\n+\n☑️ 자바의 정석 강의\nJava 보너스 문제: 가위 바위 보 첫 번째 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RockPaperScissors { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map\u0026lt;Integer, String\u0026gt; prize = new HashMap\u0026lt;\u0026gt;(); prize.put(1, \u0026#34;10,000원\u0026#34;); prize.put(2, \u0026#34;20,000원\u0026#34;); prize.put(3, \u0026#34;30,000원\u0026#34;); prize.put(4, \u0026#34;50,000원\u0026#34;); prize.put(5, \u0026#34;100,000원\u0026#34;); String[] rps = {\u0026#34;가위\u0026#34;, \u0026#34;바위\u0026#34;, \u0026#34;보\u0026#34;}; int gameCount = 0; int winCount = 0; boolean playing = true; System.out.println(\u0026#34;*********** GAME START ***********\u0026#34;); while (playing) { System.out.println(\u0026#34;------------- GAME \u0026#34; + (gameCount + 1) + \u0026#34; -------------\u0026#34;); System.out.print(\u0026#34;가위 바위 보! \u0026#34;); String user = scanner.nextLine(); String pc = rps[random.nextInt(rps.length)]; System.out.print(\u0026#34;[당신: \u0026#34; + user + \u0026#34;, 상대: \u0026#34; + pc + \u0026#34;] \u0026#34;); switch (user) { case \u0026#34;가위\u0026#34;: if (pc.equals(\u0026#34;바위\u0026#34;)) { System.out.println(\u0026#34;당신이 졌습니다!\u0026#34;); gameCount++; break; } else if (pc.equals(\u0026#34;보\u0026#34;)) { System.out.println(\u0026#34;당신이 이겼습니다!\u0026#34;); gameCount++; winCount++; break; } else { System.out.println(\u0026#34;무승부입니다!\u0026#34;); gameCount++; break; } case \u0026#34;바위\u0026#34;: if (pc.equals(\u0026#34;보\u0026#34;)) { System.out.println(\u0026#34;당신이 졌습니다!\u0026#34;); gameCount++; break; } else if (pc.equals(\u0026#34;가위\u0026#34;)) { System.out.println(\u0026#34;당신이 이겼습니다!\u0026#34;); gameCount++; winCount++; break; } else { System.out.println(\u0026#34;무승부입니다!\u0026#34;); gameCount++; break; } case \u0026#34;보\u0026#34;: if (pc.equals(\u0026#34;바위\u0026#34;)) { System.out.println(\u0026#34;당신이 이겼습니다!\u0026#34;); gameCount++; break; } else if (pc.equals(\u0026#34;가위\u0026#34;)) { System.out.println(\u0026#34;당신이 졌습니다!\u0026#34;); gameCount++; winCount++; break; } else { System.out.println(\u0026#34;무승부입니다!\u0026#34;); gameCount++; break; } default: System.out.println(\u0026#34;잘못된 입력입니다!\u0026#34;); break; } if (gameCount == 5) { System.out.println(\u0026#34;----------------------------------\u0026#34;); if (winCount \u0026gt; 0) { System.out.println(\u0026#34;총 \u0026#34; + winCount + \u0026#34;회 승리했습니다. 상품: \u0026#34; + prize.get(winCount)); } else { System.out.println(\u0026#34;상품을 획득하지 못했습니다.\u0026#34;); } System.out.println(\u0026#34;************ GAME END ************\u0026#34;); playing = false; break; } } } } 개선 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RpsRef { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map\u0026lt;Integer, String\u0026gt; prize = new HashMap\u0026lt;\u0026gt;(); prize.put(1, \u0026#34;10,000원\u0026#34;); prize.put(2, \u0026#34;20,000원\u0026#34;); prize.put(3, \u0026#34;30,000원\u0026#34;); prize.put(4, \u0026#34;50,000원\u0026#34;); prize.put(5, \u0026#34;100,000원\u0026#34;); String[] rps = {\u0026#34;가위\u0026#34;, \u0026#34;바위\u0026#34;, \u0026#34;보\u0026#34;}; int gameCount = 0; int winCount = 0; System.out.println(\u0026#34;*********** GAME START ***********\u0026#34;); // 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경 while (gameCount \u0026lt; 5) { System.out.println(\u0026#34;------------- GAME \u0026#34; + (gameCount + 1) + \u0026#34; -------------\u0026#34;); System.out.print(\u0026#34;가위 바위 보! \u0026#34;); String user = scanner.nextLine(); // 사용자 입력 값 검사 if (!checkInput(user, rps)) { System.out.println(\u0026#34;잘못된 입력입니다!\u0026#34;); continue; } String pc = rps[random.nextInt(rps.length)]; System.out.print(\u0026#34;[당신: \u0026#34; + user + \u0026#34;, 상대: \u0026#34; + pc + \u0026#34;] \u0026#34;); // 승패 판정: 중복 코드 제거 int result = getResult(user, pc); switch (result) { case 1: System.out.println(\u0026#34;당신이 이겼습니다!\u0026#34;); winCount++; break; case -1: System.out.println(\u0026#34;당신이 졌습니다!\u0026#34;); break; case 0: System.out.println(\u0026#34;무승부입니다!\u0026#34;); break; } gameCount++; if (gameCount == 5) { System.out.println(\u0026#34;----------------------------------\u0026#34;); if (winCount \u0026gt; 0) { System.out.println(\u0026#34;총 \u0026#34; + winCount + \u0026#34;회 승리했습니다. 상품: \u0026#34; + prize.get(winCount)); } else { System.out.println(\u0026#34;꽝! 상품을 획득하지 못했습니다.\u0026#34;); } System.out.println(\u0026#34;************ GAME END ************\u0026#34;); break; } } } // 사용자 입력 값 검사: 가위 바위 보가 아니면 false public static boolean checkInput(String input, String[] rps) { for (String check : rps) { if (check.equals(input)) { return true; } } return false; } // 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부 public static int getResult(String user, String pc) { if (user.equals(pc)) { return 0; // 무승부 } if ((user.equals(\u0026#34;가위\u0026#34;) \u0026amp;\u0026amp; pc.equals(\u0026#34;보\u0026#34;)) || (user.equals(\u0026#34;바위\u0026#34;) \u0026amp;\u0026amp; pc.equals(\u0026#34;가위\u0026#34;)) || (user.equals(\u0026#34;보\u0026#34;) \u0026amp;\u0026amp; pc.equals(\u0026#34;바위\u0026#34;))) { return 1; // 승리 } return -1; // 패배 } } ",
+  "keywords": [
+    
+  ],
+  "articleBody": " TASKS\n✅ 달리기반 Java 보너스 문제\n+\n☑️ 자바의 정석 강의\nJava 보너스 문제: 가위 바위 보 첫 번째 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RockPaperScissors { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map\u003cInteger, String\u003e prize = new HashMap\u003c\u003e(); prize.put(1, \"10,000원\"); prize.put(2, \"20,000원\"); prize.put(3, \"30,000원\"); prize.put(4, \"50,000원\"); prize.put(5, \"100,000원\"); String[] rps = {\"가위\", \"바위\", \"보\"}; int gameCount = 0; int winCount = 0; boolean playing = true; System.out.println(\"*********** GAME START ***********\"); while (playing) { System.out.println(\"------------- GAME \" + (gameCount + 1) + \" -------------\"); System.out.print(\"가위 바위 보! \"); String user = scanner.nextLine(); String pc = rps[random.nextInt(rps.length)]; System.out.print(\"[당신: \" + user + \", 상대: \" + pc + \"] \"); switch (user) { case \"가위\": if (pc.equals(\"바위\")) { System.out.println(\"당신이 졌습니다!\"); gameCount++; break; } else if (pc.equals(\"보\")) { System.out.println(\"당신이 이겼습니다!\"); gameCount++; winCount++; break; } else { System.out.println(\"무승부입니다!\"); gameCount++; break; } case \"바위\": if (pc.equals(\"보\")) { System.out.println(\"당신이 졌습니다!\"); gameCount++; break; } else if (pc.equals(\"가위\")) { System.out.println(\"당신이 이겼습니다!\"); gameCount++; winCount++; break; } else { System.out.println(\"무승부입니다!\"); gameCount++; break; } case \"보\": if (pc.equals(\"바위\")) { System.out.println(\"당신이 이겼습니다!\"); gameCount++; break; } else if (pc.equals(\"가위\")) { System.out.println(\"당신이 졌습니다!\"); gameCount++; winCount++; break; } else { System.out.println(\"무승부입니다!\"); gameCount++; break; } default: System.out.println(\"잘못된 입력입니다!\"); break; } if (gameCount == 5) { System.out.println(\"----------------------------------\"); if (winCount \u003e 0) { System.out.println(\"총 \" + winCount + \"회 승리했습니다. 상품: \" + prize.get(winCount)); } else { System.out.println(\"상품을 획득하지 못했습니다.\"); } System.out.println(\"************ GAME END ************\"); playing = false; break; } } } } 개선 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RpsRef { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map\u003cInteger, String\u003e prize = new HashMap\u003c\u003e(); prize.put(1, \"10,000원\"); prize.put(2, \"20,000원\"); prize.put(3, \"30,000원\"); prize.put(4, \"50,000원\"); prize.put(5, \"100,000원\"); String[] rps = {\"가위\", \"바위\", \"보\"}; int gameCount = 0; int winCount = 0; System.out.println(\"*********** GAME START ***********\"); // 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경 while (gameCount \u003c 5) { System.out.println(\"------------- GAME \" + (gameCount + 1) + \" -------------\"); System.out.print(\"가위 바위 보! \"); String user = scanner.nextLine(); // 사용자 입력 값 검사 if (!checkInput(user, rps)) { System.out.println(\"잘못된 입력입니다!\"); continue; } String pc = rps[random.nextInt(rps.length)]; System.out.print(\"[당신: \" + user + \", 상대: \" + pc + \"] \"); // 승패 판정: 중복 코드 제거 int result = getResult(user, pc); switch (result) { case 1: System.out.println(\"당신이 이겼습니다!\"); winCount++; break; case -1: System.out.println(\"당신이 졌습니다!\"); break; case 0: System.out.println(\"무승부입니다!\"); break; } gameCount++; if (gameCount == 5) { System.out.println(\"----------------------------------\"); if (winCount \u003e 0) { System.out.println(\"총 \" + winCount + \"회 승리했습니다. 상품: \" + prize.get(winCount)); } else { System.out.println(\"꽝! 상품을 획득하지 못했습니다.\"); } System.out.println(\"************ GAME END ************\"); break; } } } // 사용자 입력 값 검사: 가위 바위 보가 아니면 false public static boolean checkInput(String input, String[] rps) { for (String check : rps) { if (check.equals(input)) { return true; } } return false; } // 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부 public static int getResult(String user, String pc) { if (user.equals(pc)) { return 0; // 무승부 } if ((user.equals(\"가위\") \u0026\u0026 pc.equals(\"보\")) || (user.equals(\"바위\") \u0026\u0026 pc.equals(\"가위\")) || (user.equals(\"보\") \u0026\u0026 pc.equals(\"바위\"))) { return 1; // 승리 } return -1; // 패배 } } ",
+  "wordCount" : "531",
+  "inLanguage": "ko",
+  "datePublished": "2025-01-23T23:41:13+09:00",
+  "dateModified": "2025-01-23T23:41:13+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/record/2025-01-23/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/rec.png"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -279,7 +551,7 @@ public class RpsRef {
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -305,27 +577,27 @@ public class RpsRef {
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/log/" title="☰">
+                <a href="https://withong.github.io/log/" title="☰">
                     <span>☰</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/record/" title="Record">
+                <a href="https://withong.github.io/record/" title="Record">
                     <span>Record</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/project/" title="Project">
+                <a href="https://withong.github.io/project/" title="Project">
                     <span>Project</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tag/" title="Tag">
+                <a href="https://withong.github.io/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -336,7 +608,7 @@ public class RpsRef {
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/record/">Study Records</a></div>
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/record/">Study Records</a></div>
     <h1 class="post-title entry-hint-parent">
       [사전캠프] 9일차.
     </h1>
@@ -579,12 +851,12 @@ public class RpsRef {
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/record/2025-01-22/">
+  <a class="prev" href="https://withong.github.io/record/2025-01-22/">
     <span class="title">« Prev</span>
     <br>
     <span>[사전캠프] 8일차.</span>
   </a>
-  <a class="next" href="http://localhost:1313/record/2025-02-04/">
+  <a class="next" href="https://withong.github.io/record/2025-02-04/">
     <span class="title">Next »</span>
     <br>
     <span>클래스와 객체</span>
@@ -596,7 +868,7 @@ public class RpsRef {
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
 
     <span>
         Powered by
