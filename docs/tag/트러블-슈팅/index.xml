@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>트러블 슈팅 on withong</title>
-    <link>http://localhost:1313/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/</link>
+    <link>https://withong.github.io/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/</link>
     <description>Recent content in 트러블 슈팅 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Thu, 03 Apr 2025 22:28:58 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>일정 관리 API (JPA) 트러블 슈팅</title>
-      <link>http://localhost:1313/project/schedule-02/</link>
+      <link>https://withong.github.io/project/schedule-02/</link>
       <pubDate>Thu, 03 Apr 2025 22:28:58 +0900</pubDate>
-      <guid>http://localhost:1313/project/schedule-02/</guid>
+      <guid>https://withong.github.io/project/schedule-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
 &lt;h3 id=&#34;-nbc-chapter-03-develop&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-develop.git&#34;&gt;nbc-chapter-03-develop&lt;/a&gt;&lt;/h3&gt;
@@ -45,9 +45,9 @@
     </item>
     <item>
       <title>일정 관리 API (JDBC) 트러블 슈팅</title>
-      <link>http://localhost:1313/project/schedule-01/</link>
+      <link>https://withong.github.io/project/schedule-01/</link>
       <pubDate>Tue, 25 Mar 2025 20:20:11 +0900</pubDate>
-      <guid>http://localhost:1313/project/schedule-01/</guid>
+      <guid>https://withong.github.io/project/schedule-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
 &lt;h3 id=&#34;-nbc-chapter-03-basic&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-basic.git&#34;&gt;nbc-chapter-03-basic&lt;/a&gt;&lt;/h3&gt;
