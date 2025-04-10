@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>QueryDSL on withong</title>
-    <link>http://localhost:1313/tag/querydsl/</link>
+    <link>https://withong.github.io/tag/querydsl/</link>
     <description>Recent content in QueryDSL on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Thu, 03 Apr 2025 20:24:51 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/querydsl/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/tag/querydsl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>QueryDSL을 활용한 조건 기반 일정 조회</title>
-      <link>http://localhost:1313/record/2025-04-03/</link>
+      <link>https://withong.github.io/record/2025-04-03/</link>
       <pubDate>Thu, 03 Apr 2025 20:24:51 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-03/</guid>
+      <guid>https://withong.github.io/record/2025-04-03/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;querydsl이란&#34;&gt;QueryDSL이란?&lt;/h2&gt;

@@ -2,17 +2,100 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Study Records on withong</title>
-    <link>http://localhost:1313/record/</link>
+    <link>https://withong.github.io/record/</link>
     <description>Recent content in Study Records on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Thu, 03 Apr 2025 20:24:51 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/record/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Apr 2025 20:22:48 +0900</lastBuildDate>
+    <atom:link href="https://withong.github.io/record/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JWT (JSON Web Token)</title>
+      <link>https://withong.github.io/record/2025-04-10/</link>
+      <pubDate>Thu, 10 Apr 2025 20:22:48 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-10/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;1-jwt란&#34;&gt;1. JWT란?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;JWT (JSON Web Token)&lt;/strong&gt; 은 사용자 인증에 사용되는 &lt;strong&gt;토큰 기반 인증 방식&lt;/strong&gt; 중 하나로,&lt;br&gt;
+&lt;strong&gt;서버에 상태를 저장하지 않고도 인증 정보를 유지할 수 있는 구조&lt;/strong&gt;다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;구조&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;헤더(header).페이로드(payload).서명(signature)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Base64로 인코딩&lt;/strong&gt;되며, &lt;strong&gt;payload는 누구나 디코딩 가능&lt;/strong&gt;하므로 민감 정보를 넣지 않는다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;서명(Signature)&lt;/strong&gt; 으로 토큰의 위변조 여부를 서버가 확인할 수 있다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;주된 목적&lt;/strong&gt;: 정보의 위변조 방지 (정보 보호 아님)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;2-설정-방법&#34;&gt;2. 설정 방법&lt;/h2&gt;
+&lt;p&gt;Spring Boot + JPA 프로젝트 기준&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;build.gradle&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-groovy&#34; data-lang=&#34;groovy&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;dependencies&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.springframework.boot:spring-boot-starter-data-jpa&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.springframework.boot:spring-boot-starter-validation&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.springframework.boot:spring-boot-starter-web&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;at.favre.lib:bcrypt:0.10.2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;compileOnly&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.projectlombok:lombok&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;runtimeOnly&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;com.mysql:mysql-connector-j&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;annotationProcessor&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.projectlombok:lombok&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;testImplementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.springframework.boot:spring-boot-starter-test&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;testRuntimeOnly&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.junit.platform:junit-platform-launcher&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// JWT 관련 추가
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;io.jsonwebtoken:jjwt-api:0.11.2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;io.jsonwebtoken:jjwt-impl:0.11.2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;io.jsonwebtoken:jjwt-jackson:0.11.2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
+&lt;h2 id=&#34;3-jwt-구조-및-인증-흐름&#34;&gt;3. JWT 구조 및 인증 흐름&lt;/h2&gt;
+&lt;h3 id=&#34;jwt-구조&#34;&gt;JWT 구조&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;구성 요소&lt;/th&gt;
+          &lt;th&gt;설명&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Header&lt;/td&gt;
+          &lt;td&gt;알고리즘 정보 (예: HS256)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Payload&lt;/td&gt;
+          &lt;td&gt;사용자 정보(예: username) 및 만료 시간 등&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Signature&lt;/td&gt;
+          &lt;td&gt;secret key를 기반으로 만든 서명, 위변조 방지용&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;jwt-인증-흐름&#34;&gt;JWT 인증 흐름&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;클라이언트가 로그인 요청 (POST /login)&lt;/li&gt;
+&lt;li&gt;서버가 사용자 인증 후 JWT 생성&lt;/li&gt;
+&lt;li&gt;클라이언트는 JWT를 응답으로 받고, 저장 (쿠키, 로컬 스토리지 등)&lt;/li&gt;
+&lt;li&gt;이후 요청마다 JWT를 Authorization 헤더에 담아 전송&lt;/li&gt;
+&lt;li&gt;서버는 JWT 유효성 검사 (서명, 만료 여부 확인)&lt;/li&gt;
+&lt;li&gt;인증 통과 시 사용자 정보 추출 후 요청 처리&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;4-로그인-구현-예시&#34;&gt;4. 로그인 구현 예시&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;User 엔티티&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>QueryDSL을 활용한 조건 기반 일정 조회</title>
-      <link>http://localhost:1313/record/2025-04-03/</link>
+      <link>https://withong.github.io/record/2025-04-03/</link>
       <pubDate>Thu, 03 Apr 2025 20:24:51 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-03/</guid>
+      <guid>https://withong.github.io/record/2025-04-03/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;querydsl이란&#34;&gt;QueryDSL이란?&lt;/h2&gt;
@@ -30,9 +113,9 @@
     </item>
     <item>
       <title>정규 표현식을 활용한 사용자 등록 요청 데이터 검증</title>
-      <link>http://localhost:1313/record/2025-04-01-02/</link>
+      <link>https://withong.github.io/record/2025-04-01-02/</link>
       <pubDate>Tue, 01 Apr 2025 22:05:47 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-01-02/</guid>
+      <guid>https://withong.github.io/record/2025-04-01-02/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;정규-표현식regular-expression이란&#34;&gt;정규 표현식(Regular Expression)이란?&lt;/h2&gt;
@@ -163,9 +246,9 @@
     </item>
     <item>
       <title>Bcrypt를 활용한 비밀번호 암호화</title>
-      <link>http://localhost:1313/record/2025-04-01-03/</link>
+      <link>https://withong.github.io/record/2025-04-01-03/</link>
       <pubDate>Tue, 01 Apr 2025 16:50:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-01-03/</guid>
+      <guid>https://withong.github.io/record/2025-04-01-03/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;1-해시hash란&#34;&gt;1. 해시(Hash)란?&lt;/h2&gt;
@@ -189,9 +272,9 @@
     </item>
     <item>
       <title>문자열 사전순 비교: compareTo()</title>
-      <link>http://localhost:1313/record/2025-04-01-01/</link>
+      <link>https://withong.github.io/record/2025-04-01-01/</link>
       <pubDate>Tue, 01 Apr 2025 09:54:56 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-01-01/</guid>
+      <guid>https://withong.github.io/record/2025-04-01-01/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
@@ -223,9 +306,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Spring 심화 2</title>
-      <link>http://localhost:1313/record/2025-03-28/</link>
+      <link>https://withong.github.io/record/2025-03-28/</link>
       <pubDate>Fri, 28 Mar 2025 20:28:44 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-28/</guid>
+      <guid>https://withong.github.io/record/2025-03-28/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;인증authentication과-인가authorization&#34;&gt;인증(Authentication)과 인가(Authorization)&lt;/h2&gt;
 &lt;table&gt;
@@ -264,9 +347,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Spring 심화 1</title>
-      <link>http://localhost:1313/record/2025-03-27-02/</link>
+      <link>https://withong.github.io/record/2025-03-27-02/</link>
       <pubDate>Thu, 27 Mar 2025 20:25:30 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-27-02/</guid>
+      <guid>https://withong.github.io/record/2025-03-27-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;1-spring-container--bean&#34;&gt;1. Spring Container &amp;amp; Bean&lt;/h2&gt;
 &lt;h3 id=&#34;11-spring-container&#34;&gt;1.1. Spring Container&lt;/h3&gt;
@@ -291,9 +374,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>3진법 뒤집기</title>
-      <link>http://localhost:1313/record/2025-03-27-01/</link>
+      <link>https://withong.github.io/record/2025-03-27-01/</link>
       <pubDate>Thu, 27 Mar 2025 11:08:08 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-27-01/</guid>
+      <guid>https://withong.github.io/record/2025-03-27-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;문제-설명&#34;&gt;문제 설명&lt;/h2&gt;
 &lt;p&gt;자연수 n이 매개변수로 주어집니다. n을 3진법 상에서 앞뒤로 뒤집은 후,&lt;br&gt;
@@ -313,9 +396,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>최대 공약수와 최소 공배수</title>
-      <link>http://localhost:1313/record/2025-03-25/</link>
+      <link>https://withong.github.io/record/2025-03-25/</link>
       <pubDate>Tue, 25 Mar 2025 20:07:52 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-25/</guid>
+      <guid>https://withong.github.io/record/2025-03-25/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;문제-설명&#34;&gt;문제 설명&lt;/h2&gt;
 &lt;p&gt;두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 배열의 맨 앞에 최대공약수, 그다음 최소공배수를 넣어 반환하면 됩니다. 예를 들어 두 수 3, 12의 최대공약수는 3, 최소공배수는 12이므로 solution(3, 12)는 [3, 12]를 반환해야 합니다.&lt;/p&gt;
@@ -330,9 +413,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Spring 기초 4</title>
-      <link>http://localhost:1313/record/2025-03-19/</link>
+      <link>https://withong.github.io/record/2025-03-19/</link>
       <pubDate>Wed, 19 Mar 2025 21:54:12 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-19/</guid>
+      <guid>https://withong.github.io/record/2025-03-19/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;slf4j&#34;&gt;Slf4j&lt;/h2&gt;
 &lt;ul&gt;
@@ -474,9 +557,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Spring 기초 3</title>
-      <link>http://localhost:1313/record/2025-03-18-02/</link>
+      <link>https://withong.github.io/record/2025-03-18-02/</link>
       <pubDate>Tue, 18 Mar 2025 18:00:16 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-18-02/</guid>
+      <guid>https://withong.github.io/record/2025-03-18-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;1-mvc-패턴&#34;&gt;1. MVC 패턴&lt;/h2&gt;
 &lt;h3 id=&#34;template-engine-템플릿-엔진&#34;&gt;Template Engine (템플릿 엔진)&lt;/h3&gt;
@@ -545,9 +628,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Spring 기초 2</title>
-      <link>http://localhost:1313/record/2025-03-18-01/</link>
+      <link>https://withong.github.io/record/2025-03-18-01/</link>
       <pubDate>Tue, 18 Mar 2025 17:32:05 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-18-01/</guid>
+      <guid>https://withong.github.io/record/2025-03-18-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;1-프레임워크와-라이브러리&#34;&gt;1. 프레임워크와 라이브러리&lt;/h2&gt;
 &lt;h3 id=&#34;프레임워크-framework&#34;&gt;프레임워크 (Framework)&lt;/h3&gt;
@@ -572,9 +655,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Spring 기초 1</title>
-      <link>http://localhost:1313/record/2025-03-17/</link>
+      <link>https://withong.github.io/record/2025-03-17/</link>
       <pubDate>Mon, 17 Mar 2025 22:00:03 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-17/</guid>
+      <guid>https://withong.github.io/record/2025-03-17/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;네트워크&#34;&gt;네트워크&lt;/h2&gt;
 &lt;ul&gt;
@@ -834,9 +917,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Collection &amp; Stream</title>
-      <link>http://localhost:1313/record/2025-03-13/</link>
+      <link>https://withong.github.io/record/2025-03-13/</link>
       <pubDate>Thu, 13 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-13/</guid>
+      <guid>https://withong.github.io/record/2025-03-13/</guid>
       <description>&lt;hr&gt;
 &lt;h3 id=&#34;1-배열-vs-컬렉션&#34;&gt;&lt;strong&gt;1. 배열 vs. 컬렉션&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
@@ -867,9 +950,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Enum &amp; 동일성/동등성</title>
-      <link>http://localhost:1313/record/2025-03-11/</link>
+      <link>https://withong.github.io/record/2025-03-11/</link>
       <pubDate>Tue, 11 Mar 2025 10:44:41 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-11/</guid>
+      <guid>https://withong.github.io/record/2025-03-11/</guid>
       <description>&lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Enum&lt;/strong&gt; → 단순한 상수의 모음이 아니라, &lt;strong&gt;객체처럼 동작하는 데이터 타입&lt;/strong&gt;&lt;/li&gt;
@@ -895,9 +978,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Java 심화 2</title>
-      <link>http://localhost:1313/record/2025-02-27/</link>
+      <link>https://withong.github.io/record/2025-02-27/</link>
       <pubDate>Thu, 27 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-27/</guid>
+      <guid>https://withong.github.io/record/2025-02-27/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 세션 2 - 객체 활용&lt;br&gt;
 ✅ [강의] Java 문법 Chapter 3 (5~7)&lt;br&gt;
@@ -985,9 +1068,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Java 심화 1</title>
-      <link>http://localhost:1313/record/2025-02-26/</link>
+      <link>https://withong.github.io/record/2025-02-26/</link>
       <pubDate>Wed, 26 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-26/</guid>
+      <guid>https://withong.github.io/record/2025-02-26/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 Chapter 3 (1~4)&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 1&lt;/p&gt;&lt;/blockquote&gt;
@@ -1028,9 +1111,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>객체지향</title>
-      <link>http://localhost:1313/record/2025-02-25-02/</link>
+      <link>https://withong.github.io/record/2025-02-25-02/</link>
       <pubDate>Tue, 25 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-25-02/</guid>
+      <guid>https://withong.github.io/record/2025-02-25-02/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 문법 세션 1 - 프로그래밍 기초&lt;br&gt;
 ✅ Java 문법 강의 2주차&lt;/p&gt;&lt;/blockquote&gt;
@@ -1061,9 +1144,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>final</title>
-      <link>http://localhost:1313/record/2025-02-25-01/</link>
+      <link>https://withong.github.io/record/2025-02-25-01/</link>
       <pubDate>Tue, 25 Feb 2025 09:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-25-01/</guid>
+      <guid>https://withong.github.io/record/2025-02-25-01/</guid>
       <description>&lt;h2 id=&#34;final--지역변수&#34;&gt;final -지역변수&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;final&lt;/code&gt;이 붙은 &lt;strong&gt;지역변수는 한 번만 값을 할당할 수 있음.&lt;/strong&gt;&lt;/li&gt;
@@ -1099,9 +1182,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Java 기초</title>
-      <link>http://localhost:1313/record/2025-02-24/</link>
+      <link>https://withong.github.io/record/2025-02-24/</link>
       <pubDate>Mon, 24 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-24/</guid>
+      <guid>https://withong.github.io/record/2025-02-24/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ Java 문법 강의 1주차&lt;/p&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
@@ -1309,9 +1392,9 @@ result = 7
     </item>
     <item>
       <title>Git</title>
-      <link>http://localhost:1313/record/2025-02-17/</link>
+      <link>https://withong.github.io/record/2025-02-17/</link>
       <pubDate>Mon, 17 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-17/</guid>
+      <guid>https://withong.github.io/record/2025-02-17/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [특강] Git&lt;br&gt;
@@ -1596,9 +1679,9 @@ result = 7
     </item>
     <item>
       <title>메모리 구조와 static</title>
-      <link>http://localhost:1313/record/2025-02-14/</link>
+      <link>https://withong.github.io/record/2025-02-14/</link>
       <pubDate>Fri, 14 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-14/</guid>
+      <guid>https://withong.github.io/record/2025-02-14/</guid>
       <description>&lt;h2 id=&#34;메모리-구조&#34;&gt;메모리 구조&lt;/h2&gt;
 &lt;p&gt;Java 메모리는 크게 &lt;strong&gt;메서드 영역, 스택 영역, 힙 영역&lt;/strong&gt;으로 나뉜다.&lt;/p&gt;
 &lt;br&gt;
@@ -1635,9 +1718,9 @@ result = 7
     </item>
     <item>
       <title>접근 제어자</title>
-      <link>http://localhost:1313/record/2025-02-12/</link>
+      <link>https://withong.github.io/record/2025-02-12/</link>
       <pubDate>Wed, 12 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-12/</guid>
+      <guid>https://withong.github.io/record/2025-02-12/</guid>
       <description>&lt;h2 id=&#34;private&#34;&gt;private&lt;/h2&gt;
 &lt;p&gt;클래스 내부에서만 접근 가능&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1653,9 +1736,9 @@ result = 7
     </item>
     <item>
       <title>패키지</title>
-      <link>http://localhost:1313/record/2025-02-11/</link>
+      <link>https://withong.github.io/record/2025-02-11/</link>
       <pubDate>Tue, 11 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-11/</guid>
+      <guid>https://withong.github.io/record/2025-02-11/</guid>
       <description>&lt;h2 id=&#34;패키지&#34;&gt;패키지&lt;/h2&gt;
 &lt;p&gt;클래스를 논리적으로 그룹화하는 방법.&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://velog.velcdn.com/images/ezro/post/e824c372-3653-4b2d-ae8e-51e3452a3a73/image.png&#34;&gt;&lt;/p&gt;
@@ -1685,9 +1768,9 @@ result = 7
     </item>
     <item>
       <title>생성자</title>
-      <link>http://localhost:1313/record/2025-02-10/</link>
+      <link>https://withong.github.io/record/2025-02-10/</link>
       <pubDate>Mon, 10 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-10/</guid>
+      <guid>https://withong.github.io/record/2025-02-10/</guid>
       <description>&lt;h2 id=&#34;생성자&#34;&gt;생성자&lt;/h2&gt;
 &lt;p&gt;객체가 생성될 때 자동으로 호출되는 메서드로, 객체를 초기화하는 데 사용됨.
 생성자는 클래스와 동일한 이름을 가지며, 반환 타입이 없음.&lt;/p&gt;
@@ -1708,9 +1791,9 @@ result = 7
     </item>
     <item>
       <title>객체 지향 프로그래밍</title>
-      <link>http://localhost:1313/record/2025-02-07/</link>
+      <link>https://withong.github.io/record/2025-02-07/</link>
       <pubDate>Fri, 07 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-07/</guid>
+      <guid>https://withong.github.io/record/2025-02-07/</guid>
       <description>&lt;h2 id=&#34;절차-지향-프로그래밍&#34;&gt;절차 지향 프로그래밍&lt;/h2&gt;
 &lt;p&gt;프로그램의 흐름을 순차적으로 따르며 처리하는 방식. 즉, &lt;code&gt;어떻게&lt;/code&gt; 를 중심으로 프로그래밍 함.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MusicPlayerData&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -1745,9 +1828,9 @@ result = 7
     </item>
     <item>
       <title>기본형과 참조형</title>
-      <link>http://localhost:1313/record/2025-02-06/</link>
+      <link>https://withong.github.io/record/2025-02-06/</link>
       <pubDate>Thu, 06 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-06/</guid>
+      <guid>https://withong.github.io/record/2025-02-06/</guid>
       <description>&lt;h2 id=&#34;변수-대입&#34;&gt;변수 대입&lt;/h2&gt;
 &lt;br&gt;
 &lt;h3 id=&#34;기본형-변수-대입&#34;&gt;기본형 변수 대입&lt;/h3&gt;
@@ -1774,9 +1857,9 @@ result = 7
     </item>
     <item>
       <title>클래스와 객체</title>
-      <link>http://localhost:1313/record/2025-02-04/</link>
+      <link>https://withong.github.io/record/2025-02-04/</link>
       <pubDate>Tue, 04 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-04/</guid>
+      <guid>https://withong.github.io/record/2025-02-04/</guid>
       <description>&lt;h2 id=&#34;클래스&#34;&gt;클래스&lt;/h2&gt;
 &lt;p&gt;객체를 생성하기 위한 설계도 또는 틀, 사용자 정의 타입 역할을 함.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Student&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -1793,9 +1876,9 @@ result = 7
     </item>
     <item>
       <title>[사전캠프] 9일차.</title>
-      <link>http://localhost:1313/record/2025-01-23/</link>
+      <link>https://withong.github.io/record/2025-01-23/</link>
       <pubDate>Thu, 23 Jan 2025 23:41:13 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-01-23/</guid>
+      <guid>https://withong.github.io/record/2025-01-23/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;TASKS&lt;/strong&gt;&lt;br&gt;
 ✅ 달리기반 Java 보너스 문제&lt;/p&gt;
@@ -2006,9 +2089,9 @@ result = 7
     </item>
     <item>
       <title>[사전캠프] 8일차.</title>
-      <link>http://localhost:1313/record/2025-01-22/</link>
+      <link>https://withong.github.io/record/2025-01-22/</link>
       <pubDate>Wed, 22 Jan 2025 23:41:13 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-01-22/</guid>
+      <guid>https://withong.github.io/record/2025-01-22/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;TASKS&lt;/strong&gt;&lt;br&gt;
 ✅ Web 강의 5주차&lt;br&gt;
@@ -2042,9 +2125,9 @@ result = 7
     </item>
     <item>
       <title>[사전캠프] 7일차.</title>
-      <link>http://localhost:1313/record/2025-01-21/</link>
+      <link>https://withong.github.io/record/2025-01-21/</link>
       <pubDate>Tue, 21 Jan 2025 23:41:13 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-01-21/</guid>
+      <guid>https://withong.github.io/record/2025-01-21/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;TASKS&lt;/strong&gt;&lt;br&gt;
 ✅ SQL 강의 5주차&lt;br&gt;
@@ -2071,9 +2154,9 @@ result = 7
     </item>
     <item>
       <title>[사전캠프] 6일차.</title>
-      <link>http://localhost:1313/record/2025-01-20/</link>
+      <link>https://withong.github.io/record/2025-01-20/</link>
       <pubDate>Mon, 20 Jan 2025 23:41:13 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-01-20/</guid>
+      <guid>https://withong.github.io/record/2025-01-20/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;TASKS&lt;/strong&gt;&lt;br&gt;
 ✅ SQL 강의 4주차&lt;br&gt;
@@ -2100,9 +2183,9 @@ result = 7
     </item>
     <item>
       <title>[사전캠프] 5일차.</title>
-      <link>http://localhost:1313/record/2025-01-17/</link>
+      <link>https://withong.github.io/record/2025-01-17/</link>
       <pubDate>Fri, 17 Jan 2025 23:41:13 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-01-17/</guid>
+      <guid>https://withong.github.io/record/2025-01-17/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;TASKS&lt;/strong&gt;&lt;br&gt;
 ✅ SQL 강의 3주차&lt;br&gt;
@@ -2383,9 +2466,9 @@ result = 7
     </item>
     <item>
       <title>[사전캠프] 4일차.</title>
-      <link>http://localhost:1313/record/2025-01-16/</link>
+      <link>https://withong.github.io/record/2025-01-16/</link>
       <pubDate>Thu, 16 Jan 2025 23:41:13 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-01-16/</guid>
+      <guid>https://withong.github.io/record/2025-01-16/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;TASKS&lt;/strong&gt;&lt;br&gt;
 ✅ SQL 강의 2주차&lt;br&gt;
@@ -2486,9 +2569,9 @@ result = 7
     </item>
     <item>
       <title>[사전캠프] 3일차.</title>
-      <link>http://localhost:1313/record/2025-01-15/</link>
+      <link>https://withong.github.io/record/2025-01-15/</link>
       <pubDate>Wed, 15 Jan 2025 23:41:13 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-01-15/</guid>
+      <guid>https://withong.github.io/record/2025-01-15/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;TASKS&lt;/strong&gt;&lt;br&gt;
 ✅ SQL 강의 1주차&lt;br&gt;

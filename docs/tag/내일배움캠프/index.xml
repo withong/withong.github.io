@@ -2,17 +2,100 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>내일배움캠프 on withong</title>
-    <link>http://localhost:1313/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/</link>
+    <link>https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/</link>
     <description>Recent content in 내일배움캠프 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Thu, 03 Apr 2025 22:28:58 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Apr 2025 20:22:48 +0900</lastBuildDate>
+    <atom:link href="https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JWT (JSON Web Token)</title>
+      <link>https://withong.github.io/record/2025-04-10/</link>
+      <pubDate>Thu, 10 Apr 2025 20:22:48 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-10/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;1-jwt란&#34;&gt;1. JWT란?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;JWT (JSON Web Token)&lt;/strong&gt; 은 사용자 인증에 사용되는 &lt;strong&gt;토큰 기반 인증 방식&lt;/strong&gt; 중 하나로,&lt;br&gt;
+&lt;strong&gt;서버에 상태를 저장하지 않고도 인증 정보를 유지할 수 있는 구조&lt;/strong&gt;다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;구조&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;헤더(header).페이로드(payload).서명(signature)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Base64로 인코딩&lt;/strong&gt;되며, &lt;strong&gt;payload는 누구나 디코딩 가능&lt;/strong&gt;하므로 민감 정보를 넣지 않는다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;서명(Signature)&lt;/strong&gt; 으로 토큰의 위변조 여부를 서버가 확인할 수 있다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;주된 목적&lt;/strong&gt;: 정보의 위변조 방지 (정보 보호 아님)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;2-설정-방법&#34;&gt;2. 설정 방법&lt;/h2&gt;
+&lt;p&gt;Spring Boot + JPA 프로젝트 기준&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;build.gradle&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-groovy&#34; data-lang=&#34;groovy&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;dependencies&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.springframework.boot:spring-boot-starter-data-jpa&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.springframework.boot:spring-boot-starter-validation&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.springframework.boot:spring-boot-starter-web&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;at.favre.lib:bcrypt:0.10.2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;compileOnly&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.projectlombok:lombok&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;runtimeOnly&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;com.mysql:mysql-connector-j&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;annotationProcessor&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.projectlombok:lombok&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;testImplementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.springframework.boot:spring-boot-starter-test&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;testRuntimeOnly&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;org.junit.platform:junit-platform-launcher&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// JWT 관련 추가
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;io.jsonwebtoken:jjwt-api:0.11.2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;io.jsonwebtoken:jjwt-impl:0.11.2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;implementation&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;io.jsonwebtoken:jjwt-jackson:0.11.2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
+&lt;h2 id=&#34;3-jwt-구조-및-인증-흐름&#34;&gt;3. JWT 구조 및 인증 흐름&lt;/h2&gt;
+&lt;h3 id=&#34;jwt-구조&#34;&gt;JWT 구조&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;구성 요소&lt;/th&gt;
+          &lt;th&gt;설명&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Header&lt;/td&gt;
+          &lt;td&gt;알고리즘 정보 (예: HS256)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Payload&lt;/td&gt;
+          &lt;td&gt;사용자 정보(예: username) 및 만료 시간 등&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Signature&lt;/td&gt;
+          &lt;td&gt;secret key를 기반으로 만든 서명, 위변조 방지용&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;jwt-인증-흐름&#34;&gt;JWT 인증 흐름&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;클라이언트가 로그인 요청 (POST /login)&lt;/li&gt;
+&lt;li&gt;서버가 사용자 인증 후 JWT 생성&lt;/li&gt;
+&lt;li&gt;클라이언트는 JWT를 응답으로 받고, 저장 (쿠키, 로컬 스토리지 등)&lt;/li&gt;
+&lt;li&gt;이후 요청마다 JWT를 Authorization 헤더에 담아 전송&lt;/li&gt;
+&lt;li&gt;서버는 JWT 유효성 검사 (서명, 만료 여부 확인)&lt;/li&gt;
+&lt;li&gt;인증 통과 시 사용자 정보 추출 후 요청 처리&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;4-로그인-구현-예시&#34;&gt;4. 로그인 구현 예시&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;User 엔티티&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>일정 관리 API (JPA) 트러블 슈팅</title>
-      <link>http://localhost:1313/project/schedule-02/</link>
+      <link>https://withong.github.io/project/schedule-02/</link>
       <pubDate>Thu, 03 Apr 2025 22:28:58 +0900</pubDate>
-      <guid>http://localhost:1313/project/schedule-02/</guid>
+      <guid>https://withong.github.io/project/schedule-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
 &lt;h3 id=&#34;-nbc-chapter-03-develop&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-develop.git&#34;&gt;nbc-chapter-03-develop&lt;/a&gt;&lt;/h3&gt;
@@ -45,9 +128,9 @@
     </item>
     <item>
       <title>QueryDSL을 활용한 조건 기반 일정 조회</title>
-      <link>http://localhost:1313/record/2025-04-03/</link>
+      <link>https://withong.github.io/record/2025-04-03/</link>
       <pubDate>Thu, 03 Apr 2025 20:24:51 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-03/</guid>
+      <guid>https://withong.github.io/record/2025-04-03/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;querydsl이란&#34;&gt;QueryDSL이란?&lt;/h2&gt;
@@ -65,9 +148,9 @@
     </item>
     <item>
       <title>정규 표현식을 활용한 사용자 등록 요청 데이터 검증</title>
-      <link>http://localhost:1313/record/2025-04-01-02/</link>
+      <link>https://withong.github.io/record/2025-04-01-02/</link>
       <pubDate>Tue, 01 Apr 2025 22:05:47 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-01-02/</guid>
+      <guid>https://withong.github.io/record/2025-04-01-02/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;정규-표현식regular-expression이란&#34;&gt;정규 표현식(Regular Expression)이란?&lt;/h2&gt;
@@ -198,9 +281,9 @@
     </item>
     <item>
       <title>Bcrypt를 활용한 비밀번호 암호화</title>
-      <link>http://localhost:1313/record/2025-04-01-03/</link>
+      <link>https://withong.github.io/record/2025-04-01-03/</link>
       <pubDate>Tue, 01 Apr 2025 16:50:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-01-03/</guid>
+      <guid>https://withong.github.io/record/2025-04-01-03/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;1-해시hash란&#34;&gt;1. 해시(Hash)란?&lt;/h2&gt;
@@ -224,9 +307,9 @@
     </item>
     <item>
       <title>문자열 사전순 비교: compareTo()</title>
-      <link>http://localhost:1313/record/2025-04-01-01/</link>
+      <link>https://withong.github.io/record/2025-04-01-01/</link>
       <pubDate>Tue, 01 Apr 2025 09:54:56 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-01-01/</guid>
+      <guid>https://withong.github.io/record/2025-04-01-01/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
@@ -258,9 +341,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Spring 심화 2</title>
-      <link>http://localhost:1313/record/2025-03-28/</link>
+      <link>https://withong.github.io/record/2025-03-28/</link>
       <pubDate>Fri, 28 Mar 2025 20:28:44 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-28/</guid>
+      <guid>https://withong.github.io/record/2025-03-28/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;인증authentication과-인가authorization&#34;&gt;인증(Authentication)과 인가(Authorization)&lt;/h2&gt;
 &lt;table&gt;
@@ -299,9 +382,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>Spring 심화 1</title>
-      <link>http://localhost:1313/record/2025-03-27-02/</link>
+      <link>https://withong.github.io/record/2025-03-27-02/</link>
       <pubDate>Thu, 27 Mar 2025 20:25:30 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-27-02/</guid>
+      <guid>https://withong.github.io/record/2025-03-27-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;1-spring-container--bean&#34;&gt;1. Spring Container &amp;amp; Bean&lt;/h2&gt;
 &lt;h3 id=&#34;11-spring-container&#34;&gt;1.1. Spring Container&lt;/h3&gt;
@@ -326,9 +409,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>3진법 뒤집기</title>
-      <link>http://localhost:1313/record/2025-03-27-01/</link>
+      <link>https://withong.github.io/record/2025-03-27-01/</link>
       <pubDate>Thu, 27 Mar 2025 11:08:08 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-27-01/</guid>
+      <guid>https://withong.github.io/record/2025-03-27-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;문제-설명&#34;&gt;문제 설명&lt;/h2&gt;
 &lt;p&gt;자연수 n이 매개변수로 주어집니다. n을 3진법 상에서 앞뒤로 뒤집은 후,&lt;br&gt;
@@ -348,9 +431,9 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
     </item>
     <item>
       <title>일정 관리 API (JDBC) 트러블 슈팅</title>
-      <link>http://localhost:1313/project/schedule-01/</link>
+      <link>https://withong.github.io/project/schedule-01/</link>
       <pubDate>Tue, 25 Mar 2025 20:20:11 +0900</pubDate>
-      <guid>http://localhost:1313/project/schedule-01/</guid>
+      <guid>https://withong.github.io/project/schedule-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
 &lt;h3 id=&#34;-nbc-chapter-03-basic&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-basic.git&#34;&gt;nbc-chapter-03-basic&lt;/a&gt;&lt;/h3&gt;
@@ -377,9 +460,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>최대 공약수와 최소 공배수</title>
-      <link>http://localhost:1313/record/2025-03-25/</link>
+      <link>https://withong.github.io/record/2025-03-25/</link>
       <pubDate>Tue, 25 Mar 2025 20:07:52 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-25/</guid>
+      <guid>https://withong.github.io/record/2025-03-25/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;문제-설명&#34;&gt;문제 설명&lt;/h2&gt;
 &lt;p&gt;두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 배열의 맨 앞에 최대공약수, 그다음 최소공배수를 넣어 반환하면 됩니다. 예를 들어 두 수 3, 12의 최대공약수는 3, 최소공배수는 12이므로 solution(3, 12)는 [3, 12]를 반환해야 합니다.&lt;/p&gt;
@@ -394,9 +477,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>Spring 기초 4</title>
-      <link>http://localhost:1313/record/2025-03-19/</link>
+      <link>https://withong.github.io/record/2025-03-19/</link>
       <pubDate>Wed, 19 Mar 2025 21:54:12 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-19/</guid>
+      <guid>https://withong.github.io/record/2025-03-19/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;slf4j&#34;&gt;Slf4j&lt;/h2&gt;
 &lt;ul&gt;
@@ -538,9 +621,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>Spring 기초 3</title>
-      <link>http://localhost:1313/record/2025-03-18-02/</link>
+      <link>https://withong.github.io/record/2025-03-18-02/</link>
       <pubDate>Tue, 18 Mar 2025 18:00:16 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-18-02/</guid>
+      <guid>https://withong.github.io/record/2025-03-18-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;1-mvc-패턴&#34;&gt;1. MVC 패턴&lt;/h2&gt;
 &lt;h3 id=&#34;template-engine-템플릿-엔진&#34;&gt;Template Engine (템플릿 엔진)&lt;/h3&gt;
@@ -609,9 +692,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>Spring 기초 2</title>
-      <link>http://localhost:1313/record/2025-03-18-01/</link>
+      <link>https://withong.github.io/record/2025-03-18-01/</link>
       <pubDate>Tue, 18 Mar 2025 17:32:05 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-18-01/</guid>
+      <guid>https://withong.github.io/record/2025-03-18-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;1-프레임워크와-라이브러리&#34;&gt;1. 프레임워크와 라이브러리&lt;/h2&gt;
 &lt;h3 id=&#34;프레임워크-framework&#34;&gt;프레임워크 (Framework)&lt;/h3&gt;
@@ -636,9 +719,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>Spring 기초 1</title>
-      <link>http://localhost:1313/record/2025-03-17/</link>
+      <link>https://withong.github.io/record/2025-03-17/</link>
       <pubDate>Mon, 17 Mar 2025 22:00:03 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-17/</guid>
+      <guid>https://withong.github.io/record/2025-03-17/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;네트워크&#34;&gt;네트워크&lt;/h2&gt;
 &lt;ul&gt;
@@ -898,9 +981,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>키오스크 회고</title>
-      <link>http://localhost:1313/project/kiosk-05/</link>
+      <link>https://withong.github.io/project/kiosk-05/</link>
       <pubDate>Fri, 14 Mar 2025 19:14:24 +0900</pubDate>
-      <guid>http://localhost:1313/project/kiosk-05/</guid>
+      <guid>https://withong.github.io/project/kiosk-05/</guid>
       <description>&lt;hr&gt;
 &lt;h3 id=&#34;코드의-주요-기능&#34;&gt;코드의 주요 기능&lt;/h3&gt;
 &lt;ul&gt;
@@ -954,9 +1037,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>Collection &amp; Stream</title>
-      <link>http://localhost:1313/record/2025-03-13/</link>
+      <link>https://withong.github.io/record/2025-03-13/</link>
       <pubDate>Thu, 13 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-13/</guid>
+      <guid>https://withong.github.io/record/2025-03-13/</guid>
       <description>&lt;hr&gt;
 &lt;h3 id=&#34;1-배열-vs-컬렉션&#34;&gt;&lt;strong&gt;1. 배열 vs. 컬렉션&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
@@ -987,9 +1070,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>키오스크 도전 Lv 2</title>
-      <link>http://localhost:1313/project/kiosk-04/</link>
+      <link>https://withong.github.io/project/kiosk-04/</link>
       <pubDate>Wed, 12 Mar 2025 21:01:14 +0900</pubDate>
-      <guid>http://localhost:1313/project/kiosk-04/</guid>
+      <guid>https://withong.github.io/project/kiosk-04/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-2-enum-람다--스트림을-활용한-주문-및-장바구니-관리&#34;&gt;Lv 2. Enum, 람다 &amp;amp; 스트림을 활용한 주문 및 장바구니 관리&lt;/h3&gt;
@@ -1033,9 +1116,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>키오스크 도전 Lv 1</title>
-      <link>http://localhost:1313/project/kiosk-03/</link>
+      <link>https://withong.github.io/project/kiosk-03/</link>
       <pubDate>Wed, 12 Mar 2025 11:17:50 +0900</pubDate>
-      <guid>http://localhost:1313/project/kiosk-03/</guid>
+      <guid>https://withong.github.io/project/kiosk-03/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-1-장바구니-및-구매하기-기능을-추가하기&#34;&gt;Lv 1. 장바구니 및 구매하기 기능을 추가하기&lt;/h3&gt;
@@ -1093,9 +1176,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>Enum &amp; 동일성/동등성</title>
-      <link>http://localhost:1313/record/2025-03-11/</link>
+      <link>https://withong.github.io/record/2025-03-11/</link>
       <pubDate>Tue, 11 Mar 2025 10:44:41 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-03-11/</guid>
+      <guid>https://withong.github.io/record/2025-03-11/</guid>
       <description>&lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Enum&lt;/strong&gt; → 단순한 상수의 모음이 아니라, &lt;strong&gt;객체처럼 동작하는 데이터 타입&lt;/strong&gt;&lt;/li&gt;
@@ -1121,9 +1204,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>키오스크 필수 Lv 4-5</title>
-      <link>http://localhost:1313/project/kiosk-02/</link>
+      <link>https://withong.github.io/project/kiosk-02/</link>
       <pubDate>Mon, 10 Mar 2025 19:13:06 +0900</pubDate>
-      <guid>http://localhost:1313/project/kiosk-02/</guid>
+      <guid>https://withong.github.io/project/kiosk-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-4-객체-지향-설계를-적용해-음식-메뉴와-주문-내역을-클래스-기반으로-관리하기&#34;&gt;Lv 4. 객체 지향 설계를 적용해 음식 메뉴와 주문 내역을 클래스 기반으로 관리하기&lt;/h3&gt;
@@ -1150,9 +1233,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>키오스크 필수 Lv 1-3</title>
-      <link>http://localhost:1313/project/kiosk-01/</link>
+      <link>https://withong.github.io/project/kiosk-01/</link>
       <pubDate>Fri, 07 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/kiosk-01/</guid>
+      <guid>https://withong.github.io/project/kiosk-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-1-기본적인-키오스크를-프로그래밍해보자&#34;&gt;Lv 1. 기본적인 키오스크를 프로그래밍해보자&lt;/h3&gt;
@@ -1181,9 +1264,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 3 회고</title>
-      <link>http://localhost:1313/project/calculator-05/</link>
+      <link>https://withong.github.io/project/calculator-05/</link>
       <pubDate>Wed, 05 Mar 2025 23:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/calculator-05/</guid>
+      <guid>https://withong.github.io/project/calculator-05/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [문제] 알고리즘 &amp;amp; SQL 문제 풀기&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 3 마무리&lt;br&gt;
@@ -1212,9 +1295,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 3</title>
-      <link>http://localhost:1313/project/calculator-04/</link>
+      <link>https://withong.github.io/project/calculator-04/</link>
       <pubDate>Wed, 05 Mar 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/calculator-04/</guid>
+      <guid>https://withong.github.io/project/calculator-04/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;Enum, 제네릭, 람다 &amp;amp; 스트림을 이해한 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -1250,9 +1333,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 1-2 회고</title>
-      <link>http://localhost:1313/project/calculator-03/</link>
+      <link>https://withong.github.io/project/calculator-03/</link>
       <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/calculator-03/</guid>
+      <guid>https://withong.github.io/project/calculator-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [과제] Java 계산기 만들기 level 2 수정&lt;br&gt;
 ✅ [과제] 과제 TIL &amp;amp; 트러블 슈팅 작성&lt;br&gt;
@@ -1287,9 +1370,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 2</title>
-      <link>http://localhost:1313/project/calculator-02/</link>
+      <link>https://withong.github.io/project/calculator-02/</link>
       <pubDate>Fri, 28 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/calculator-02/</guid>
+      <guid>https://withong.github.io/project/calculator-02/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -1310,9 +1393,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>Java 심화 2</title>
-      <link>http://localhost:1313/record/2025-02-27/</link>
+      <link>https://withong.github.io/record/2025-02-27/</link>
       <pubDate>Thu, 27 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-27/</guid>
+      <guid>https://withong.github.io/record/2025-02-27/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 세션 2 - 객체 활용&lt;br&gt;
 ✅ [강의] Java 문법 Chapter 3 (5~7)&lt;br&gt;
@@ -1400,9 +1483,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 1</title>
-      <link>http://localhost:1313/project/calculator-01/</link>
+      <link>https://withong.github.io/project/calculator-01/</link>
       <pubDate>Wed, 26 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/calculator-01/</guid>
+      <guid>https://withong.github.io/project/calculator-01/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -1439,9 +1522,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>Java 심화 1</title>
-      <link>http://localhost:1313/record/2025-02-26/</link>
+      <link>https://withong.github.io/record/2025-02-26/</link>
       <pubDate>Wed, 26 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-26/</guid>
+      <guid>https://withong.github.io/record/2025-02-26/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [강의] Java 문법 Chapter 3 (1~4)&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 1&lt;/p&gt;&lt;/blockquote&gt;
@@ -1482,9 +1565,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>객체지향</title>
-      <link>http://localhost:1313/record/2025-02-25-02/</link>
+      <link>https://withong.github.io/record/2025-02-25-02/</link>
       <pubDate>Tue, 25 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-25-02/</guid>
+      <guid>https://withong.github.io/record/2025-02-25-02/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 문법 세션 1 - 프로그래밍 기초&lt;br&gt;
 ✅ Java 문법 강의 2주차&lt;/p&gt;&lt;/blockquote&gt;
@@ -1515,9 +1598,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>Java 기초</title>
-      <link>http://localhost:1313/record/2025-02-24/</link>
+      <link>https://withong.github.io/record/2025-02-24/</link>
       <pubDate>Mon, 24 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-24/</guid>
+      <guid>https://withong.github.io/record/2025-02-24/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ Java 문법 강의 1주차&lt;/p&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
@@ -1725,9 +1808,9 @@ result = 7
     </item>
     <item>
       <title>미니 프로젝트 최종</title>
-      <link>http://localhost:1313/project/about-team-04/</link>
+      <link>https://withong.github.io/project/about-team-04/</link>
       <pubDate>Fri, 21 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/about-team-04/</guid>
+      <guid>https://withong.github.io/project/about-team-04/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 프로젝트 배포&lt;br&gt;
 ✅ 프로젝트 발표&lt;br&gt;
@@ -1759,9 +1842,9 @@ result = 7
     </item>
     <item>
       <title>미니 프로젝트 3</title>
-      <link>http://localhost:1313/project/about-team-03/</link>
+      <link>https://withong.github.io/project/about-team-03/</link>
       <pubDate>Thu, 20 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/about-team-03/</guid>
+      <guid>https://withong.github.io/project/about-team-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 코드 병합&lt;br&gt;
 ✅ 기능 수정&lt;/p&gt;&lt;/blockquote&gt;
@@ -1781,9 +1864,9 @@ result = 7
     </item>
     <item>
       <title>미니 프로젝트 2</title>
-      <link>http://localhost:1313/project/about-team-02/</link>
+      <link>https://withong.github.io/project/about-team-02/</link>
       <pubDate>Wed, 19 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/about-team-02/</guid>
+      <guid>https://withong.github.io/project/about-team-02/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;+&lt;/strong&gt;&lt;br&gt;
 ☑️ 팀원 상세 페이지 화면&lt;br&gt;
@@ -1808,9 +1891,9 @@ result = 7
     </item>
     <item>
       <title>미니 프로젝트 1</title>
-      <link>http://localhost:1313/project/about-team-01/</link>
+      <link>https://withong.github.io/project/about-team-01/</link>
       <pubDate>Tue, 18 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/about-team-01/</guid>
+      <guid>https://withong.github.io/project/about-team-01/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [미니 프로젝트] 메인 페이지 (HTML/CSS)&lt;br&gt;
@@ -1891,9 +1974,9 @@ result = 7
     </item>
     <item>
       <title>Git</title>
-      <link>http://localhost:1313/record/2025-02-17/</link>
+      <link>https://withong.github.io/record/2025-02-17/</link>
       <pubDate>Mon, 17 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-02-17/</guid>
+      <guid>https://withong.github.io/record/2025-02-17/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [특강] Git&lt;br&gt;
