@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>메모리 구조와 static | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="메모리 구조
@@ -41,16 +41,16 @@ static
 static 변수와 static 메서드와 같은 클래스 레벨의 정보를 저장하는 공간.
 static 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 관계없이 클래스 자체에 속하며, 메서드 영역의 static 영역에 저장됨">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/record/2025-02-14/">
-<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://withong.github.io/icons/rec.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/rec.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/rec.png">
-<link rel="apple-touch-icon" href="https://withong.github.io/icons/rec.png">
-<link rel="mask-icon" href="https://withong.github.io/icons/rec.png">
+<link rel="canonical" href="http://localhost:1313/record/2025-02-14/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/log.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/log.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/log.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/log.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/log.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/record/2025-02-14/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/record/2025-02-14/">
 <noscript>
     <style>
         #theme-toggle,
@@ -87,104 +87,7 @@ static 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 �
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/record/2025-02-14/">
-  <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="메모리 구조와 static">
-  <meta property="og:description" content="메모리 구조 Java 메모리는 크게 메서드 영역, 스택 영역, 힙 영역으로 나뉜다.
-메서드 영역 (Method Area) 클래스 정보를 보관하는 공간 프로그램을 실행하는 데 필요한 공통 데이터를 관리
-(클래스 정보, static 영역, 런타임 상수 풀 등) 프로그램 실행 중 변경되지 않는 데이터 저장 프로그램이 종료될 때까지 유지됨 스택 영역 (Stack Area) 실제 프로그램이 실행되는 영역 메서드가 호출될 때마다 새로운 스택 프레임이 스택 영역에 생성됨 각 프레임은 지역 변수, 매개변수, 연산 결과, 메서드 호출 정보 저장함 메서드가 종료되면 해당 스택 프레임이 제거됨 LIFO(Last In First Out) 방식으로 동작함 힙 영역 (Heap Area) 객체(인스턴스)가 생성되는 영역 new 키워드로 생성된 객체와 배열이 저장됨 객체가 생성될 때마다 메모리 크기만큼 힙에서 메모리가 동적으로 할당됨 가비지 컬렉터에 의해 관리됨 참조되는 객체는 유지되며, 참조되지 않는 객체는 제거됨 static static 변수와 static 메서드와 같은 클래스 레벨의 정보를 저장하는 공간.
-static 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 관계없이 클래스 자체에 속하며, 메서드 영역의 static 영역에 저장됨">
-  <meta property="og:locale" content="ko">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="record">
-    <meta property="article:published_time" content="2025-02-14T21:00:00+09:00">
-    <meta property="article:modified_time" content="2025-02-14T21:00:00+09:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="메모리 구조와 static">
-<meta name="twitter:description" content="메모리 구조
-Java 메모리는 크게 메서드 영역, 스택 영역, 힙 영역으로 나뉜다.
-
-메서드 영역 (Method Area)
-
-클래스 정보를 보관하는 공간
-프로그램을 실행하는 데 필요한 공통 데이터를 관리
-(클래스 정보, static 영역, 런타임 상수 풀 등)
-프로그램 실행 중 변경되지 않는 데이터 저장
-프로그램이 종료될 때까지 유지됨
-
-
-스택 영역 (Stack Area)
-
-실제 프로그램이 실행되는 영역
-메서드가 호출될 때마다 새로운 스택 프레임이 스택 영역에 생성됨
-각 프레임은 지역 변수, 매개변수, 연산 결과, 메서드 호출 정보 저장함
-메서드가 종료되면 해당 스택 프레임이 제거됨
-LIFO(Last In First Out) 방식으로 동작함
-
-
-힙 영역 (Heap Area)
-
-객체(인스턴스)가 생성되는 영역
-new 키워드로 생성된 객체와 배열이 저장됨
-객체가 생성될 때마다 메모리 크기만큼 힙에서 메모리가 동적으로 할당됨
-가비지 컬렉터에 의해 관리됨
-참조되는 객체는 유지되며, 참조되지 않는 객체는 제거됨
-
-
-static
-static 변수와 static 메서드와 같은 클래스 레벨의 정보를 저장하는 공간.
-static 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 관계없이 클래스 자체에 속하며, 메서드 영역의 static 영역에 저장됨">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Study Records",
-      "item": "https://withong.github.io/record/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "메모리 구조와 static",
-      "item": "https://withong.github.io/record/2025-02-14/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "메모리 구조와 static",
-  "name": "메모리 구조와 static",
-  "description": "메모리 구조 Java 메모리는 크게 메서드 영역, 스택 영역, 힙 영역으로 나뉜다.\n메서드 영역 (Method Area) 클래스 정보를 보관하는 공간 프로그램을 실행하는 데 필요한 공통 데이터를 관리\n(클래스 정보, static 영역, 런타임 상수 풀 등) 프로그램 실행 중 변경되지 않는 데이터 저장 프로그램이 종료될 때까지 유지됨 스택 영역 (Stack Area) 실제 프로그램이 실행되는 영역 메서드가 호출될 때마다 새로운 스택 프레임이 스택 영역에 생성됨 각 프레임은 지역 변수, 매개변수, 연산 결과, 메서드 호출 정보 저장함 메서드가 종료되면 해당 스택 프레임이 제거됨 LIFO(Last In First Out) 방식으로 동작함 힙 영역 (Heap Area) 객체(인스턴스)가 생성되는 영역 new 키워드로 생성된 객체와 배열이 저장됨 객체가 생성될 때마다 메모리 크기만큼 힙에서 메모리가 동적으로 할당됨 가비지 컬렉터에 의해 관리됨 참조되는 객체는 유지되며, 참조되지 않는 객체는 제거됨 static static 변수와 static 메서드와 같은 클래스 레벨의 정보를 저장하는 공간.\nstatic 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 관계없이 클래스 자체에 속하며, 메서드 영역의 static 영역에 저장됨\n",
-  "keywords": [
-    
-  ],
-  "articleBody": "메모리 구조 Java 메모리는 크게 메서드 영역, 스택 영역, 힙 영역으로 나뉜다.\n메서드 영역 (Method Area) 클래스 정보를 보관하는 공간 프로그램을 실행하는 데 필요한 공통 데이터를 관리\n(클래스 정보, static 영역, 런타임 상수 풀 등) 프로그램 실행 중 변경되지 않는 데이터 저장 프로그램이 종료될 때까지 유지됨 스택 영역 (Stack Area) 실제 프로그램이 실행되는 영역 메서드가 호출될 때마다 새로운 스택 프레임이 스택 영역에 생성됨 각 프레임은 지역 변수, 매개변수, 연산 결과, 메서드 호출 정보 저장함 메서드가 종료되면 해당 스택 프레임이 제거됨 LIFO(Last In First Out) 방식으로 동작함 힙 영역 (Heap Area) 객체(인스턴스)가 생성되는 영역 new 키워드로 생성된 객체와 배열이 저장됨 객체가 생성될 때마다 메모리 크기만큼 힙에서 메모리가 동적으로 할당됨 가비지 컬렉터에 의해 관리됨 참조되는 객체는 유지되며, 참조되지 않는 객체는 제거됨 static static 변수와 static 메서드와 같은 클래스 레벨의 정보를 저장하는 공간.\nstatic 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 관계없이 클래스 자체에 속하며, 메서드 영역의 static 영역에 저장됨\nstatic 변수 (클래스 변수) 클래스가 로드될 때 한 번만 생성되며, 모든 객체가 공유 객체마다 개별적으로 존재하는 것이 아니라 클래스 단위로 하나만 존재 클래스명.변수명 형식으로 접근 가능 객체 없이 사용 가능 package static1; public class Data3 { public String name; public static int count; public Data3(String name) { this.name = name; count++; } } package static1; public class DataCountMain3 { public static void main(String[] args) { Data3 data1 = new Data3(\"A\"); System.out.println(\"A count = \" + Data3.count); Data3 data2 = new Data3(\"B\"); System.out.println(\"B count = \" + Data3.count); Data3 data3 = new Data3(\"C\"); System.out.println(\"C count = \" + Data3.count); } } A count = 1\rB count = 2\rC count = 3 static 메서드 (클래스 메서드) 객체를 생성하지 않고 클래스명으로 직접 호출 가능 static 변수만 직접 접근 가능 (인스턴스 변수 사용 불가) this 및 super 키워드를 사용할 수 없음 (객체에 의존하지 않음) package static2; public class DecoData { private int instanceValue; private static int staticValue; public static void staticCall() { // instanceValue++; 인스턴스 변수 접근, 컴파일 오류 // instanceMethod(); 인스턴스 메서드 접근, 컴파일 오류 staticValue++; // 정적 변수 접근 staticMethod(); // 정적 메서드 접근 } public void instanceCall() { instanceValue++; // 인스턴스 변수 접근 instanceMethod(); // 인스턴스 메서드 접근 staticValue++; // 정적 변수 접근 staticMethod(); // 정적 메서드 접근 } private void instanceMethod() { System.out.println(\"instanceValue = \" + instanceValue); } private static void staticMethod() { System.out.println(\"staticValue = \" + staticValue); } } package static2; public class DecoDataMain { public static void main(String[] args) { System.out.println(\"1. 정적 호출\"); DecoData.staticCall(); System.out.println(\"2. 인스턴스 호출1\"); DecoData data1 = new DecoData(); data1.instanceCall(); System.out.println(\"3. 인스턴스 호출2\"); DecoData data2 = new DecoData(); data2.instanceCall(); } } 1. 정적 호출\rstaticValue = 1\r2. 인스턴스 호출1\rinstanceValue = 1\rstaticValue = 2\r3. 인스턴스 호출2\rinstanceValue = 1\rstaticValue = 3 ",
-  "wordCount" : "438",
-  "inLanguage": "ko",
-  "datePublished": "2025-02-14T21:00:00+09:00",
-  "dateModified": "2025-02-14T21:00:00+09:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://withong.github.io/record/2025-02-14/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "withong",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://withong.github.io/icons/rec.png"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -202,7 +105,7 @@ static 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 �
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -228,27 +131,27 @@ static 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 �
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="☰">
+                <a href="http://localhost:1313/log/" title="☰">
                     <span>☰</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/record/" title="Record">
+                <a href="http://localhost:1313/record/" title="Record">
                     <span>Record</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/project/" title="Project">
+                <a href="http://localhost:1313/project/" title="Project">
                     <span>Project</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
+                <a href="http://localhost:1313/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -259,7 +162,7 @@ static 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 �
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/record/">Study Records</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/record/">Study Records</a></div>
     <h1 class="post-title entry-hint-parent">
       메모리 구조와 static
     </h1>
@@ -433,12 +336,12 @@ staticValue = 3
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://withong.github.io/record/2025-02-12/">
+  <a class="prev" href="http://localhost:1313/record/2025-02-12/">
     <span class="title">« Prev</span>
     <br>
     <span>접근 제어자</span>
   </a>
-  <a class="next" href="https://withong.github.io/record/2025-02-17/">
+  <a class="next" href="http://localhost:1313/record/2025-02-17/">
     <span class="title">Next »</span>
     <br>
     <span>Git</span>
@@ -450,7 +353,7 @@ staticValue = 3
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
 
     <span>
         Powered by
