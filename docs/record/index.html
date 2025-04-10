@@ -163,27 +163,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">JWT (JSON Web Token)
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1. JWT란? JWT (JSON Web Token) 은 사용자 인증에 사용되는 토큰 기반 인증 방식 중 하나로,
-서버에 상태를 저장하지 않고도 인증 정보를 유지할 수 있는 구조다.
-구조
-헤더(header).페이로드(payload).서명(signature) Base64로 인코딩되며, payload는 누구나 디코딩 가능하므로 민감 정보를 넣지 않는다.
-서명(Signature) 으로 토큰의 위변조 여부를 서버가 확인할 수 있다.
-주된 목적: 정보의 위변조 방지 (정보 보호 아님)
-2. 설정 방법 Spring Boot &#43; JPA 프로젝트 기준
-build.gradle
-dependencies { implementation &#39;org.springframework.boot:spring-boot-starter-data-jpa&#39; implementation &#39;org.springframework.boot:spring-boot-starter-validation&#39; implementation &#39;org.springframework.boot:spring-boot-starter-web&#39; implementation &#39;at.favre.lib:bcrypt:0.10.2&#39; compileOnly &#39;org.projectlombok:lombok&#39; runtimeOnly &#39;com.mysql:mysql-connector-j&#39; annotationProcessor &#39;org.projectlombok:lombok&#39; testImplementation &#39;org.springframework.boot:spring-boot-starter-test&#39; testRuntimeOnly &#39;org.junit.platform:junit-platform-launcher&#39; // JWT 관련 추가 implementation &#39;io.jsonwebtoken:jjwt-api:0.11.2&#39; implementation &#39;io.jsonwebtoken:jjwt-impl:0.11.2&#39; implementation &#39;io.jsonwebtoken:jjwt-jackson:0.11.2&#39; } 3. JWT 구조 및 인증 흐름 JWT 구조 구성 요소 설명 Header 알고리즘 정보 (예: HS256) Payload 사용자 정보(예: username) 및 만료 시간 등 Signature secret key를 기반으로 만든 서명, 위변조 방지용 JWT 인증 흐름 클라이언트가 로그인 요청 (POST /login) 서버가 사용자 인증 후 JWT 생성 클라이언트는 JWT를 응답으로 받고, 저장 (쿠키, 로컬 스토리지 등) 이후 요청마다 JWT를 Authorization 헤더에 담아 전송 서버는 JWT 유효성 검사 (서명, 만료 여부 확인) 인증 통과 시 사용자 정보 추출 후 요청 처리 4. 로그인 구현 예시 User 엔티티
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-04-10 20:22:48 +0900 KST'>2025년 4월 10일</span></footer>
-  <a class="entry-link" aria-label="post link to JWT (JSON Web Token)" href="https://withong.github.io/record/2025-04-10/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">QueryDSL을 활용한 조건 기반 일정 조회
     </h2>
   </header>
@@ -324,6 +303,20 @@ Log Level: TRACE → DEBUG → INFO → WARN → ERROR
   </div>
   <footer class="entry-footer"><span title='2025-03-19 21:54:12 +0900 KST'>2025년 3월 19일</span></footer>
   <a class="entry-link" aria-label="post link to Spring 기초 4" href="https://withong.github.io/record/2025-03-19/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Spring 기초 3
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 1. MVC 패턴 Template Engine (템플릿 엔진) 동적인 웹 페이지를 생성하는 도구 HTML과 데이터를 결합해 서버에서 페이지를 렌더링함 대표적인 템플릿 엔진 Thymeleaf → Spring과 통합이 잘 되어 가장 많이 사용됨 JSP (Java Server Pages) → 예전에는 많이 사용했으나 현재는 거의 사용되지 않음 FreeMarker, Velocity, Mustache → 특정 환경에서 사용됨 과거에는 Java 코드로 직접 HTML을 생성했으나, 유지보수가 어려워서 HTML에 필요한 부분만 Java 코드로 처리하도록 발전함
+MVC 패턴 개요 원래 Servlet과 JSP만으로 웹 개발을 했으나, 비즈니스 로직과 UI가 한 파일에 섞이면서 유지보수가 어려워짐 MVC (Model-View-Controller) 패턴은 역할을 분리하여 코드의 유지보수를 쉽게 하기 위해 등장함 MVC 패턴 구조 컴포넌트 설명 Model 데이터를 저장하고 처리하는 역할 (비즈니스 로직) View 사용자에게 보여주는 UI (HTML, 템플릿 엔진) Controller 사용자의 요청을 받아 Model과 View를 연결 View가 변경되어도 Model(비즈니스 로직)에 영향을 주지 않도록 분리 Model이 변경되어도 View를 수정할 필요가 없음 MVC 패턴의 문제점 중복 코드 발생 dispatcher.forward(request, response) 호출이 중복됨 View의 경로 (/WEB-INF/views/...jsp)가 코드 곳곳에 하드코딩되어 변경이 어렵다 공통 기능이 많아질수록 Controller의 역할이 커짐 로깅, 인증, 인가 등의 기능이 모든 Controller에 중복 작성됨 → 프론트 컨트롤러 패턴
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-18 18:00:16 +0900 KST'>2025년 3월 18일</span></footer>
+  <a class="entry-link" aria-label="post link to Spring 기초 3" href="https://withong.github.io/record/2025-03-18-02/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
