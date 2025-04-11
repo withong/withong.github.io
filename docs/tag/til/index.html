@@ -145,6 +145,20 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">JWT란?
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. JWT 정의 JWT는 JSON Web Token의 약자로, JSON 형식의 데이터를 안전하게 전송하기 위한 표준이다. 이 표준은 인터넷 상에서의 인증 및 권한 부여와 관련된 시스템에서 주로 사용된다. 예를 들어, 사용자가 서버에 로그인하면 서버는 JWT를 생성하여 사용자에게 제공하고, 사용자는 이 JWT를 통해 인증을 유지할 수 있다.
+JWT는 본질적으로 세션 관리 방식을 대체할 수 있다. 전통적인 세션 방식은 서버에 상태를 저장하고 세션 ID를 클라이언트에게 전달하는 방식이지만, JWT는 서버에 상태를 저장하지 않는 방식을 채택하여 세션리스 인증 방식을 가능하게 한다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-10 22:00:06 +0900 KST'>2025년 4월 10일</span></footer>
+  <a class="entry-link" aria-label="post link to JWT란?" href="https://withong.github.io/record/2025-04-10/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">QueryDSL을 활용한 조건 기반 일정 조회
     </h2>
   </header>
@@ -285,20 +299,6 @@ Log Level: TRACE → DEBUG → INFO → WARN → ERROR
   </div>
   <footer class="entry-footer"><span title='2025-03-19 21:54:12 +0900 KST'>2025년 3월 19일</span></footer>
   <a class="entry-link" aria-label="post link to Spring 기초 4" href="https://withong.github.io/record/2025-03-19/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Spring 기초 3
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 1. MVC 패턴 Template Engine (템플릿 엔진) 동적인 웹 페이지를 생성하는 도구 HTML과 데이터를 결합해 서버에서 페이지를 렌더링함 대표적인 템플릿 엔진 Thymeleaf → Spring과 통합이 잘 되어 가장 많이 사용됨 JSP (Java Server Pages) → 예전에는 많이 사용했으나 현재는 거의 사용되지 않음 FreeMarker, Velocity, Mustache → 특정 환경에서 사용됨 과거에는 Java 코드로 직접 HTML을 생성했으나, 유지보수가 어려워서 HTML에 필요한 부분만 Java 코드로 처리하도록 발전함
-MVC 패턴 개요 원래 Servlet과 JSP만으로 웹 개발을 했으나, 비즈니스 로직과 UI가 한 파일에 섞이면서 유지보수가 어려워짐 MVC (Model-View-Controller) 패턴은 역할을 분리하여 코드의 유지보수를 쉽게 하기 위해 등장함 MVC 패턴 구조 컴포넌트 설명 Model 데이터를 저장하고 처리하는 역할 (비즈니스 로직) View 사용자에게 보여주는 UI (HTML, 템플릿 엔진) Controller 사용자의 요청을 받아 Model과 View를 연결 View가 변경되어도 Model(비즈니스 로직)에 영향을 주지 않도록 분리 Model이 변경되어도 View를 수정할 필요가 없음 MVC 패턴의 문제점 중복 코드 발생 dispatcher.forward(request, response) 호출이 중복됨 View의 경로 (/WEB-INF/views/...jsp)가 코드 곳곳에 하드코딩되어 변경이 어렵다 공통 기능이 많아질수록 Controller의 역할이 커짐 로깅, 인증, 인가 등의 기능이 모든 Controller에 중복 작성됨 → 프론트 컨트롤러 패턴
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-18 18:00:16 +0900 KST'>2025년 3월 18일</span></footer>
-  <a class="entry-link" aria-label="post link to Spring 기초 3" href="https://withong.github.io/record/2025-03-18-02/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

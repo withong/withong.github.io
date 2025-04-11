@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>JWT란? | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+
+1. JWT 정의
+JWT는 JSON Web Token의 약자로, JSON 형식의 데이터를 안전하게 전송하기 위한 표준이다. 이 표준은 인터넷 상에서의 인증 및 권한 부여와 관련된 시스템에서 주로 사용된다. 예를 들어, 사용자가 서버에 로그인하면 서버는 JWT를 생성하여 사용자에게 제공하고, 사용자는 이 JWT를 통해 인증을 유지할 수 있다.
+JWT는 본질적으로 세션 관리 방식을 대체할 수 있다. 전통적인 세션 방식은 서버에 상태를 저장하고 세션 ID를 클라이언트에게 전달하는 방식이지만, JWT는 서버에 상태를 저장하지 않는 방식을 채택하여 세션리스 인증 방식을 가능하게 한다.">
+<meta name="author" content="">
+<link rel="canonical" href="https://withong.github.io/record/2025-04-10/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/rec.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/rec.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/rec.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/rec.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/rec.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/record/2025-04-10/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://withong.github.io/record/2025-04-10/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="JWT란?">
+  <meta property="og:description" content="1. JWT 정의 JWT는 JSON Web Token의 약자로, JSON 형식의 데이터를 안전하게 전송하기 위한 표준이다. 이 표준은 인터넷 상에서의 인증 및 권한 부여와 관련된 시스템에서 주로 사용된다. 예를 들어, 사용자가 서버에 로그인하면 서버는 JWT를 생성하여 사용자에게 제공하고, 사용자는 이 JWT를 통해 인증을 유지할 수 있다.
+JWT는 본질적으로 세션 관리 방식을 대체할 수 있다. 전통적인 세션 방식은 서버에 상태를 저장하고 세션 ID를 클라이언트에게 전달하는 방식이지만, JWT는 서버에 상태를 저장하지 않는 방식을 채택하여 세션리스 인증 방식을 가능하게 한다.">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="record">
+    <meta property="article:published_time" content="2025-04-10T22:00:06+09:00">
+    <meta property="article:modified_time" content="2025-04-10T22:00:06+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JWT란?">
+<meta name="twitter:description" content="
+
+1. JWT 정의
+JWT는 JSON Web Token의 약자로, JSON 형식의 데이터를 안전하게 전송하기 위한 표준이다. 이 표준은 인터넷 상에서의 인증 및 권한 부여와 관련된 시스템에서 주로 사용된다. 예를 들어, 사용자가 서버에 로그인하면 서버는 JWT를 생성하여 사용자에게 제공하고, 사용자는 이 JWT를 통해 인증을 유지할 수 있다.
+JWT는 본질적으로 세션 관리 방식을 대체할 수 있다. 전통적인 세션 방식은 서버에 상태를 저장하고 세션 ID를 클라이언트에게 전달하는 방식이지만, JWT는 서버에 상태를 저장하지 않는 방식을 채택하여 세션리스 인증 방식을 가능하게 한다.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Study Records",
+      "item": "https://withong.github.io/record/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "JWT란?",
+      "item": "https://withong.github.io/record/2025-04-10/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JWT란?",
+  "name": "JWT란?",
+  "description": "\r1. JWT 정의 JWT는 JSON Web Token의 약자로, JSON 형식의 데이터를 안전하게 전송하기 위한 표준이다. 이 표준은 인터넷 상에서의 인증 및 권한 부여와 관련된 시스템에서 주로 사용된다. 예를 들어, 사용자가 서버에 로그인하면 서버는 JWT를 생성하여 사용자에게 제공하고, 사용자는 이 JWT를 통해 인증을 유지할 수 있다.\nJWT는 본질적으로 세션 관리 방식을 대체할 수 있다. 전통적인 세션 방식은 서버에 상태를 저장하고 세션 ID를 클라이언트에게 전달하는 방식이지만, JWT는 서버에 상태를 저장하지 않는 방식을 채택하여 세션리스 인증 방식을 가능하게 한다.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "\r1. JWT 정의 JWT는 JSON Web Token의 약자로, JSON 형식의 데이터를 안전하게 전송하기 위한 표준이다. 이 표준은 인터넷 상에서의 인증 및 권한 부여와 관련된 시스템에서 주로 사용된다. 예를 들어, 사용자가 서버에 로그인하면 서버는 JWT를 생성하여 사용자에게 제공하고, 사용자는 이 JWT를 통해 인증을 유지할 수 있다.\nJWT는 본질적으로 세션 관리 방식을 대체할 수 있다. 전통적인 세션 방식은 서버에 상태를 저장하고 세션 ID를 클라이언트에게 전달하는 방식이지만, JWT는 서버에 상태를 저장하지 않는 방식을 채택하여 세션리스 인증 방식을 가능하게 한다.\n2. JWT의 구조 JWT는 크게 3부분으로 나누어져 있다: 헤더(Header), 페이로드(Payload), 서명(Signature)\n2.1 헤더 (Header) 헤더는 토큰의 메타데이터를 담고 있다:\ntyp (type) : 토큰의 유형을 나타낸다. JWT에서는 항상 JWT alg (algorithm) : 사용된 서명 알고리즘을 나타낸다.\nHS256(HMAC SHA-256), RS256(RSA SHA-256)와 같은 알고리즘 헤더의 예시:\n{ \"typ\": \"JWT\", \"alg\": \"HS256\" } 2.2 페이로드 (Payload) 페이로드는 실제 토큰에 담길 정보를 포함하는 부분이다. 이 정보를 클레임(Claim) 이라고 하며, JWT에서 사용되는 주요 정보이다. 클레임은 크게 등록된 클레임(Registered Claims), 공개 클레임(Public Claims), 비공개 클레임(Private Claims) 으로 구분된다.\n등록된 클레임(Registered Claims) :\nJWT 표준에서 정의한 일부 예약된 이름을 가진 클레임 (예: iss, exp, sub, iat 등) 공개 클레임(Public Claims) :\n자유롭게 정의할 수 있는 클레임 (예: userId, username, roles 등) 비공개 클레임(Private Claims) :\n두 당사자 간에만 사용하는 클레임 (예: 비즈니스 로직에 맞춘 특정 데이터) 페이로드 예시:\n{ \"sub\": \"1234567890\", \"name\": \"John Doe\", \"iat\": 1516239022 } 2.3 서명 (Signature) 서명은 JWT의 무결성을 보장하고, JWT가 변조되지 않았음을 확인하는 데 사용된다.\n서명 생성 방식:\n헤더와 페이로드를 Base64Url로 인코딩 인코딩된 헤더와 페이로드를 결합하고 비밀 키와 함께 서명 알고리즘을 사용하여 서명 생성 서명 생성 과정:\nHMACSHA256(\rbase64UrlEncode(header) + \".\" + base64UrlEncode(payload),\rsecret) 서명은 JWT의 마지막 부분에 위치하며, 이를 통해 JWT의 유효성을 검증할 수 있다.\n3. JWT 사용 목적 3.1 인증 (Authentication) JWT는 사용자 인증에 매우 널리 사용된다. 사용자가 로그인하면 서버는 JWT를 생성하여 클라이언트에게 전달하고, 이후 클라이언트는 이 JWT를 서버로 다시 보내 인증을 요청한다. 서버는 토큰을 검증하여 사용자가 인증되었는지 확인하고, 인증된 요청에 대해서만 응답한다.\n3.2 권한 부여 (Authorization) JWT는 인증된 사용자가 어떤 자원에 접근할 수 있는지 권한 정보를 포함할 수 있다. 예를 들어, JWT에 roles라는 클레임을 추가하고, 서버는 이를 기반으로 사용자가 접근할 수 있는 자원을 결정한다.\n3.3 정보 교환 (Information Exchange) JWT는 서버 간 정보 교환에도 유용하다. 토큰은 서명되어 있어 변조를 방지할 수 있기 때문에, 안전한 데이터 전송을 보장한다. 예를 들어, 서로 다른 서버들 간에 사용자 정보를 안전하게 교환할 수 있다.\n4. JWT의 장점 4.1 자가 포함적 (Stateless) JWT는 서버에 상태를 저장하지 않는다. 클라이언트가 JWT를 서버로 전송하면, 서버는 이 JWT만을 이용하여 사용자 인증을 처리할 수 있다. 서버는 세션 정보를 저장할 필요가 없고 확장성에 유리하다.\n4.2 확장성 서버 간의 분산 환경에서 JWT는 매우 유리하다. 서버가 여러 대일 경우에도 각 서버는 JWT만 있으면 사용자를 인증할 수 있으므로 서버 간 상태를 공유할 필요가 없다.\n4.3 보안 JWT는 서명되어 있어 데이터의 변조를 방지할 수 있다. 또한, 필요시 암호화하여 데이터의 기밀성을 보호할 수 있다.\n4.4 효율성 JWT는 일반적으로 작은 크기로 만들어져 네트워크 효율성을 높여준다. 또한, 서버에서 세션 정보를 저장할 필요가 없으므로 메모리와 저장소를 절약할 수 있다.\n5. JWT 사용 시 고려사항 5.1 토큰 만료 (Expiration) JWT는 만료 시간을 설정할 수 있다. 만약 토큰이 만료되면, 사용자는 다시 로그인해야 한다. 이를 exp 클레임을 통해 설정할 수 있다. 이 클레임은 토큰의 만료 시간을 나타내며, 클라이언트가 유효한 토큰을 계속 사용할 수 있도록 한다.\n5.2 토큰 저장 JWT를 저장하는 위치도 중요하다. **로컬 스토리지(localStorage)**에 저장하면 XSS 공격에 취약해질 수 있다. 보안상 **세션 스토리지(sessionStorage)**나 HTTP-only 쿠키에 저장하는 것이 더 안전할 수 있다.\n5.3 비밀 키 관리 JWT의 비밀 키는 매우 중요하다. 비밀 키가 유출되면, 누구든지 토큰을 위조할 수 있기 때문에 안전하게 관리해야 한다. 이를 환경 변수나 암호화된 저장소에서 관리하는 것이 좋다.\n6. JWT 토큰 생성 및 검증 방법 6.1 토큰 생성 (발급) JWT는 보통 사용자가 로그인한 후, 서버에서 사용자 정보를 기반으로 토큰을 생성한다. 예를 들어, 사용자의 아이디나 권한 정보 등을 페이로드에 포함시켜 토큰을 만든다.\n6.2 토큰 검증 JWT가 클라이언트로부터 전달되면, 서버는 이 토큰을 서명을 통해 검증한다. 만약 서명이 유효하고 토큰이 만료되지 않았다면 서버는 해당 요청을 인증된 사용자로 처리한다.\n7. JWT와 관련된 보안 고려사항 SSL/TLS 사용: JWT는 HTTP를 통해 전송되므로, SSL/TLS를 사용하여 **중간자 공격(MITM)**을 방지한다. 만료된 토큰 처리: JWT 토큰이 만료되면 리프레시 토큰을 사용하여 새로운 토큰을 발급할 수 있다. 클레임 조작 방지: 중요한 데이터는 JWT에 담지 말고 서버에서 안전하게 관리해야 한다. ",
+  "wordCount" : "672",
+  "inLanguage": "ko",
+  "datePublished": "2025-04-10T22:00:06+09:00",
+  "dateModified": "2025-04-10T22:00:06+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/record/2025-04-10/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/rec.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://withong.github.io/log/" title="☰">
+                    <span>☰</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/record/" title="Record">
+                    <span>Record</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/project/" title="Project">
+                    <span>Project</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/record/">Study Records</a></div>
+    <h1 class="post-title entry-hint-parent">
+      JWT란?
+    </h1>
+    <div class="post-meta"><span title='2025-04-10 22:00:06 +0900 KST'>2025년 4월 10일</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-jwt-정의">1. JWT 정의</a></li>
+    <li><a href="#2-jwt의-구조">2. JWT의 구조</a>
+      <ul>
+        <li><a href="#21-헤더-header">2.1 헤더 (Header)</a></li>
+        <li><a href="#22-페이로드-payload">2.2 페이로드 (Payload)</a></li>
+        <li><a href="#23-서명-signature">2.3 서명 (Signature)</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-jwt-사용-목적">3. JWT 사용 목적</a>
+      <ul>
+        <li><a href="#31-인증-authentication">3.1 인증 (Authentication)</a></li>
+        <li><a href="#32-권한-부여-authorization">3.2 권한 부여 (Authorization)</a></li>
+        <li><a href="#33-정보-교환-information-exchange">3.3 정보 교환 (Information Exchange)</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-jwt의-장점">4. JWT의 장점</a>
+      <ul>
+        <li><a href="#41-자가-포함적-stateless">4.1 자가 포함적 (Stateless)</a></li>
+        <li><a href="#42-확장성">4.2 확장성</a></li>
+        <li><a href="#43-보안">4.3 보안</a></li>
+        <li><a href="#44-효율성">4.4 효율성</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-jwt-사용-시-고려사항">5. JWT 사용 시 고려사항</a>
+      <ul>
+        <li><a href="#51-토큰-만료-expiration">5.1 토큰 만료 (Expiration)</a></li>
+        <li><a href="#52-토큰-저장">5.2 토큰 저장</a></li>
+        <li><a href="#53-비밀-키-관리">5.3 비밀 키 관리</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-jwt-토큰-생성-및-검증-방법">6. JWT 토큰 생성 및 검증 방법</a>
+      <ul>
+        <li><a href="#61-토큰-생성-발급">6.1 토큰 생성 (발급)</a></li>
+        <li><a href="#62-토큰-검증">6.2 토큰 검증</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-jwt와-관련된-보안-고려사항">7. JWT와 관련된 보안 고려사항</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><hr>
+<br>
+<h2 id="1-jwt-정의">1. JWT 정의<a hidden class="anchor" aria-hidden="true" href="#1-jwt-정의">#</a></h2>
+<p>JWT는 <strong>JSON Web Token</strong>의 약자로, <strong>JSON</strong> 형식의 데이터를 <strong>안전하게 전송</strong>하기 위한 표준이다. 이 표준은 <strong>인터넷 상에서의 인증 및 권한 부여</strong>와 관련된 시스템에서 주로 사용된다. 예를 들어, 사용자가 서버에 로그인하면 서버는 JWT를 생성하여 사용자에게 제공하고, 사용자는 이 JWT를 통해 인증을 유지할 수 있다.</p>
+<p>JWT는 본질적으로 <strong>세션 관리 방식</strong>을 대체할 수 있다. 전통적인 세션 방식은 서버에 상태를 저장하고 세션 ID를 클라이언트에게 전달하는 방식이지만, JWT는 <strong>서버에 상태를 저장하지 않는</strong> 방식을 채택하여 <strong>세션리스</strong> 인증 방식을 가능하게 한다.</p>
+<br>
+<hr>
+<br>
+<h2 id="2-jwt의-구조">2. JWT의 구조<a hidden class="anchor" aria-hidden="true" href="#2-jwt의-구조">#</a></h2>
+<p>JWT는 크게 3부분으로 나누어져 있다: <strong>헤더(Header)</strong>, <strong>페이로드(Payload)</strong>, <strong>서명(Signature)</strong></p>
+<h3 id="21-헤더-header">2.1 헤더 (Header)<a hidden class="anchor" aria-hidden="true" href="#21-헤더-header">#</a></h3>
+<p>헤더는 토큰의 <strong>메타데이터</strong>를 담고 있다:</p>
+<ul>
+<li><strong>typ (type)</strong> : 토큰의 유형을 나타낸다. JWT에서는 항상 <code>JWT</code></li>
+<li><strong>alg (algorithm)</strong> : 사용된 서명 알고리즘을 나타낸다.<br>
+<code>HS256</code>(HMAC SHA-256), <code>RS256</code>(RSA SHA-256)와 같은 알고리즘</li>
+</ul>
+<p><strong>헤더의 예시</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;typ&#34;</span><span class="p">:</span> <span class="s2">&#34;JWT&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;HS256&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="22-페이로드-payload">2.2 페이로드 (Payload)<a hidden class="anchor" aria-hidden="true" href="#22-페이로드-payload">#</a></h3>
+<p>페이로드는 실제 토큰에 담길 <strong>정보</strong>를 포함하는 부분이다. 이 정보를 <strong>클레임(Claim)</strong> 이라고 하며, JWT에서 사용되는 <strong>주요 정보</strong>이다. 클레임은 크게 <strong>등록된 클레임(Registered Claims)</strong>, <strong>공개 클레임(Public Claims)</strong>, <strong>비공개 클레임(Private Claims)</strong> 으로 구분된다.</p>
+<ul>
+<li><strong>등록된 클레임(Registered Claims)</strong> :<br>
+JWT 표준에서 정의한 일부 예약된 이름을 가진 클레임 (예: <code>iss</code>, <code>exp</code>, <code>sub</code>, <code>iat</code> 등)</li>
+<li><strong>공개 클레임(Public Claims)</strong> :<br>
+자유롭게 정의할 수 있는 클레임 (예: <code>userId</code>, <code>username</code>, <code>roles</code> 등)</li>
+<li><strong>비공개 클레임(Private Claims)</strong> :<br>
+두 당사자 간에만 사용하는 클레임 (예: 비즈니스 로직에 맞춘 특정 데이터)</li>
+</ul>
+<p><strong>페이로드 예시</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;sub&#34;</span><span class="p">:</span> <span class="s2">&#34;1234567890&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;John Doe&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;iat&#34;</span><span class="p">:</span> <span class="mi">1516239022</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="23-서명-signature">2.3 서명 (Signature)<a hidden class="anchor" aria-hidden="true" href="#23-서명-signature">#</a></h3>
+<p>서명은 JWT의 무결성을 보장하고, JWT가 변조되지 않았음을 확인하는 데 사용된다.</p>
+<p>서명 생성 방식:</p>
+<ol>
+<li><strong>헤더</strong>와 <strong>페이로드</strong>를 Base64Url로 인코딩</li>
+<li>인코딩된 헤더와 페이로드를 결합하고 비밀 키와 함께 서명 알고리즘을 사용하여 서명 생성</li>
+</ol>
+<p>서명 생성 과정:</p>
+<pre tabindex="0"><code>HMACSHA256(
+  base64UrlEncode(header) + &#34;.&#34; + base64UrlEncode(payload),
+  secret)
+</code></pre><p>서명은 JWT의 마지막 부분에 위치하며, 이를 통해 JWT의 유효성을 검증할 수 있다.</p>
+<br>
+<hr>
+<br>
+<h2 id="3-jwt-사용-목적">3. JWT 사용 목적<a hidden class="anchor" aria-hidden="true" href="#3-jwt-사용-목적">#</a></h2>
+<h3 id="31-인증-authentication">3.1 인증 (Authentication)<a hidden class="anchor" aria-hidden="true" href="#31-인증-authentication">#</a></h3>
+<p>JWT는 <strong>사용자 인증</strong>에 매우 널리 사용된다. 사용자가 로그인하면 서버는 JWT를 생성하여 클라이언트에게 전달하고, 이후 클라이언트는 이 JWT를 서버로 다시 보내 인증을 요청한다. 서버는 토큰을 검증하여 사용자가 인증되었는지 확인하고, 인증된 요청에 대해서만 응답한다.</p>
+<h3 id="32-권한-부여-authorization">3.2 권한 부여 (Authorization)<a hidden class="anchor" aria-hidden="true" href="#32-권한-부여-authorization">#</a></h3>
+<p>JWT는 인증된 사용자가 <strong>어떤 자원에 접근할 수 있는지</strong> 권한 정보를 포함할 수 있다. 예를 들어, JWT에 <code>roles</code>라는 클레임을 추가하고, 서버는 이를 기반으로 사용자가 접근할 수 있는 자원을 결정한다.</p>
+<h3 id="33-정보-교환-information-exchange">3.3 정보 교환 (Information Exchange)<a hidden class="anchor" aria-hidden="true" href="#33-정보-교환-information-exchange">#</a></h3>
+<p>JWT는 <strong>서버 간 정보 교환</strong>에도 유용하다. 토큰은 서명되어 있어 변조를 방지할 수 있기 때문에, 안전한 데이터 전송을 보장한다. 예를 들어, 서로 다른 서버들 간에 사용자 정보를 안전하게 교환할 수 있다.</p>
+<br>
+<hr>
+<br>
+<h2 id="4-jwt의-장점">4. JWT의 장점<a hidden class="anchor" aria-hidden="true" href="#4-jwt의-장점">#</a></h2>
+<h3 id="41-자가-포함적-stateless">4.1 자가 포함적 (Stateless)<a hidden class="anchor" aria-hidden="true" href="#41-자가-포함적-stateless">#</a></h3>
+<p>JWT는 <strong>서버에 상태를 저장하지 않는다</strong>. 클라이언트가 JWT를 서버로 전송하면, 서버는 이 JWT만을 이용하여 사용자 인증을 처리할 수 있다. 서버는 세션 정보를 저장할 필요가 없고 <strong>확장성</strong>에 유리하다.</p>
+<h3 id="42-확장성">4.2 확장성<a hidden class="anchor" aria-hidden="true" href="#42-확장성">#</a></h3>
+<p>서버 간의 분산 환경에서 JWT는 매우 유리하다. 서버가 여러 대일 경우에도 각 서버는 JWT만 있으면 사용자를 인증할 수 있으므로 서버 간 상태를 공유할 필요가 없다.</p>
+<h3 id="43-보안">4.3 보안<a hidden class="anchor" aria-hidden="true" href="#43-보안">#</a></h3>
+<p>JWT는 서명되어 있어 데이터의 <strong>변조</strong>를 방지할 수 있다. 또한, 필요시 <strong>암호화</strong>하여 데이터의 기밀성을 보호할 수 있다.</p>
+<h3 id="44-효율성">4.4 효율성<a hidden class="anchor" aria-hidden="true" href="#44-효율성">#</a></h3>
+<p>JWT는 일반적으로 <strong>작은 크기</strong>로 만들어져 네트워크 효율성을 높여준다. 또한, 서버에서 세션 정보를 저장할 필요가 없으므로 <strong>메모리</strong>와 <strong>저장소</strong>를 절약할 수 있다.</p>
+<br>
+<hr>
+<br>
+<h2 id="5-jwt-사용-시-고려사항">5. JWT 사용 시 고려사항<a hidden class="anchor" aria-hidden="true" href="#5-jwt-사용-시-고려사항">#</a></h2>
+<h3 id="51-토큰-만료-expiration">5.1 토큰 만료 (Expiration)<a hidden class="anchor" aria-hidden="true" href="#51-토큰-만료-expiration">#</a></h3>
+<p>JWT는 <strong>만료 시간을 설정</strong>할 수 있다. 만약 토큰이 만료되면, 사용자는 다시 로그인해야 한다. 이를 <code>exp</code> 클레임을 통해 설정할 수 있다. 이 클레임은 토큰의 만료 시간을 나타내며, 클라이언트가 유효한 토큰을 계속 사용할 수 있도록 한다.</p>
+<h3 id="52-토큰-저장">5.2 토큰 저장<a hidden class="anchor" aria-hidden="true" href="#52-토큰-저장">#</a></h3>
+<p>JWT를 저장하는 위치도 중요하다. **로컬 스토리지(localStorage)**에 저장하면 <strong>XSS 공격</strong>에 취약해질 수 있다. 보안상 **세션 스토리지(sessionStorage)**나 <strong>HTTP-only 쿠키</strong>에 저장하는 것이 더 안전할 수 있다.</p>
+<h3 id="53-비밀-키-관리">5.3 비밀 키 관리<a hidden class="anchor" aria-hidden="true" href="#53-비밀-키-관리">#</a></h3>
+<p>JWT의 <strong>비밀 키</strong>는 매우 중요하다. 비밀 키가 유출되면, 누구든지 토큰을 위조할 수 있기 때문에 안전하게 관리해야 한다. 이를 <strong>환경 변수</strong>나 <strong>암호화된 저장소</strong>에서 관리하는 것이 좋다.</p>
+<br>
+<hr>
+<br>
+<h2 id="6-jwt-토큰-생성-및-검증-방법">6. JWT 토큰 생성 및 검증 방법<a hidden class="anchor" aria-hidden="true" href="#6-jwt-토큰-생성-및-검증-방법">#</a></h2>
+<h3 id="61-토큰-생성-발급">6.1 토큰 생성 (발급)<a hidden class="anchor" aria-hidden="true" href="#61-토큰-생성-발급">#</a></h3>
+<p>JWT는 보통 사용자가 로그인한 후, 서버에서 사용자 정보를 기반으로 토큰을 생성한다. 예를 들어, 사용자의 아이디나 권한 정보 등을 페이로드에 포함시켜 토큰을 만든다.</p>
+<h3 id="62-토큰-검증">6.2 토큰 검증<a hidden class="anchor" aria-hidden="true" href="#62-토큰-검증">#</a></h3>
+<p>JWT가 클라이언트로부터 전달되면, 서버는 이 토큰을 <strong>서명</strong>을 통해 검증한다. 만약 서명이 유효하고 토큰이 만료되지 않았다면 서버는 해당 요청을 인증된 사용자로 처리한다.</p>
+<br>
+<hr>
+<br>
+<h2 id="7-jwt와-관련된-보안-고려사항">7. JWT와 관련된 보안 고려사항<a hidden class="anchor" aria-hidden="true" href="#7-jwt와-관련된-보안-고려사항">#</a></h2>
+<ol>
+<li><strong>SSL/TLS 사용</strong>: JWT는 HTTP를 통해 전송되므로, <strong>SSL/TLS</strong>를 사용하여 **중간자 공격(MITM)**을 방지한다.</li>
+<li><strong>만료된 토큰 처리</strong>: JWT 토큰이 만료되면 <strong>리프레시 토큰</strong>을 사용하여 새로운 토큰을 발급할 수 있다.</li>
+<li><strong>클레임 조작 방지</strong>: 중요한 데이터는 JWT에 담지 말고 서버에서 안전하게 관리해야 한다.</li>
+</ol>
+<br>
+<hr>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://withong.github.io/project/schedule-02/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>일정 관리 API (JPA) 트러블 슈팅</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✔';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
