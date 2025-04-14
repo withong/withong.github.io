@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>과제 on withong</title>
-    <link>http://localhost:1313/tag/%EA%B3%BC%EC%A0%9C/</link>
+    <link>https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/</link>
     <description>Recent content in 과제 on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
     <lastBuildDate>Thu, 10 Apr 2025 22:00:06 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tag/%EA%B3%BC%EC%A0%9C/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JWT란?</title>
-      <link>http://localhost:1313/record/2025-04-10/</link>
+      <link>https://withong.github.io/record/2025-04-10/</link>
       <pubDate>Thu, 10 Apr 2025 22:00:06 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-10/</guid>
+      <guid>https://withong.github.io/record/2025-04-10/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;1-jwt-정의&#34;&gt;1. JWT 정의&lt;/h2&gt;
@@ -20,92 +20,10 @@
 &lt;p&gt;JWT는 본질적으로 &lt;strong&gt;세션 관리 방식&lt;/strong&gt;을 대체할 수 있다. 전통적인 세션 방식은 서버에 상태를 저장하고 세션 ID를 클라이언트에게 전달하는 방식이지만, JWT는 &lt;strong&gt;서버에 상태를 저장하지 않는&lt;/strong&gt; 방식을 채택하여 &lt;strong&gt;세션리스&lt;/strong&gt; 인증 방식을 가능하게 한다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>뉴스피드 API 트러블 슈팅</title>
-      <link>http://localhost:1313/project/news-feed-01/</link>
-      <pubDate>Thu, 03 Apr 2025 22:28:58 +0900</pubDate>
-      <guid>http://localhost:1313/project/news-feed-01/</guid>
-      <description>&lt;hr&gt;
-&lt;br&gt;
-&lt;h2 id=&#34;jsonformat을-이용한-생년월일-검증의-한계&#34;&gt;@JsonFormat을 이용한 생년월일 검증의 한계&lt;/h2&gt;
-&lt;h3 id=&#34;상황&#34;&gt;상황&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;UserCreateRequestDto&lt;/code&gt;에서 사용자의 생년월일을 &lt;code&gt;LocalDate&lt;/code&gt;로 받고 있으며, 다음과 같이 &lt;code&gt;@JsonFormat&lt;/code&gt;을 지정해 날짜 형식을 검증하고자 했음.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 생년월일&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@NotNull&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;생년월일은 필수 입력값입니다.&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@JsonFormat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pattern&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;yyyyMMdd&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LocalDate&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;birth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;문제&#34;&gt;문제&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;@JsonFormat&lt;/code&gt;은 클라이언트에서 &lt;code&gt;&amp;quot;birth&amp;quot;: &amp;quot;1990-01-01&amp;quot;&lt;/code&gt;처럼 지정한 패턴과 일치하지 않는 값이 전달되면 예외를 발생시킴.&lt;/li&gt;
-&lt;li&gt;그러나 이때 발생하는 예외는 &lt;code&gt;@Valid&lt;/code&gt; 검증과 무관한 &lt;strong&gt;JSON → Java 객체 변환 과정&lt;/strong&gt;에서의 예외로, &lt;code&gt;HttpMessageNotReadableException&lt;/code&gt;이 발생함.&lt;/li&gt;
-&lt;li&gt;해당 예외는 컨트롤러 진입 이전에 발생하므로, 일반적인 검증 흐름에서 사용하는 &lt;code&gt;BindingResult&lt;/code&gt;나 &lt;code&gt;MethodArgumentNotValidException&lt;/code&gt;으로는 처리할 수 없음.&lt;/li&gt;
-&lt;li&gt;예외가 발생한 필드나 원인을 추적하려면 추가적인 작업이 필요하며, 그 자체로 진입 장벽이 생김.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;원인&#34;&gt;원인&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;@JsonFormat&lt;/code&gt;은 Jackson의 직렬화/역직렬화 시점에서 사용되는 포맷 지정용 어노테이션임.&lt;/li&gt;
-&lt;li&gt;사용자의 입력값을 유효성 검증하기 위한 용도로 만들어진 어노테이션이 아니며, 형식이 맞지 않는 경우 &lt;code&gt;InvalidFormatException&lt;/code&gt;을 유발하게 됨.&lt;/li&gt;
-&lt;li&gt;이 예외는 스프링의 검증기가 개입할 수 없는 시점에서 발생하며, 개발자가 직접 핸들링하지 않으면 클라이언트에게는 단순한 400 Bad Request로 보이게 됨.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;분석&#34;&gt;분석&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;사용자 입력값의 형식 검증 용도로 &lt;code&gt;@JsonFormat&lt;/code&gt;을 사용하는 것은 적절하지 않음.&lt;/li&gt;
-&lt;li&gt;형식 오류가 Jackson에서 발생하므로, 이를 적절히 가공해 응답하지 않으면 사용자에게 구체적인 피드백을 주기 어려움.&lt;/li&gt;
-&lt;li&gt;대안으로는 DTO에서 &lt;code&gt;String&lt;/code&gt; 타입으로 받고 &lt;code&gt;@Pattern&lt;/code&gt; 등을 통해 명시적으로 검증하는 방법이 있지만, 이후 다시 &lt;code&gt;LocalDate&lt;/code&gt;로 변환해야 한다는 점이 불편함.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;해결&#34;&gt;해결&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;리팩토링을 통해 &lt;code&gt;String&lt;/code&gt; 타입 + &lt;code&gt;@Pattern&lt;/code&gt; 방식으로 전환하는 방법도 고려했으나, 이후 &lt;code&gt;LocalDate&lt;/code&gt;로의 수동 변환이 번거롭고 불필요한 로직이 추가된다는 점에서 제외함.&lt;/li&gt;
-&lt;li&gt;대신, JSON 변환 과정에서 발생한 예외를 명확하게 전달할 수 있도록 &lt;code&gt;HttpMessageNotReadableException&lt;/code&gt;을 처리하는 글로벌 예외 핸들러를 작성하여 해결.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@ExceptionHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;HttpMessageNotReadableException&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;protected&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ResponseEntity&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExceptionResponseDto&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;handleJsonFormatException&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;HttpMessageNotReadableException&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Throwable&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cause&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getCause&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 날짜 파싱 실패인지 확인&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cause&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;instanceof&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InvalidFormatException&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;invalidFormatEx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;targetField&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;extractField&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;invalidFormatEx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;targetValue&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;invalidFormatEx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;toString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;expectedType&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;invalidFormatEx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getTargetType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getSimpleName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;[%s] 필드는 &amp;#39;%s&amp;#39; 값을 &amp;#39;%s&amp;#39; 타입으로 변환할 수 없습니다.&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;targetField&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;targetValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;expectedType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExceptionCode&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExceptionCode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;INVALID_DATE_FORMAT&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ResponseEntity&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getStatus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExceptionResponseDto&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;builder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                            &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getStatus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                            &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getCode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                            &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                            &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExceptionResponseDto&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;dtoResponseEntity&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ExceptionCode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;VALIDATION_FAILED&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;extractField&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InvalidFormatException&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getPath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;stream&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findFirst&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;JsonMappingException&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;Reference&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;getFieldName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;orElse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;알 수 없음&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;위와 같은 방식으로, 클라이언트가 전달한 날짜 형식이 잘못되었을 때 그 필드명, 값, 기대하는 타입을 포함한 상세 메시지를 응답으로 전달할 수 있음.&lt;/li&gt;
-&lt;li&gt;불필요한 구조 변경 없이 현재 구조를 유지하면서도, 입력 오류에 대해 구체적인 피드백을 제공할 수 있도록 마무리함.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;결론&#34;&gt;결론&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;@JsonFormat&lt;/code&gt;은 입력 검증용 어노테이션으로는 적절하지 않으나, JSON 파싱 과정의 예외를 글로벌 핸들러에서 적절히 가공하면 충분히 사용할 수 있음.&lt;/li&gt;
-&lt;li&gt;입력값의 형식 오류에 대해 사용자 친화적인 응답을 제공하고자 한다면, 예외 핸들링 전략을 통해 해결하는 접근도 유효한 방법임.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br&gt;
-&lt;hr&gt;</description>
-    </item>
-    <item>
       <title>일정 관리 API (JPA) 트러블 슈팅</title>
-      <link>http://localhost:1313/project/schedule-02/</link>
+      <link>https://withong.github.io/project/schedule-02/</link>
       <pubDate>Thu, 03 Apr 2025 22:28:58 +0900</pubDate>
-      <guid>http://localhost:1313/project/schedule-02/</guid>
+      <guid>https://withong.github.io/project/schedule-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
 &lt;h3 id=&#34;-nbc-chapter-03-develop&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-develop.git&#34;&gt;nbc-chapter-03-develop&lt;/a&gt;&lt;/h3&gt;
@@ -138,9 +56,9 @@
     </item>
     <item>
       <title>QueryDSL을 활용한 조건 기반 일정 조회</title>
-      <link>http://localhost:1313/record/2025-04-03/</link>
+      <link>https://withong.github.io/record/2025-04-03/</link>
       <pubDate>Thu, 03 Apr 2025 20:24:51 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-03/</guid>
+      <guid>https://withong.github.io/record/2025-04-03/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;querydsl이란&#34;&gt;QueryDSL이란?&lt;/h2&gt;
@@ -158,9 +76,9 @@
     </item>
     <item>
       <title>정규 표현식을 활용한 사용자 등록 요청 데이터 검증</title>
-      <link>http://localhost:1313/record/2025-04-01-02/</link>
+      <link>https://withong.github.io/record/2025-04-01-02/</link>
       <pubDate>Tue, 01 Apr 2025 22:05:47 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-01-02/</guid>
+      <guid>https://withong.github.io/record/2025-04-01-02/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;정규-표현식regular-expression이란&#34;&gt;정규 표현식(Regular Expression)이란?&lt;/h2&gt;
@@ -291,9 +209,9 @@
     </item>
     <item>
       <title>Bcrypt를 활용한 비밀번호 암호화</title>
-      <link>http://localhost:1313/record/2025-04-01-03/</link>
+      <link>https://withong.github.io/record/2025-04-01-03/</link>
       <pubDate>Tue, 01 Apr 2025 16:50:00 +0900</pubDate>
-      <guid>http://localhost:1313/record/2025-04-01-03/</guid>
+      <guid>https://withong.github.io/record/2025-04-01-03/</guid>
       <description>&lt;hr&gt;
 &lt;br&gt;
 &lt;h2 id=&#34;1-해시hash란&#34;&gt;1. 해시(Hash)란?&lt;/h2&gt;
@@ -317,9 +235,9 @@
     </item>
     <item>
       <title>일정 관리 API (JDBC) 트러블 슈팅</title>
-      <link>http://localhost:1313/project/schedule-01/</link>
+      <link>https://withong.github.io/project/schedule-01/</link>
       <pubDate>Tue, 25 Mar 2025 20:20:11 +0900</pubDate>
-      <guid>http://localhost:1313/project/schedule-01/</guid>
+      <guid>https://withong.github.io/project/schedule-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
 &lt;h3 id=&#34;-nbc-chapter-03-basic&#34;&gt;▶ &lt;a href=&#34;https://github.com/withong/nbc-chapter-03-basic.git&#34;&gt;nbc-chapter-03-basic&lt;/a&gt;&lt;/h3&gt;
@@ -346,9 +264,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>키오스크 회고</title>
-      <link>http://localhost:1313/project/kiosk-05/</link>
+      <link>https://withong.github.io/project/kiosk-05/</link>
       <pubDate>Fri, 14 Mar 2025 19:14:24 +0900</pubDate>
-      <guid>http://localhost:1313/project/kiosk-05/</guid>
+      <guid>https://withong.github.io/project/kiosk-05/</guid>
       <description>&lt;hr&gt;
 &lt;h3 id=&#34;코드의-주요-기능&#34;&gt;코드의 주요 기능&lt;/h3&gt;
 &lt;ul&gt;
@@ -402,9 +320,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>키오스크 도전 Lv 2</title>
-      <link>http://localhost:1313/project/kiosk-04/</link>
+      <link>https://withong.github.io/project/kiosk-04/</link>
       <pubDate>Wed, 12 Mar 2025 21:01:14 +0900</pubDate>
-      <guid>http://localhost:1313/project/kiosk-04/</guid>
+      <guid>https://withong.github.io/project/kiosk-04/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-2-enum-람다--스트림을-활용한-주문-및-장바구니-관리&#34;&gt;Lv 2. Enum, 람다 &amp;amp; 스트림을 활용한 주문 및 장바구니 관리&lt;/h3&gt;
@@ -448,9 +366,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>키오스크 도전 Lv 1</title>
-      <link>http://localhost:1313/project/kiosk-03/</link>
+      <link>https://withong.github.io/project/kiosk-03/</link>
       <pubDate>Wed, 12 Mar 2025 11:17:50 +0900</pubDate>
-      <guid>http://localhost:1313/project/kiosk-03/</guid>
+      <guid>https://withong.github.io/project/kiosk-03/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-1-장바구니-및-구매하기-기능을-추가하기&#34;&gt;Lv 1. 장바구니 및 구매하기 기능을 추가하기&lt;/h3&gt;
@@ -508,9 +426,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>키오스크 필수 Lv 4-5</title>
-      <link>http://localhost:1313/project/kiosk-02/</link>
+      <link>https://withong.github.io/project/kiosk-02/</link>
       <pubDate>Mon, 10 Mar 2025 19:13:06 +0900</pubDate>
-      <guid>http://localhost:1313/project/kiosk-02/</guid>
+      <guid>https://withong.github.io/project/kiosk-02/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-4-객체-지향-설계를-적용해-음식-메뉴와-주문-내역을-클래스-기반으로-관리하기&#34;&gt;Lv 4. 객체 지향 설계를 적용해 음식 메뉴와 주문 내역을 클래스 기반으로 관리하기&lt;/h3&gt;
@@ -537,9 +455,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>키오스크 필수 Lv 1-3</title>
-      <link>http://localhost:1313/project/kiosk-01/</link>
+      <link>https://withong.github.io/project/kiosk-01/</link>
       <pubDate>Fri, 07 Mar 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/kiosk-01/</guid>
+      <guid>https://withong.github.io/project/kiosk-01/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;h3 id=&#34;lv-1-기본적인-키오스크를-프로그래밍해보자&#34;&gt;Lv 1. 기본적인 키오스크를 프로그래밍해보자&lt;/h3&gt;
@@ -568,9 +486,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 3 회고</title>
-      <link>http://localhost:1313/project/calculator-05/</link>
+      <link>https://withong.github.io/project/calculator-05/</link>
       <pubDate>Wed, 05 Mar 2025 23:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/calculator-05/</guid>
+      <guid>https://withong.github.io/project/calculator-05/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [문제] 알고리즘 &amp;amp; SQL 문제 풀기&lt;br&gt;
 ✅ [과제] Java 계산기 만들기 level 3 마무리&lt;br&gt;
@@ -599,9 +517,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 3</title>
-      <link>http://localhost:1313/project/calculator-04/</link>
+      <link>https://withong.github.io/project/calculator-04/</link>
       <pubDate>Wed, 05 Mar 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/calculator-04/</guid>
+      <guid>https://withong.github.io/project/calculator-04/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;Enum, 제네릭, 람다 &amp;amp; 스트림을 이해한 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -637,9 +555,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 1-2 회고</title>
-      <link>http://localhost:1313/project/calculator-03/</link>
+      <link>https://withong.github.io/project/calculator-03/</link>
       <pubDate>Fri, 28 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/calculator-03/</guid>
+      <guid>https://withong.github.io/project/calculator-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ [과제] Java 계산기 만들기 level 2 수정&lt;br&gt;
 ✅ [과제] 과제 TIL &amp;amp; 트러블 슈팅 작성&lt;br&gt;
@@ -674,9 +592,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 2</title>
-      <link>http://localhost:1313/project/calculator-02/</link>
+      <link>https://withong.github.io/project/calculator-02/</link>
       <pubDate>Fri, 28 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/calculator-02/</guid>
+      <guid>https://withong.github.io/project/calculator-02/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -697,9 +615,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>계산기 Lv 1</title>
-      <link>http://localhost:1313/project/calculator-01/</link>
+      <link>https://withong.github.io/project/calculator-01/</link>
       <pubDate>Wed, 26 Feb 2025 22:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/calculator-01/</guid>
+      <guid>https://withong.github.io/project/calculator-01/</guid>
       <description>&lt;h2 id=&#34;요구사항&#34;&gt;요구사항&lt;/h2&gt;
 &lt;p&gt;클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기&lt;/p&gt;
 &lt;ul&gt;
@@ -736,9 +654,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>미니 프로젝트 최종</title>
-      <link>http://localhost:1313/project/about-team-04/</link>
+      <link>https://withong.github.io/project/about-team-04/</link>
       <pubDate>Fri, 21 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/about-team-04/</guid>
+      <guid>https://withong.github.io/project/about-team-04/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 프로젝트 배포&lt;br&gt;
 ✅ 프로젝트 발표&lt;br&gt;
@@ -770,9 +688,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>미니 프로젝트 3</title>
-      <link>http://localhost:1313/project/about-team-03/</link>
+      <link>https://withong.github.io/project/about-team-03/</link>
       <pubDate>Thu, 20 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/about-team-03/</guid>
+      <guid>https://withong.github.io/project/about-team-03/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;✅ 코드 병합&lt;br&gt;
 ✅ 기능 수정&lt;/p&gt;&lt;/blockquote&gt;
@@ -792,9 +710,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>미니 프로젝트 2</title>
-      <link>http://localhost:1313/project/about-team-02/</link>
+      <link>https://withong.github.io/project/about-team-02/</link>
       <pubDate>Wed, 19 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/about-team-02/</guid>
+      <guid>https://withong.github.io/project/about-team-02/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;+&lt;/strong&gt;&lt;br&gt;
 ☑️ 팀원 상세 페이지 화면&lt;br&gt;
@@ -819,9 +737,9 @@ jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나&lt;br&gt
     </item>
     <item>
       <title>미니 프로젝트 1</title>
-      <link>http://localhost:1313/project/about-team-01/</link>
+      <link>https://withong.github.io/project/about-team-01/</link>
       <pubDate>Tue, 18 Feb 2025 21:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/project/about-team-01/</guid>
+      <guid>https://withong.github.io/project/about-team-01/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Chapter 1. 온보딩 주차&lt;/strong&gt;&lt;br&gt;
 ✅ [미니 프로젝트] 메인 페이지 (HTML/CSS)&lt;br&gt;

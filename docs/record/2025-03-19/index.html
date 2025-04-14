@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Spring 기초 4 | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -146,16 +146,16 @@ map.add(&#34;key1&#34;, &#34;value1&#34;);
 map.add(&#34;key1&#34;, &#34;value2&#34;);
 ">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/record/2025-03-19/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/icons/rec.png">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/rec.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/rec.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/icons/rec.png">
-<link rel="mask-icon" href="http://localhost:1313/icons/rec.png">
+<link rel="canonical" href="https://withong.github.io/record/2025-03-19/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/rec.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/rec.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/rec.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/rec.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/rec.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="ko" href="http://localhost:1313/record/2025-03-19/">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/record/2025-03-19/">
 <noscript>
     <style>
         #theme-toggle,
@@ -192,7 +192,210 @@ map.add(&#34;key1&#34;, &#34;value2&#34;);
         }
 
     </style>
-</noscript>
+</noscript><meta property="og:url" content="https://withong.github.io/record/2025-03-19/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="Spring 기초 4">
+  <meta property="og:description" content=" Slf4j 인터페이스이며, Logback 같은 구현체를 사용할 수 있음.
+Spring Boot는 기본적으로 Logback을 제공.
+System.out.println() 대신 로깅 라이브러리를 사용.
+Log Level: TRACE → DEBUG → INFO → WARN → ERROR
+@Slf4j @RestController public class Slf4jController { @RequestMapping(&#34;/logging&#34;) public String logging() { String sparta = &#34;Sparta&#34;; log.info(&#34;문자 info={}&#34;, sparta); return &#34;success&#34;; } } Controller vs RestController @Controller: View 반환 (Thymeleaf, JSP 사용) @Controller public class ViewController { @RequestMapping(&#34;/view&#34;) public String example() { return &#34;sparta&#34;; // View Name 반환 } } @RestController: Data 반환 (REST API) @RestController public class ResponseController { @RequestMapping(&#34;/string&#34;) public String example() { return &#34;sparta&#34;; // HTTP Body에 Data 입력 } } Annotation @Component: Spring Bean 등록하는 역할을 수행. @Target: 애노테이션 적용 범위를 지정. @Retention: 유지 기간을 결정. (SOURCE, CLASS, RUNTIME) @Documented: 문서화 도구에 의해 문서화되도록 지정. RequestMapping 특정 URL 요청을 특정 메서드와 매핑함. 여러 요소(URL, HTTP Method 등)를 조합하여 매핑할 수 있음. Spring Boot 3.0부터 /example/ 대신 /example만 허용됨. @RestController public class RequestMappingController { @RequestMapping(value = &#34;/v1&#34;, method = RequestMethod.GET) public String exampleV1() { return &#34;this is sparta!&#34;; } @GetMapping(value = &#34;/v2&#34;) public String exampleV2() { return &#34;this is sparta!&#34;; } } PathVariable URL 값을 파라미터로 받아오는 방식. @GetMapping(&#34;/{postId}&#34;) public String pathVariable(@PathVariable Long postId) { return &#34;Post ID: &#34; &#43; postId; } @GetMapping(&#34;/{postId}/comments/{commentId}&#34;) public String pathVariableMulti(@PathVariable Long postId, @PathVariable Long commentId) { return &#34;Post ID: &#34; &#43; postId &#43; &#34;, Comment ID: &#34; &#43; commentId; } 특정 파라미터 매핑 Query Parameter 매핑 @GetMapping(value = &#34;/users&#34;, params = &#34;gender=man&#34;) public String params() { return &#34;params API 호출됨&#34;; } Header 매핑 @PostMapping(value = &#34;/users&#34;, headers = &#34;Content-Type=application/json&#34;) public String headers() { return &#34;headers API 호출됨&#34;; } MediaType 매핑 @PostMapping(value = &#34;/users&#34;, consumes = MediaType.APPLICATION_JSON_VALUE) public String consumes() { return &#34;consumes API 호출됨&#34;; } produces 속성을 이용해 특정 응답 타입을 지정할 수 있음. Spring이 지원하는 Parameter 요청 헤더 조회 @Slf4j @RestController public class RequestHeaderController { @GetMapping(&#34;/request/headers&#34;) public String headers(@RequestHeader(&#34;host&#34;) String host) { log.info(&#34;host={}&#34;, host); return &#34;success&#34;; } } MultiValueMap 여러 개의 값을 받을 때 사용 MultiValueMap&lt;String, String&gt; map = new LinkedMultiValueMap&lt;&gt;(); map.add(&#34;key1&#34;, &#34;value1&#34;); map.add(&#34;key1&#34;, &#34;value2&#34;); ">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="record">
+    <meta property="article:published_time" content="2025-03-19T21:54:12+09:00">
+    <meta property="article:modified_time" content="2025-03-19T21:54:12+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring 기초 4">
+<meta name="twitter:description" content="
+Slf4j
+
+
+인터페이스이며, Logback 같은 구현체를 사용할 수 있음.
+
+
+Spring Boot는 기본적으로 Logback을 제공.
+
+
+System.out.println() 대신 로깅 라이브러리를 사용.
+
+
+Log Level: TRACE → DEBUG → INFO → WARN → ERROR
+@Slf4j
+@RestController
+public class Slf4jController {
+    @RequestMapping(&#34;/logging&#34;)
+    public String logging() {
+        String sparta = &#34;Sparta&#34;;
+        log.info(&#34;문자 info={}&#34;, sparta);
+        return &#34;success&#34;;
+    }
+}
+
+
+
+Controller vs RestController
+
+@Controller: View 반환 (Thymeleaf, JSP 사용)
+@Controller
+public class ViewController {
+    @RequestMapping(&#34;/view&#34;)
+    public String example() {
+        return &#34;sparta&#34;; // View Name 반환
+    }
+}
+
+@RestController: Data 반환 (REST API)
+@RestController
+public class ResponseController {
+    @RequestMapping(&#34;/string&#34;)
+    public String example() {
+        return &#34;sparta&#34;; // HTTP Body에 Data 입력
+    }
+}
+
+
+
+Annotation
+
+@Component: Spring Bean 등록하는 역할을 수행.
+@Target: 애노테이션 적용 범위를 지정.
+@Retention: 유지 기간을 결정. (SOURCE, CLASS, RUNTIME)
+@Documented: 문서화 도구에 의해 문서화되도록 지정.
+
+
+RequestMapping
+
+특정 URL 요청을 특정 메서드와 매핑함.
+여러 요소(URL, HTTP Method 등)를 조합하여 매핑할 수 있음.
+Spring Boot 3.0부터 /example/ 대신 /example만 허용됨.
+
+@RestController
+public class RequestMappingController {
+    @RequestMapping(value = &#34;/v1&#34;, method = RequestMethod.GET)
+    public String exampleV1() {
+        return &#34;this is sparta!&#34;;
+    }
+
+    @GetMapping(value = &#34;/v2&#34;)
+    public String exampleV2() {
+        return &#34;this is sparta!&#34;;
+    }
+}
+PathVariable
+
+URL 값을 파라미터로 받아오는 방식.
+
+@GetMapping(&#34;/{postId}&#34;)
+public String pathVariable(@PathVariable Long postId) {
+    return &#34;Post ID: &#34; &#43; postId;
+}
+@GetMapping(&#34;/{postId}/comments/{commentId}&#34;)
+public String pathVariableMulti(@PathVariable Long postId, @PathVariable Long commentId) {
+    return &#34;Post ID: &#34; &#43; postId &#43; &#34;, Comment ID: &#34; &#43; commentId;
+}
+
+특정 파라미터 매핑
+
+Query Parameter 매핑
+
+@GetMapping(value = &#34;/users&#34;, params = &#34;gender=man&#34;)
+public String params() {
+    return &#34;params API 호출됨&#34;;
+}
+
+Header 매핑
+
+@PostMapping(value = &#34;/users&#34;, headers = &#34;Content-Type=application/json&#34;)
+public String headers() {
+    return &#34;headers API 호출됨&#34;;
+}
+
+MediaType 매핑
+
+@PostMapping(value = &#34;/users&#34;, consumes = MediaType.APPLICATION_JSON_VALUE)
+public String consumes() {
+    return &#34;consumes API 호출됨&#34;;
+}
+
+produces 속성을 이용해 특정 응답 타입을 지정할 수 있음.
+
+
+Spring이 지원하는 Parameter
+
+요청 헤더 조회
+
+@Slf4j
+@RestController
+public class RequestHeaderController {
+    @GetMapping(&#34;/request/headers&#34;)
+    public String headers(@RequestHeader(&#34;host&#34;) String host) {
+        log.info(&#34;host={}&#34;, host);
+        return &#34;success&#34;;
+    }
+}
+
+MultiValueMap
+
+여러 개의 값을 받을 때 사용
+
+
+
+MultiValueMap&lt;String, String&gt; map = new LinkedMultiValueMap&lt;&gt;();
+map.add(&#34;key1&#34;, &#34;value1&#34;);
+map.add(&#34;key1&#34;, &#34;value2&#34;);
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Study Records",
+      "item": "https://withong.github.io/record/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Spring 기초 4",
+      "item": "https://withong.github.io/record/2025-03-19/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Spring 기초 4",
+  "name": "Spring 기초 4",
+  "description": " Slf4j 인터페이스이며, Logback 같은 구현체를 사용할 수 있음.\nSpring Boot는 기본적으로 Logback을 제공.\nSystem.out.println() 대신 로깅 라이브러리를 사용.\nLog Level: TRACE → DEBUG → INFO → WARN → ERROR\n@Slf4j @RestController public class Slf4jController { @RequestMapping(\u0026#34;/logging\u0026#34;) public String logging() { String sparta = \u0026#34;Sparta\u0026#34;; log.info(\u0026#34;문자 info={}\u0026#34;, sparta); return \u0026#34;success\u0026#34;; } } Controller vs RestController @Controller: View 반환 (Thymeleaf, JSP 사용) @Controller public class ViewController { @RequestMapping(\u0026#34;/view\u0026#34;) public String example() { return \u0026#34;sparta\u0026#34;; // View Name 반환 } } @RestController: Data 반환 (REST API) @RestController public class ResponseController { @RequestMapping(\u0026#34;/string\u0026#34;) public String example() { return \u0026#34;sparta\u0026#34;; // HTTP Body에 Data 입력 } } Annotation @Component: Spring Bean 등록하는 역할을 수행. @Target: 애노테이션 적용 범위를 지정. @Retention: 유지 기간을 결정. (SOURCE, CLASS, RUNTIME) @Documented: 문서화 도구에 의해 문서화되도록 지정. RequestMapping 특정 URL 요청을 특정 메서드와 매핑함. 여러 요소(URL, HTTP Method 등)를 조합하여 매핑할 수 있음. Spring Boot 3.0부터 /example/ 대신 /example만 허용됨. @RestController public class RequestMappingController { @RequestMapping(value = \u0026#34;/v1\u0026#34;, method = RequestMethod.GET) public String exampleV1() { return \u0026#34;this is sparta!\u0026#34;; } @GetMapping(value = \u0026#34;/v2\u0026#34;) public String exampleV2() { return \u0026#34;this is sparta!\u0026#34;; } } PathVariable URL 값을 파라미터로 받아오는 방식. @GetMapping(\u0026#34;/{postId}\u0026#34;) public String pathVariable(@PathVariable Long postId) { return \u0026#34;Post ID: \u0026#34; + postId; } @GetMapping(\u0026#34;/{postId}/comments/{commentId}\u0026#34;) public String pathVariableMulti(@PathVariable Long postId, @PathVariable Long commentId) { return \u0026#34;Post ID: \u0026#34; + postId + \u0026#34;, Comment ID: \u0026#34; + commentId; } 특정 파라미터 매핑 Query Parameter 매핑 @GetMapping(value = \u0026#34;/users\u0026#34;, params = \u0026#34;gender=man\u0026#34;) public String params() { return \u0026#34;params API 호출됨\u0026#34;; } Header 매핑 @PostMapping(value = \u0026#34;/users\u0026#34;, headers = \u0026#34;Content-Type=application/json\u0026#34;) public String headers() { return \u0026#34;headers API 호출됨\u0026#34;; } MediaType 매핑 @PostMapping(value = \u0026#34;/users\u0026#34;, consumes = MediaType.APPLICATION_JSON_VALUE) public String consumes() { return \u0026#34;consumes API 호출됨\u0026#34;; } produces 속성을 이용해 특정 응답 타입을 지정할 수 있음. Spring이 지원하는 Parameter 요청 헤더 조회 @Slf4j @RestController public class RequestHeaderController { @GetMapping(\u0026#34;/request/headers\u0026#34;) public String headers(@RequestHeader(\u0026#34;host\u0026#34;) String host) { log.info(\u0026#34;host={}\u0026#34;, host); return \u0026#34;success\u0026#34;; } } MultiValueMap 여러 개의 값을 받을 때 사용 MultiValueMap\u0026lt;String, String\u0026gt; map = new LinkedMultiValueMap\u0026lt;\u0026gt;(); map.add(\u0026#34;key1\u0026#34;, \u0026#34;value1\u0026#34;); map.add(\u0026#34;key1\u0026#34;, \u0026#34;value2\u0026#34;); ",
+  "keywords": [
+    
+  ],
+  "articleBody": " Slf4j 인터페이스이며, Logback 같은 구현체를 사용할 수 있음.\nSpring Boot는 기본적으로 Logback을 제공.\nSystem.out.println() 대신 로깅 라이브러리를 사용.\nLog Level: TRACE → DEBUG → INFO → WARN → ERROR\n@Slf4j @RestController public class Slf4jController { @RequestMapping(\"/logging\") public String logging() { String sparta = \"Sparta\"; log.info(\"문자 info={}\", sparta); return \"success\"; } } Controller vs RestController @Controller: View 반환 (Thymeleaf, JSP 사용) @Controller public class ViewController { @RequestMapping(\"/view\") public String example() { return \"sparta\"; // View Name 반환 } } @RestController: Data 반환 (REST API) @RestController public class ResponseController { @RequestMapping(\"/string\") public String example() { return \"sparta\"; // HTTP Body에 Data 입력 } } Annotation @Component: Spring Bean 등록하는 역할을 수행. @Target: 애노테이션 적용 범위를 지정. @Retention: 유지 기간을 결정. (SOURCE, CLASS, RUNTIME) @Documented: 문서화 도구에 의해 문서화되도록 지정. RequestMapping 특정 URL 요청을 특정 메서드와 매핑함. 여러 요소(URL, HTTP Method 등)를 조합하여 매핑할 수 있음. Spring Boot 3.0부터 /example/ 대신 /example만 허용됨. @RestController public class RequestMappingController { @RequestMapping(value = \"/v1\", method = RequestMethod.GET) public String exampleV1() { return \"this is sparta!\"; } @GetMapping(value = \"/v2\") public String exampleV2() { return \"this is sparta!\"; } } PathVariable URL 값을 파라미터로 받아오는 방식. @GetMapping(\"/{postId}\") public String pathVariable(@PathVariable Long postId) { return \"Post ID: \" + postId; } @GetMapping(\"/{postId}/comments/{commentId}\") public String pathVariableMulti(@PathVariable Long postId, @PathVariable Long commentId) { return \"Post ID: \" + postId + \", Comment ID: \" + commentId; } 특정 파라미터 매핑 Query Parameter 매핑 @GetMapping(value = \"/users\", params = \"gender=man\") public String params() { return \"params API 호출됨\"; } Header 매핑 @PostMapping(value = \"/users\", headers = \"Content-Type=application/json\") public String headers() { return \"headers API 호출됨\"; } MediaType 매핑 @PostMapping(value = \"/users\", consumes = MediaType.APPLICATION_JSON_VALUE) public String consumes() { return \"consumes API 호출됨\"; } produces 속성을 이용해 특정 응답 타입을 지정할 수 있음. Spring이 지원하는 Parameter 요청 헤더 조회 @Slf4j @RestController public class RequestHeaderController { @GetMapping(\"/request/headers\") public String headers(@RequestHeader(\"host\") String host) { log.info(\"host={}\", host); return \"success\"; } } MultiValueMap 여러 개의 값을 받을 때 사용 MultiValueMap\u003cString, String\u003e map = new LinkedMultiValueMap\u003c\u003e(); map.add(\"key1\", \"value1\"); map.add(\"key1\", \"value2\"); ",
+  "wordCount" : "333",
+  "inLanguage": "ko",
+  "datePublished": "2025-03-19T21:54:12+09:00",
+  "dateModified": "2025-03-19T21:54:12+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/record/2025-03-19/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/rec.png"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -210,7 +413,7 @@ map.add(&#34;key1&#34;, &#34;value2&#34;);
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -236,27 +439,27 @@ map.add(&#34;key1&#34;, &#34;value2&#34;);
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/log/" title="☰">
+                <a href="https://withong.github.io/log/" title="☰">
                     <span>☰</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/record/" title="Record">
+                <a href="https://withong.github.io/record/" title="Record">
                     <span>Record</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/project/" title="Project">
+                <a href="https://withong.github.io/project/" title="Project">
                     <span>Project</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tag/" title="Tag">
+                <a href="https://withong.github.io/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -267,7 +470,7 @@ map.add(&#34;key1&#34;, &#34;value2&#34;);
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/record/">Study Records</a></div>
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/record/">Study Records</a></div>
     <h1 class="post-title entry-hint-parent">
       Spring 기초 4
     </h1>
@@ -444,12 +647,12 @@ map.add(&#34;key1&#34;, &#34;value2&#34;);
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/record/2025-03-18-02/">
+  <a class="prev" href="https://withong.github.io/record/2025-03-18-02/">
     <span class="title">« Prev</span>
     <br>
     <span>Spring 기초 3</span>
   </a>
-  <a class="next" href="http://localhost:1313/record/2025-03-25/">
+  <a class="next" href="https://withong.github.io/record/2025-03-25/">
     <span class="title">Next »</span>
     <br>
     <span>최대 공약수와 최소 공배수</span>
@@ -461,7 +664,7 @@ map.add(&#34;key1&#34;, &#34;value2&#34;);
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
 
     <span>
         Powered by
