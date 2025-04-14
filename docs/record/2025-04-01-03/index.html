@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Bcrypt를 활용한 비밀번호 암호화 | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -28,16 +28,16 @@ ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정�
 SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다는 장점이 있지만,
 비밀번호 저장에는 오히려 그 점이 취약점이 된다.">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/record/2025-04-01-03/">
-<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://withong.github.io/icons/rec.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/rec.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/rec.png">
-<link rel="apple-touch-icon" href="https://withong.github.io/icons/rec.png">
-<link rel="mask-icon" href="https://withong.github.io/icons/rec.png">
+<link rel="canonical" href="http://localhost:1313/record/2025-04-01-03/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/rec.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/rec.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/rec.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/rec.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/rec.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/record/2025-04-01-03/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/record/2025-04-01-03/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,94 +74,7 @@ SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/record/2025-04-01-03/">
-  <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="Bcrypt를 활용한 비밀번호 암호화">
-  <meta property="og:description" content="1. 해시(Hash)란? **해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.
-출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.
-예를 들어, “password123&#34;이라는 문자열을 해시 함수에 넣으면,
-ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.
-해시 함수의 주요 특징:
-입력값이 조금이라도 다르면 결과가 완전히 달라짐 해시 값만 보고는 원래 값을 알 수 없음 (일방향성) 같은 입력에 대해서는 항상 같은 출력이 나옴 2. 일반적인 해시 함수의 문제점 SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다는 장점이 있지만,
-비밀번호 저장에는 오히려 그 점이 취약점이 된다.">
-  <meta property="og:locale" content="ko">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="record">
-    <meta property="article:published_time" content="2025-04-01T16:50:00+09:00">
-    <meta property="article:modified_time" content="2025-04-01T16:50:00+09:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bcrypt를 활용한 비밀번호 암호화">
-<meta name="twitter:description" content="
-
-1. 해시(Hash)란?
-**해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.
-출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.
-
-예를 들어, &ldquo;password123&quot;이라는 문자열을 해시 함수에 넣으면,
-ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.
-해시 함수의 주요 특징:
-
-입력값이 조금이라도 다르면 결과가 완전히 달라짐
-해시 값만 보고는 원래 값을 알 수 없음 (일방향성)
-같은 입력에 대해서는 항상 같은 출력이 나옴
-
-
-
-
-2. 일반적인 해시 함수의 문제점
-SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다는 장점이 있지만,
-비밀번호 저장에는 오히려 그 점이 취약점이 된다.">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Study Records",
-      "item": "https://withong.github.io/record/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Bcrypt를 활용한 비밀번호 암호화",
-      "item": "https://withong.github.io/record/2025-04-01-03/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Bcrypt를 활용한 비밀번호 암호화",
-  "name": "Bcrypt를 활용한 비밀번호 암호화",
-  "description": "\r1. 해시(Hash)란? **해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.\n출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.\n예를 들어, \u0026ldquo;password123\u0026quot;이라는 문자열을 해시 함수에 넣으면,\nef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.\n해시 함수의 주요 특징:\n입력값이 조금이라도 다르면 결과가 완전히 달라짐 해시 값만 보고는 원래 값을 알 수 없음 (일방향성) 같은 입력에 대해서는 항상 같은 출력이 나옴 2. 일반적인 해시 함수의 문제점 SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다는 장점이 있지만,\n비밀번호 저장에는 오히려 그 점이 취약점이 된다.\n",
-  "keywords": [
-    
-  ],
-  "articleBody": "\r1. 해시(Hash)란? **해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.\n출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.\n예를 들어, “password123\"이라는 문자열을 해시 함수에 넣으면,\nef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.\n해시 함수의 주요 특징:\n입력값이 조금이라도 다르면 결과가 완전히 달라짐 해시 값만 보고는 원래 값을 알 수 없음 (일방향성) 같은 입력에 대해서는 항상 같은 출력이 나옴 2. 일반적인 해시 함수의 문제점 SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다는 장점이 있지만,\n비밀번호 저장에는 오히려 그 점이 취약점이 된다.\n이유: 빠른 속도 때문에 공격자가 수백만 개의 비밀번호를 단시간에 대입해보는 Brute-force 공격이 가능하다. **Rainbow Table(무지개 테이블)**이라는 사전 해시값 DB를 활용해 평문 비밀번호를 유추할 수도 있다. 동일한 비밀번호는 항상 같은 해시 값을 가지기 때문에, 다른 사용자와의 중복 여부가 드러난다. 3. Bcrypt란? Bcrypt는 위와 같은 해시 함수의 한계를 극복하기 위해 고안된, 비밀번호 전용 해시 함수다.\n미국 Niels Provos와 David Mazières가 개발했으며, Blowfish 암호를 기반으로 설계되었다.\n4. Bcrypt의 주요 특징과 장점 느리도록 설계된 해시 함수 Bcrypt는 고의적으로 계산 속도를 느리게 만들어, Brute-force 공격에 강한 구조를 갖고 있다.\n속도를 조절할 수 있는 “work factor” 또는 “cost” 값을 설정함으로써, 컴퓨팅 성능이 좋아져도 보안을 유지할 수 있다.\n솔트(salt) 자동 추가 Bcrypt는 내부적으로 매번 **랜덤한 솔트(salt)**를 자동으로 생성하여 함께 해시한다.\n이를 통해 동일한 비밀번호라도 매번 다른 해시 값이 생성된다.\n즉, 두 사용자가 같은 비밀번호를 설정하더라도 해시 값이 완전히 다르다.\n결과 문자열 자체에 메타 정보 포함 Bcrypt가 반환하는 문자열은 다음 정보를 포함하고 있다:\n알고리즘 버전 ($2a$, $2b$ 등) cost(반복 횟수) 솔트 값 실제 해시 값 예시:\n$2a$10$7qKU8/1nB2Mb0Jt1Gm7sRuMO.zKYuCN7K45PxEknMzQBRZGeC2IsK\n5. 언제, 왜 Bcrypt를 써야 하는가? 구분 이유 비밀번호 저장 시 평문 저장은 절대 금지되며, 일반 해시 함수도 위험함 보안 공격 방어 Brute-force, rainbow table, 사전 공격에 대한 내성 시간 기반 방어 cost 조절로 해싱 속도를 느리게 해 공격 부담 증가 보안 가이드라인 준수 OWASP, NIST 등에서도 Bcrypt나 PBKDF2, Argon2 등 사용을 권장함 6. Spring Security에서의 Bcrypt 사용 예시 Spring에서는 BCryptPasswordEncoder 클래스를 통해 손쉽게 Bcrypt를 사용할 수 있다.\nimport org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(); // 비밀번호 해시화 String hashedPassword = encoder.encode(\"password123\"); // 비밀번호 비교 boolean matches = encoder.matches(\"password123\", hashedPassword); // true 주요 특징 .encode() 메서드는 자동으로 솔트를 포함해 해시 값을 생성 .matches()는 내부적으로 솔트를 추출하여 비교 수행 matches()가 true를 반환하면 비밀번호가 일치한다는 뜻 ",
-  "wordCount" : "357",
-  "inLanguage": "ko",
-  "datePublished": "2025-04-01T16:50:00+09:00",
-  "dateModified": "2025-04-01T16:50:00+09:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://withong.github.io/record/2025-04-01-03/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "withong",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://withong.github.io/icons/rec.png"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -179,7 +92,7 @@ SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -205,27 +118,27 @@ SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="☰">
+                <a href="http://localhost:1313/log/" title="☰">
                     <span>☰</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/record/" title="Record">
+                <a href="http://localhost:1313/record/" title="Record">
                     <span>Record</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/project/" title="Project">
+                <a href="http://localhost:1313/project/" title="Project">
                     <span>Project</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
+                <a href="http://localhost:1313/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -236,7 +149,7 @@ SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/record/">Study Records</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/record/">Study Records</a></div>
     <h1 class="post-title entry-hint-parent">
       Bcrypt를 활용한 비밀번호 암호화
     </h1>
@@ -389,12 +302,12 @@ SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://withong.github.io/record/2025-04-01-01/">
+  <a class="prev" href="http://localhost:1313/record/2025-04-01-01/">
     <span class="title">« Prev</span>
     <br>
     <span>문자열 사전순 비교: compareTo()</span>
   </a>
-  <a class="next" href="https://withong.github.io/record/2025-04-01-02/">
+  <a class="next" href="http://localhost:1313/record/2025-04-01-02/">
     <span class="title">Next »</span>
     <br>
     <span>정규 표현식을 활용한 사용자 등록 요청 데이터 검증</span>
@@ -406,7 +319,7 @@ SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
 
     <span>
         Powered by

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>기본형과 참조형 | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="변수 대입
@@ -31,16 +31,16 @@ dataA.value = 20; // dataA.value: 20, dataB.value: 20
 dataB.value = 30; // dataA.value: 30, dataB.value: 30
 같은 객체를 가리키므로 하나를 변경하면 다른 하나도 영향을 받음.">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/record/2025-02-06/">
-<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://withong.github.io/icons/rec.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/rec.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/rec.png">
-<link rel="apple-touch-icon" href="https://withong.github.io/icons/rec.png">
-<link rel="mask-icon" href="https://withong.github.io/icons/rec.png">
+<link rel="canonical" href="http://localhost:1313/record/2025-02-06/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/rec.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/rec.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/rec.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/rec.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/rec.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/record/2025-02-06/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/record/2025-02-06/">
 <noscript>
     <style>
         #theme-toggle,
@@ -77,94 +77,7 @@ dataB.value = 30; // dataA.value: 30, dataB.value: 30
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/record/2025-02-06/">
-  <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="기본형과 참조형">
-  <meta property="og:description" content="변수 대입 기본형 변수 대입 기본형 변수는 값을 복사하여 저장함.
-int a = 10; int b = a; // a: 10, b: 10 a = 20; // a: 20, b: 10 b = 30; // a: 20, b: 30 b에 a의 값을 복사해서 저장하므로, b를 변경해도 a에 영향을 주지 않음.
-참조형 변수 대입 참조형 변수는 객체의 메모리 주소를 저장함 → 주소(참조)가 복사됨.
-public class Data { int value; } Data dataA = new Data(); dataA.value = 10; Data dataB = dataA; // dataA.value: 10, dataB.value: 10 dataA.value = 20; // dataA.value: 20, dataB.value: 20 dataB.value = 30; // dataA.value: 30, dataB.value: 30 같은 객체를 가리키므로 하나를 변경하면 다른 하나도 영향을 받음.">
-  <meta property="og:locale" content="ko">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="record">
-    <meta property="article:published_time" content="2025-02-06T21:00:00+09:00">
-    <meta property="article:modified_time" content="2025-02-06T21:00:00+09:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="기본형과 참조형">
-<meta name="twitter:description" content="변수 대입
-
-기본형 변수 대입
-기본형 변수는 값을 복사하여 저장함.
-int a = 10;
-int b = a; // a: 10, b: 10
-
-a = 20; // a: 20, b: 10
-b = 30; // a: 20, b: 30
-b에 a의 값을 복사해서 저장하므로, b를 변경해도 a에 영향을 주지 않음.
-
-참조형 변수 대입
-참조형 변수는 객체의 메모리 주소를 저장함 → 주소(참조)가 복사됨.
-public class Data {
-    int value;
-}
-Data dataA = new Data();
-dataA.value = 10;
-Data dataB = dataA; // dataA.value: 10, dataB.value: 10
-
-dataA.value = 20; // dataA.value: 20, dataB.value: 20
-dataB.value = 30; // dataA.value: 30, dataB.value: 30
-같은 객체를 가리키므로 하나를 변경하면 다른 하나도 영향을 받음.">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Study Records",
-      "item": "https://withong.github.io/record/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "기본형과 참조형",
-      "item": "https://withong.github.io/record/2025-02-06/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "기본형과 참조형",
-  "name": "기본형과 참조형",
-  "description": "변수 대입 기본형 변수 대입 기본형 변수는 값을 복사하여 저장함.\nint a = 10; int b = a; // a: 10, b: 10 a = 20; // a: 20, b: 10 b = 30; // a: 20, b: 30 b에 a의 값을 복사해서 저장하므로, b를 변경해도 a에 영향을 주지 않음.\n참조형 변수 대입 참조형 변수는 객체의 메모리 주소를 저장함 → 주소(참조)가 복사됨.\npublic class Data { int value; } Data dataA = new Data(); dataA.value = 10; Data dataB = dataA; // dataA.value: 10, dataB.value: 10 dataA.value = 20; // dataA.value: 20, dataB.value: 20 dataB.value = 30; // dataA.value: 30, dataB.value: 30 같은 객체를 가리키므로 하나를 변경하면 다른 하나도 영향을 받음.\n",
-  "keywords": [
-    
-  ],
-  "articleBody": "변수 대입 기본형 변수 대입 기본형 변수는 값을 복사하여 저장함.\nint a = 10; int b = a; // a: 10, b: 10 a = 20; // a: 20, b: 10 b = 30; // a: 20, b: 30 b에 a의 값을 복사해서 저장하므로, b를 변경해도 a에 영향을 주지 않음.\n참조형 변수 대입 참조형 변수는 객체의 메모리 주소를 저장함 → 주소(참조)가 복사됨.\npublic class Data { int value; } Data dataA = new Data(); dataA.value = 10; Data dataB = dataA; // dataA.value: 10, dataB.value: 10 dataA.value = 20; // dataA.value: 20, dataB.value: 20 dataB.value = 30; // dataA.value: 30, dataB.value: 30 같은 객체를 가리키므로 하나를 변경하면 다른 하나도 영향을 받음.\n메서드 호출 기본형 매개변수 값을 복사해서 전달함. 원본 값은 변경되지 않음.\nint a = 10; changePrimitive(a); // a: 10 void changePrimitive(int x) { x = 20; } 참조형 매개변수 참조가 복사되므로 메서드 내부에서 객체를 변경하면 원본도 영향을 받음.\nData dataA = new Data(); dataA.value = 10; changeReference(dataA); // dataA.value: 20 void changeReference(Data dataX) { dataX.value = 20; } ",
-  "wordCount" : "169",
-  "inLanguage": "ko",
-  "datePublished": "2025-02-06T21:00:00+09:00",
-  "dateModified": "2025-02-06T21:00:00+09:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://withong.github.io/record/2025-02-06/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "withong",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://withong.github.io/icons/rec.png"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -182,7 +95,7 @@ dataB.value = 30; // dataA.value: 30, dataB.value: 30
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -208,27 +121,27 @@ dataB.value = 30; // dataA.value: 30, dataB.value: 30
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="☰">
+                <a href="http://localhost:1313/log/" title="☰">
                     <span>☰</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/record/" title="Record">
+                <a href="http://localhost:1313/record/" title="Record">
                     <span>Record</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/project/" title="Project">
+                <a href="http://localhost:1313/project/" title="Project">
                     <span>Project</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
+                <a href="http://localhost:1313/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -239,7 +152,7 @@ dataB.value = 30; // dataA.value: 30, dataB.value: 30
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/record/">Study Records</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/record/">Study Records</a></div>
     <h1 class="post-title entry-hint-parent">
       기본형과 참조형
     </h1>
@@ -324,12 +237,12 @@ dataB.value = 30; // dataA.value: 30, dataB.value: 30
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://withong.github.io/record/2025-02-04/">
+  <a class="prev" href="http://localhost:1313/record/2025-02-04/">
     <span class="title">« Prev</span>
     <br>
     <span>클래스와 객체</span>
   </a>
-  <a class="next" href="https://withong.github.io/record/2025-02-07/">
+  <a class="next" href="http://localhost:1313/record/2025-02-07/">
     <span class="title">Next »</span>
     <br>
     <span>객체 지향 프로그래밍</span>
@@ -341,7 +254,7 @@ dataB.value = 30; // dataA.value: 30, dataB.value: 30
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
 
     <span>
         Powered by

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>정규 표현식을 활용한 사용자 등록 요청 데이터 검증 | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -135,16 +135,16 @@ CreateUserRequest DTO에 사용된 정규 표현식 분석
 
 의미 요약: &ldquo;문자만 1자 이상 포함된 문자열이며, 처음부터 끝까지 모두 문자인 경우만 허용&rdquo;">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/record/2025-04-01-02/">
-<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://withong.github.io/icons/rec.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/rec.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/rec.png">
-<link rel="apple-touch-icon" href="https://withong.github.io/icons/rec.png">
-<link rel="mask-icon" href="https://withong.github.io/icons/rec.png">
+<link rel="canonical" href="http://localhost:1313/record/2025-04-01-02/">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/icons/rec.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/icons/rec.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/icons/rec.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/icons/rec.png">
+<link rel="mask-icon" href="http://localhost:1313/icons/rec.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/record/2025-04-01-02/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/record/2025-04-01-02/">
 <noscript>
     <style>
         #theme-toggle,
@@ -181,197 +181,7 @@ CreateUserRequest DTO에 사용된 정규 표현식 분석
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/record/2025-04-01-02/">
-  <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="정규 표현식을 활용한 사용자 등록 요청 데이터 검증">
-  <meta property="og:description" content="정규 표현식(Regular Expression)이란? **정규 표현식(정규식, regex)**은 특정 문자열의 규칙을 표현하는 문법이다.
-일종의 패턴 언어로, 문자열이 특정한 조건을 만족하는지 검사하거나, 일부를 추출하거나, 변환할 때 사용된다.
-1. 정규 표현식은 언제, 왜 사용하는가? 입력값 검증 (Validation) 사용자가 입력한 값이 이메일 형식인지, 숫자인지, 비밀번호 조건에 맞는지 등을 검사할 때 사용한다. 프론트엔드/백엔드 양쪽에서 모두 널리 쓰인다. 문자열 추출 또는 치환 특정 문자나 단어가 포함된 부분을 찾아내거나, 그 값을 다른 값으로 바꾸는 작업도 가능하다. 패턴 기반 검색 로그 분석, 텍스트 필터링, 문서 내 키워드 찾기 등에서 활용된다. 2. 자주 사용하는 정규 표현식 기호 기호 의미 . 임의의 한 문자 (개행 제외) ^ 문자열의 시작 $ 문자열의 끝 * 앞 문자가 0개 이상 반복 &#43; 앞 문자가 1개 이상 반복 ? 앞 문자가 0개 또는 1개 [] 괄호 안의 문자 중 하나 () 그룹 (하나의 단위로 묶음) \\d 숫자 (0~9) \\w 알파벳 또는 숫자 또는 밑줄 \\s 공백 문자 (스페이스, 탭 등) {n} 정확히 n개 반복 {n,} n개 이상 반복 {n,m} n개 이상, m개 이하 반복 CreateUserRequest DTO에 사용된 정규 표현식 분석 1. 이름 필드 @Pattern(regexp = &#34;^[\\p{L}]&#43;$&#34;, message = &#34;이름은 문자만 입력 가능합니다.&#34;) 정규식: ^[\\p{L}]&#43;$ 패턴 의미 ^ 문자열 시작 \\p{L} 유니코드 문자 중 ‘Letter’(문자) 범주에 해당하는 모든 글자 (한글, 영어, 일본어 등 모두 포함) &#43; 1개 이상 반복 $ 문자열 끝 의미 요약: “문자만 1자 이상 포함된 문자열이며, 처음부터 끝까지 모두 문자인 경우만 허용”">
-  <meta property="og:locale" content="ko">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="record">
-    <meta property="article:published_time" content="2025-04-01T22:05:47+09:00">
-    <meta property="article:modified_time" content="2025-04-01T22:05:47+09:00">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="정규 표현식을 활용한 사용자 등록 요청 데이터 검증">
-<meta name="twitter:description" content="
-
-정규 표현식(Regular Expression)이란?
-**정규 표현식(정규식, regex)**은 특정 문자열의 규칙을 표현하는 문법이다.
-일종의 패턴 언어로, 문자열이 특정한 조건을 만족하는지 검사하거나, 일부를 추출하거나, 변환할 때 사용된다.
-
-
-
-1. 정규 표현식은 언제, 왜 사용하는가?
-입력값 검증 (Validation)
-
-사용자가 입력한 값이 이메일 형식인지, 숫자인지, 비밀번호 조건에 맞는지 등을 검사할 때 사용한다.
-프론트엔드/백엔드 양쪽에서 모두 널리 쓰인다.
-
-문자열 추출 또는 치환
-
-특정 문자나 단어가 포함된 부분을 찾아내거나, 그 값을 다른 값으로 바꾸는 작업도 가능하다.
-
-패턴 기반 검색
-
-로그 분석, 텍스트 필터링, 문서 내 키워드 찾기 등에서 활용된다.
-
-
-
-
-2. 자주 사용하는 정규 표현식 기호
-
-  
-      
-          기호
-          의미
-      
-  
-  
-      
-          .
-          임의의 한 문자 (개행 제외)
-      
-      
-          ^
-          문자열의 시작
-      
-      
-          $
-          문자열의 끝
-      
-      
-          *
-          앞 문자가 0개 이상 반복
-      
-      
-          &#43;
-          앞 문자가 1개 이상 반복
-      
-      
-          ?
-          앞 문자가 0개 또는 1개
-      
-      
-          []
-          괄호 안의 문자 중 하나
-      
-      
-          ()
-          그룹 (하나의 단위로 묶음)
-      
-      
-          \\d
-          숫자 (0~9)
-      
-      
-          \\w
-          알파벳 또는 숫자 또는 밑줄
-      
-      
-          \\s
-          공백 문자 (스페이스, 탭 등)
-      
-      
-          {n}
-          정확히 n개 반복
-      
-      
-          {n,}
-          n개 이상 반복
-      
-      
-          {n,m}
-          n개 이상, m개 이하 반복
-      
-  
-
-
-
-
-CreateUserRequest DTO에 사용된 정규 표현식 분석
-1. 이름 필드
-@Pattern(regexp = &#34;^[\\p{L}]&#43;$&#34;, message = &#34;이름은 문자만 입력 가능합니다.&#34;)
-정규식: ^[\\p{L}]&#43;$
-
-  
-      
-          패턴
-          의미
-      
-  
-  
-      
-          ^
-          문자열 시작
-      
-      
-          \\p{L}
-          유니코드 문자 중 &lsquo;Letter&rsquo;(문자) 범주에 해당하는 모든 글자 (한글, 영어, 일본어 등 모두 포함)
-      
-      
-          &#43;
-          1개 이상 반복
-      
-      
-          $
-          문자열 끝
-      
-  
-
-
-의미 요약: &ldquo;문자만 1자 이상 포함된 문자열이며, 처음부터 끝까지 모두 문자인 경우만 허용&rdquo;">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Study Records",
-      "item": "https://withong.github.io/record/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "정규 표현식을 활용한 사용자 등록 요청 데이터 검증",
-      "item": "https://withong.github.io/record/2025-04-01-02/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "정규 표현식을 활용한 사용자 등록 요청 데이터 검증",
-  "name": "정규 표현식을 활용한 사용자 등록 요청 데이터 검증",
-  "description": "\r정규 표현식(Regular Expression)이란? **정규 표현식(정규식, regex)**은 특정 문자열의 규칙을 표현하는 문법이다.\n일종의 패턴 언어로, 문자열이 특정한 조건을 만족하는지 검사하거나, 일부를 추출하거나, 변환할 때 사용된다.\n1. 정규 표현식은 언제, 왜 사용하는가? 입력값 검증 (Validation) 사용자가 입력한 값이 이메일 형식인지, 숫자인지, 비밀번호 조건에 맞는지 등을 검사할 때 사용한다. 프론트엔드/백엔드 양쪽에서 모두 널리 쓰인다. 문자열 추출 또는 치환 특정 문자나 단어가 포함된 부분을 찾아내거나, 그 값을 다른 값으로 바꾸는 작업도 가능하다. 패턴 기반 검색 로그 분석, 텍스트 필터링, 문서 내 키워드 찾기 등에서 활용된다. 2. 자주 사용하는 정규 표현식 기호 기호 의미 . 임의의 한 문자 (개행 제외) ^ 문자열의 시작 $ 문자열의 끝 * 앞 문자가 0개 이상 반복 + 앞 문자가 1개 이상 반복 ? 앞 문자가 0개 또는 1개 [] 괄호 안의 문자 중 하나 () 그룹 (하나의 단위로 묶음) \\\\d 숫자 (0~9) \\\\w 알파벳 또는 숫자 또는 밑줄 \\\\s 공백 문자 (스페이스, 탭 등) {n} 정확히 n개 반복 {n,} n개 이상 반복 {n,m} n개 이상, m개 이하 반복 CreateUserRequest DTO에 사용된 정규 표현식 분석 1. 이름 필드 @Pattern(regexp = \u0026#34;^[\\\\p{L}]+$\u0026#34;, message = \u0026#34;이름은 문자만 입력 가능합니다.\u0026#34;) 정규식: ^[\\\\p{L}]+$ 패턴 의미 ^ 문자열 시작 \\\\p{L} 유니코드 문자 중 \u0026lsquo;Letter\u0026rsquo;(문자) 범주에 해당하는 모든 글자 (한글, 영어, 일본어 등 모두 포함) + 1개 이상 반복 $ 문자열 끝 의미 요약: \u0026ldquo;문자만 1자 이상 포함된 문자열이며, 처음부터 끝까지 모두 문자인 경우만 허용\u0026rdquo;\n",
-  "keywords": [
-    
-  ],
-  "articleBody": "\r정규 표현식(Regular Expression)이란? **정규 표현식(정규식, regex)**은 특정 문자열의 규칙을 표현하는 문법이다.\n일종의 패턴 언어로, 문자열이 특정한 조건을 만족하는지 검사하거나, 일부를 추출하거나, 변환할 때 사용된다.\n1. 정규 표현식은 언제, 왜 사용하는가? 입력값 검증 (Validation) 사용자가 입력한 값이 이메일 형식인지, 숫자인지, 비밀번호 조건에 맞는지 등을 검사할 때 사용한다. 프론트엔드/백엔드 양쪽에서 모두 널리 쓰인다. 문자열 추출 또는 치환 특정 문자나 단어가 포함된 부분을 찾아내거나, 그 값을 다른 값으로 바꾸는 작업도 가능하다. 패턴 기반 검색 로그 분석, 텍스트 필터링, 문서 내 키워드 찾기 등에서 활용된다. 2. 자주 사용하는 정규 표현식 기호 기호 의미 . 임의의 한 문자 (개행 제외) ^ 문자열의 시작 $ 문자열의 끝 * 앞 문자가 0개 이상 반복 + 앞 문자가 1개 이상 반복 ? 앞 문자가 0개 또는 1개 [] 괄호 안의 문자 중 하나 () 그룹 (하나의 단위로 묶음) \\\\d 숫자 (0~9) \\\\w 알파벳 또는 숫자 또는 밑줄 \\\\s 공백 문자 (스페이스, 탭 등) {n} 정확히 n개 반복 {n,} n개 이상 반복 {n,m} n개 이상, m개 이하 반복 CreateUserRequest DTO에 사용된 정규 표현식 분석 1. 이름 필드 @Pattern(regexp = \"^[\\\\p{L}]+$\", message = \"이름은 문자만 입력 가능합니다.\") 정규식: ^[\\\\p{L}]+$ 패턴 의미 ^ 문자열 시작 \\\\p{L} 유니코드 문자 중 ‘Letter’(문자) 범주에 해당하는 모든 글자 (한글, 영어, 일본어 등 모두 포함) + 1개 이상 반복 $ 문자열 끝 의미 요약: “문자만 1자 이상 포함된 문자열이며, 처음부터 끝까지 모두 문자인 경우만 허용”\n→ 숫자, 기호, 공백 등은 허용되지 않음.\n→ 유니코드 기준이라 영어, 한글 모두 지원됨.\n2. 이메일 필드 @Pattern(regexp = \"^[^@\\\\s]+@[^@\\\\s]+\\\\.[^@\\\\s]+$\", message = \"올바른 이메일이 아닙니다.\") 정규식: ^[^@\\\\s]+@[^@\\\\s]+\\\\.[^@\\\\s]+$ 패턴 의미 ^ 문자열 시작 [^@\\\\s]+ ‘@‘와 공백을 제외한 문자 1개 이상 @ ‘@’ 문자 [^@\\\\s]+ ‘@‘와 공백을 제외한 문자 1개 이상 \\\\. ‘.’ 문자 (도메인 구분용) [^@\\\\s]+ ‘@‘와 공백을 제외한 문자 1개 이상 $ 문자열 끝 의미 요약: 이메일의 기본 형식인 aaa@bbb.ccc 형태를 따르며, ‘@‘는 딱 하나 포함되고, 공백은 허용되지 않는다.\n@Email 어노테이션만 사용하면 aaa@bbb처럼 @ 뒤에 마침표가 없어도 유효한 이메일로 간주되는 문제가 있기 때문에, 이를 보완하기 위해 정규식을 함께 사용해 @ 뒤에 반드시 마침표(.)가 있고, 그 뒤에도 문자가 존재하는지를 추가 검증한다.\n3. 비밀번호 필드 @Pattern( regexp = \"^(?=.*[A-Za-z])(?=.*\\\\d)(?=.*[!@#$%^\u0026*])[A-Za-z\\\\d!@#$%^\u0026*]{8,}$\", message = \"비밀번호는 영문자, 숫자, 특수문자가 포함되어야 합니다.\" ) 정규식: ^(?=.*[A-Za-z])(?=.*\\\\d)(?=.*[!@#$%^\u0026*])[A-Za-z\\\\d!@#$%^\u0026*]{8,}$\n패턴 의미 ^ 문자열 시작 (?=.*[A-Za-z]) 영문자가 최소 1개 이상 있어야 함 (?=.*\\\\d) 숫자(0~9)가 최소 1개 이상 있어야 함 (?=.*[!@#$%^\u0026*]) 지정된 특수문자가 최소 1개 이상 있어야 함 [A-Za-z\\\\d!@#$%^\u0026*]{8,} 위에 지정한 문자들로만 구성되어 있으며, 총 8자 이상 $ 문자열 끝 의미 요약:\n“영문자 + 숫자 + 특수문자를 최소 하나씩 포함하며, 8자 이상이고, 다른 문자는 허용하지 않음”\n→ 특수문자는 !@#$%^\u0026*로 제한됨\n→ 공백이나 한글 등 다른 문자가 포함되면 검증 실패\n",
-  "wordCount" : "415",
-  "inLanguage": "ko",
-  "datePublished": "2025-04-01T22:05:47+09:00",
-  "dateModified": "2025-04-01T22:05:47+09:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://withong.github.io/record/2025-04-01-02/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "withong",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://withong.github.io/icons/rec.png"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -389,7 +199,7 @@ CreateUserRequest DTO에 사용된 정규 표현식 분석
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <a href="http://localhost:1313/" accesskey="h" title="withong (Alt + H)">withong</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -415,27 +225,27 @@ CreateUserRequest DTO에 사용된 정규 표현식 분석
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="☰">
+                <a href="http://localhost:1313/log/" title="☰">
                     <span>☰</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/record/" title="Record">
+                <a href="http://localhost:1313/record/" title="Record">
                     <span>Record</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/project/" title="Project">
+                <a href="http://localhost:1313/project/" title="Project">
                     <span>Project</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
+                <a href="http://localhost:1313/tag/" title="Tag">
                     <span>Tag</span>
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -446,7 +256,7 @@ CreateUserRequest DTO에 사용된 정규 표현식 분석
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/record/">Study Records</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/record/">Study Records</a></div>
     <h1 class="post-title entry-hint-parent">
       정규 표현식을 활용한 사용자 등록 요청 데이터 검증
     </h1>
@@ -714,12 +524,12 @@ CreateUserRequest DTO에 사용된 정규 표현식 분석
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://withong.github.io/record/2025-04-01-03/">
+  <a class="prev" href="http://localhost:1313/record/2025-04-01-03/">
     <span class="title">« Prev</span>
     <br>
     <span>Bcrypt를 활용한 비밀번호 암호화</span>
   </a>
-  <a class="next" href="https://withong.github.io/record/2025-04-03/">
+  <a class="next" href="http://localhost:1313/record/2025-04-03/">
     <span class="title">Next »</span>
     <br>
     <span>QueryDSL을 활용한 조건 기반 일정 조회</span>
@@ -731,7 +541,7 @@ CreateUserRequest DTO에 사용된 정규 표현식 분석
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">withong</a></span> · 
 
     <span>
         Powered by

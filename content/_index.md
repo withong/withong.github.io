@@ -1,4 +1,0 @@
----
-url: /
-redirect: /log/
----
