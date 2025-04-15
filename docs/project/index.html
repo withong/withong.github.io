@@ -160,6 +160,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">뉴스피드 API 트러블 슈팅
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>@JsonFormat을 이용한 사용자 요청 값 검증 상황 회원가입 시 사용자의 생년월일을 UserCreateRequestDto에서 LocalDate 타입으로 받고 있으며, 아래와 같이 @JsonFormat을 사용하여 날짜 형식을 검증하고자 했음.
+// 생년월일 @NotNull(message = &#34;생년월일은 필수 입력값입니다.&#34;) @JsonFormat(pattern = &#34;yyyyMMdd&#34;) private final LocalDate birth; 문제 @JsonFormat은 지정한 형식과 다른 값이 입력될 경우, 컨트롤러에 진입하기 전에 JSON → Java 객체로 변환하는 Jackson 역직렬화 과정에서 예외를 발생시킴. 이때 발생하는 예외는 @Valid에서 처리되지 않고 BindingResult이나 MethodArgumentNotValidException으로도 잡을 수 없으며, HttpMessageNotReadableException으로 처리되어 클라이언트에게는 단순한 400 Bad Request 응답으로 전달됨.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-15 17:53:03 +0900 KST'>2025년 4월 15일</span></footer>
+  <a class="entry-link" aria-label="post link to 뉴스피드 API 트러블 슈팅" href="https://withong.github.io/project/news-feed-01/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">일정 관리 API (JPA) 트러블 슈팅
     </h2>
   </header>
@@ -299,22 +313,6 @@ Enum 타입을 활용하여 연산자 타입에 대한 정보를 관리하고 �
   </div>
   <footer class="entry-footer"><span title='2025-03-05 22:00:00 +0900 KST'>2025년 3월 5일</span></footer>
   <a class="entry-link" aria-label="post link to 계산기 Lv 3" href="https://withong.github.io/project/calculator-04/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">계산기 Lv 1-2 회고
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ [과제] Java 계산기 만들기 level 2 수정
-✅ [과제] 과제 TIL &amp; 트러블 슈팅 작성
-✅ [문제] 알고리즘 문제 풀기
-✅ 개인 과제 - 필수 구현 [내일배움캠프] 과제 - 계산기 1 / [GitHub] nbc-chapter-02/calculator/level1 [내일배움캠프] 과제 - 계산기 2 / [GitHub] nbc-chapter-02/calculator/level2 🫠 level 1 vs level 2 개선된 점 계산 결과 객체, 계산기 기능 클래스, 프로그램 실행으로 역할 분리 calculate()의 반환 타입 double에서 String으로 변경
-→ 연산 오류 처리 반환값 -9999에서 의미 있는 메시지로 개선 CalculationRecord 클래스 추가하여 연산 기록 저장 방식 개선 trimRecords() 추가하여 과도한 데이터 누적 방지 0으로 나누기 처리 Error에서 정의되지 않음으로 개선 int 범위 초과 처리 Error에서 연산 범위 초과로 개선 최근 연산 기록 조회할 수 있도록 showRecords() 추가 사용자가 직접 삭제할 수 있도록 removeRecords() 메서드 추가. 개선할 점 int 범위 초과하는 입력값, 연산 결과 오류 → long으로 확장 오류 처리 방식 handleError → 커스텀 예외 처리 </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-28 22:00:00 +0900 KST'>2025년 2월 28일</span></footer>
-  <a class="entry-link" aria-label="post link to 계산기 Lv 1-2 회고" href="https://withong.github.io/project/calculator-03/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

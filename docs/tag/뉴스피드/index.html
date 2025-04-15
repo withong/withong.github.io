@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>트러블 슈팅 | withong</title>
+<title>뉴스피드 | withong</title>
 <meta name="keywords" content="">
 <meta name="description" content="Today I Learned">
 <meta name="author" content="">
-<link rel="canonical" href="https://withong.github.io/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/">
+<link rel="canonical" href="https://withong.github.io/tag/%EB%89%B4%EC%8A%A4%ED%94%BC%EB%93%9C/">
 <link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://withong.github.io/icons/rec.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/rec.png">
@@ -18,8 +18,8 @@
 <link rel="mask-icon" href="https://withong.github.io/icons/rec.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://withong.github.io/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/index.xml">
-<link rel="alternate" hreflang="ko" href="https://withong.github.io/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/">
+<link rel="alternate" type="application/rss+xml" href="https://withong.github.io/tag/%EB%89%B4%EC%8A%A4%ED%94%BC%EB%93%9C/index.xml">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/tag/%EB%89%B4%EC%8A%A4%ED%94%BC%EB%93%9C/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,14 +56,14 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="https://withong.github.io/tag/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85/">
+</noscript><meta property="og:url" content="https://withong.github.io/tag/%EB%89%B4%EC%8A%A4%ED%94%BC%EB%93%9C/">
   <meta property="og:site_name" content="withong">
-  <meta property="og:title" content="트러블 슈팅">
+  <meta property="og:title" content="뉴스피드">
   <meta property="og:description" content="Today I Learned">
   <meta property="og:locale" content="ko">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="트러블 슈팅">
+<meta name="twitter:title" content="뉴스피드">
 <meta name="twitter:description" content="Today I Learned">
 
 </head>
@@ -139,7 +139,7 @@
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
   <h1>
-    트러블 슈팅
+    뉴스피드
   </h1>
 </header>
 
@@ -155,51 +155,6 @@
   </div>
   <footer class="entry-footer"><span title='2025-04-15 17:53:03 +0900 KST'>2025년 4월 15일</span></footer>
   <a class="entry-link" aria-label="post link to 뉴스피드 API 트러블 슈팅" href="https://withong.github.io/project/news-feed-01/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">일정 관리 API (JPA) 트러블 슈팅
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> GitHub ▶ nbc-chapter-03-develop 1. 이메일 형식 검증 문제:
-@Email을 어노테이션으로 이메일 형식을 검증해도
-test@gmail 같은 @ 뒤에 마침표(.)가 존재하지 않는 이메일이 통과됨…
-원인:
-@Email은 기본적으로 @ 기호와 텍스트 구조만 확인하고,
-도메인에 마침표가 포함되어야 한다는 조건은 강제하지 않음
-분석:
-@Email만으로는 @뒤에 마침표가 1개 이상 존재하고,
-마지막 마침표 뒤에 문자열이 있다는 현실적인 이메일 형식 검증은 부족함
-해결:
-정규 표현식을 함께 사용해 @ 뒤에 마침표 포함 여부와 마침표 뒤의 문자열까지 추가로 검증
-▶ 공부 기록 [정규 표현식을 활용한 사용자 등록 요청 데이터 검증]
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-04-03 22:28:58 +0900 KST'>2025년 4월 3일</span></footer>
-  <a class="entry-link" aria-label="post link to 일정 관리 API (JPA) 트러블 슈팅" href="https://withong.github.io/project/schedule-02/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">일정 관리 API (JDBC) 트러블 슈팅
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> GitHub ▶ nbc-chapter-03-basic 1. 등록 시 createdAt, updatedAt Null createdAt, updatedAt는 DB에서 자동 갱신됨
-1.1. 문제 일정/사용자 등록 후 반환된 createdAt, updatedAt 값이 Null
-1.2. 원인 당연함… 등록 요청 시 전달받은 정보를 응답 DTO에 넣어주고 그 값을 반환하는데
-DB에서 자동으로 업데이트 하는 값은 안 들어오니까 안 넣어줬고…
-DB 조회해서 가져오기 전까지 당연히 Null임.
-1.3. 해결 전달받은 식별자를 통해 재 조회한 결과 반환
-2. 변경 요청 시 변경된 내용이 없을 경우 2.1. 문제 클라이언트가 기존 정보와 동일한 정보로 변경 요청 시
-jdbcTempalte.update의 반환 값이 0이 올 것이라 예상했으나
-예상 결과와 다르게 동일한 값도 update 후 1이 반환됨
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-25 20:20:11 +0900 KST'>2025년 3월 25일</span></footer>
-  <a class="entry-link" aria-label="post link to 일정 관리 API (JDBC) 트러블 슈팅" href="https://withong.github.io/project/schedule-01/"></a>
 </article>
     </main>
     
