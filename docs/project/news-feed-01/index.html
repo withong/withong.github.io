@@ -10,12 +10,14 @@
 <meta name="description" content="
 
 @JsonFormat을 이용한 사용자 요청 값 검증
+
 상황
 회원가입 시 사용자의 생년월일을 UserCreateRequestDto에서 LocalDate 타입으로 받고 있으며, 아래와 같이 @JsonFormat을 사용하여 날짜 형식을 검증하고자 했음.
 // 생년월일
 @NotNull(message = &#34;생년월일은 필수 입력값입니다.&#34;)
 @JsonFormat(pattern = &#34;yyyyMMdd&#34;)
 private final LocalDate birth;
+
 문제
 @JsonFormat은 지정한 형식과 다른 값이 입력될 경우, 컨트롤러에 진입하기 전에 JSON → Java 객체로 변환하는 Jackson 역직렬화 과정에서 예외를 발생시킴. 이때 발생하는 예외는 @Valid에서 처리되지 않고 BindingResult이나 MethodArgumentNotValidException으로도 잡을 수 없으며, HttpMessageNotReadableException으로 처리되어 클라이언트에게는 단순한 400 Bad Request 응답으로 전달됨.">
 <meta name="author" content="">
@@ -80,12 +82,14 @@ private final LocalDate birth;
 <meta name="twitter:description" content="
 
 @JsonFormat을 이용한 사용자 요청 값 검증
+
 상황
 회원가입 시 사용자의 생년월일을 UserCreateRequestDto에서 LocalDate 타입으로 받고 있으며, 아래와 같이 @JsonFormat을 사용하여 날짜 형식을 검증하고자 했음.
 // 생년월일
 @NotNull(message = &#34;생년월일은 필수 입력값입니다.&#34;)
 @JsonFormat(pattern = &#34;yyyyMMdd&#34;)
 private final LocalDate birth;
+
 문제
 @JsonFormat은 지정한 형식과 다른 값이 입력될 경우, 컨트롤러에 진입하기 전에 JSON → Java 객체로 변환하는 Jackson 역직렬화 과정에서 예외를 발생시킴. 이때 발생하는 예외는 @Valid에서 처리되지 않고 BindingResult이나 MethodArgumentNotValidException으로도 잡을 수 없으며, HttpMessageNotReadableException으로 처리되어 클라이언트에게는 단순한 400 Bad Request 응답으로 전달됨.">
 
@@ -246,24 +250,29 @@ private final LocalDate birth;
   <div class="post-content"><hr>
 <br>
 <h2 id="jsonformat을-이용한-사용자-요청-값-검증">@JsonFormat을 이용한 사용자 요청 값 검증<a hidden class="anchor" aria-hidden="true" href="#jsonformat을-이용한-사용자-요청-값-검증">#</a></h2>
+<br>
 <h3 id="상황">상황<a hidden class="anchor" aria-hidden="true" href="#상황">#</a></h3>
 <p>회원가입 시 사용자의 생년월일을 <code>UserCreateRequestDto</code>에서 <code>LocalDate</code> 타입으로 받고 있으며, 아래와 같이 <code>@JsonFormat</code>을 사용하여 날짜 형식을 검증하고자 했음.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 생년월일</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@NotNull</span><span class="p">(</span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;생년월일은 필수 입력값입니다.&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@JsonFormat</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;yyyyMMdd&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">birth</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><h3 id="문제">문제<a hidden class="anchor" aria-hidden="true" href="#문제">#</a></h3>
+</span></span></span></code></pre></div><br>
+<h3 id="문제">문제<a hidden class="anchor" aria-hidden="true" href="#문제">#</a></h3>
 <p><code>@JsonFormat</code>은 지정한 형식과 다른 값이 입력될 경우, 컨트롤러에 진입하기 전에 JSON → Java 객체로 변환하는 Jackson 역직렬화 과정에서 예외를 발생시킴. 이때 발생하는 예외는 <code>@Valid</code>에서 처리되지 않고 <code>BindingResult</code>이나 <code>MethodArgumentNotValidException</code>으로도 잡을 수 없으며, <code>HttpMessageNotReadableException</code>으로 처리되어 클라이언트에게는 단순한 400 Bad Request 응답으로 전달됨.</p>
+<br>
 <h3 id="원인">원인<a hidden class="anchor" aria-hidden="true" href="#원인">#</a></h3>
 <ul>
 <li><code>@JsonFormat</code>은 Jackson의 JSON 직렬화 및 역직렬화 시점에서 적용할 형식을 지정하는 용도임.</li>
 <li>유효성 검증을 위한 어노테이션이 아니며, Spring의 Bean Validation과는 무관하게 발생함.</li>
 </ul>
+<br>
 <h3 id="분석">분석<a hidden class="anchor" aria-hidden="true" href="#분석">#</a></h3>
 <ul>
 <li>사용자 입력 값의 형식 검증 용도로 <code>@JsonFormat</code>을 사용하는 것은 적절하지 않음.</li>
 <li>대안으로 생년월일을 <code>String</code>으로 받고 <code>@Pattern</code>을 통해 원하는 형식을 검증한 후 <code>LocalDate</code>로 변환하는 방법이 있으나, 별도의 변환 단계가 추가되며 Entity와의 일관성이 떨어짐.</li>
 </ul>
+<br>
 <h3 id="해결">해결<a hidden class="anchor" aria-hidden="true" href="#해결">#</a></h3>
 <p>불필요한 구조 변경 없이, 입력 오류에 대한 구체적인 피드백을 제공하는 방향으로 개선함.</p>
 <ul>
