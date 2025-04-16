@@ -6,20 +6,41 @@
     <description>Recent content in Tag on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 15 Apr 2025 17:53:03 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 16 Apr 2025 23:43:34 +0900</lastBuildDate>
     <atom:link href="https://withong.github.io/tag/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>과제</title>
-      <link>https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/</link>
-      <pubDate>Tue, 15 Apr 2025 17:53:03 +0900</pubDate>
-      <guid>https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/</guid>
+      <title>JPA</title>
+      <link>https://withong.github.io/tag/jpa/</link>
+      <pubDate>Wed, 16 Apr 2025 23:43:34 +0900</pubDate>
+      <guid>https://withong.github.io/tag/jpa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spring</title>
+      <link>https://withong.github.io/tag/spring/</link>
+      <pubDate>Wed, 16 Apr 2025 23:43:34 +0900</pubDate>
+      <guid>https://withong.github.io/tag/spring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TIL</title>
+      <link>https://withong.github.io/tag/til/</link>
+      <pubDate>Wed, 16 Apr 2025 23:43:34 +0900</pubDate>
+      <guid>https://withong.github.io/tag/til/</guid>
       <description></description>
     </item>
     <item>
       <title>내일배움캠프</title>
       <link>https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/</link>
-      <pubDate>Tue, 15 Apr 2025 17:53:03 +0900</pubDate>
+      <pubDate>Wed, 16 Apr 2025 23:43:34 +0900</pubDate>
       <guid>https://withong.github.io/tag/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>과제</title>
+      <link>https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/</link>
+      <pubDate>Tue, 15 Apr 2025 17:53:03 +0900</pubDate>
+      <guid>https://withong.github.io/tag/%EA%B3%BC%EC%A0%9C/</guid>
       <description></description>
     </item>
     <item>
@@ -41,13 +62,6 @@
       <link>https://withong.github.io/tag/jwt/</link>
       <pubDate>Thu, 10 Apr 2025 22:00:06 +0900</pubDate>
       <guid>https://withong.github.io/tag/jwt/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>TIL</title>
-      <link>https://withong.github.io/tag/til/</link>
-      <pubDate>Thu, 10 Apr 2025 22:00:06 +0900</pubDate>
-      <guid>https://withong.github.io/tag/til/</guid>
       <description></description>
     </item>
     <item>
@@ -90,13 +104,6 @@
       <link>https://withong.github.io/tag/algorism/</link>
       <pubDate>Tue, 01 Apr 2025 09:54:56 +0900</pubDate>
       <guid>https://withong.github.io/tag/algorism/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Spring</title>
-      <link>https://withong.github.io/tag/spring/</link>
-      <pubDate>Fri, 28 Mar 2025 20:28:44 +0900</pubDate>
-      <guid>https://withong.github.io/tag/spring/</guid>
       <description></description>
     </item>
     <item>

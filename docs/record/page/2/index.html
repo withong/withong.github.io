@@ -163,6 +163,37 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">최대 공약수와 최소 공배수
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 문제 설명 두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 배열의 맨 앞에 최대공약수, 그다음 최소공배수를 넣어 반환하면 됩니다. 예를 들어 두 수 3, 12의 최대공약수는 3, 최소공배수는 12이므로 solution(3, 12)는 [3, 12]를 반환해야 합니다.
+코딩에서 쓰이는 공식 최대공약수(GCD): 유클리드 호제법 사용 GCD(a, b) = GCD(b, a % b) 나머지가 0이 될 때까지 반복하면, 그때의 값이 최대공약수
+최소공배수(LCM): LCM(a, b) = a * b / GCD(a, b) 곱해서 최대공약수로 나누면 최소공배수
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-25 20:07:52 +0900 KST'>2025년 3월 25일</span></footer>
+  <a class="entry-link" aria-label="post link to 최대 공약수와 최소 공배수" href="https://withong.github.io/record/2025-03-25/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Spring 기초 4
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Slf4j 인터페이스이며, Logback 같은 구현체를 사용할 수 있음.
+Spring Boot는 기본적으로 Logback을 제공.
+System.out.println() 대신 로깅 라이브러리를 사용.
+Log Level: TRACE → DEBUG → INFO → WARN → ERROR
+@Slf4j @RestController public class Slf4jController { @RequestMapping(&#34;/logging&#34;) public String logging() { String sparta = &#34;Sparta&#34;; log.info(&#34;문자 info={}&#34;, sparta); return &#34;success&#34;; } } Controller vs RestController @Controller: View 반환 (Thymeleaf, JSP 사용) @Controller public class ViewController { @RequestMapping(&#34;/view&#34;) public String example() { return &#34;sparta&#34;; // View Name 반환 } } @RestController: Data 반환 (REST API) @RestController public class ResponseController { @RequestMapping(&#34;/string&#34;) public String example() { return &#34;sparta&#34;; // HTTP Body에 Data 입력 } } Annotation @Component: Spring Bean 등록하는 역할을 수행. @Target: 애노테이션 적용 범위를 지정. @Retention: 유지 기간을 결정. (SOURCE, CLASS, RUNTIME) @Documented: 문서화 도구에 의해 문서화되도록 지정. RequestMapping 특정 URL 요청을 특정 메서드와 매핑함. 여러 요소(URL, HTTP Method 등)를 조합하여 매핑할 수 있음. Spring Boot 3.0부터 /example/ 대신 /example만 허용됨. @RestController public class RequestMappingController { @RequestMapping(value = &#34;/v1&#34;, method = RequestMethod.GET) public String exampleV1() { return &#34;this is sparta!&#34;; } @GetMapping(value = &#34;/v2&#34;) public String exampleV2() { return &#34;this is sparta!&#34;; } } PathVariable URL 값을 파라미터로 받아오는 방식. @GetMapping(&#34;/{postId}&#34;) public String pathVariable(@PathVariable Long postId) { return &#34;Post ID: &#34; &#43; postId; } @GetMapping(&#34;/{postId}/comments/{commentId}&#34;) public String pathVariableMulti(@PathVariable Long postId, @PathVariable Long commentId) { return &#34;Post ID: &#34; &#43; postId &#43; &#34;, Comment ID: &#34; &#43; commentId; } 특정 파라미터 매핑 Query Parameter 매핑 @GetMapping(value = &#34;/users&#34;, params = &#34;gender=man&#34;) public String params() { return &#34;params API 호출됨&#34;; } Header 매핑 @PostMapping(value = &#34;/users&#34;, headers = &#34;Content-Type=application/json&#34;) public String headers() { return &#34;headers API 호출됨&#34;; } MediaType 매핑 @PostMapping(value = &#34;/users&#34;, consumes = MediaType.APPLICATION_JSON_VALUE) public String consumes() { return &#34;consumes API 호출됨&#34;; } produces 속성을 이용해 특정 응답 타입을 지정할 수 있음. Spring이 지원하는 Parameter 요청 헤더 조회 @Slf4j @RestController public class RequestHeaderController { @GetMapping(&#34;/request/headers&#34;) public String headers(@RequestHeader(&#34;host&#34;) String host) { log.info(&#34;host={}&#34;, host); return &#34;success&#34;; } } MultiValueMap 여러 개의 값을 받을 때 사용 MultiValueMap&lt;String, String&gt; map = new LinkedMultiValueMap&lt;&gt;(); map.add(&#34;key1&#34;, &#34;value1&#34;); map.add(&#34;key1&#34;, &#34;value2&#34;); </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-19 21:54:12 +0900 KST'>2025년 3월 19일</span></footer>
+  <a class="entry-link" aria-label="post link to Spring 기초 4" href="https://withong.github.io/record/2025-03-19/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Spring 기초 3
     </h2>
   </header>
@@ -275,32 +306,6 @@ Chapter 2. 객체지향 이해하기 클래스와 객체 클래스(class) → �
   </div>
   <footer class="entry-footer"><span title='2025-02-25 21:00:00 +0900 KST'>2025년 2월 25일</span></footer>
   <a class="entry-link" aria-label="post link to 객체지향" href="https://withong.github.io/record/2025-02-25-02/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">final
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>final -지역변수 final이 붙은 지역변수는 한 번만 값을 할당할 수 있음. 값이 할당된 이후에는 변경 불가능. 메서드의 매개변수에도 final을 적용할 수 있으며, 이 경우 해당 매개변수 값 변경이 불가능. public class FinalLocalMain { public static void main(String[] args) { // final 지역변수1 - 선언 후 할당 (한 번만 가능) final int data1; data1 = 10; // 최초 할당 가능 // data1 = 20; // 오류! final 변수는 한 번만 할당 가능 // final 지역변수2 - 선언과 동시에 초기화 final int data2 = 10; // data2 = 20; // 오류! 이미 값이 설정됨 method(10); } // final 매개변수 (메서드 내부에서 변경 불가능) static void method(final int parameter) { // parameter = 20; // 오류! final 매개변수는 값 변경 불가 } } final 지역변수는 최초 한 번만 값을 할당 가능, 이후 변경 불가. final 매개변수는 메서드 내부에서 값 변경이 불가능. final - 필드(멤버변수) 클래스의 멤버 변수(필드)에 final을 사용하면, 해당 필드는 한 번만 초기화 가능함.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-25 09:00:00 +0900 KST'>2025년 2월 25일</span></footer>
-  <a class="entry-link" aria-label="post link to final" href="https://withong.github.io/record/2025-02-25-01/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Java 기초
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ Java 문법 강의 1주차
-Chapter 1. Java 기초 문법 다지기 JDK (Java Development Kit) JDK → Java 프로그램을 개발할 때 필요한 개발 도구 모음 Javac(Java Compiler) → 자바코드를 바이트코드(.class)로 변환 JVM (Java Virtual Machine) → 바이트코드를 실행 컴퓨터의 기억 방식 RAM (메모리) → 휘발성, 프로그램 실행 시 사용됨 보조기억장치 (HDD, SSD) → 영구 저장 비트(Bit) → 0 또는 1의 값 바이트(Byte) → 8비트로 구성 자바 프로젝트 관리 네이밍 규칙 카멜케이스 (camelCase) → 변수, 메서드 (myVariableName) 스네이크케이스 (snake_case) → (Java에서는 잘 사용하지 않음) 클래스 이름 → PascalCase (MyClass) 패키지 이름 → 소문자 (com.example.app) 변수와 자료형 변수 → 데이터를 저장하는 공간 자료형 기본형: int, double, char, boolean 참조형: String, Array, Class int num = 10; // 정수형 변수 double pi = 3.14; // 실수형 변수 boolean isJavaFun = true; // 논리형 변수 형변환 업캐스팅(작은 → 큰 자료형) → 자동 변환 다운캐스팅(큰 → 작은 자료형) → 강제 변환 double d = 10; // 자동 형변환 (업캐스팅) int i = (int) d; // 강제 형변환 (다운캐스팅) 입출력 (I/O) 입력 (Scanner 사용) import java.util.Scanner; Scanner scanner = new Scanner(System.in); int num = scanner.nextInt(); // 정수 입력 출력 (System.out 사용) System.out.println(&#34;Hello Java!&#34;); // 개행 포함 출력 System.out.print(&#34;No new line&#34;); // 개행 없이 출력 System.out.println(&#34;\n줄 바꿈 포함&#34;); // `\n` 사용 연산자 산술 연산자(&#43;, -, *, /, %) 대입 연산자(=) 복합 대입 연산자(&#43;=, -=, *=, /= , %=) 증감 연산자(&#43;&#43;, --) 전위 연산 - 사용 전 연산 후위 연산 - 사용 후 연산 비교 연산자(==, !=, &lt;, &gt;, &lt;=, &gt;=) 논리 연산자(!, &amp;&amp;, ||) 문자열 비교(equals()) 조건문 import java.util.Scanner; Scanner scanner = new Scanner(System.in); System.out.print(&#34;신호등 색상을 입력하세요(초록불, 노란불, 빨간불): &#34;); String light = scanner.nextLine(); if (light.equals(&#34;초록불&#34;)) { System.out.println(&#34;건너세요!&#34;); } else if (light.equals(&#34;노란불&#34;)) { System.out.println(&#34;주의하세요!&#34;); } else if (light.equals(&#34;빨간불&#34;)) { System.out.println(&#34;멈추세요!&#34;); } else { System.out.println(&#34;잘못된 입력입니다!&#34;); } switch (light) { case &#34;초록불&#34;: System.out.println(&#34;건너세요!&#34;); break; case &#34;노란불&#34;: System.out.println(&#34;주의하세요!&#34;); break; case &#34;빨간불&#34;: System.out.println(&#34;멈추세요!&#34;); break; default: System.out.println(&#34;잘못된 입력입니다!&#34;); } 반복문 for (int i = 0; i &lt; 5; i&#43;&#43;) { System.out.print(i &#43; &#34; &#34;); // 0 1 2 3 4 } int i = 0; while (i &lt; 5) { System.out.print(i &#43; &#34; &#34;); i&#43;&#43;; } int i = 0; do { System.out.print(i &#43; &#34; &#34;); i&#43;&#43;; } while (i &lt; 5); 배열 // 1. 배열 선언 int[] arr1; // 2. 배열 길이 할당 arr1 = new int[5]; // 3. 배열 선언과 길이 동시에 할당 int[] arr2 = new int[5]; // 4. 배열 선언과 동시에 배열의 요소 할당 int[] arr3 = {10, 20, 30, 40, 50}; // 배열의 길이 int arrLength = arr3.length; System.out.println(&#34;arrLength = &#34; &#43; arrLength); // 배열 요소 접근 System.out.println(&#34;배열의 1번째 요소 접근: &#34; &#43; arr3[0]); // 배열 요소 변경 arr3[0] = 100; // 향상된 for 문 for (int a : arr3) { System.out.println(&#34;a = &#34; &#43; a); } // 2차원 배열 int[][] arr4 = { {1, 2}, {3, 4} }; System.out.println(arr4[1][0]); // 3 메서드 public class Calculator { // 두 정수를 더하는 메서드 (반환값 있음: int) int sum(int value1, int value2) { int result = value1 &#43; value2; // 두 값 더하기 return result; // 결과 반환 } // 반환값이 없는 메서드 (void) void printSum(int value1, int value2) { int result = value1 &#43; value2; System.out.println(&#34;result = &#34; &#43; result); } } public class Main { public static void main(String[] args) { Calculator calculator = new Calculator(); // Calculator 객체 생성 // sum 메서드는 반환값이 있어서 변수에 저장 int result = calculator.sum(1, 2); System.out.println(&#34;result = &#34; &#43; result); // printSum 메서드는 반환값이 없고 바로 출력됨 calculator.printSum(3, 4); } } result = 3result = 7 </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-24 21:00:00 +0900 KST'>2025년 2월 24일</span></footer>
-  <a class="entry-link" aria-label="post link to Java 기초" href="https://withong.github.io/record/2025-02-24/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

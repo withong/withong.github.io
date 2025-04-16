@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>JPA on withong</title>
+    <link>https://withong.github.io/tag/jpa/</link>
+    <description>Recent content in JPA on withong</description>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Wed, 16 Apr 2025 23:43:34 +0900</lastBuildDate>
+    <atom:link href="https://withong.github.io/tag/jpa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring 심화 - JPA</title>
+      <link>https://withong.github.io/record/2025-04-16-02/</link>
+      <pubDate>Wed, 16 Apr 2025 23:43:34 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-16-02/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;1-연관관계-매핑&#34;&gt;1. 연관관계 매핑&lt;/h2&gt;
+&lt;p&gt;JPA는 객체 간의 연관관계를 데이터베이스의 외래 키로 매핑할 수 있도록 다음과 같은 어노테이션을 제공한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@ManyToOne&lt;/code&gt;: 다대일 관계 (예: 여러 게시글이 하나의 작성자와 연결됨)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@OneToMany&lt;/code&gt;: 일대다 관계 (예: 하나의 주문이 여러 상품과 연결됨)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@OneToOne&lt;/code&gt;: 일대일 관계 (예: 한 사람당 하나의 여권을 가짐)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@ManyToMany&lt;/code&gt;: 다대다 관계 (예: 여러 사용자가 여러 관심사를 가질 수 있음)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;JPA에서 연관관계를 설계할 때는 반드시 외래 키(FK)를 어느 테이블이 관리할지 결정해야 하며, 이를 “연관관계의 주인”이라고 한다.&lt;br&gt;
+실제 외래 키는 항상 &amp;ldquo;다수 쪽(N쪽)&amp;ldquo;에 존재하며, 해당 필드를 가진 객체가 연관관계의 주인이 되어야 한다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

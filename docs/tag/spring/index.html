@@ -145,7 +145,38 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Spring 심화 2
+    <h2 class="entry-hint-parent">Spring 심화 - JPA
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. 연관관계 매핑 JPA는 객체 간의 연관관계를 데이터베이스의 외래 키로 매핑할 수 있도록 다음과 같은 어노테이션을 제공한다.
+@ManyToOne: 다대일 관계 (예: 여러 게시글이 하나의 작성자와 연결됨) @OneToMany: 일대다 관계 (예: 하나의 주문이 여러 상품과 연결됨) @OneToOne: 일대일 관계 (예: 한 사람당 하나의 여권을 가짐) @ManyToMany: 다대다 관계 (예: 여러 사용자가 여러 관심사를 가질 수 있음) JPA에서 연관관계를 설계할 때는 반드시 외래 키(FK)를 어느 테이블이 관리할지 결정해야 하며, 이를 “연관관계의 주인”이라고 한다.
+실제 외래 키는 항상 “다수 쪽(N쪽)“에 존재하며, 해당 필드를 가진 객체가 연관관계의 주인이 되어야 한다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-16 23:43:34 +0900 KST'>2025년 4월 16일</span></footer>
+  <a class="entry-link" aria-label="post link to Spring 심화 - JPA" href="https://withong.github.io/record/2025-04-16-02/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Spring 심화
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Spring MVC 요청 처리 흐름의 핵심 구조 Spring MVC에서 클라이언트 요청이 들어왔을 때의 내부 처리 흐름
+DispatcherServlet이 요청을 받는다. 요청 URI에 맞는 컨트롤러 메서드를 찾기 위해 HandlerMapping이 사용된다. 해당 컨트롤러를 실행하기 위해 HandlerAdapter 중 하나인 RequestMappingHandlerAdapter가 선택된다. RequestMappingHandlerAdapter는 컨트롤러 메서드의 파라미터를 채우기 위해 ArgumentResolver를, 반환값을 처리하기 위해 ReturnValueHandler를 사용한다. 이 과정에서 요청 본문 또는 응답 본문을 처리하기 위해 HttpMessageConverter가 사용된다. 2. HttpMessageConverter 정의 HttpMessageConverter는 HTTP 요청 본문을 자바 객체로 변환하거나, 자바 객체를 HTTP 응답 본문으로 변환하는 인터페이스이다.
+주로 @RequestBody, @ResponseBody, HttpEntity, RequestEntity, ResponseEntity 등과 함께 사용되며,
+이런 어노테이션이나 객체가 사용된 컨트롤러 메서드는 내부적으로 HttpMessageConverter를 통해 처리된다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-16 15:41:39 +0900 KST'>2025년 4월 16일</span></footer>
+  <a class="entry-link" aria-label="post link to Spring 심화" href="https://withong.github.io/record/2025-04-16-01/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Spring 숙련 2
     </h2>
   </header>
   <div class="entry-content">
@@ -155,12 +186,12 @@ Cookie 쿠키란? 클라이언트(브라우저)에 저장되는 작은 데이터
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-28 20:28:44 +0900 KST'>2025년 3월 28일</span></footer>
-  <a class="entry-link" aria-label="post link to Spring 심화 2" href="https://withong.github.io/record/2025-03-28/"></a>
+  <a class="entry-link" aria-label="post link to Spring 숙련 2" href="https://withong.github.io/record/2025-03-28/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Spring 심화 1
+    <h2 class="entry-hint-parent">Spring 숙련 1
     </h2>
   </header>
   <div class="entry-content">
@@ -171,7 +202,7 @@ BeanFactory: Spring Container의 최상위 인터페이스 ApplicationContext: B
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-27 20:25:30 +0900 KST'>2025년 3월 27일</span></footer>
-  <a class="entry-link" aria-label="post link to Spring 심화 1" href="https://withong.github.io/record/2025-03-27-02/"></a>
+  <a class="entry-link" aria-label="post link to Spring 숙련 1" href="https://withong.github.io/record/2025-03-27-02/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 

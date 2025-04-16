@@ -6,10 +6,51 @@
     <description>Recent content in Spring on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Fri, 28 Mar 2025 20:28:44 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 16 Apr 2025 23:43:34 +0900</lastBuildDate>
     <atom:link href="https://withong.github.io/tag/spring/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Spring 심화 2</title>
+      <title>Spring 심화 - JPA</title>
+      <link>https://withong.github.io/record/2025-04-16-02/</link>
+      <pubDate>Wed, 16 Apr 2025 23:43:34 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-16-02/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;1-연관관계-매핑&#34;&gt;1. 연관관계 매핑&lt;/h2&gt;
+&lt;p&gt;JPA는 객체 간의 연관관계를 데이터베이스의 외래 키로 매핑할 수 있도록 다음과 같은 어노테이션을 제공한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@ManyToOne&lt;/code&gt;: 다대일 관계 (예: 여러 게시글이 하나의 작성자와 연결됨)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@OneToMany&lt;/code&gt;: 일대다 관계 (예: 하나의 주문이 여러 상품과 연결됨)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@OneToOne&lt;/code&gt;: 일대일 관계 (예: 한 사람당 하나의 여권을 가짐)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@ManyToMany&lt;/code&gt;: 다대다 관계 (예: 여러 사용자가 여러 관심사를 가질 수 있음)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;JPA에서 연관관계를 설계할 때는 반드시 외래 키(FK)를 어느 테이블이 관리할지 결정해야 하며, 이를 “연관관계의 주인”이라고 한다.&lt;br&gt;
+실제 외래 키는 항상 &amp;ldquo;다수 쪽(N쪽)&amp;ldquo;에 존재하며, 해당 필드를 가진 객체가 연관관계의 주인이 되어야 한다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spring 심화</title>
+      <link>https://withong.github.io/record/2025-04-16-01/</link>
+      <pubDate>Wed, 16 Apr 2025 15:41:39 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-16-01/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;1-spring-mvc-요청-처리-흐름의-핵심-구조&#34;&gt;1. Spring MVC 요청 처리 흐름의 핵심 구조&lt;/h2&gt;
+&lt;p&gt;Spring MVC에서 클라이언트 요청이 들어왔을 때의 내부 처리 흐름&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;DispatcherServlet&lt;/code&gt;이 요청을 받는다.&lt;/li&gt;
+&lt;li&gt;요청 URI에 맞는 컨트롤러 메서드를 찾기 위해 &lt;code&gt;HandlerMapping&lt;/code&gt;이 사용된다.&lt;/li&gt;
+&lt;li&gt;해당 컨트롤러를 실행하기 위해 &lt;code&gt;HandlerAdapter&lt;/code&gt; 중 하나인 &lt;code&gt;RequestMappingHandlerAdapter&lt;/code&gt;가 선택된다.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RequestMappingHandlerAdapter&lt;/code&gt;는 컨트롤러 메서드의 파라미터를 채우기 위해 &lt;code&gt;ArgumentResolver&lt;/code&gt;를, 반환값을 처리하기 위해 &lt;code&gt;ReturnValueHandler&lt;/code&gt;를 사용한다.&lt;/li&gt;
+&lt;li&gt;이 과정에서 요청 본문 또는 응답 본문을 처리하기 위해 &lt;code&gt;HttpMessageConverter&lt;/code&gt;가 사용된다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;2-httpmessageconverter&#34;&gt;2. HttpMessageConverter&lt;/h2&gt;
+&lt;h3 id=&#34;정의&#34;&gt;정의&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;HttpMessageConverter&lt;/code&gt;는 HTTP 요청 본문을 자바 객체로 변환하거나, 자바 객체를 HTTP 응답 본문으로 변환하는 인터페이스이다.&lt;br&gt;
+주로 &lt;code&gt;@RequestBody&lt;/code&gt;, &lt;code&gt;@ResponseBody&lt;/code&gt;, &lt;code&gt;HttpEntity&lt;/code&gt;, &lt;code&gt;RequestEntity&lt;/code&gt;, &lt;code&gt;ResponseEntity&lt;/code&gt; 등과 함께 사용되며,&lt;br&gt;
+이런 어노테이션이나 객체가 사용된 컨트롤러 메서드는 내부적으로 &lt;code&gt;HttpMessageConverter&lt;/code&gt;를 통해 처리된다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spring 숙련 2</title>
       <link>https://withong.github.io/record/2025-03-28/</link>
       <pubDate>Fri, 28 Mar 2025 20:28:44 +0900</pubDate>
       <guid>https://withong.github.io/record/2025-03-28/</guid>
@@ -50,7 +91,7 @@
 서버는 사용자가 누군지 매 요청마다 모르게 됨.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Spring 심화 1</title>
+      <title>Spring 숙련 1</title>
       <link>https://withong.github.io/record/2025-03-27-02/</link>
       <pubDate>Thu, 27 Mar 2025 20:25:30 +0900</pubDate>
       <guid>https://withong.github.io/record/2025-03-27-02/</guid>

@@ -25,7 +25,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LocalDate&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;birth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;
 &lt;h3 id=&#34;문제&#34;&gt;문제&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;@JsonFormat&lt;/code&gt;은 지정한 형식과 다른 값이 입력될 경우, 컨트롤러에 진입하기 전에 JSON → Java 객체로 변환하는 Jackson 역직렬화 과정에서 예외를 발생시킴. 이때 발생하는 예외는 &lt;code&gt;@Valid&lt;/code&gt;에서 처리되지 않고 &lt;code&gt;BindingResult&lt;/code&gt;이나 &lt;code&gt;MethodArgumentNotValidException&lt;/code&gt;으로도 잡을 수 없으며, &lt;code&gt;HttpMessageNotReadableException&lt;/code&gt;으로 처리되어 클라이언트에게는 단순한 400 Bad Request 응답으로 전달됨.&lt;/p&gt;</description>
+&lt;p&gt;&lt;code&gt;@JsonFormat&lt;/code&gt;은 지정한 형식과 다른 값이 입력될 경우, 컨트롤러에 진입하기 전에 JSON → Java 객체로 변환하는 Jackson 역직렬화 과정에서 예외를 발생시킴. 이때 발생하는 예외는 &lt;code&gt;@Valid&lt;/code&gt;에서 처리되지 않고 &lt;code&gt;BindingResult&lt;/code&gt;이나 &lt;code&gt;MethodArgumentNotValidException&lt;/code&gt;으로도 잡을 수 없음. &lt;code&gt;@JsonFormat&lt;/code&gt;의 예외는 &lt;code&gt;HttpMessageNotReadableException&lt;/code&gt;으로 처리되어 클라이언트에게는 단순한 400 Bad Request 응답으로 전달됨.&lt;/p&gt;</description>
     </item>
     <item>
       <title>JWT란?</title>

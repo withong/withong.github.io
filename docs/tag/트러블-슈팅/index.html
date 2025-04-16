@@ -150,7 +150,7 @@
   </header>
   <div class="entry-content">
     <p>@JsonFormat을 이용한 사용자 요청 값 검증 상황 회원가입 시 사용자의 생년월일을 UserCreateRequestDto에서 LocalDate 타입으로 받고 있으며, 아래와 같이 @JsonFormat을 사용하여 날짜 형식을 검증하고자 했음.
-// 생년월일 @NotNull(message = &#34;생년월일은 필수 입력값입니다.&#34;) @JsonFormat(pattern = &#34;yyyyMMdd&#34;) private final LocalDate birth; 문제 @JsonFormat은 지정한 형식과 다른 값이 입력될 경우, 컨트롤러에 진입하기 전에 JSON → Java 객체로 변환하는 Jackson 역직렬화 과정에서 예외를 발생시킴. 이때 발생하는 예외는 @Valid에서 처리되지 않고 BindingResult이나 MethodArgumentNotValidException으로도 잡을 수 없으며, HttpMessageNotReadableException으로 처리되어 클라이언트에게는 단순한 400 Bad Request 응답으로 전달됨.
+// 생년월일 @NotNull(message = &#34;생년월일은 필수 입력값입니다.&#34;) @JsonFormat(pattern = &#34;yyyyMMdd&#34;) private final LocalDate birth; 문제 @JsonFormat은 지정한 형식과 다른 값이 입력될 경우, 컨트롤러에 진입하기 전에 JSON → Java 객체로 변환하는 Jackson 역직렬화 과정에서 예외를 발생시킴. 이때 발생하는 예외는 @Valid에서 처리되지 않고 BindingResult이나 MethodArgumentNotValidException으로도 잡을 수 없음. @JsonFormat의 예외는 HttpMessageNotReadableException으로 처리되어 클라이언트에게는 단순한 400 Bad Request 응답으로 전달됨.
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-04-15 17:53:03 +0900 KST'>2025년 4월 15일</span></footer>
