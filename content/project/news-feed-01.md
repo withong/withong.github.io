@@ -27,7 +27,7 @@ private final LocalDate birth;
 
 ### 문제
 
-`@JsonFormat`은 지정한 형식과 다른 값이 입력될 경우, 컨트롤러에 진입하기 전에 JSON → Java 객체로 변환하는 Jackson 역직렬화 과정에서 예외를 발생시킴. 이때 발생하는 예외는 `@Valid`에서 처리되지 않고 `BindingResult`이나 `MethodArgumentNotValidException`으로도 잡을 수 없으며, `HttpMessageNotReadableException`으로 처리되어 클라이언트에게는 단순한 400 Bad Request 응답으로 전달됨.
+`@JsonFormat`은 지정한 형식과 다른 값이 입력될 경우, 컨트롤러에 진입하기 전에 JSON → Java 객체로 변환하는 Jackson 역직렬화 과정에서 예외를 발생시킴. 이때 발생하는 예외는 `@Valid`에서 처리되지 않고 `BindingResult`이나 `MethodArgumentNotValidException`으로도 잡을 수 없음. `@JsonFormat`의 예외는 `HttpMessageNotReadableException`으로 처리되어 클라이언트에게는 단순한 400 Bad Request 응답으로 전달됨.
 
 <br>
 
