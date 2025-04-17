@@ -74,7 +74,7 @@ Content = "Today I Learned ✏️"
 
 [[menu.main]]
   identifier = "Log"
-  name = "☰" # 메뉴바에 보이는 이름
+  name = "Log" # 메뉴바에 보이는 이름
   url = "/log/"
   weight = 5
 
@@ -92,7 +92,7 @@ Content = "Today I Learned ✏️"
 
 [[menu.main]]
   identifier = "tag"
-  name = "Tag" # 메뉴바에 보이는 이름
+  name = "Tags" # 메뉴바에 보이는 이름
   url = "/tag/"
   weight = 20
 
