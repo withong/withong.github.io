@@ -109,8 +109,8 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="☰">
-                    <span>☰</span>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
                 </a>
             </li>
             <li>
@@ -124,8 +124,8 @@
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
-                    <span>Tag</span>
+                <a href="https://withong.github.io/tag/" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
@@ -137,11 +137,37 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Log</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
   <h1>
     내일배움캠프
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">키오스크 회고
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 코드의 주요 기능 CartItem 클래스를 도입해 장바구니 아이템을 관리. Discount Enum을 사용해 다양한 할인 유형 적용 가능. Kiosk에서 직접 사용자 입력을 처리하고 메뉴 탐색, 장바구니 관리 등을 수행. Main에서 Kiosk를 실행해 전체 기능을 제어. 분석 Cart와 CartItem을 활용해 객체지향적으로 장바구니를 관리. Discount Enum을 통해 생일, 리뷰 작성 등 다양한 할인 적용 가능. 코드 구조 및 객체지향 설계 Kiosk 클래스가 너무 많은 기능을 포함하고 있어 SRP(단일 책임 원칙)를 지키지 못하는 부분이 있다. UI 출력과 비즈니스 로직이 혼재되어 있어 유지보수성이 낮다. 코드 스타일 및 가독성 Kiosk에서 너무 많은 로직을 처리하여 일부 메서드가 길어지고 복잡해질 가능성이 있음. 예외 처리가 부족하여, 예상치 못한 입력이 들어왔을 때 프로그램이 멈출 가능성이 있음. 코드 내 중복이 일부 존재하며, 이를 줄이면 가독성이 더 좋아질 수 있음. 실행 흐름 Main에서 Kiosk를 초기화하고 start() 실행. 사용자의 입력을 받아 메뉴 탐색, 장바구니 관리 진행. 주문 시 할인 정보를 입력받아 Discount Enum을 활용해 적용. 결제 후 장바구니를 비움. 분석 Kiosk에서 거의 모든 것을 관리하기 때문에 실행 흐름이 길어질수록 복잡해질 가능성이 있음. 기능별로 적절히 분리하면 코드의 유지보수성과 확장성이 더 좋아질 수 있음. 개선할 점 Kiosk 클래스의 역할을 분리해 KioskService 같은 클래스를 만들어야 함. UI 출력과 비즈니스 로직을 분리하여 코드의 가독성과 유지보수성을 높여야 함. 예외 처리가 부족하므로 IllegalArgumentException 등을 적극 활용해야 함. 중복된 코드가 일부 존재하므로 메서드로 분리하여 코드의 일관성을 높일 필요가 있음. 사용자의 입력을 검증하는 로직을 별도로 분리하여 입력 오류를 방지해야 함. 🗨️ by GPT
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-14 19:14:24 +0900 KST'>2025년 3월 14일</span></footer>
+  <a class="entry-link" aria-label="post link to 키오스크 회고" href="https://withong.github.io/project/kiosk-05/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Collection &amp; Stream
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 1. 배열 vs. 컬렉션 배열: 크기 고정, 동일 타입 데이터만 저장, 인덱스로 접근 가능, 단순한 구조. 컬렉션: 크기 동적 조절 가능, 다양한 타입 지원(제네릭), List/Set/Map 등 다양한 자료구조 제공. 2. 컬렉션 주요 인터페이스 List (ArrayList, LinkedList): 순서 O, 중복 O, 인덱스로 접근 가능. Set (HashSet, TreeSet): 순서 X, 중복 X. Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O. 3. 원시 타입 vs. 래퍼 클래스 컬렉션에는 원시 타입(int, char)을 직접 저장할 수 없고, 래퍼 클래스(Integer, Character)를 사용해야 함. 래퍼 클래스는 객체로 취급되며, 다양한 메서드를 제공. 4. 스트림(Stream) 자바 8에서 도입된 데이터 처리 방식. 원본 데이터를 변경하지 않고 가공 가능. 중간 연산(필터링, 변환)과 최종 연산(집계, 출력)으로 구성됨. 5. 스트림 주요 연산 중간 연산 (Intermediate Operations)
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-13 21:00:00 +0900 KST'>2025년 3월 13일</span></footer>
+  <a class="entry-link" aria-label="post link to Collection & Stream" href="https://withong.github.io/record/2025-03-13/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
@@ -257,37 +283,6 @@ Enum 타입을 활용하여 연산자 타입에 대한 정보를 관리하고 �
   </div>
   <footer class="entry-footer"><span title='2025-02-28 22:00:00 +0900 KST'>2025년 2월 28일</span></footer>
   <a class="entry-link" aria-label="post link to 계산기 Lv 1-2 회고" href="https://withong.github.io/project/calculator-03/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">계산기 Lv 2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>요구사항 클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기
-사칙연산을 수행 후, 결과값 반환 메서드 구현 &amp; 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성
-사칙연산을 수행한 후, 결과값을 반환하는 메서드 구현 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성 양의 정수 2개(0 포함)와 연산 기호를 매개변수로 받아 사칙연산(➕,➖,✖️,➗) 기능을 수행한 후 2) 결과 값을 반환하는 메서드와 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성합니다. Lv 1에서 구현한 App 클래스의 main 메서드에 Calculator 클래스가 활용될 수 있도록 수정
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-28 21:00:00 +0900 KST'>2025년 2월 28일</span></footer>
-  <a class="entry-link" aria-label="post link to 계산기 Lv 2" href="https://withong.github.io/project/calculator-02/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Java 심화 2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ [강의] Java 문법 세션 2 - 객체 활용
-✅ [강의] Java 문법 Chapter 3 (5~7)
-✅ [과제] Java 계산기 만들기 level 2
-람다(Lambda) 함수형 인터페이스 람다식을 사용하기 위한 인터페이스 단 하나의 추상 메서드만 포함해야 함. @FunctionalInterface 애노테이션을 사용. @FunctionalInterface // 함수형 인터페이스 선언 public interface Calculator { int sum(int a, int b); // 오직 하나의 추상 메서드만 선언해야 함 } 익명 클래스 별도의 클래스 파일을 만들지 않고 코드 내에서 일회성으로 정의해 사용하는 클래스. 주로 인터페이스를 구현할 때나 클래스를 상속할 때 간단한 기능을 위해 사용됨. public static void main(String[] args) { // 인터페이스를 활용한 익명 클래스 만들기 Calculator calculator1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator1.sum(2, 2); System.out.println(&#34;ret1 = &#34; &#43; ret1); } 람다식 메서드를 하나의 식(Expression)으로 표현하는 방식 익명 함수(Anonymous Function)와 유사 함수형 인터페이스와 함께 사용됨 불필요한 코드 생략 가능 → 간결한 코드 작성 가능 public static void main(String[] args) { // 인터페이스를 활용한 람다식 만들기 Calculator calculator = (a, b) -&gt; a &#43; b; int ret = calculator.sum(3, 3); System.out.println(&#34;ret = &#34; &#43; ret); } 람다식 활용 public static void main(String[] args) { // 람다식을 매개변수로 전달하는 방법 // 1. 익명 클래스를 변수에 담아 매개변수로 전달 Calculator cal1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator(3, 3, cal1); System.out.println(&#34;ret1 = &#34; &#43; ret1); // 2. 람다식을 변수에 담아 매개변수로 전달 Calculator cal2 = (a, b) -&gt; a &#43; b; int ret2 = calculator(4, 4, cal2); System.out.println(&#34;ret2 = &#34; &#43; ret2); // 3. 람다식을 직접 매개변수로 전달 int ret3 = calculator(5, 5, (a, b) -&gt; a &#43; b); System.out.println(&#34;ret3 = &#34; &#43; ret3); } public static int calculator(int a, int b, Calculator calculator) { return calculator.sum(a, b); } 스트림(Stream) 데이터의 흐름을 표현하는 기능으로, 배열이나 컬렉션 등의 데이터를 함수형 스타일로 처리할 수 있도록 지원하는 API
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-27 21:00:00 +0900 KST'>2025년 2월 27일</span></footer>
-  <a class="entry-link" aria-label="post link to Java 심화 2" href="https://withong.github.io/record/2025-02-27/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

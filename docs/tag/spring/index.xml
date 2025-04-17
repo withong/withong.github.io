@@ -6,8 +6,137 @@
     <description>Recent content in Spring on withong</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 16 Apr 2025 23:43:34 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 17 Apr 2025 20:13:28 +0900</lastBuildDate>
     <atom:link href="https://withong.github.io/tag/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JOIN FETCH vs @EntityGraph</title>
+      <link>https://withong.github.io/record/2025-04-17-02/</link>
+      <pubDate>Thu, 17 Apr 2025 20:13:28 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-17-02/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;jpql이란&#34;&gt;JPQL이란?&lt;/h2&gt;
+&lt;h3 id=&#34;정의&#34;&gt;정의&lt;/h3&gt;
+&lt;p&gt;**JPQL (Java Persistence Query Language)**는 JPA에서 사용하는 &lt;strong&gt;객체 지향 쿼리 언어&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JPQL은 테이블이 아닌 &amp;lsquo;엔티티(Entity)&amp;lsquo;를 기준으로 동작하는 쿼리 언어&lt;/p&gt;&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;예시&#34;&gt;예시&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@Query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;SELECT u FROM User u WHERE u.email = :email&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;User&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;findByEmail&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;email&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;User&lt;/code&gt;는 테이블 이름이 아니라 &lt;strong&gt;자바 클래스 이름&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;u.email&lt;/code&gt;도 컬럼 이름이 아니라 &lt;strong&gt;필드 이름&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;jpql의-특징&#34;&gt;JPQL의 특징&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;항목&lt;/th&gt;
+          &lt;th&gt;설명&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;대상&lt;/td&gt;
+          &lt;td&gt;DB 테이블이 아닌 자바 엔티티 클래스&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;언어&lt;/td&gt;
+          &lt;td&gt;SQL과 유사하지만, 객체 지향적으로 작성&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;실행&lt;/td&gt;
+          &lt;td&gt;JPA가 내부적으로 JPQL → SQL 변환해서 실행&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;위치&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;@Query&lt;/code&gt;, &lt;code&gt;EntityManager.createQuery(...)&lt;/code&gt; 등에서 사용&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;jpql-vs-sql-차이점&#34;&gt;JPQL vs SQL 차이점&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;항목&lt;/th&gt;
+          &lt;th&gt;JPQL&lt;/th&gt;
+          &lt;th&gt;SQL&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;기준&lt;/td&gt;
+          &lt;td&gt;엔티티 클래스&lt;/td&gt;
+          &lt;td&gt;데이터베이스 테이블&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;필드 참조&lt;/td&gt;
+          &lt;td&gt;클래스 필드명 (&lt;code&gt;u.email&lt;/code&gt;)&lt;/td&gt;
+          &lt;td&gt;테이블 컬럼명 (&lt;code&gt;u.email_address&lt;/code&gt;)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;반환값&lt;/td&gt;
+          &lt;td&gt;엔티티 객체&lt;/td&gt;
+          &lt;td&gt;Row 데이터&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;결과 매핑&lt;/td&gt;
+          &lt;td&gt;자동 (Entity로)&lt;/td&gt;
+          &lt;td&gt;수동 또는 별도 설정&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;사용 위치&lt;/td&gt;
+          &lt;td&gt;JPA 코드 내부 (&lt;code&gt;@Query&lt;/code&gt;)&lt;/td&gt;
+          &lt;td&gt;DB 툴, Native Query 등&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JPQL은 객체(Entity) 관점, SQL은 순수 데이터(Row) 관점&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spring 심화 - 활용</title>
+      <link>https://withong.github.io/record/2025-04-17-01/</link>
+      <pubDate>Thu, 17 Apr 2025 00:06:53 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-04-17-01/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;1-spring-bean의-생명주기&#34;&gt;1. Spring Bean의 생명주기&lt;/h2&gt;
+&lt;p&gt;Spring에서 Bean은 컨테이너에 의해 생성되고 관리되며, 소멸까지 일련의 생명주기를 가진다. 개발자는 이 생명주기 중 특정 시점에서 동작하도록 콜백 메서드를 설정할 수 있다.&lt;/p&gt;
+&lt;h3 id=&#34;생명주기-전체-흐름&#34;&gt;생명주기 전체 흐름&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Spring 컨테이너 초기화&lt;/strong&gt;: &lt;code&gt;ApplicationContext&lt;/code&gt; 생성&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bean 인스턴스 생성&lt;/strong&gt;: 일반적으로 기본 생성자 사용&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;의존성 주입&lt;/strong&gt;: 생성자, 필드, setter 중 하나로 주입&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;초기화 콜백 실행&lt;/strong&gt;: &lt;code&gt;@PostConstruct&lt;/code&gt;, &lt;code&gt;afterPropertiesSet()&lt;/code&gt; 등&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bean 사용&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;소멸 콜백 실행&lt;/strong&gt;: &lt;code&gt;@PreDestroy&lt;/code&gt;, &lt;code&gt;destroy()&lt;/code&gt; 등&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bean 소멸&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;콜백-방식별-정리&#34;&gt;콜백 방식별 정리&lt;/h3&gt;
+&lt;h4 id=&#34;1-인터페이스-기반&#34;&gt;1. 인터페이스 기반&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;InitializingBean.afterPropertiesSet()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DisposableBean.destroy()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Spring 프레임워크에 의존적이며, 외부 라이브러리에 적용 불가&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;2-설정-메서드-기반&#34;&gt;2. 설정 메서드 기반&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@Bean(initMethod = &amp;quot;...&amp;quot;, destroyMethod = &amp;quot;...&amp;quot;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;메서드명을 자유롭게 지정 가능, 외부 라이브러리에도 적용 가능&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;3-표준-어노테이션-기반-권장-방식&#34;&gt;3. 표준 어노테이션 기반 (권장 방식)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@PostConstruct&lt;/code&gt;: 의존성 주입 완료 후 초기화&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@PreDestroy&lt;/code&gt;: 소멸 직전 실행&lt;/li&gt;
+&lt;li&gt;Spring이 아닌 환경에서도 사용 가능&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bean-scope&#34;&gt;Bean Scope&lt;/h3&gt;
+&lt;p&gt;Bean이 언제 생성되고 얼마나 유지되는지를 결정하는 설정이다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Spring 심화 - JPA</title>
       <link>https://withong.github.io/record/2025-04-16-02/</link>

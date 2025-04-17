@@ -109,8 +109,8 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="☰">
-                    <span>☰</span>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
                 </a>
             </li>
             <li>
@@ -124,8 +124,8 @@
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
-                    <span>Tag</span>
+                <a href="https://withong.github.io/tag/" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
@@ -137,11 +137,43 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Log</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
   <h1>
     내일배움캠프
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">문자열 사전순 비교: compareTo()
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>문제 숫자로 이루어진 문자열 t와 p가 주어질 때, t에서 p와 길이가 같은 부분문자열 중에서, 이 부분문자열이 나타내는 수가 p가 나타내는 수보다 작거나 같은 것이 나오는 횟수를 return하는 함수 solution을 완성하세요.
+예를 들어, t=“3141592&#34;이고 p=“271” 인 경우, t의 길이가 3인 부분 문자열은 314, 141, 415, 159, 592입니다. 이 문자열이 나타내는 수 중 271보다 작거나 같은 수는 141, 159 2개 입니다.
+오답 일부 정답, 일부 런타임 에러 발생
+class Solution { public int solution(String t, String p) { int count = 0; int pToInt = Integer.parseInt(p); for (int i = 0; i &lt; t.length() - p.length() &#43; 1; i&#43;&#43;) { String s = t.substring(i, i &#43; p.length()); int sToInt = Integer.parseInt(s); if (sToInt &lt;= pToInt) count&#43;&#43;; } return count; } } 원인: p의 길이가 최대 18이기 때문에, Long 범위를 초과할 수 있으며,
+Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatException이 발생할 수 있음.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-01 09:54:56 +0900 KST'>2025년 4월 1일</span></footer>
+  <a class="entry-link" aria-label="post link to 문자열 사전순 비교: compareTo()" href="https://withong.github.io/record/2025-04-01-01/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Spring 숙련 2
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 인증(Authentication)과 인가(Authorization) 용어 의미 예시 인증 사용자가 누군지 확인하는 절차 로그인 (ID, PW 입력 후 사용자 확인) 인가 인증된 사용자가 무엇을 할 수 있는지 확인 본인이 쓴 글만 수정 가능, 관리자만 삭제 가능 → 인가는 항상 인증이 먼저 되어야 가능
+Cookie 쿠키란? 클라이언트(브라우저)에 저장되는 작은 데이터 서버는 Set-Cookie라는 응답 헤더로 쿠키를 전달 이후 클라이언트는 모든 요청에 Cookie 값을 함께 보냄 왜 필요할까? HTTP는 기본적으로 Stateless(상태를 기억하지 않음) 이라서
+서버는 사용자가 누군지 매 요청마다 모르게 됨.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-28 20:28:44 +0900 KST'>2025년 3월 28일</span></footer>
+  <a class="entry-link" aria-label="post link to Spring 숙련 2" href="https://withong.github.io/record/2025-03-28/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
@@ -263,32 +295,6 @@ MVC 패턴 개요 원래 Servlet과 JSP만으로 웹 개발을 했으나, 비즈
   </div>
   <footer class="entry-footer"><span title='2025-03-17 22:00:03 +0900 KST'>2025년 3월 17일</span></footer>
   <a class="entry-link" aria-label="post link to Spring 기초 1" href="https://withong.github.io/record/2025-03-17/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">키오스크 회고
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 코드의 주요 기능 CartItem 클래스를 도입해 장바구니 아이템을 관리. Discount Enum을 사용해 다양한 할인 유형 적용 가능. Kiosk에서 직접 사용자 입력을 처리하고 메뉴 탐색, 장바구니 관리 등을 수행. Main에서 Kiosk를 실행해 전체 기능을 제어. 분석 Cart와 CartItem을 활용해 객체지향적으로 장바구니를 관리. Discount Enum을 통해 생일, 리뷰 작성 등 다양한 할인 적용 가능. 코드 구조 및 객체지향 설계 Kiosk 클래스가 너무 많은 기능을 포함하고 있어 SRP(단일 책임 원칙)를 지키지 못하는 부분이 있다. UI 출력과 비즈니스 로직이 혼재되어 있어 유지보수성이 낮다. 코드 스타일 및 가독성 Kiosk에서 너무 많은 로직을 처리하여 일부 메서드가 길어지고 복잡해질 가능성이 있음. 예외 처리가 부족하여, 예상치 못한 입력이 들어왔을 때 프로그램이 멈출 가능성이 있음. 코드 내 중복이 일부 존재하며, 이를 줄이면 가독성이 더 좋아질 수 있음. 실행 흐름 Main에서 Kiosk를 초기화하고 start() 실행. 사용자의 입력을 받아 메뉴 탐색, 장바구니 관리 진행. 주문 시 할인 정보를 입력받아 Discount Enum을 활용해 적용. 결제 후 장바구니를 비움. 분석 Kiosk에서 거의 모든 것을 관리하기 때문에 실행 흐름이 길어질수록 복잡해질 가능성이 있음. 기능별로 적절히 분리하면 코드의 유지보수성과 확장성이 더 좋아질 수 있음. 개선할 점 Kiosk 클래스의 역할을 분리해 KioskService 같은 클래스를 만들어야 함. UI 출력과 비즈니스 로직을 분리하여 코드의 가독성과 유지보수성을 높여야 함. 예외 처리가 부족하므로 IllegalArgumentException 등을 적극 활용해야 함. 중복된 코드가 일부 존재하므로 메서드로 분리하여 코드의 일관성을 높일 필요가 있음. 사용자의 입력을 검증하는 로직을 별도로 분리하여 입력 오류를 방지해야 함. 🗨️ by GPT
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-14 19:14:24 +0900 KST'>2025년 3월 14일</span></footer>
-  <a class="entry-link" aria-label="post link to 키오스크 회고" href="https://withong.github.io/project/kiosk-05/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Collection &amp; Stream
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 1. 배열 vs. 컬렉션 배열: 크기 고정, 동일 타입 데이터만 저장, 인덱스로 접근 가능, 단순한 구조. 컬렉션: 크기 동적 조절 가능, 다양한 타입 지원(제네릭), List/Set/Map 등 다양한 자료구조 제공. 2. 컬렉션 주요 인터페이스 List (ArrayList, LinkedList): 순서 O, 중복 O, 인덱스로 접근 가능. Set (HashSet, TreeSet): 순서 X, 중복 X. Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O. 3. 원시 타입 vs. 래퍼 클래스 컬렉션에는 원시 타입(int, char)을 직접 저장할 수 없고, 래퍼 클래스(Integer, Character)를 사용해야 함. 래퍼 클래스는 객체로 취급되며, 다양한 메서드를 제공. 4. 스트림(Stream) 자바 8에서 도입된 데이터 처리 방식. 원본 데이터를 변경하지 않고 가공 가능. 중간 연산(필터링, 변환)과 최종 연산(집계, 출력)으로 구성됨. 5. 스트림 주요 연산 중간 연산 (Intermediate Operations)
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-13 21:00:00 +0900 KST'>2025년 3월 13일</span></footer>
-  <a class="entry-link" aria-label="post link to Collection & Stream" href="https://withong.github.io/record/2025-03-13/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -109,8 +109,8 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="☰">
-                    <span>☰</span>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
                 </a>
             </li>
             <li>
@@ -124,8 +124,8 @@
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
-                    <span>Tag</span>
+                <a href="https://withong.github.io/tag/" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
@@ -137,11 +137,44 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Log</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
   <h1>
     TIL
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Java 심화 1
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ [강의] Java 문법 Chapter 3 (1~4)
+✅ [과제] Java 계산기 만들기 level 1
+예외와 예외 처리 예외 → 프로그램 실행 중 발생할 수 있는 예기치 못한 오류나 상황. 예외가 처리되지 않으면 프로그램 흐름이 중단됨.
+예외 구조와 종류
+UncheckedException → RuntimeException과 그 하위 클래스. 예외 처리 강제되지 않음. 예: NullPointerException, ArrayIndexOutOfBoundsException CheckedException → RuntimeException을 제외한 예외. 예외 처리 강제됨. 예: IOException, SQLException. 예외 전파
+UncheckedException → 예외 전파가 자동으로 이루어짐. → main() 메서드나 스레드에서 처리하지 않으면 프로그램이 종료됨. CheckedException → 예외가 발생했을 때 반드시 예외를 처리하거나 전파해야 함. → try-catch문 또는 메서드 선언에 throws 키워드 사용. Optional Optional&lt;T&gt; → Null을 안전하게 다루기 위한 클래스
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-26 21:00:00 +0900 KST'>2025년 2월 26일</span></footer>
+  <a class="entry-link" aria-label="post link to Java 심화 1" href="https://withong.github.io/record/2025-02-26/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">객체지향
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ 문법 세션 1 - 프로그래밍 기초
+✅ Java 문법 강의 2주차
+Chapter 2. 객체지향 이해하기 클래스와 객체 클래스(class) → 객체를 생성하기 위한 설계도. 속성과 기능을 정의하며, 동일한 구조를 가진 객체를 여러 개 생성할 수 있음. 객체(object) → 클래스를 기반으로 생성된 실체. 메모리에 할당되어 동작하며, 개별적으로 속성과 기능을 가짐. 인스턴스화(instantiate) → 클래스를 이용해 객체를 생성하는 과정. new 키워드를 사용해 객체를 메모리에 할당. 속성(property, field) → 객체가 가지는 데이터. 클래스 내부에서 변수 형태로 선언되며, 객체마다 서로 다른 값을 가질 수 있음. 생성자(constructor) → 객체가 생성될 때 호출되는 특수한 메서드. 속성을 초기화하고, 객체의 기본 상태를 설정하는 역할. 기능(method) → 객체가 수행하는 동작. 클래스 내부에서 정의되며, 특정 입력을 받아 처리한 후 결과를 반환하거나 상태를 변경함. JVM 메모리 영역 Method Area → 클래스 정보(클래스 이름, 메서드, 필드, static 변수 등)를 저장하는 공간. JVM이 시작될 때 로드되며, 모든 쓰레드가 공유. Stack Area → 메서드 호출 시 생성되는 스택 프레임을 저장하는 공간. 지역변수, 매개변수, 메서드 호출 정보가 포함되며, 호출이 끝나면 제거. 각 쓰레드마다 독립적인 스택을 가짐. Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워드로 생성된 객체가 저장되며, GC(Garbage Collector)가 관리. 모든 쓰레드가 공유. 래퍼클래스 래퍼클래스 → 기본형 데이터를 객체처럼 다룰 수 있도록 감싸는 클래스. Integer, Double, Boolean 등 기본형의 객체화된 버전.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-25 21:00:00 +0900 KST'>2025년 2월 25일</span></footer>
+  <a class="entry-link" aria-label="post link to 객체지향" href="https://withong.github.io/record/2025-02-25-02/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
@@ -265,37 +298,6 @@ public class MusicPlayerData { int volume = 0; boolean isOn = false; } public st
   </div>
   <footer class="entry-footer"><span title='2025-02-07 21:00:00 +0900 KST'>2025년 2월 7일</span></footer>
   <a class="entry-link" aria-label="post link to 객체 지향 프로그래밍" href="https://withong.github.io/record/2025-02-07/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">기본형과 참조형
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>변수 대입 기본형 변수 대입 기본형 변수는 값을 복사하여 저장함.
-int a = 10; int b = a; // a: 10, b: 10 a = 20; // a: 20, b: 10 b = 30; // a: 20, b: 30 b에 a의 값을 복사해서 저장하므로, b를 변경해도 a에 영향을 주지 않음.
-참조형 변수 대입 참조형 변수는 객체의 메모리 주소를 저장함 → 주소(참조)가 복사됨.
-public class Data { int value; } Data dataA = new Data(); dataA.value = 10; Data dataB = dataA; // dataA.value: 10, dataB.value: 10 dataA.value = 20; // dataA.value: 20, dataB.value: 20 dataB.value = 30; // dataA.value: 30, dataB.value: 30 같은 객체를 가리키므로 하나를 변경하면 다른 하나도 영향을 받음.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-06 21:00:00 +0900 KST'>2025년 2월 6일</span></footer>
-  <a class="entry-link" aria-label="post link to 기본형과 참조형" href="https://withong.github.io/record/2025-02-06/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">클래스와 객체
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>클래스 객체를 생성하기 위한 설계도 또는 틀, 사용자 정의 타입 역할을 함.
-public class Student { // 멤버 변수: 클래스 내에서 선언된 변수, 객체의 속성을 나타냄 String name; int age; int grade; } 객체와 인스턴스 객체: 클래스에서 정의한 속성과 기능을 가진 실체 인스턴스: 특정 클래스로부터 생성된 객체, 어떤 클래스에 속하는지 강조할 때 사용
-→ 객체와 특정 클래스의 관계를 명확히 할 때 “인스턴스&#34;라는 용어를 사용하지만, 본질적으로 같은 개념이므로 보통 구분 없이 사용됨
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-04 21:00:00 +0900 KST'>2025년 2월 4일</span></footer>
-  <a class="entry-link" aria-label="post link to 클래스와 객체" href="https://withong.github.io/record/2025-02-04/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

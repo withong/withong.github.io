@@ -109,8 +109,8 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://withong.github.io/log/" title="☰">
-                    <span>☰</span>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
                 </a>
             </li>
             <li>
@@ -124,8 +124,8 @@
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tag">
-                    <span>Tag</span>
+                <a href="https://withong.github.io/tag/" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
@@ -137,11 +137,40 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="https://withong.github.io/">Log</a>&nbsp;»&nbsp;<a href="https://withong.github.io/tag/">Tag</a></div>
   <h1>
     JPA
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">JOIN FETCH vs @EntityGraph
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>JPQL이란? 정의 **JPQL (Java Persistence Query Language)**는 JPA에서 사용하는 객체 지향 쿼리 언어
+JPQL은 테이블이 아닌 ‘엔티티(Entity)‘를 기준으로 동작하는 쿼리 언어
+예시 @Query(&#34;SELECT u FROM User u WHERE u.email = :email&#34;) User findByEmail(String email); User는 테이블 이름이 아니라 자바 클래스 이름 u.email도 컬럼 이름이 아니라 필드 이름 JPQL의 특징 항목 설명 대상 DB 테이블이 아닌 자바 엔티티 클래스 언어 SQL과 유사하지만, 객체 지향적으로 작성 실행 JPA가 내부적으로 JPQL → SQL 변환해서 실행 위치 @Query, EntityManager.createQuery(...) 등에서 사용 JPQL vs SQL 차이점 항목 JPQL SQL 기준 엔티티 클래스 데이터베이스 테이블 필드 참조 클래스 필드명 (u.email) 테이블 컬럼명 (u.email_address) 반환값 엔티티 객체 Row 데이터 결과 매핑 자동 (Entity로) 수동 또는 별도 설정 사용 위치 JPA 코드 내부 (@Query) DB 툴, Native Query 등 JPQL은 객체(Entity) 관점, SQL은 순수 데이터(Row) 관점
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-17 20:13:28 +0900 KST'>2025년 4월 17일</span></footer>
+  <a class="entry-link" aria-label="post link to JOIN FETCH vs @EntityGraph" href="https://withong.github.io/record/2025-04-17-02/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Spring 심화 - 활용
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Spring Bean의 생명주기 Spring에서 Bean은 컨테이너에 의해 생성되고 관리되며, 소멸까지 일련의 생명주기를 가진다. 개발자는 이 생명주기 중 특정 시점에서 동작하도록 콜백 메서드를 설정할 수 있다.
+생명주기 전체 흐름 Spring 컨테이너 초기화: ApplicationContext 생성 Bean 인스턴스 생성: 일반적으로 기본 생성자 사용 의존성 주입: 생성자, 필드, setter 중 하나로 주입 초기화 콜백 실행: @PostConstruct, afterPropertiesSet() 등 Bean 사용 소멸 콜백 실행: @PreDestroy, destroy() 등 Bean 소멸 콜백 방식별 정리 1. 인터페이스 기반 InitializingBean.afterPropertiesSet() DisposableBean.destroy() Spring 프레임워크에 의존적이며, 외부 라이브러리에 적용 불가 2. 설정 메서드 기반 @Bean(initMethod = &#34;...&#34;, destroyMethod = &#34;...&#34;) 메서드명을 자유롭게 지정 가능, 외부 라이브러리에도 적용 가능 3. 표준 어노테이션 기반 (권장 방식) @PostConstruct: 의존성 주입 완료 후 초기화 @PreDestroy: 소멸 직전 실행 Spring이 아닌 환경에서도 사용 가능 Bean Scope Bean이 언제 생성되고 얼마나 유지되는지를 결정하는 설정이다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-17 00:06:53 +0900 KST'>2025년 4월 17일</span></footer>
+  <a class="entry-link" aria-label="post link to Spring 심화 - 활용" href="https://withong.github.io/record/2025-04-17-01/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
