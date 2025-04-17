@@ -92,7 +92,7 @@ Content = "Today I Learned ✏️"
 
 [[menu.main]]
   identifier = "tag"
-  name = "Tags" # 메뉴바에 보이는 이름
+  name = "Tag" # 메뉴바에 보이는 이름
   url = "/tag/"
   weight = 20
 
