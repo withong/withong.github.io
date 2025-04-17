@@ -17,7 +17,7 @@
 &lt;br&gt;
 &lt;h2 id=&#34;jpql이란&#34;&gt;JPQL이란?&lt;/h2&gt;
 &lt;h3 id=&#34;정의&#34;&gt;정의&lt;/h3&gt;
-&lt;p&gt;**JPQL (Java Persistence Query Language)**는 JPA에서 사용하는 &lt;strong&gt;객체 지향 쿼리 언어&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JPQL (Java Persistence Query Language)&lt;/strong&gt; 는 JPA에서 사용하는 &lt;strong&gt;객체 지향 쿼리 언어&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;JPQL은 테이블이 아닌 &amp;lsquo;엔티티(Entity)&amp;lsquo;를 기준으로 동작하는 쿼리 언어&lt;/p&gt;&lt;/blockquote&gt;
 &lt;br&gt;
