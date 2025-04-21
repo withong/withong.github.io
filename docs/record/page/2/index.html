@@ -139,8 +139,8 @@
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tags">
-                    <span>Tags</span>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
                 </a>
             </li>
             <li>
@@ -160,6 +160,21 @@
     Today I Learned
   </div>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Spring 숙련 2
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 인증(Authentication)과 인가(Authorization) 용어 의미 예시 인증 사용자가 누군지 확인하는 절차 로그인 (ID, PW 입력 후 사용자 확인) 인가 인증된 사용자가 무엇을 할 수 있는지 확인 본인이 쓴 글만 수정 가능, 관리자만 삭제 가능 → 인가는 항상 인증이 먼저 되어야 가능
+Cookie 쿠키란? 클라이언트(브라우저)에 저장되는 작은 데이터 서버는 Set-Cookie라는 응답 헤더로 쿠키를 전달 이후 클라이언트는 모든 요청에 Cookie 값을 함께 보냄 왜 필요할까? HTTP는 기본적으로 Stateless(상태를 기억하지 않음) 이라서
+서버는 사용자가 누군지 매 요청마다 모르게 됨.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-28 20:28:44 +0900 KST'>2025년 3월 28일</span></footer>
+  <a class="entry-link" aria-label="post link to Spring 숙련 2" href="https://withong.github.io/record/2025-03-28/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -288,22 +303,6 @@ Enum의 특징 상수들의 집합으로 사용된다. 내부적으로 final cla
   </div>
   <footer class="entry-footer"><span title='2025-03-11 10:44:41 +0900 KST'>2025년 3월 11일</span></footer>
   <a class="entry-link" aria-label="post link to Enum & 동일성/동등성" href="https://withong.github.io/record/2025-03-11/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Java 심화 2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> ✅ [강의] Java 문법 세션 2 - 객체 활용
-✅ [강의] Java 문법 Chapter 3 (5~7)
-✅ [과제] Java 계산기 만들기 level 2
-람다(Lambda) 함수형 인터페이스 람다식을 사용하기 위한 인터페이스 단 하나의 추상 메서드만 포함해야 함. @FunctionalInterface 애노테이션을 사용. @FunctionalInterface // 함수형 인터페이스 선언 public interface Calculator { int sum(int a, int b); // 오직 하나의 추상 메서드만 선언해야 함 } 익명 클래스 별도의 클래스 파일을 만들지 않고 코드 내에서 일회성으로 정의해 사용하는 클래스. 주로 인터페이스를 구현할 때나 클래스를 상속할 때 간단한 기능을 위해 사용됨. public static void main(String[] args) { // 인터페이스를 활용한 익명 클래스 만들기 Calculator calculator1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator1.sum(2, 2); System.out.println(&#34;ret1 = &#34; &#43; ret1); } 람다식 메서드를 하나의 식(Expression)으로 표현하는 방식 익명 함수(Anonymous Function)와 유사 함수형 인터페이스와 함께 사용됨 불필요한 코드 생략 가능 → 간결한 코드 작성 가능 public static void main(String[] args) { // 인터페이스를 활용한 람다식 만들기 Calculator calculator = (a, b) -&gt; a &#43; b; int ret = calculator.sum(3, 3); System.out.println(&#34;ret = &#34; &#43; ret); } 람다식 활용 public static void main(String[] args) { // 람다식을 매개변수로 전달하는 방법 // 1. 익명 클래스를 변수에 담아 매개변수로 전달 Calculator cal1 = new Calculator() { @Override public int sum(int a, int b) { return a &#43; b; } }; int ret1 = calculator(3, 3, cal1); System.out.println(&#34;ret1 = &#34; &#43; ret1); // 2. 람다식을 변수에 담아 매개변수로 전달 Calculator cal2 = (a, b) -&gt; a &#43; b; int ret2 = calculator(4, 4, cal2); System.out.println(&#34;ret2 = &#34; &#43; ret2); // 3. 람다식을 직접 매개변수로 전달 int ret3 = calculator(5, 5, (a, b) -&gt; a &#43; b); System.out.println(&#34;ret3 = &#34; &#43; ret3); } public static int calculator(int a, int b, Calculator calculator) { return calculator.sum(a, b); } 스트림(Stream) 데이터의 흐름을 표현하는 기능으로, 배열이나 컬렉션 등의 데이터를 함수형 스타일로 처리할 수 있도록 지원하는 API
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-27 21:00:00 +0900 KST'>2025년 2월 27일</span></footer>
-  <a class="entry-link" aria-label="post link to Java 심화 2" href="https://withong.github.io/record/2025-02-27/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

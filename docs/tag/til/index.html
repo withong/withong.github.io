@@ -124,8 +124,8 @@
                 </a>
             </li>
             <li>
-                <a href="https://withong.github.io/tag/" title="Tags">
-                    <span>Tags</span>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
                 </a>
             </li>
             <li>
@@ -142,6 +142,24 @@
     TIL
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Spring AOP와 프록시
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. AOP란? AOP는 Aspect-Oriented Programming(관점 지향 프로그래밍) 의 약자로,
+공통된 관심사를 핵심 비즈니스 로직과 분리하여 모듈화하는 프로그래밍 패러다임이다.
+1.1 공통 관심사란? 애플리케이션 전반에 걸쳐 반복되지만 핵심 로직과 직접적인 관련은 없는 기능을 말한다.
+로깅 트랜잭션 처리 보안 권한 검사 예외 로깅 실행 시간 측정 이러한 로직을 모든 메서드마다 직접 작성하면 코드 중복과 유지보수 비용이 증가하게 된다.
+AOP는 이 문제를 해결하기 위해 공통 기능을 하나의 모듈로 분리하고,
+weaving(위빙) 과정을 통해 실행 흐름에 자동으로 삽입하는 구조를 제공한다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-21 12:46:19 +0900 KST'>2025년 4월 21일</span></footer>
+  <a class="entry-link" aria-label="post link to Spring AOP와 프록시" href="https://withong.github.io/record/2025-04-21-01/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
@@ -279,21 +297,6 @@ Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatExc
   </div>
   <footer class="entry-footer"><span title='2025-04-01 09:54:56 +0900 KST'>2025년 4월 1일</span></footer>
   <a class="entry-link" aria-label="post link to 문자열 사전순 비교: compareTo()" href="https://withong.github.io/record/2025-04-01-01/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Spring 숙련 2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 인증(Authentication)과 인가(Authorization) 용어 의미 예시 인증 사용자가 누군지 확인하는 절차 로그인 (ID, PW 입력 후 사용자 확인) 인가 인증된 사용자가 무엇을 할 수 있는지 확인 본인이 쓴 글만 수정 가능, 관리자만 삭제 가능 → 인가는 항상 인증이 먼저 되어야 가능
-Cookie 쿠키란? 클라이언트(브라우저)에 저장되는 작은 데이터 서버는 Set-Cookie라는 응답 헤더로 쿠키를 전달 이후 클라이언트는 모든 요청에 Cookie 값을 함께 보냄 왜 필요할까? HTTP는 기본적으로 Stateless(상태를 기억하지 않음) 이라서
-서버는 사용자가 누군지 매 요청마다 모르게 됨.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-28 20:28:44 +0900 KST'>2025년 3월 28일</span></footer>
-  <a class="entry-link" aria-label="post link to Spring 숙련 2" href="https://withong.github.io/record/2025-03-28/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
