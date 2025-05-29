@@ -145,6 +145,34 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">기차 예매 API 트러블 슈팅
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> GitHub ▶ five-lock-run Redis 목록 조회 성능 최적화 (KEYS vs SCAN) 기존 방식: KEYS 명령어 사용 처음에는 Redis에 저장된 예약 정보를 사용자 ID 기준으로 조회할 때 KEYS 명령어를 사용했다.
+public List&lt;Reservation&gt; getReservationsByUser(Long userId) { Set&lt;String&gt; keys = redisTemplate.keys(&#34;user-reservation:&#34; &#43; userId &#43; &#34;:*&#34;); if (keys == null || keys.isEmpty()) return Collections.emptyList(); List&lt;Object&gt; values = redisTemplate.opsForValue().multiGet(keys); if (values == null) return Collections.emptyList(); return values.stream() .filter(Objects::nonNull) .map(obj -&gt; (Reservation) obj) .collect(Collectors.toList()); } 이 코드는 간단하고 동작도 잘 되지만, 운영 환경에서는 다음과 같은 문제가 발생할 수 있다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-05-23 23:18:16 +0900 KST'>2025년 5월 23일</span></footer>
+  <a class="entry-link" aria-label="post link to 기차 예매 API 트러블 슈팅" href="https://withong.github.io/project/five-lock-run/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">배달 서비스 API 트러블 슈팅
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> GitHub ▶ project-sos Service 간 주입 방식의 코드 구현 1. 문제의 시작: findById() 예외 처리는 어디에서 해야 하는가? Repository에서 findById()를 호출했을 때 조회 결과가 없는 경우, 예외를 Repository에서 처리할지, Service에 위임하여 처리할지 결정해야 한다. 두 방식은 아래와 같이 나뉜다.
+(1) Repository에서 예외를 처리하는 방식 public interface UserRepository extends JpaRepository&lt;User, Long&gt; { default User findByIdOrThrow(Long id) { return findById(id) .orElseThrow(() -&gt; new EntityNotFoundException(&#34;User not found with id: &#34; &#43; id)); } } public User findUser(Long id) { return userRepository.findByIdOrThrow(id); } (2) Service에서 예외를 처리하는 방식 public User findUser(Long id) { return userRepository.findById(id) .orElseThrow(() -&gt; new EntityNotFoundException(&#34;User not found with id: &#34; &#43; id)); } 2. 분석: Repository가 아닌 Service에서 예외 처리를 해야 하는 이유 역할 분리 원칙에 따라 Repository는 단순히 데이터 접근만을 담당하고, 예외 처리나 비즈니스 로직은 Service 계층에서 관리하는 것이 바람직하다. 예외 처리 방식 변경 시, Service에서 처리하면 수정 범위를 Service에 국한시킬 수 있어 유지보수성이 향상된다. 예외 메시지나 예외 타입을 도메인에 따라 다르게 정의할 수 있어 비즈니스 규칙을 명확히 표현할 수 있다. 검증 책임을 Service로 일관되게 위임하면 다른 Service에서의 재사용과 일관성 유지가 수월하다. 이러한 이유로, 예외 처리는 Repository보다는 Service 계층에서 수행하는 것이 더 적절하다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-28 23:09:11 +0900 KST'>2025년 4월 28일</span></footer>
+  <a class="entry-link" aria-label="post link to 배달 서비스 API 트러블 슈팅" href="https://withong.github.io/project/sos/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">뉴스피드 API 트러블 슈팅
     </h2>
   </header>

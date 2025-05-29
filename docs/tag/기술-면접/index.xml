@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>기술 면접 on withong</title>
+    <link>https://withong.github.io/tag/%EA%B8%B0%EC%88%A0-%EB%A9%B4%EC%A0%91/</link>
+    <description>Recent content in 기술 면접 on withong</description>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Thu, 29 May 2025 22:49:01 +0900</lastBuildDate>
+    <atom:link href="https://withong.github.io/tag/%EA%B8%B0%EC%88%A0-%EB%A9%B4%EC%A0%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis란?</title>
+      <link>https://withong.github.io/record/2025-05-29/</link>
+      <pubDate>Thu, 29 May 2025 22:49:01 +0900</pubDate>
+      <guid>https://withong.github.io/record/2025-05-29/</guid>
+      <description>&lt;hr&gt;
+&lt;br&gt;
+&lt;p&gt;기존의 웹 애플리케이션은 데이터 저장에 &lt;strong&gt;RDBMS(관계형 데이터베이스)&lt;/strong&gt; 를 주로 사용했다. 하지만 다음과 같은 한계가 있었다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;디스크 기반 저장 방식으로 인해 &lt;strong&gt;읽기/쓰기 속도가 느림&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;단순한 데이터를 처리하는 데에도 &lt;strong&gt;복잡한 쿼리 구조와 I/O 병목&lt;/strong&gt;이 발생함&lt;/li&gt;
+&lt;li&gt;사용자 수가 급증할 경우, DB가 &lt;strong&gt;병목 지점이 되어 전체 시스템 응답 지연&lt;/strong&gt;을 유발함&lt;/li&gt;
+&lt;li&gt;로그인 세션, 실시간 순위, 방문자 수 등 &lt;strong&gt;즉각적인 반응이 필요한 기능&lt;/strong&gt;에 적합한 저장소가 부재함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이러한 문제를 해결하기 위해 등장한 것이 &lt;strong&gt;메모리 기반의 Key-Value 저장소&lt;/strong&gt;이며, 그중 가장 널리 사용되는 기술이 Redis다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>배달 서비스 API 트러블 슈팅 | withong</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+GitHub
+▶ project-sos
+
+
+Service 간 주입 방식의 코드 구현
+1. 문제의 시작: findById() 예외 처리는 어디에서 해야 하는가?
+Repository에서 findById()를 호출했을 때 조회 결과가 없는 경우, 예외를 Repository에서 처리할지, Service에 위임하여 처리할지 결정해야 한다. 두 방식은 아래와 같이 나뉜다.
+(1) Repository에서 예외를 처리하는 방식
+public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
+
+    default User findByIdOrThrow(Long id) {
+        return findById(id)
+                .orElseThrow(() -&gt; new EntityNotFoundException(&#34;User not found with id: &#34; &#43; id));
+    }
+}
+public User findUser(Long id) {
+    return userRepository.findByIdOrThrow(id);
+}
+(2) Service에서 예외를 처리하는 방식
+public User findUser(Long id) {
+    return userRepository.findById(id)
+            .orElseThrow(() -&gt; new EntityNotFoundException(&#34;User not found with id: &#34; &#43; id));
+}
+2. 분석: Repository가 아닌 Service에서 예외 처리를 해야 하는 이유
+
+역할 분리 원칙에 따라 Repository는 단순히 데이터 접근만을 담당하고, 예외 처리나 비즈니스 로직은 Service 계층에서 관리하는 것이 바람직하다.
+예외 처리 방식 변경 시, Service에서 처리하면 수정 범위를 Service에 국한시킬 수 있어 유지보수성이 향상된다.
+예외 메시지나 예외 타입을 도메인에 따라 다르게 정의할 수 있어 비즈니스 규칙을 명확히 표현할 수 있다.
+검증 책임을 Service로 일관되게 위임하면 다른 Service에서의 재사용과 일관성 유지가 수월하다.
+
+이러한 이유로, 예외 처리는 Repository보다는 Service 계층에서 수행하는 것이 더 적절하다.">
+<meta name="author" content="">
+<link rel="canonical" href="https://withong.github.io/project/sos/">
+<link crossorigin="anonymous" href="https://withong.github.io/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://withong.github.io/icons/rec.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://withong.github.io/icons/rec.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://withong.github.io/icons/rec.png">
+<link rel="apple-touch-icon" href="https://withong.github.io/icons/rec.png">
+<link rel="mask-icon" href="https://withong.github.io/icons/rec.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="https://withong.github.io/project/sos/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://withong.github.io/project/sos/">
+  <meta property="og:site_name" content="withong">
+  <meta property="og:title" content="배달 서비스 API 트러블 슈팅">
+  <meta property="og:description" content=" GitHub ▶ project-sos Service 간 주입 방식의 코드 구현 1. 문제의 시작: findById() 예외 처리는 어디에서 해야 하는가? Repository에서 findById()를 호출했을 때 조회 결과가 없는 경우, 예외를 Repository에서 처리할지, Service에 위임하여 처리할지 결정해야 한다. 두 방식은 아래와 같이 나뉜다.
+(1) Repository에서 예외를 처리하는 방식 public interface UserRepository extends JpaRepository&lt;User, Long&gt; { default User findByIdOrThrow(Long id) { return findById(id) .orElseThrow(() -&gt; new EntityNotFoundException(&#34;User not found with id: &#34; &#43; id)); } } public User findUser(Long id) { return userRepository.findByIdOrThrow(id); } (2) Service에서 예외를 처리하는 방식 public User findUser(Long id) { return userRepository.findById(id) .orElseThrow(() -&gt; new EntityNotFoundException(&#34;User not found with id: &#34; &#43; id)); } 2. 분석: Repository가 아닌 Service에서 예외 처리를 해야 하는 이유 역할 분리 원칙에 따라 Repository는 단순히 데이터 접근만을 담당하고, 예외 처리나 비즈니스 로직은 Service 계층에서 관리하는 것이 바람직하다. 예외 처리 방식 변경 시, Service에서 처리하면 수정 범위를 Service에 국한시킬 수 있어 유지보수성이 향상된다. 예외 메시지나 예외 타입을 도메인에 따라 다르게 정의할 수 있어 비즈니스 규칙을 명확히 표현할 수 있다. 검증 책임을 Service로 일관되게 위임하면 다른 Service에서의 재사용과 일관성 유지가 수월하다. 이러한 이유로, 예외 처리는 Repository보다는 Service 계층에서 수행하는 것이 더 적절하다.">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="project">
+    <meta property="article:published_time" content="2025-04-28T23:09:11+09:00">
+    <meta property="article:modified_time" content="2025-04-28T23:09:11+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="배달 서비스 API 트러블 슈팅">
+<meta name="twitter:description" content="
+GitHub
+▶ project-sos
+
+
+Service 간 주입 방식의 코드 구현
+1. 문제의 시작: findById() 예외 처리는 어디에서 해야 하는가?
+Repository에서 findById()를 호출했을 때 조회 결과가 없는 경우, 예외를 Repository에서 처리할지, Service에 위임하여 처리할지 결정해야 한다. 두 방식은 아래와 같이 나뉜다.
+(1) Repository에서 예외를 처리하는 방식
+public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
+
+    default User findByIdOrThrow(Long id) {
+        return findById(id)
+                .orElseThrow(() -&gt; new EntityNotFoundException(&#34;User not found with id: &#34; &#43; id));
+    }
+}
+public User findUser(Long id) {
+    return userRepository.findByIdOrThrow(id);
+}
+(2) Service에서 예외를 처리하는 방식
+public User findUser(Long id) {
+    return userRepository.findById(id)
+            .orElseThrow(() -&gt; new EntityNotFoundException(&#34;User not found with id: &#34; &#43; id));
+}
+2. 분석: Repository가 아닌 Service에서 예외 처리를 해야 하는 이유
+
+역할 분리 원칙에 따라 Repository는 단순히 데이터 접근만을 담당하고, 예외 처리나 비즈니스 로직은 Service 계층에서 관리하는 것이 바람직하다.
+예외 처리 방식 변경 시, Service에서 처리하면 수정 범위를 Service에 국한시킬 수 있어 유지보수성이 향상된다.
+예외 메시지나 예외 타입을 도메인에 따라 다르게 정의할 수 있어 비즈니스 규칙을 명확히 표현할 수 있다.
+검증 책임을 Service로 일관되게 위임하면 다른 Service에서의 재사용과 일관성 유지가 수월하다.
+
+이러한 이유로, 예외 처리는 Repository보다는 Service 계층에서 수행하는 것이 더 적절하다.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "About Projects",
+      "item": "https://withong.github.io/project/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "배달 서비스 API 트러블 슈팅",
+      "item": "https://withong.github.io/project/sos/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "배달 서비스 API 트러블 슈팅",
+  "name": "배달 서비스 API 트러블 슈팅",
+  "description": " GitHub ▶ project-sos Service 간 주입 방식의 코드 구현 1. 문제의 시작: findById() 예외 처리는 어디에서 해야 하는가? Repository에서 findById()를 호출했을 때 조회 결과가 없는 경우, 예외를 Repository에서 처리할지, Service에 위임하여 처리할지 결정해야 한다. 두 방식은 아래와 같이 나뉜다.\n(1) Repository에서 예외를 처리하는 방식 public interface UserRepository extends JpaRepository\u0026lt;User, Long\u0026gt; { default User findByIdOrThrow(Long id) { return findById(id) .orElseThrow(() -\u0026gt; new EntityNotFoundException(\u0026#34;User not found with id: \u0026#34; + id)); } } public User findUser(Long id) { return userRepository.findByIdOrThrow(id); } (2) Service에서 예외를 처리하는 방식 public User findUser(Long id) { return userRepository.findById(id) .orElseThrow(() -\u0026gt; new EntityNotFoundException(\u0026#34;User not found with id: \u0026#34; + id)); } 2. 분석: Repository가 아닌 Service에서 예외 처리를 해야 하는 이유 역할 분리 원칙에 따라 Repository는 단순히 데이터 접근만을 담당하고, 예외 처리나 비즈니스 로직은 Service 계층에서 관리하는 것이 바람직하다. 예외 처리 방식 변경 시, Service에서 처리하면 수정 범위를 Service에 국한시킬 수 있어 유지보수성이 향상된다. 예외 메시지나 예외 타입을 도메인에 따라 다르게 정의할 수 있어 비즈니스 규칙을 명확히 표현할 수 있다. 검증 책임을 Service로 일관되게 위임하면 다른 Service에서의 재사용과 일관성 유지가 수월하다. 이러한 이유로, 예외 처리는 Repository보다는 Service 계층에서 수행하는 것이 더 적절하다.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": " GitHub ▶ project-sos Service 간 주입 방식의 코드 구현 1. 문제의 시작: findById() 예외 처리는 어디에서 해야 하는가? Repository에서 findById()를 호출했을 때 조회 결과가 없는 경우, 예외를 Repository에서 처리할지, Service에 위임하여 처리할지 결정해야 한다. 두 방식은 아래와 같이 나뉜다.\n(1) Repository에서 예외를 처리하는 방식 public interface UserRepository extends JpaRepository\u003cUser, Long\u003e { default User findByIdOrThrow(Long id) { return findById(id) .orElseThrow(() -\u003e new EntityNotFoundException(\"User not found with id: \" + id)); } } public User findUser(Long id) { return userRepository.findByIdOrThrow(id); } (2) Service에서 예외를 처리하는 방식 public User findUser(Long id) { return userRepository.findById(id) .orElseThrow(() -\u003e new EntityNotFoundException(\"User not found with id: \" + id)); } 2. 분석: Repository가 아닌 Service에서 예외 처리를 해야 하는 이유 역할 분리 원칙에 따라 Repository는 단순히 데이터 접근만을 담당하고, 예외 처리나 비즈니스 로직은 Service 계층에서 관리하는 것이 바람직하다. 예외 처리 방식 변경 시, Service에서 처리하면 수정 범위를 Service에 국한시킬 수 있어 유지보수성이 향상된다. 예외 메시지나 예외 타입을 도메인에 따라 다르게 정의할 수 있어 비즈니스 규칙을 명확히 표현할 수 있다. 검증 책임을 Service로 일관되게 위임하면 다른 Service에서의 재사용과 일관성 유지가 수월하다. 이러한 이유로, 예외 처리는 Repository보다는 Service 계층에서 수행하는 것이 더 적절하다.\n3. 확장된 문제 1: Service에서 예외 처리한 결과를 다른 Service에서 가져다 써야 하는가? Service에서 검증까지 포함된 메서드를 제공하고, 다른 Service는 해당 메서드를 호출해 필요한 엔티티를 가져오는 방식이 더 일관되고 안전하다.\n예시 @Service public class UserService { private final UserRepository userRepository; public UserService(UserRepository userRepository) { this.userRepository = userRepository; } public User findUserById(Long id) { return userRepository.findById(id) .orElseThrow(() -\u003e new EntityNotFoundException(\"User not found with id: \" + id)); } } @Service public class OrderService { private final UserService userService; public OrderService(UserService userService) { this.userService = userService; } public void placeOrder(Long userId) { User user = userService.findUserById(userId); // 주문 생성 로직 } } 이런 구조에서는 중복 예외 처리 방지, 도메인 별 책임 분리, 비즈니스 로직의 재사용성 향상 같은 장점이 있다.\n4. 확장된 문제 2: AService에서 BRepository를 직접 주입받아도 괜찮은가? AService가 BRepository를 직접 사용하는 방식은 다음과 같은 문제를 일으킬 수 있다.\nService 계층의 도메인 경계 침범: 다른 도메인의 내부 구현에 접근하게 되어 구조가 엉킬 수 있다. 높은 결합도: BRepository의 변경이 AService에 직접 영향을 주게 되며, 테스트와 유지보수가 어려워진다. 역할 혼란: AService가 B도메인의 검증 책임까지 떠맡게 되어 설계 원칙이 무너질 수 있다. 따라서, BRepository에 직접 접근하는 대신 BService를 주입받아 필요한 기능을 위임하는 방식이 더 안정적이다.\n개선된 구조 예시 public interface StoreService { Store findStoreById(Long id); } @Service public class StoreServiceImpl implements StoreService { private final StoreRepository storeRepository; public StoreServiceImpl(StoreRepository storeRepository) { this.storeRepository = storeRepository; } @Override public Store findStoreById(Long id) { return storeRepository.findById(id) .orElseThrow(() -\u003e new EntityNotFoundException(\"Store not found with id: \" + id)); } } @Service public class OrderService { private final StoreService storeService; public OrderService(StoreService storeService) { this.storeService = storeService; } public void placeOrder(Long storeId) { Store store = storeService.findStoreById(storeId); // 주문 생성 로직 } } @Component @RequiredArgsConstructor public class StoreValidator { private final StoreRepository storeRepository; public void validateOwner(Long userId, Long storeId) { Store store = storeRepository.findById(storeId) .orElseThrow(() -\u003e new StoreException(StoreError.NOT_FOUND_STORE)); if (!store.getOwner().getId().equals(userId)) { throw new StoreException(StoreError.UNAUTHORIZED_STORE_OWNER); } } } 별도의 Validator 컴포넌트를 통해 도메인 단위의 세부 검증을 담당하게 하면, 핵심 Service는 핵심 비즈니스 로직에 집중할 수 있다.\n5. 결론: Service 간 주입 방식으로 구현 Repository는 단순한 데이터 접근만을 책임지고, 예외 처리는 Service에서 수행한다. 검증 로직은 Service 또는 별도 Validator에서 수행하며, 이를 다른 Service에서 재사용한다. AService가 B 도메인의 데이터를 사용할 때는 BRepository를 직접 접근하기보다 BService를 통해 간접적으로 접근한다. Service 간 주입은 단방향으로, 필요한 경우에만, 인터페이스를 통해 결합도를 낮춘 형태로 최소화한다. 지나친 Service 간 의존성은 시스템 복잡도를 증가시키므로, 검증 책임과 로직 배치를 신중히 판단해야 한다. 이러한 방식은 코드 구조를 깔끔하게 유지하고, 역할을 분리하면서도 비즈니스 흐름을 일관성 있게 관리하는 데 효과적이다. 이번 SOS 프로젝트에서는 이러한 기준에 따라 Service 간 주입과 예외 처리 방식을 적용하기로 했다.\n",
+  "wordCount" : "604",
+  "inLanguage": "ko",
+  "datePublished": "2025-04-28T23:09:11+09:00",
+  "dateModified": "2025-04-28T23:09:11+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://withong.github.io/project/sos/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "withong",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://withong.github.io/icons/rec.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://withong.github.io/" accesskey="h" title="withong (Alt + H)">withong</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://withong.github.io/log/" title="Log">
+                    <span>Log</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/record/" title="Record">
+                    <span>Record</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/project/" title="Project">
+                    <span>Project</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/tag/" title="Tag">
+                    <span>Tag</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://withong.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://withong.github.io/">Log</a>&nbsp;»&nbsp;<a href="https://withong.github.io/project/">About Projects</a></div>
+    <h1 class="post-title entry-hint-parent">
+      배달 서비스 API 트러블 슈팅
+    </h1>
+    <div class="post-meta"><span title='2025-04-28 23:09:11 +0900 KST'>2025년 4월 28일</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">목차</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#github">GitHub</a>
+      <ul>
+        <li><a href="#-project-sos">▶ <a href="https://github.com/nine-trillion/project-sos.git">project-sos</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#service-간-주입-방식의-코드-구현">Service 간 주입 방식의 코드 구현</a>
+      <ul>
+        <li><a href="#1-문제의-시작-findbyid-예외-처리는-어디에서-해야-하는가">1. 문제의 시작: <code>findById()</code> 예외 처리는 어디에서 해야 하는가?</a></li>
+        <li><a href="#2-분석-repository가-아닌-service에서-예외-처리를-해야-하는-이유">2. 분석: Repository가 아닌 Service에서 예외 처리를 해야 하는 이유</a></li>
+        <li><a href="#3-확장된-문제-1-service에서-예외-처리한-결과를-다른-service에서-가져다-써야-하는가">3. 확장된 문제 1: Service에서 예외 처리한 결과를 다른 Service에서 가져다 써야 하는가?</a></li>
+        <li><a href="#4-확장된-문제-2-aservice에서-brepository를-직접-주입받아도-괜찮은가">4. 확장된 문제 2: AService에서 BRepository를 직접 주입받아도 괜찮은가?</a></li>
+        <li><a href="#5-결론-service-간-주입-방식으로-구현">5. 결론: Service 간 주입 방식으로 구현</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><hr>
+<h2 id="github">GitHub<a hidden class="anchor" aria-hidden="true" href="#github">#</a></h2>
+<h3 id="-project-sos">▶ <a href="https://github.com/nine-trillion/project-sos.git">project-sos</a><a hidden class="anchor" aria-hidden="true" href="#-project-sos">#</a></h3>
+<hr>
+<br>
+<h2 id="service-간-주입-방식의-코드-구현">Service 간 주입 방식의 코드 구현<a hidden class="anchor" aria-hidden="true" href="#service-간-주입-방식의-코드-구현">#</a></h2>
+<h3 id="1-문제의-시작-findbyid-예외-처리는-어디에서-해야-하는가">1. 문제의 시작: <code>findById()</code> 예외 처리는 어디에서 해야 하는가?<a hidden class="anchor" aria-hidden="true" href="#1-문제의-시작-findbyid-예외-처리는-어디에서-해야-하는가">#</a></h3>
+<p>Repository에서 <code>findById()</code>를 호출했을 때 조회 결과가 없는 경우, 예외를 <strong>Repository에서 처리할지</strong>, <strong>Service에 위임하여 처리할지</strong> 결정해야 한다. 두 방식은 아래와 같이 나뉜다.</p>
+<h4 id="1-repository에서-예외를-처리하는-방식">(1) Repository에서 예외를 처리하는 방식<a hidden class="anchor" aria-hidden="true" href="#1-repository에서-예외를-처리하는-방식">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">findByIdOrThrow</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">findById</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EntityNotFoundException</span><span class="p">(</span><span class="s">&#34;User not found with id: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">findUser</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userRepository</span><span class="p">.</span><span class="na">findByIdOrThrow</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="2-service에서-예외를-처리하는-방식">(2) Service에서 예외를 처리하는 방식<a hidden class="anchor" aria-hidden="true" href="#2-service에서-예외를-처리하는-방식">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">findUser</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EntityNotFoundException</span><span class="p">(</span><span class="s">&#34;User not found with id: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="2-분석-repository가-아닌-service에서-예외-처리를-해야-하는-이유">2. 분석: Repository가 아닌 Service에서 예외 처리를 해야 하는 이유<a hidden class="anchor" aria-hidden="true" href="#2-분석-repository가-아닌-service에서-예외-처리를-해야-하는-이유">#</a></h3>
+<ul>
+<li><strong>역할 분리 원칙</strong>에 따라 Repository는 단순히 데이터 접근만을 담당하고, 예외 처리나 비즈니스 로직은 Service 계층에서 관리하는 것이 바람직하다.</li>
+<li>예외 처리 방식 변경 시, Service에서 처리하면 수정 범위를 Service에 국한시킬 수 있어 <strong>유지보수성이 향상</strong>된다.</li>
+<li>예외 메시지나 예외 타입을 도메인에 따라 다르게 정의할 수 있어 <strong>비즈니스 규칙을 명확히 표현</strong>할 수 있다.</li>
+<li>검증 책임을 Service로 일관되게 위임하면 <strong>다른 Service에서의 재사용과 일관성 유지가 수월</strong>하다.</li>
+</ul>
+<p>이러한 이유로, 예외 처리는 Repository보다는 Service 계층에서 수행하는 것이 더 적절하다.</p>
+<h3 id="3-확장된-문제-1-service에서-예외-처리한-결과를-다른-service에서-가져다-써야-하는가">3. 확장된 문제 1: Service에서 예외 처리한 결과를 다른 Service에서 가져다 써야 하는가?<a hidden class="anchor" aria-hidden="true" href="#3-확장된-문제-1-service에서-예외-처리한-결과를-다른-service에서-가져다-써야-하는가">#</a></h3>
+<p>Service에서 검증까지 포함된 메서드를 제공하고, 다른 Service는 해당 메서드를 호출해 필요한 엔티티를 가져오는 방식이 더 일관되고 안전하다.</p>
+<h4 id="예시">예시<a hidden class="anchor" aria-hidden="true" href="#예시">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">UserRepository</span><span class="w"> </span><span class="n">userRepository</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">UserService</span><span class="p">(</span><span class="n">UserRepository</span><span class="w"> </span><span class="n">userRepository</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">userRepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userRepository</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">findUserById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">userRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EntityNotFoundException</span><span class="p">(</span><span class="s">&#34;User not found with id: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">OrderService</span><span class="p">(</span><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">userService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userService</span><span class="p">.</span><span class="na">findUserById</span><span class="p">(</span><span class="n">userId</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 주문 생성 로직</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>이런 구조에서는 <strong>중복 예외 처리 방지</strong>, <strong>도메인 별 책임 분리</strong>, <strong>비즈니스 로직의 재사용성 향상</strong> 같은 장점이 있다.</p>
+<h3 id="4-확장된-문제-2-aservice에서-brepository를-직접-주입받아도-괜찮은가">4. 확장된 문제 2: AService에서 BRepository를 직접 주입받아도 괜찮은가?<a hidden class="anchor" aria-hidden="true" href="#4-확장된-문제-2-aservice에서-brepository를-직접-주입받아도-괜찮은가">#</a></h3>
+<p>AService가 BRepository를 직접 사용하는 방식은 다음과 같은 문제를 일으킬 수 있다.</p>
+<ul>
+<li><strong>Service 계층의 도메인 경계 침범</strong>: 다른 도메인의 내부 구현에 접근하게 되어 구조가 엉킬 수 있다.</li>
+<li><strong>높은 결합도</strong>: BRepository의 변경이 AService에 직접 영향을 주게 되며, 테스트와 유지보수가 어려워진다.</li>
+<li><strong>역할 혼란</strong>: AService가 B도메인의 검증 책임까지 떠맡게 되어 설계 원칙이 무너질 수 있다.</li>
+</ul>
+<p>따라서, BRepository에 직접 접근하는 대신 BService를 주입받아 필요한 기능을 위임하는 방식이 더 안정적이다.</p>
+<h4 id="개선된-구조-예시">개선된 구조 예시<a hidden class="anchor" aria-hidden="true" href="#개선된-구조-예시">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">StoreService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Store</span><span class="w"> </span><span class="nf">findStoreById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StoreServiceImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">StoreService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">StoreRepository</span><span class="w"> </span><span class="n">storeRepository</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">StoreServiceImpl</span><span class="p">(</span><span class="n">StoreRepository</span><span class="w"> </span><span class="n">storeRepository</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">storeRepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">storeRepository</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Store</span><span class="w"> </span><span class="nf">findStoreById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">storeRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EntityNotFoundException</span><span class="p">(</span><span class="s">&#34;Store not found with id: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">StoreService</span><span class="w"> </span><span class="n">storeService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">OrderService</span><span class="p">(</span><span class="n">StoreService</span><span class="w"> </span><span class="n">storeService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">storeService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">storeService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">storeId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Store</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">storeService</span><span class="p">.</span><span class="na">findStoreById</span><span class="p">(</span><span class="n">storeId</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 주문 생성 로직</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequiredArgsConstructor</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StoreValidator</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">StoreRepository</span><span class="w"> </span><span class="n">storeRepository</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">validateOwner</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">storeId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Store</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">storeRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">storeId</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StoreException</span><span class="p">(</span><span class="n">StoreError</span><span class="p">.</span><span class="na">NOT_FOUND_STORE</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">store</span><span class="p">.</span><span class="na">getOwner</span><span class="p">().</span><span class="na">getId</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">userId</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StoreException</span><span class="p">(</span><span class="n">StoreError</span><span class="p">.</span><span class="na">UNAUTHORIZED_STORE_OWNER</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>별도의 Validator 컴포넌트를 통해 도메인 단위의 세부 검증을 담당하게 하면, 핵심 Service는 핵심 비즈니스 로직에 집중할 수 있다.</p>
+<h3 id="5-결론-service-간-주입-방식으로-구현">5. 결론: Service 간 주입 방식으로 구현<a hidden class="anchor" aria-hidden="true" href="#5-결론-service-간-주입-방식으로-구현">#</a></h3>
+<ul>
+<li>Repository는 단순한 데이터 접근만을 책임지고, 예외 처리는 Service에서 수행한다.</li>
+<li>검증 로직은 Service 또는 별도 Validator에서 수행하며, 이를 다른 Service에서 재사용한다.</li>
+<li>AService가 B 도메인의 데이터를 사용할 때는 BRepository를 직접 접근하기보다 BService를 통해 간접적으로 접근한다.</li>
+<li>Service 간 주입은 <strong>단방향으로</strong>, <strong>필요한 경우에만</strong>, <strong>인터페이스를 통해 결합도를 낮춘 형태</strong>로 최소화한다.</li>
+<li>지나친 Service 간 의존성은 시스템 복잡도를 증가시키므로, 검증 책임과 로직 배치를 신중히 판단해야 한다.</li>
+</ul>
+<p>이러한 방식은 코드 구조를 깔끔하게 유지하고, 역할을 분리하면서도 비즈니스 흐름을 일관성 있게 관리하는 데 효과적이다. 이번 SOS 프로젝트에서는 이러한 기준에 따라 Service 간 주입과 예외 처리 방식을 적용하기로 했다.</p>
+<br>
+<hr>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://withong.github.io/record/2025-04-21-02/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Spring Boot 단위 테스트 (JUnit 5 기반)</span>
+  </a>
+  <a class="next" href="https://withong.github.io/project/five-lock-run/">
+    <span class="title">Next »</span>
+    <br>
+    <span>기차 예매 API 트러블 슈팅</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://withong.github.io/">withong</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = '✔';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

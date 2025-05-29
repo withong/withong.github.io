@@ -145,6 +145,42 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Bcrypt를 활용한 비밀번호 암호화
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. 해시(Hash)란? **해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.
+출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.
+예를 들어, “password123&#34;이라는 문자열을 해시 함수에 넣으면,
+ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.
+해시 함수의 주요 특징:
+입력값이 조금이라도 다르면 결과가 완전히 달라짐 해시 값만 보고는 원래 값을 알 수 없음 (일방향성) 같은 입력에 대해서는 항상 같은 출력이 나옴 2. 일반적인 해시 함수의 문제점 SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다는 장점이 있지만,
+비밀번호 저장에는 오히려 그 점이 취약점이 된다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-01 16:50:00 +0900 KST'>2025년 4월 1일</span></footer>
+  <a class="entry-link" aria-label="post link to Bcrypt를 활용한 비밀번호 암호화" href="https://withong.github.io/record/2025-04-01-03/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">문자열 사전순 비교: compareTo()
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>문제 숫자로 이루어진 문자열 t와 p가 주어질 때, t에서 p와 길이가 같은 부분문자열 중에서, 이 부분문자열이 나타내는 수가 p가 나타내는 수보다 작거나 같은 것이 나오는 횟수를 return하는 함수 solution을 완성하세요.
+예를 들어, t=“3141592&#34;이고 p=“271” 인 경우, t의 길이가 3인 부분 문자열은 314, 141, 415, 159, 592입니다. 이 문자열이 나타내는 수 중 271보다 작거나 같은 수는 141, 159 2개 입니다.
+오답 일부 정답, 일부 런타임 에러 발생
+class Solution { public int solution(String t, String p) { int count = 0; int pToInt = Integer.parseInt(p); for (int i = 0; i &lt; t.length() - p.length() &#43; 1; i&#43;&#43;) { String s = t.substring(i, i &#43; p.length()); int sToInt = Integer.parseInt(s); if (sToInt &lt;= pToInt) count&#43;&#43;; } return count; } } 원인: p의 길이가 최대 18이기 때문에, Long 범위를 초과할 수 있으며,
+Integer는 최대 2,147,483,647까지만 표현할 수 있어서 NumberFormatException이 발생할 수 있음.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-04-01 09:54:56 +0900 KST'>2025년 4월 1일</span></footer>
+  <a class="entry-link" aria-label="post link to 문자열 사전순 비교: compareTo()" href="https://withong.github.io/record/2025-04-01-01/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Spring 숙련 2
     </h2>
   </header>
@@ -257,34 +293,6 @@ MVC 패턴 개요 원래 Servlet과 JSP만으로 웹 개발을 했으나, 비즈
   </div>
   <footer class="entry-footer"><span title='2025-03-17 22:00:03 +0900 KST'>2025년 3월 17일</span></footer>
   <a class="entry-link" aria-label="post link to Spring 기초 1" href="https://withong.github.io/record/2025-03-17/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Collection &amp; Stream
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 1. 배열 vs. 컬렉션 배열: 크기 고정, 동일 타입 데이터만 저장, 인덱스로 접근 가능, 단순한 구조. 컬렉션: 크기 동적 조절 가능, 다양한 타입 지원(제네릭), List/Set/Map 등 다양한 자료구조 제공. 2. 컬렉션 주요 인터페이스 List (ArrayList, LinkedList): 순서 O, 중복 O, 인덱스로 접근 가능. Set (HashSet, TreeSet): 순서 X, 중복 X. Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O. 3. 원시 타입 vs. 래퍼 클래스 컬렉션에는 원시 타입(int, char)을 직접 저장할 수 없고, 래퍼 클래스(Integer, Character)를 사용해야 함. 래퍼 클래스는 객체로 취급되며, 다양한 메서드를 제공. 4. 스트림(Stream) 자바 8에서 도입된 데이터 처리 방식. 원본 데이터를 변경하지 않고 가공 가능. 중간 연산(필터링, 변환)과 최종 연산(집계, 출력)으로 구성됨. 5. 스트림 주요 연산 중간 연산 (Intermediate Operations)
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-13 21:00:00 +0900 KST'>2025년 3월 13일</span></footer>
-  <a class="entry-link" aria-label="post link to Collection & Stream" href="https://withong.github.io/record/2025-03-13/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Enum &amp; 동일성/동등성
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> Enum → 단순한 상수의 모음이 아니라, 객체처럼 동작하는 데이터 타입 동등성 (equals()) → 내용이 같으면 true 동일성 (==) → 메모리 주소가 같으면 true hashCode() → 컬렉션에서 일관성 있게 동작하도록 필수적으로 재정의해야 한다. 1. Enum (열거형) Enum은 서로 연관된 상수들의 집합을 정의하는 특별한 데이터 타입이다.
-기존 final static 상수를 사용하는 것보다 더 안전하고 가독성이 좋다.
-Enum의 특징 상수들의 집합으로 사용된다. 내부적으로 final class처럼 동작하며, 새로운 인스턴스를 생성할 수 없다. 객체처럼 필드와 메서드를 가질 수 있다. 타입 안정성을 제공한다. enum Day { SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY; } Day는 요일을 표현하는 상수 그룹이다.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-11 10:44:41 +0900 KST'>2025년 3월 11일</span></footer>
-  <a class="entry-link" aria-label="post link to Enum & 동일성/동등성" href="https://withong.github.io/record/2025-03-11/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
