@@ -276,16 +276,26 @@ DispatcherServlet이 요청을 받는다. 요청 URI에 맞는 컨트롤러 메�
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">JWT란?
+    <h2 class="entry-hint-parent">일정 관리 API (JPA) 트러블 슈팅
     </h2>
   </header>
   <div class="entry-content">
-    <p>1. JWT 정의 JWT는 JSON Web Token의 약자로, JSON 형식의 데이터를 안전하게 전송하기 위한 표준이다. 이 표준은 인터넷 상에서의 인증 및 권한 부여와 관련된 시스템에서 주로 사용된다. 예를 들어, 사용자가 서버에 로그인하면 서버는 JWT를 생성하여 사용자에게 제공하고, 사용자는 이 JWT를 통해 인증을 유지할 수 있다.
-JWT는 본질적으로 세션 관리 방식을 대체할 수 있다. 전통적인 세션 방식은 서버에 상태를 저장하고 세션 ID를 클라이언트에게 전달하는 방식이지만, JWT는 서버에 상태를 저장하지 않는 방식을 채택하여 세션리스 인증 방식을 가능하게 한다.
+    <p> GitHub ▶ nbc-chapter-03-develop 1. 이메일 형식 검증 문제:
+@Email을 어노테이션으로 이메일 형식을 검증해도
+test@gmail 같은 @ 뒤에 마침표(.)가 존재하지 않는 이메일이 통과됨…
+원인:
+@Email은 기본적으로 @ 기호와 텍스트 구조만 확인하고,
+도메인에 마침표가 포함되어야 한다는 조건은 강제하지 않음
+분석:
+@Email만으로는 @뒤에 마침표가 1개 이상 존재하고,
+마지막 마침표 뒤에 문자열이 있다는 현실적인 이메일 형식 검증은 부족함
+해결:
+정규 표현식을 함께 사용해 @ 뒤에 마침표 포함 여부와 마침표 뒤의 문자열까지 추가로 검증
+▶ 공부 기록 [정규 표현식을 활용한 사용자 등록 요청 데이터 검증]
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-04-10 22:00:06 +0900 KST'>2025년 4월 10일</span></footer>
-  <a class="entry-link" aria-label="post link to JWT란?" href="https://withong.github.io/record/2025-04-10/"></a>
+  <footer class="entry-footer"><span title='2025-04-03 22:28:58 +0900 KST'>2025년 4월 3일</span></footer>
+  <a class="entry-link" aria-label="post link to 일정 관리 API (JPA) 트러블 슈팅" href="https://withong.github.io/project/schedule-02/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

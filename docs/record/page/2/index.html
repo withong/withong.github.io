@@ -163,25 +163,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Bcrypt를 활용한 비밀번호 암호화
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1. 해시(Hash)란? **해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.
-출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.
-예를 들어, “password123&#34;이라는 문자열을 해시 함수에 넣으면,
-ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.
-해시 함수의 주요 특징:
-입력값이 조금이라도 다르면 결과가 완전히 달라짐 해시 값만 보고는 원래 값을 알 수 없음 (일방향성) 같은 입력에 대해서는 항상 같은 출력이 나옴 2. 일반적인 해시 함수의 문제점 SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다는 장점이 있지만,
-비밀번호 저장에는 오히려 그 점이 취약점이 된다.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-04-01 16:50:00 +0900 KST'>2025년 4월 1일</span></footer>
-  <a class="entry-link" aria-label="post link to Bcrypt를 활용한 비밀번호 암호화" href="https://withong.github.io/record/2025-04-01-03/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">문자열 사전순 비교: compareTo()
     </h2>
   </header>
@@ -311,6 +292,19 @@ MVC 패턴 개요 원래 Servlet과 JSP만으로 웹 개발을 했으나, 비즈
   </div>
   <footer class="entry-footer"><span title='2025-03-17 22:00:03 +0900 KST'>2025년 3월 17일</span></footer>
   <a class="entry-link" aria-label="post link to Spring 기초 1" href="https://withong.github.io/record/2025-03-17/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Collection &amp; Stream
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 1. 배열 vs. 컬렉션 배열: 크기 고정, 동일 타입 데이터만 저장, 인덱스로 접근 가능, 단순한 구조. 컬렉션: 크기 동적 조절 가능, 다양한 타입 지원(제네릭), List/Set/Map 등 다양한 자료구조 제공. 2. 컬렉션 주요 인터페이스 List (ArrayList, LinkedList): 순서 O, 중복 O, 인덱스로 접근 가능. Set (HashSet, TreeSet): 순서 X, 중복 X. Map (HashMap, TreeMap): 키-값 쌍 저장, 키 중복 X, 값 중복 O. 3. 원시 타입 vs. 래퍼 클래스 컬렉션에는 원시 타입(int, char)을 직접 저장할 수 없고, 래퍼 클래스(Integer, Character)를 사용해야 함. 래퍼 클래스는 객체로 취급되며, 다양한 메서드를 제공. 4. 스트림(Stream) 자바 8에서 도입된 데이터 처리 방식. 원본 데이터를 변경하지 않고 가공 가능. 중간 연산(필터링, 변환)과 최종 연산(집계, 출력)으로 구성됨. 5. 스트림 주요 연산 중간 연산 (Intermediate Operations)
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-13 21:00:00 +0900 KST'>2025년 3월 13일</span></footer>
+  <a class="entry-link" aria-label="post link to Collection & Stream" href="https://withong.github.io/record/2025-03-13/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

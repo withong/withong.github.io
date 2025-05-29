@@ -267,17 +267,6 @@ AOP는 이 문제를 해결하기 위해 공통 기능을 하나의 모듈로 �
 &lt;p&gt;&lt;code&gt;HttpMessageConverter&lt;/code&gt;는 HTTP 요청 본문을 자바 객체로 변환하거나, 자바 객체를 HTTP 응답 본문으로 변환하는 인터페이스이다. 주로 &lt;code&gt;@RequestBody&lt;/code&gt;, &lt;code&gt;@ResponseBody&lt;/code&gt;, &lt;code&gt;HttpEntity&lt;/code&gt;, &lt;code&gt;RequestEntity&lt;/code&gt;, &lt;code&gt;ResponseEntity&lt;/code&gt; 등과 함께 사용되며, 이런 어노테이션이나 객체가 사용된 컨트롤러 메서드는 내부적으로 &lt;code&gt;HttpMessageConverter&lt;/code&gt;를 통해 처리된다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>JWT란?</title>
-      <link>https://withong.github.io/record/2025-04-10/</link>
-      <pubDate>Thu, 10 Apr 2025 22:00:06 +0900</pubDate>
-      <guid>https://withong.github.io/record/2025-04-10/</guid>
-      <description>&lt;hr&gt;
-&lt;br&gt;
-&lt;h2 id=&#34;1-jwt-정의&#34;&gt;1. JWT 정의&lt;/h2&gt;
-&lt;p&gt;JWT는 &lt;strong&gt;JSON Web Token&lt;/strong&gt;의 약자로, &lt;strong&gt;JSON&lt;/strong&gt; 형식의 데이터를 &lt;strong&gt;안전하게 전송&lt;/strong&gt;하기 위한 표준이다. 이 표준은 &lt;strong&gt;인터넷 상에서의 인증 및 권한 부여&lt;/strong&gt;와 관련된 시스템에서 주로 사용된다. 예를 들어, 사용자가 서버에 로그인하면 서버는 JWT를 생성하여 사용자에게 제공하고, 사용자는 이 JWT를 통해 인증을 유지할 수 있다.&lt;/p&gt;
-&lt;p&gt;JWT는 본질적으로 &lt;strong&gt;세션 관리 방식&lt;/strong&gt;을 대체할 수 있다. 전통적인 세션 방식은 서버에 상태를 저장하고 세션 ID를 클라이언트에게 전달하는 방식이지만, JWT는 &lt;strong&gt;서버에 상태를 저장하지 않는&lt;/strong&gt; 방식을 채택하여 &lt;strong&gt;세션리스&lt;/strong&gt; 인증 방식을 가능하게 한다.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>QueryDSL을 활용한 조건 기반 일정 조회</title>
       <link>https://withong.github.io/record/2025-04-03/</link>
       <pubDate>Thu, 03 Apr 2025 20:24:51 +0900</pubDate>
