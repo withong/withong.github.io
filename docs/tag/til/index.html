@@ -145,7 +145,25 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Redis란?
+    <h2 class="entry-hint-parent">JWT (JSON Web Token)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>왜 등장했는가 웹 시스템의 인증은 전통적으로 세션 기반이었다.
+로그인 시 서버는 세션을 생성하고 클라이언트에 세션 ID를 쿠키로 전달하며, 이후 요청마다 서버가 세션 저장소를 통해 인증 상태를 식별한다.
+상태 관리 부담 서버 확장 시 세션 동기화 비용이 증가하며, Sticky Session 또는 외부 세션 저장소가 필요해진다.
+REST API와의 부조화 REST는 무상태(Stateless) 아키텍처를 전제로 하므로, 세션 기반 인증은 구조적으로 부적합하다.
+이러한 제약을 해결하기 위해 등장한 방식이 JWT(Json Web Token) 기반 인증이다.
+어떻게 작동하는가 클라이언트가 로그인 정보를 서버에 전송한다. 서버는 인증에 성공하면 사용자 정보를 담은 JWT를 생성하여 응답한다. 클라이언트는 이후 모든 요청에 Authorization: Bearer &lt;token&gt; 헤더를 포함한다. 서버는 매 요청마다 토큰의 서명을 검증하고, Payload의 클레임을 기반으로 인증 및 인가를 수행한다. 별도의 세션 상태를 보존하지 않고 완전한 무상태 구조를 유지할 수 있다. 토큰의 구성 JWT는 Header.Payload.Signature 세 부분으로 구성되며, 각각 Base64URL로 인코딩되고 .으로 구분된다.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-05-30 21:32:51 +0900 KST'>2025년 5월 30일</span></footer>
+  <a class="entry-link" aria-label="post link to JWT (JSON Web Token)" href="https://withong.github.io/record/2025-05-30/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Redis (Remote Dictionary Server)
     </h2>
   </header>
   <div class="entry-content">
@@ -154,7 +172,7 @@
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-05-29 22:49:01 +0900 KST'>2025년 5월 29일</span></footer>
-  <a class="entry-link" aria-label="post link to Redis란?" href="https://withong.github.io/record/2025-05-29/"></a>
+  <a class="entry-link" aria-label="post link to Redis (Remote Dictionary Server)" href="https://withong.github.io/record/2025-05-29/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -275,25 +293,6 @@ DispatcherServlet이 요청을 받는다. 요청 URI에 맞는 컨트롤러 메�
   </div>
   <footer class="entry-footer"><span title='2025-04-01 22:05:47 +0900 KST'>2025년 4월 1일</span></footer>
   <a class="entry-link" aria-label="post link to 정규 표현식을 활용한 사용자 등록 요청 데이터 검증" href="https://withong.github.io/record/2025-04-01-02/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Bcrypt를 활용한 비밀번호 암호화
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1. 해시(Hash)란? **해시 함수(hash function)**는 임의의 길이를 가진 입력값을 고정된 길이의 출력값으로 변환하는 함수다.
-출력값은 일반적으로 해시 값(hash value) 또는 **다이제스트(digest)**라고 부른다.
-예를 들어, “password123&#34;이라는 문자열을 해시 함수에 넣으면,
-ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 같은 고정된 길이의 문자열로 바뀐다.
-해시 함수의 주요 특징:
-입력값이 조금이라도 다르면 결과가 완전히 달라짐 해시 값만 보고는 원래 값을 알 수 없음 (일방향성) 같은 입력에 대해서는 항상 같은 출력이 나옴 2. 일반적인 해시 함수의 문제점 SHA-256, SHA-512 같은 일반적인 해시 함수는 속도가 매우 빠르다는 장점이 있지만,
-비밀번호 저장에는 오히려 그 점이 취약점이 된다.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-04-01 16:50:00 +0900 KST'>2025년 4월 1일</span></footer>
-  <a class="entry-link" aria-label="post link to Bcrypt를 활용한 비밀번호 암호화" href="https://withong.github.io/record/2025-04-01-03/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
