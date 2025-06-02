@@ -19,7 +19,8 @@
 &lt;p&gt;N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.&lt;/p&gt;
 &lt;h2 id=&#34;입력&#34;&gt;입력&lt;/h2&gt;
 &lt;p&gt;첫 줄에 자연수 N(3&amp;lt;=N&amp;lt;=20)이 주어집니다.&lt;br&gt;
-두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다. 단어는 영어 알파벳으로만 구성되어 있습니다.&lt;/p&gt;
+두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다.&lt;br&gt;
+단어는 영어 알파벳으로만 구성되어 있습니다.&lt;/p&gt;
 &lt;h2 id=&#34;출력&#34;&gt;출력&lt;/h2&gt;
 &lt;p&gt;N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.&lt;/p&gt;
 &lt;br&gt;
@@ -87,7 +88,7 @@
 &lt;li&gt;각 문자열을 toCharArray()로 문자 배열로 변환한 뒤&lt;/li&gt;
 &lt;li&gt;좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고&lt;/li&gt;
 &lt;li&gt;두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용&lt;/li&gt;
-&lt;li&gt;최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장함&lt;/li&gt;
+&lt;li&gt;최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장&lt;/li&gt;
 &lt;/ul&gt;
 &lt;br&gt;
 &lt;hr&gt;</description>

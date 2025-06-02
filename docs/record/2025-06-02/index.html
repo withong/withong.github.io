@@ -13,7 +13,8 @@
 N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.
 입력
 첫 줄에 자연수 N(3&lt;=N&lt;=20)이 주어집니다.
-두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다. 단어는 영어 알파벳으로만 구성되어 있습니다.
+두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다.
+단어는 영어 알파벳으로만 구성되어 있습니다.
 출력
 N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.
 
@@ -81,7 +82,7 @@ public static String[] solution2(int num, String[] strArr) {
 각 문자열을 toCharArray()로 문자 배열로 변환한 뒤
 좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고
 두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용
-최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장함
+최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장
 
 
 ">
@@ -137,9 +138,10 @@ public static String[] solution2(int num, String[] strArr) {
   <meta property="og:title" content="단어 뒤집기">
   <meta property="og:description" content="설명 N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.
 입력 첫 줄에 자연수 N(3&lt;=N&lt;=20)이 주어집니다.
-두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다. 단어는 영어 알파벳으로만 구성되어 있습니다.
+두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다.
+단어는 영어 알파벳으로만 구성되어 있습니다.
 출력 N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.
-main public static void main(String[] args) { Scanner scanner = new Scanner(System.in); int count = scanner.nextInt(); scanner.nextLine(); String[] strArr = new String[count]; for (int i = 0; i &lt; strArr.length; i&#43;&#43;) { strArr[i] = scanner.nextLine(); } String[] answer = solution2(count, strArr); for (String s : answer) { System.out.println(s); } } solution 1 public static String[] solution1(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i &lt; num; i&#43;&#43;) { StringBuilder sb = new StringBuilder(strArr[i]); answer[i] = sb.reverse().toString(); } return answer; } StringBuilder를 활용한 문자열 뒤집기 방식 입력된 문자열 배열의 각 요소를 StringBuilder로 감싼 뒤 reverse() 메서드를 호출하여 문자열을 뒤집고 toString()으로 문자열로 변환하여 결과 배열에 저장함 solution 2 public static String[] solution2(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i &lt; num; i&#43;&#43;) { char[] s = strArr[i].toCharArray(); int lt = 0; int rt = strArr[i].length() - 1; while (lt &lt; rt) { char tmp = s[lt]; s[lt] = s[rt]; s[rt] = tmp; lt&#43;&#43;; rt--; } answer[i] = String.valueOf(s); } return answer; } 문자 배열을 이용한 투 포인터 방식의 직접 뒤집기 각 문자열을 toCharArray()로 문자 배열로 변환한 뒤 좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고 두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용 최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장함 ">
+main public static void main(String[] args) { Scanner scanner = new Scanner(System.in); int count = scanner.nextInt(); scanner.nextLine(); String[] strArr = new String[count]; for (int i = 0; i &lt; strArr.length; i&#43;&#43;) { strArr[i] = scanner.nextLine(); } String[] answer = solution2(count, strArr); for (String s : answer) { System.out.println(s); } } solution 1 public static String[] solution1(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i &lt; num; i&#43;&#43;) { StringBuilder sb = new StringBuilder(strArr[i]); answer[i] = sb.reverse().toString(); } return answer; } StringBuilder를 활용한 문자열 뒤집기 방식 입력된 문자열 배열의 각 요소를 StringBuilder로 감싼 뒤 reverse() 메서드를 호출하여 문자열을 뒤집고 toString()으로 문자열로 변환하여 결과 배열에 저장함 solution 2 public static String[] solution2(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i &lt; num; i&#43;&#43;) { char[] s = strArr[i].toCharArray(); int lt = 0; int rt = strArr[i].length() - 1; while (lt &lt; rt) { char tmp = s[lt]; s[lt] = s[rt]; s[rt] = tmp; lt&#43;&#43;; rt--; } answer[i] = String.valueOf(s); } return answer; } 문자 배열을 이용한 투 포인터 방식의 직접 뒤집기 각 문자열을 toCharArray()로 문자 배열로 변환한 뒤 좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고 두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용 최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장 ">
   <meta property="og:locale" content="ko">
   <meta property="og:type" content="article">
     <meta property="article:section" content="record">
@@ -153,7 +155,8 @@ main public static void main(String[] args) { Scanner scanner = new Scanner(Syst
 N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.
 입력
 첫 줄에 자연수 N(3&lt;=N&lt;=20)이 주어집니다.
-두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다. 단어는 영어 알파벳으로만 구성되어 있습니다.
+두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다.
+단어는 영어 알파벳으로만 구성되어 있습니다.
 출력
 N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.
 
@@ -221,7 +224,7 @@ public static String[] solution2(int num, String[] strArr) {
 각 문자열을 toCharArray()로 문자 배열로 변환한 뒤
 좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고
 두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용
-최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장함
+최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장
 
 
 ">
@@ -253,11 +256,11 @@ public static String[] solution2(int num, String[] strArr) {
   "@type": "BlogPosting",
   "headline": "단어 뒤집기",
   "name": "단어 뒤집기",
-  "description": "\r설명 N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.\n입력 첫 줄에 자연수 N(3\u0026lt;=N\u0026lt;=20)이 주어집니다.\n두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다. 단어는 영어 알파벳으로만 구성되어 있습니다.\n출력 N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.\nmain public static void main(String[] args) { Scanner scanner = new Scanner(System.in); int count = scanner.nextInt(); scanner.nextLine(); String[] strArr = new String[count]; for (int i = 0; i \u0026lt; strArr.length; i++) { strArr[i] = scanner.nextLine(); } String[] answer = solution2(count, strArr); for (String s : answer) { System.out.println(s); } } solution 1 public static String[] solution1(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i \u0026lt; num; i++) { StringBuilder sb = new StringBuilder(strArr[i]); answer[i] = sb.reverse().toString(); } return answer; } StringBuilder를 활용한 문자열 뒤집기 방식 입력된 문자열 배열의 각 요소를 StringBuilder로 감싼 뒤 reverse() 메서드를 호출하여 문자열을 뒤집고 toString()으로 문자열로 변환하여 결과 배열에 저장함 solution 2 public static String[] solution2(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i \u0026lt; num; i++) { char[] s = strArr[i].toCharArray(); int lt = 0; int rt = strArr[i].length() - 1; while (lt \u0026lt; rt) { char tmp = s[lt]; s[lt] = s[rt]; s[rt] = tmp; lt++; rt--; } answer[i] = String.valueOf(s); } return answer; } 문자 배열을 이용한 투 포인터 방식의 직접 뒤집기 각 문자열을 toCharArray()로 문자 배열로 변환한 뒤 좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고 두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용 최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장함 ",
+  "description": "\r설명 N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.\n입력 첫 줄에 자연수 N(3\u0026lt;=N\u0026lt;=20)이 주어집니다.\n두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다.\n단어는 영어 알파벳으로만 구성되어 있습니다.\n출력 N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.\nmain public static void main(String[] args) { Scanner scanner = new Scanner(System.in); int count = scanner.nextInt(); scanner.nextLine(); String[] strArr = new String[count]; for (int i = 0; i \u0026lt; strArr.length; i++) { strArr[i] = scanner.nextLine(); } String[] answer = solution2(count, strArr); for (String s : answer) { System.out.println(s); } } solution 1 public static String[] solution1(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i \u0026lt; num; i++) { StringBuilder sb = new StringBuilder(strArr[i]); answer[i] = sb.reverse().toString(); } return answer; } StringBuilder를 활용한 문자열 뒤집기 방식 입력된 문자열 배열의 각 요소를 StringBuilder로 감싼 뒤 reverse() 메서드를 호출하여 문자열을 뒤집고 toString()으로 문자열로 변환하여 결과 배열에 저장함 solution 2 public static String[] solution2(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i \u0026lt; num; i++) { char[] s = strArr[i].toCharArray(); int lt = 0; int rt = strArr[i].length() - 1; while (lt \u0026lt; rt) { char tmp = s[lt]; s[lt] = s[rt]; s[rt] = tmp; lt++; rt--; } answer[i] = String.valueOf(s); } return answer; } 문자 배열을 이용한 투 포인터 방식의 직접 뒤집기 각 문자열을 toCharArray()로 문자 배열로 변환한 뒤 좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고 두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용 최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장 ",
   "keywords": [
     
   ],
-  "articleBody": "\r설명 N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.\n입력 첫 줄에 자연수 N(3\u003c=N\u003c=20)이 주어집니다.\n두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다. 단어는 영어 알파벳으로만 구성되어 있습니다.\n출력 N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.\nmain public static void main(String[] args) { Scanner scanner = new Scanner(System.in); int count = scanner.nextInt(); scanner.nextLine(); String[] strArr = new String[count]; for (int i = 0; i \u003c strArr.length; i++) { strArr[i] = scanner.nextLine(); } String[] answer = solution2(count, strArr); for (String s : answer) { System.out.println(s); } } solution 1 public static String[] solution1(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i \u003c num; i++) { StringBuilder sb = new StringBuilder(strArr[i]); answer[i] = sb.reverse().toString(); } return answer; } StringBuilder를 활용한 문자열 뒤집기 방식 입력된 문자열 배열의 각 요소를 StringBuilder로 감싼 뒤 reverse() 메서드를 호출하여 문자열을 뒤집고 toString()으로 문자열로 변환하여 결과 배열에 저장함 solution 2 public static String[] solution2(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i \u003c num; i++) { char[] s = strArr[i].toCharArray(); int lt = 0; int rt = strArr[i].length() - 1; while (lt \u003c rt) { char tmp = s[lt]; s[lt] = s[rt]; s[rt] = tmp; lt++; rt--; } answer[i] = String.valueOf(s); } return answer; } 문자 배열을 이용한 투 포인터 방식의 직접 뒤집기 각 문자열을 toCharArray()로 문자 배열로 변환한 뒤 좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고 두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용 최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장함 ",
+  "articleBody": "\r설명 N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.\n입력 첫 줄에 자연수 N(3\u003c=N\u003c=20)이 주어집니다.\n두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다.\n단어는 영어 알파벳으로만 구성되어 있습니다.\n출력 N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.\nmain public static void main(String[] args) { Scanner scanner = new Scanner(System.in); int count = scanner.nextInt(); scanner.nextLine(); String[] strArr = new String[count]; for (int i = 0; i \u003c strArr.length; i++) { strArr[i] = scanner.nextLine(); } String[] answer = solution2(count, strArr); for (String s : answer) { System.out.println(s); } } solution 1 public static String[] solution1(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i \u003c num; i++) { StringBuilder sb = new StringBuilder(strArr[i]); answer[i] = sb.reverse().toString(); } return answer; } StringBuilder를 활용한 문자열 뒤집기 방식 입력된 문자열 배열의 각 요소를 StringBuilder로 감싼 뒤 reverse() 메서드를 호출하여 문자열을 뒤집고 toString()으로 문자열로 변환하여 결과 배열에 저장함 solution 2 public static String[] solution2(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i \u003c num; i++) { char[] s = strArr[i].toCharArray(); int lt = 0; int rt = strArr[i].length() - 1; while (lt \u003c rt) { char tmp = s[lt]; s[lt] = s[rt]; s[rt] = tmp; lt++; rt--; } answer[i] = String.valueOf(s); } return answer; } 문자 배열을 이용한 투 포인터 방식의 직접 뒤집기 각 문자열을 toCharArray()로 문자 배열로 변환한 뒤 좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고 두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용 최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장 ",
   "wordCount" : "258",
   "inLanguage": "ko",
   "datePublished": "2025-06-02T23:53:43+09:00",
@@ -391,7 +394,8 @@ public static String[] solution2(int num, String[] strArr) {
 <p>N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.</p>
 <h2 id="입력">입력<a hidden class="anchor" aria-hidden="true" href="#입력">#</a></h2>
 <p>첫 줄에 자연수 N(3&lt;=N&lt;=20)이 주어집니다.<br>
-두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다. 단어는 영어 알파벳으로만 구성되어 있습니다.</p>
+두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다.<br>
+단어는 영어 알파벳으로만 구성되어 있습니다.</p>
 <h2 id="출력">출력<a hidden class="anchor" aria-hidden="true" href="#출력">#</a></h2>
 <p>N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.</p>
 <br>
@@ -459,7 +463,7 @@ public static String[] solution2(int num, String[] strArr) {
 <li>각 문자열을 toCharArray()로 문자 배열로 변환한 뒤</li>
 <li>좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고</li>
 <li>두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용</li>
-<li>최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장함</li>
+<li>최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장</li>
 </ul>
 <br>
 <hr>
