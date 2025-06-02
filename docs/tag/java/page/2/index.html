@@ -145,6 +145,19 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">final
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>final -지역변수 final이 붙은 지역변수는 한 번만 값을 할당할 수 있음. 값이 할당된 이후에는 변경 불가능. 메서드의 매개변수에도 final을 적용할 수 있으며, 이 경우 해당 매개변수 값 변경이 불가능. public class FinalLocalMain { public static void main(String[] args) { // final 지역변수1 - 선언 후 할당 (한 번만 가능) final int data1; data1 = 10; // 최초 할당 가능 // data1 = 20; // 오류! final 변수는 한 번만 할당 가능 // final 지역변수2 - 선언과 동시에 초기화 final int data2 = 10; // data2 = 20; // 오류! 이미 값이 설정됨 method(10); } // final 매개변수 (메서드 내부에서 변경 불가능) static void method(final int parameter) { // parameter = 20; // 오류! final 매개변수는 값 변경 불가 } } final 지역변수는 최초 한 번만 값을 할당 가능, 이후 변경 불가. final 매개변수는 메서드 내부에서 값 변경이 불가능. final - 필드(멤버변수) 클래스의 멤버 변수(필드)에 final을 사용하면, 해당 필드는 한 번만 초기화 가능함.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-25 09:00:00 +0900 KST'>2025년 2월 25일</span></footer>
+  <a class="entry-link" aria-label="post link to final" href="https://withong.github.io/record/2025-02-25-01/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Java 기초
     </h2>
   </header>
@@ -281,23 +294,6 @@ Java 보너스 문제: 가위 바위 보 첫 번째 코드 import java.util.Hash
   </div>
   <footer class="entry-footer"><span title='2025-01-23 23:41:13 +0900 KST'>2025년 1월 23일</span></footer>
   <a class="entry-link" aria-label="post link to [사전캠프] 9일차." href="https://withong.github.io/record/2025-01-23/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[사전캠프] 8일차.
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> TASKS
-✅ Web 강의 5주차
-✅ 달리기반 SQL 4-5
-✅ 달리기반 Java 3
-SQL HAVING GROUP BY로 그룹화된 데이터에 조건을 적용할 때 사용
-SELECT 컬럼명, 집계함수(컬럼명) FROM 테이블명 WHERE 조건 (옵션) GROUP BY 그룹화할_컬럼명 HAVING 조건; WHERE과 HAVING의 차이점 WHERE : 그룹화 이전에 조건을 적용, 집계 함수를 사용할 수 없음. HAVING : 그룹화 이후에 조건을 적용, 집계 함수를 사용할 수 있음. Lv4. 단골 고객님 찾기 고객별로 주문 건수와 총 주문 금액을 조회 (주문을 한 적이 없는 고객도 결과에 포함) select c.customername &#34;고객명&#34;, count(o.customerid) &#34;주문 건수&#34;, coalesce(sum(o.TotalAmount), 0) &#34;총 주문 금액&#34; from customers c left join orders o on c.customerid = o.customerid group by c.customername ...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-22 23:41:13 +0900 KST'>2025년 1월 22일</span></footer>
-  <a class="entry-link" aria-label="post link to [사전캠프] 8일차." href="https://withong.github.io/record/2025-01-22/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

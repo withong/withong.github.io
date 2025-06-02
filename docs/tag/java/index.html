@@ -145,6 +145,22 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">단어 뒤집기
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>설명 N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.
+입력 첫 줄에 자연수 N(3&lt;=N&lt;=20)이 주어집니다.
+두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다. 단어는 영어 알파벳으로만 구성되어 있습니다.
+출력 N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.
+main public static void main(String[] args) { Scanner scanner = new Scanner(System.in); int count = scanner.nextInt(); scanner.nextLine(); String[] strArr = new String[count]; for (int i = 0; i &lt; strArr.length; i&#43;&#43;) { strArr[i] = scanner.nextLine(); } String[] answer = solution2(count, strArr); for (String s : answer) { System.out.println(s); } } solution 1 public static String[] solution1(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i &lt; num; i&#43;&#43;) { StringBuilder sb = new StringBuilder(strArr[i]); answer[i] = sb.reverse().toString(); } return answer; } StringBuilder를 활용한 문자열 뒤집기 방식 입력된 문자열 배열의 각 요소를 StringBuilder로 감싼 뒤 reverse() 메서드를 호출하여 문자열을 뒤집고 toString()으로 문자열로 변환하여 결과 배열에 저장함 solution 2 public static String[] solution2(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i &lt; num; i&#43;&#43;) { char[] s = strArr[i].toCharArray(); int lt = 0; int rt = strArr[i].length() - 1; while (lt &lt; rt) { char tmp = s[lt]; s[lt] = s[rt]; s[rt] = tmp; lt&#43;&#43;; rt--; } answer[i] = String.valueOf(s); } return answer; } 문자 배열을 이용한 투 포인터 방식의 직접 뒤집기 각 문자열을 toCharArray()로 문자 배열로 변환한 뒤 좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고 두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용 최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장함 </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-06-02 23:53:43 +0900 KST'>2025년 6월 2일</span></footer>
+  <a class="entry-link" aria-label="post link to 단어 뒤집기" href="https://withong.github.io/record/2025-06-02/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">정규 표현식을 활용한 사용자 등록 요청 데이터 검증
     </h2>
   </header>
@@ -280,19 +296,6 @@ Chapter 2. 객체지향 이해하기 클래스와 객체 클래스(class) → �
   </div>
   <footer class="entry-footer"><span title='2025-02-25 21:00:00 +0900 KST'>2025년 2월 25일</span></footer>
   <a class="entry-link" aria-label="post link to 객체지향" href="https://withong.github.io/record/2025-02-25-02/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">final
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>final -지역변수 final이 붙은 지역변수는 한 번만 값을 할당할 수 있음. 값이 할당된 이후에는 변경 불가능. 메서드의 매개변수에도 final을 적용할 수 있으며, 이 경우 해당 매개변수 값 변경이 불가능. public class FinalLocalMain { public static void main(String[] args) { // final 지역변수1 - 선언 후 할당 (한 번만 가능) final int data1; data1 = 10; // 최초 할당 가능 // data1 = 20; // 오류! final 변수는 한 번만 할당 가능 // final 지역변수2 - 선언과 동시에 초기화 final int data2 = 10; // data2 = 20; // 오류! 이미 값이 설정됨 method(10); } // final 매개변수 (메서드 내부에서 변경 불가능) static void method(final int parameter) { // parameter = 20; // 오류! final 매개변수는 값 변경 불가 } } final 지역변수는 최초 한 번만 값을 할당 가능, 이후 변경 불가. final 매개변수는 메서드 내부에서 값 변경이 불가능. final - 필드(멤버변수) 클래스의 멤버 변수(필드)에 final을 사용하면, 해당 필드는 한 번만 초기화 가능함.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-25 09:00:00 +0900 KST'>2025년 2월 25일</span></footer>
-  <a class="entry-link" aria-label="post link to final" href="https://withong.github.io/record/2025-02-25-01/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
