@@ -163,6 +163,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">메모리 구조와 static
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>메모리 구조 Java 메모리는 크게 메서드 영역, 스택 영역, 힙 영역으로 나뉜다.
+메서드 영역 (Method Area) 클래스 정보를 보관하는 공간 프로그램을 실행하는 데 필요한 공통 데이터를 관리
+(클래스 정보, static 영역, 런타임 상수 풀 등) 프로그램 실행 중 변경되지 않는 데이터 저장 프로그램이 종료될 때까지 유지됨 스택 영역 (Stack Area) 실제 프로그램이 실행되는 영역 메서드가 호출될 때마다 새로운 스택 프레임이 스택 영역에 생성됨 각 프레임은 지역 변수, 매개변수, 연산 결과, 메서드 호출 정보 저장함 메서드가 종료되면 해당 스택 프레임이 제거됨 LIFO(Last In First Out) 방식으로 동작함 힙 영역 (Heap Area) 객체(인스턴스)가 생성되는 영역 new 키워드로 생성된 객체와 배열이 저장됨 객체가 생성될 때마다 메모리 크기만큼 힙에서 메모리가 동적으로 할당됨 가비지 컬렉터에 의해 관리됨 참조되는 객체는 유지되며, 참조되지 않는 객체는 제거됨 static static 변수와 static 메서드와 같은 클래스 레벨의 정보를 저장하는 공간.
+static 키워드가 붙은 변수나 메서드는 인스턴스화된 객체와 관계없이 클래스 자체에 속하며, 메서드 영역의 static 영역에 저장됨
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-14 21:00:00 +0900 KST'>2025년 2월 14일</span></footer>
+  <a class="entry-link" aria-label="post link to 메모리 구조와 static" href="https://withong.github.io/record/2025-02-14/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">접근 제어자
     </h2>
   </header>
@@ -309,25 +325,6 @@ SQL NULL 데이터가 존재하지 않거나 정의되지 않은 상태
   </div>
   <footer class="entry-footer"><span title='2025-01-21 23:41:13 +0900 KST'>2025년 1월 21일</span></footer>
   <a class="entry-link" aria-label="post link to [사전캠프] 7일차." href="https://withong.github.io/record/2025-01-21/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[사전캠프] 6일차.
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> TASKS
-✅ SQL 강의 4주차
-✅ Web 강의 3주차
-✅ 걷기반 SQL 50번
-✅ 자바의 정석 강의
-SQL Subquery 하나의 SQL 쿼리 안에 포함된 또 다른 쿼리
-SELECT 절 내 서브쿼리 활용 select column1, special_column from ( /* subquery */ select column1, column2 special_column from table1 ) a WHERE 절 내 서브쿼리 활용 select column1, column2 from table1 where column1 = (select col1 from table2) JOIN 두 개 이상의 테이블을 결합하여 데이터를 조회하는 데 사용
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-20 23:41:13 +0900 KST'>2025년 1월 20일</span></footer>
-  <a class="entry-link" aria-label="post link to [사전캠프] 6일차." href="https://withong.github.io/record/2025-01-20/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

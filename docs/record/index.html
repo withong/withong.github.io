@@ -163,16 +163,26 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">중복 문자 제거
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>문제 소문자로 된 한개의 문자열이 입력되면 중복된 문자를 제거하고 출력하는 프로그램을 작성하세요.
+중복이 제거된 문자열의 각 문자는 원래 문자열의 순서를 유지합니다.
+solution 1 public static String solution(String input) { StringBuilder sb = new StringBuilder(); for (char c : input.toCharArray()) { if (!sb.toString().contains(String.valueOf(c))) { sb.append(c); } } return sb.toString(); } StringBuilder와 contains() 활용 입력 문자열을 문자 배열로 변환한 뒤 순차적으로 순회함 현재까지 만들어진 결과 문자열(sb)에 해당 문자가 포함되어 있지 않은 경우에만 추가 중복 문자를 건너뛰면서 처음 등장한 문자만 결과에 누적함 solution 2 public static String solution2(String input) { String answer = &#34;&#34;; for (int i = 0; i &lt; input.length(); i&#43;&#43;) { if (input.indexOf(input.charAt(i)) == i) { answer &#43;= input.charAt(i); } } return answer; } indexOf()를 이용한 첫 등장 문자 확인 입력 문자열의 각 문자에 대해 indexOf()를 통해 해당 문자의 첫 등장 위치를 확인 현재 위치 i가 그 문자의 첫 등장 위치라면, 아직 등장하지 않은 문자이므로 결과 문자열에 추가 그렇지 않으면 중복된 문자이므로 건너뜀 </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-06-04 22:36:56 +0900 KST'>2025년 6월 4일</span></footer>
+  <a class="entry-link" aria-label="post link to 중복 문자 제거" href="https://withong.github.io/record/2025-06-03/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">단어 뒤집기
     </h2>
   </header>
   <div class="entry-content">
-    <p>설명 N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.
-입력 첫 줄에 자연수 N(3&lt;=N&lt;=20)이 주어집니다.
-두 번째 줄부터 N개의 단어가 각 줄에 하나씩 주어집니다.
-단어는 영어 알파벳으로만 구성되어 있습니다.
-출력 N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.
-main public static void main(String[] args) { Scanner scanner = new Scanner(System.in); int count = scanner.nextInt(); scanner.nextLine(); String[] strArr = new String[count]; for (int i = 0; i &lt; strArr.length; i&#43;&#43;) { strArr[i] = scanner.nextLine(); } String[] answer = solution2(count, strArr); for (String s : answer) { System.out.println(s); } } solution 1 public static String[] solution1(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i &lt; num; i&#43;&#43;) { StringBuilder sb = new StringBuilder(strArr[i]); answer[i] = sb.reverse().toString(); } return answer; } StringBuilder를 활용한 문자열 뒤집기 방식 입력된 문자열 배열의 각 요소를 StringBuilder로 감싼 뒤 reverse() 메서드를 호출하여 문자열을 뒤집고 toString()으로 문자열로 변환하여 결과 배열에 저장함 solution 2 public static String[] solution2(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i &lt; num; i&#43;&#43;) { char[] s = strArr[i].toCharArray(); int lt = 0; int rt = strArr[i].length() - 1; while (lt &lt; rt) { char tmp = s[lt]; s[lt] = s[rt]; s[rt] = tmp; lt&#43;&#43;; rt--; } answer[i] = String.valueOf(s); } return answer; } 문자 배열을 이용한 투 포인터 방식의 직접 뒤집기 각 문자열을 toCharArray()로 문자 배열로 변환한 뒤 좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고 두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용 최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장 </p>
+    <p>문제 N개의 단어가 주어지면 각 단어를 뒤집어 출력하는 프로그램을 작성하세요.
+main public static void main(String[] args) { Scanner scanner = new Scanner(System.in); int count = scanner.nextInt(); scanner.nextLine(); String[] strArr = new String[count]; for (int i = 0; i &lt; strArr.length; i&#43;&#43;) { strArr[i] = scanner.nextLine(); } String[] answer = solution2(count, strArr); for (String s : answer) { System.out.println(s); } } solution 1 public static String[] solution1(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i &lt; num; i&#43;&#43;) { StringBuilder sb = new StringBuilder(strArr[i]); answer[i] = sb.reverse().toString(); } return answer; } StringBuilder를 활용한 문자열 뒤집기 방식 입력된 문자열 배열의 각 요소를 StringBuilder로 감싼 뒤 reverse() 메서드를 호출하여 문자열을 뒤집고 toString()으로 문자열로 변환하여 결과 배열에 저장 solution 2 public static String[] solution2(int num, String[] strArr) { String[] answer = new String[num]; for (int i = 0; i &lt; num; i&#43;&#43;) { char[] s = strArr[i].toCharArray(); int lt = 0; int rt = strArr[i].length() - 1; while (lt &lt; rt) { char tmp = s[lt]; s[lt] = s[rt]; s[rt] = tmp; lt&#43;&#43;; rt--; } answer[i] = String.valueOf(s); } return answer; } 문자 배열을 이용한 투 포인터 방식의 직접 뒤집기 각 문자열을 toCharArray()로 문자 배열로 변환한 뒤 좌측 포인터(lt)와 우측 포인터(rt)를 양 끝에 두고 두 포인터가 만나기 전까지 문자를 서로 교환하며 뒤집는 방식 사용 최종적으로 뒤집힌 문자 배열을 String.valueOf()를 통해 문자열로 변환하여 결과 배열에 저장 </p>
   </div>
   <footer class="entry-footer"><span title='2025-06-02 23:53:43 +0900 KST'>2025년 6월 2일</span></footer>
   <a class="entry-link" aria-label="post link to 단어 뒤집기" href="https://withong.github.io/record/2025-06-02/"></a>
@@ -297,22 +307,6 @@ DispatcherServlet이 요청을 받는다. 요청 URI에 맞는 컨트롤러 메�
   </div>
   <footer class="entry-footer"><span title='2025-04-16 15:41:39 +0900 KST'>2025년 4월 16일</span></footer>
   <a class="entry-link" aria-label="post link to Spring 심화" href="https://withong.github.io/record/2025-04-16-01/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">QueryDSL을 활용한 조건 기반 일정 조회
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>QueryDSL이란? QueryDSL은 Java에서 **타입 안정성(type-safe)**을 보장하는 방식으로 SQL과 유사한 쿼리를 작성할 수 있게 해주는 **도메인 특화 언어(DSL: Domain Specific Language)**이다. 주로 JPA와 함께 사용되며, 복잡한 동적 쿼리 작성이나 조건 조합이 많은 경우 유용하다.
-기존 JPQL의 단점인 문자열 기반 쿼리 작성의 오류 위험성을 줄이고, IDE의 코드 자동완성 기능을 활용할 수 있도록 해준다.
-왜 QueryDSL을 사용하는가? 컴파일 타임에 문법 오류 확인 가능
-→ JPQL은 문자열이기 때문에 런타임에 오류가 나지만, QueryDSL은 Java 코드로 작성되기 때문에 컴파일 시점에 오류를 잡을 수 있다.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-04-03 20:24:51 +0900 KST'>2025년 4월 3일</span></footer>
-  <a class="entry-link" aria-label="post link to QueryDSL을 활용한 조건 기반 일정 조회" href="https://withong.github.io/record/2025-04-03/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

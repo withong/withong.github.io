@@ -145,6 +145,21 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">객체지향
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> ✅ 문법 세션 1 - 프로그래밍 기초
+✅ Java 문법 강의 2주차
+Chapter 2. 객체지향 이해하기 클래스와 객체 클래스(class) → 객체를 생성하기 위한 설계도. 속성과 기능을 정의하며, 동일한 구조를 가진 객체를 여러 개 생성할 수 있음. 객체(object) → 클래스를 기반으로 생성된 실체. 메모리에 할당되어 동작하며, 개별적으로 속성과 기능을 가짐. 인스턴스화(instantiate) → 클래스를 이용해 객체를 생성하는 과정. new 키워드를 사용해 객체를 메모리에 할당. 속성(property, field) → 객체가 가지는 데이터. 클래스 내부에서 변수 형태로 선언되며, 객체마다 서로 다른 값을 가질 수 있음. 생성자(constructor) → 객체가 생성될 때 호출되는 특수한 메서드. 속성을 초기화하고, 객체의 기본 상태를 설정하는 역할. 기능(method) → 객체가 수행하는 동작. 클래스 내부에서 정의되며, 특정 입력을 받아 처리한 후 결과를 반환하거나 상태를 변경함. JVM 메모리 영역 Method Area → 클래스 정보(클래스 이름, 메서드, 필드, static 변수 등)를 저장하는 공간. JVM이 시작될 때 로드되며, 모든 쓰레드가 공유. Stack Area → 메서드 호출 시 생성되는 스택 프레임을 저장하는 공간. 지역변수, 매개변수, 메서드 호출 정보가 포함되며, 호출이 끝나면 제거. 각 쓰레드마다 독립적인 스택을 가짐. Heap Area → 객체와 인스턴스 변수가 저장되는 공간. new 키워드로 생성된 객체가 저장되며, GC(Garbage Collector)가 관리. 모든 쓰레드가 공유. 래퍼클래스 래퍼클래스 → 기본형 데이터를 객체처럼 다룰 수 있도록 감싸는 클래스. Integer, Double, Boolean 등 기본형의 객체화된 버전.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-25 21:00:00 +0900 KST'>2025년 2월 25일</span></footer>
+  <a class="entry-link" aria-label="post link to 객체지향" href="https://withong.github.io/record/2025-02-25-02/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">final
     </h2>
   </header>
@@ -278,22 +293,6 @@ public class Student { // 멤버 변수: 클래스 내에서 선언된 변수, �
   </div>
   <footer class="entry-footer"><span title='2025-02-04 21:00:00 +0900 KST'>2025년 2월 4일</span></footer>
   <a class="entry-link" aria-label="post link to 클래스와 객체" href="https://withong.github.io/record/2025-02-04/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[사전캠프] 9일차.
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> TASKS
-✅ 달리기반 Java 보너스 문제
-&#43;
-☑️ 자바의 정석 강의
-Java 보너스 문제: 가위 바위 보 첫 번째 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RockPaperScissors { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;(); prize.put(1, &#34;10,000원&#34;); prize.put(2, &#34;20,000원&#34;); prize.put(3, &#34;30,000원&#34;); prize.put(4, &#34;50,000원&#34;); prize.put(5, &#34;100,000원&#34;); String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;}; int gameCount = 0; int winCount = 0; boolean playing = true; System.out.println(&#34;*********** GAME START ***********&#34;); while (playing) { System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;); System.out.print(&#34;가위 바위 보! &#34;); String user = scanner.nextLine(); String pc = rps[random.nextInt(rps.length)]; System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;); switch (user) { case &#34;가위&#34;: if (pc.equals(&#34;바위&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;보&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } case &#34;바위&#34;: if (pc.equals(&#34;보&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;가위&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } case &#34;보&#34;: if (pc.equals(&#34;바위&#34;)) { System.out.println(&#34;당신이 이겼습니다!&#34;); gameCount&#43;&#43;; break; } else if (pc.equals(&#34;가위&#34;)) { System.out.println(&#34;당신이 졌습니다!&#34;); gameCount&#43;&#43;; winCount&#43;&#43;; break; } else { System.out.println(&#34;무승부입니다!&#34;); gameCount&#43;&#43;; break; } default: System.out.println(&#34;잘못된 입력입니다!&#34;); break; } if (gameCount == 5) { System.out.println(&#34;----------------------------------&#34;); if (winCount &gt; 0) { System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount)); } else { System.out.println(&#34;상품을 획득하지 못했습니다.&#34;); } System.out.println(&#34;************ GAME END ************&#34;); playing = false; break; } } } } 개선 코드 import java.util.HashMap; import java.util.Map; import java.util.Random; import java.util.Scanner; public class RpsRef { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Random random = new Random(); Map&lt;Integer, String&gt; prize = new HashMap&lt;&gt;(); prize.put(1, &#34;10,000원&#34;); prize.put(2, &#34;20,000원&#34;); prize.put(3, &#34;30,000원&#34;); prize.put(4, &#34;50,000원&#34;); prize.put(5, &#34;100,000원&#34;); String[] rps = {&#34;가위&#34;, &#34;바위&#34;, &#34;보&#34;}; int gameCount = 0; int winCount = 0; System.out.println(&#34;*********** GAME START ***********&#34;); // 게임은 5회로 고정되어 있으므로 횟수 제한으로 변경 while (gameCount &lt; 5) { System.out.println(&#34;------------- GAME &#34; &#43; (gameCount &#43; 1) &#43; &#34; -------------&#34;); System.out.print(&#34;가위 바위 보! &#34;); String user = scanner.nextLine(); // 사용자 입력 값 검사 if (!checkInput(user, rps)) { System.out.println(&#34;잘못된 입력입니다!&#34;); continue; } String pc = rps[random.nextInt(rps.length)]; System.out.print(&#34;[당신: &#34; &#43; user &#43; &#34;, 상대: &#34; &#43; pc &#43; &#34;] &#34;); // 승패 판정: 중복 코드 제거 int result = getResult(user, pc); switch (result) { case 1: System.out.println(&#34;당신이 이겼습니다!&#34;); winCount&#43;&#43;; break; case -1: System.out.println(&#34;당신이 졌습니다!&#34;); break; case 0: System.out.println(&#34;무승부입니다!&#34;); break; } gameCount&#43;&#43;; if (gameCount == 5) { System.out.println(&#34;----------------------------------&#34;); if (winCount &gt; 0) { System.out.println(&#34;총 &#34; &#43; winCount &#43; &#34;회 승리했습니다. 상품: &#34; &#43; prize.get(winCount)); } else { System.out.println(&#34;꽝! 상품을 획득하지 못했습니다.&#34;); } System.out.println(&#34;************ GAME END ************&#34;); break; } } } // 사용자 입력 값 검사: 가위 바위 보가 아니면 false public static boolean checkInput(String input, String[] rps) { for (String check : rps) { if (check.equals(input)) { return true; } } return false; } // 승패 판정: 1 = 승리, -1 = 패배, 0 = 무승부 public static int getResult(String user, String pc) { if (user.equals(pc)) { return 0; // 무승부 } if ((user.equals(&#34;가위&#34;) &amp;&amp; pc.equals(&#34;보&#34;)) || (user.equals(&#34;바위&#34;) &amp;&amp; pc.equals(&#34;가위&#34;)) || (user.equals(&#34;보&#34;) &amp;&amp; pc.equals(&#34;바위&#34;))) { return 1; // 승리 } return -1; // 패배 } } ...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-23 23:41:13 +0900 KST'>2025년 1월 23일</span></footer>
-  <a class="entry-link" aria-label="post link to [사전캠프] 9일차." href="https://withong.github.io/record/2025-01-23/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
